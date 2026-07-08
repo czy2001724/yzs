@@ -1,0 +1,13 @@
+pyqt5>=5.15
+opencv-python>=4.8
+pyautogui>=0.9.54
+keyboard>=0.13.5
+numpy>=1.24
+flask>=2.3
+flask-cors>=4.0
+requests>=2.31
+pillow>=10.0
+pyyaml>=6.0
+psutil>=5.9
+cryptography>=41.0
+pywin32>=306

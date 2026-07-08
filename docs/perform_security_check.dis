@@ -1,0 +1,147 @@
+/*======================================================================*/
+/* Function: perform_security_check */
+/* File: <frozen security> */
+/* Args: 0, Locals: 5, Stack: 5 */
+/*======================================================================*/
+
+    """
+执行安全检查
+返回: (is_safe: bool, reason: str)
+"""
+
+    # --- Names (global references) ---
+    #   _is_debugger_present
+    #   _check_suspicious_processes
+    #   _check_loaded_dlls
+
+    # --- Variable names ---
+    #   __assert_armored__
+    #   _var_var_41
+    #   _var_var_33
+    #   _var_var_42
+    #   _var_var_43
+
+    # --- String constants ---
+    #   '\n执行安全检查\n返回: (is_safe: bool, reason: str)\n'
+    #   '检测到可疑进程: '
+    #   '检测到可疑模块: '
+
+    # --- Bytecode Disassembly ---
+ 275            NOP
+                NOP
+                LOAD_CONST               2 (None)
+                PUSH_NULL
+
+ 276            LOAD_CONST               3 (b'@<b\x04\xa3\x01\x00\x00\x01\x00\x00\x1a\xd6\x00\x00\x00\x01\x00\x00\x00')
+                BUILD_TUPLE              1
+                CALL_FUNCTION_EX         0
+                POP_TOP
+                RESUME                   0
+                LOAD_CONST               1 (None)
+                STORE_FAST               0 (__assert_armored__)
+                NOP
+                NOP
+
+ 275            NOP
+
+ 281    L1:     LOAD_GLOBAL              1 (_is_debugger_present + NULL)
+                CALL                     0
+                TO_BOOL
+                POP_JUMP_IF_FALSE       11 (to L3)
+
+ 282    L2:     NOP
+
+ 298            LOAD_CONST               5 ((False, '检测到调试器'))
+                NOP
+                NOP
+                NOP
+                JUMP_FORWARD            99 (to L10)
+                CACHE
+                CACHE
+                CACHE
+                POP_TOP
+                RETURN_CONST             5 ((False, '检测到调试器'))
+
+ 285    L3:     LOAD_GLOBAL              3 (_check_suspicious_processes + NULL)
+                CALL                     0
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST   18 (_var_var_41, _var_var_33)
+
+ 286            LOAD_FAST                1 (_var_var_41)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       16 (to L5)
+
+ 287            LOAD_CONST               6 (False)
+                LOAD_CONST               7 ('检测到可疑进程: ')
+                LOAD_FAST                2 (_var_var_33)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                BUILD_TUPLE              2
+
+ 298    L4:     NOP
+                NOP
+                NOP
+                JUMP_FORWARD            65 (to L10)
+                CALL                     1
+                POP_TOP
+                RETURN_VALUE
+
+ 290    L5:     LOAD_GLOBAL              5 (_check_loaded_dlls + NULL)
+                CALL                     0
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST   52 (_var_var_42, _var_var_43)
+
+ 291            LOAD_FAST                3 (_var_var_42)
+                TO_BOOL
+                POP_JUMP_IF_FALSE       16 (to L7)
+
+ 292            LOAD_CONST               6 (False)
+                LOAD_CONST               8 ('检测到可疑模块: ')
+                LOAD_FAST                4 (_var_var_43)
+                FORMAT_SIMPLE
+                BUILD_STRING             2
+                BUILD_TUPLE              2
+
+ 298    L6:     NOP
+                NOP
+                NOP
+                JUMP_FORWARD            30 (to L10)
+                CALL                     1
+                POP_TOP
+                RETURN_VALUE
+        L7:     LOAD_CONST               9 ((True, '安全检查通过'))
+                NOP
+                NOP
+                NOP
+                JUMP_FORWARD            19 (to L10)
+                CACHE
+                CACHE
+                CACHE
+                POP_TOP
+                RETURN_CONST             9 ((True, '安全检查通过'))
+
+  --    L8:     PUSH_EXC_INFO
+
+ 298            LOAD_CONST               4 (None)
+                NOP
+                PUSH_NULL
+                LOAD_CONST               3 (b'@<b\x04\xa3\x01\x00\x00\x01\x00\x00\x1a\xd6\x00\x00\x00\x01\x00\x00\x00')
+                CALL                     1
+                POP_TOP
+                RERAISE                  0
+
+  --    L9:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L10:     LOAD_CONST               4 (None)
+                PUSH_NULL
+                LOAD_CONST               3 (b'@<b\x04\xa3\x01\x00\x00\x01\x00\x00\x1a\xd6\x00\x00\x00\x01\x00\x00\x00')
+                BUILD_TUPLE              1
+                CALL_FUNCTION_EX         0
+                POP_TOP
+                RETURN_VALUE
+ExceptionTable:
+  L1 to L2 -> L8 [0]
+  L3 to L4 -> L8 [0]
+  L5 to L6 -> L8 [0]
+  L8 to L9 -> L9 [1] lasti
