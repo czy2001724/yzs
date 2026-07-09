@@ -1,0 +1,55 @@
+name: Build Windows EXE
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:      # 允许在 Actions 页面手动触发
+
+permissions:
+  contents: write          # 创建 Release 需要写权限
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+
+      - name: 安装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 安装依赖
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install pyinstaller
+
+      - name: PyInstaller 打包单文件 EXE
+        run: >
+          pyinstaller --onefile --windowed --name 6hzs
+          --hidden-import pyscreeze
+          --hidden-import pytweening
+          --hidden-import mouseinfo
+          --hidden-import pymsgbox
+          main.py
+
+      - name: 上传构建产物（Actions 运行页可下载）
+        uses: actions/upload-artifact@v4
+        with:
+          name: 6hzs-windows-exe
+          path: dist/6hzs.exe
+
+      - name: 发布到 Release（打 tag 时）
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist/6hzs.exe
+          name: ${{ github.ref_name }}
+          body: |
+            6号自动化助手 · Windows 单文件版
+
+            下载 `6hzs.exe` 双击运行，无需安装 Python。
+            首次运行若被 SmartScreen 拦截，点「更多信息 → 仍要运行」。
