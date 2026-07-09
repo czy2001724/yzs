@@ -30,8 +30,6 @@ jobs:
       - name: PyInstaller 打包单文件 EXE
         run: >
           pyinstaller --onefile --windowed --name 6hzs
-          --icon=qq_icon.ico
-          --add-data "qq_icon.ico;."
           --hidden-import pyscreeze
           --hidden-import pytweening
           --hidden-import mouseinfo
