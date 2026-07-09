@@ -1,0 +1,68 @@
+{
+  "module": "automation",
+  "func": "AutomationEngine._load_fps_dpi_config",
+  "kind": "method",
+  "name": "_load_fps_dpi_config",
+  "filename": "<frozen automation>",
+  "argcount": 1,
+  "nlocals": 4,
+  "stacksize": 6,
+  "flags": 536870915,
+  "names": [
+    "os",
+    "path",
+    "exists",
+    "fps_config_file",
+    "open",
+    "json",
+    "load",
+    "get",
+    "fps_standard_dpi"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__",
+    "_var_var_1",
+    "_var_var_2"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "加载FPS DPI配置"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "r"
+    },
+    {
+      "type": "str",
+      "value": "utf-8"
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "str",
+      "value": "user_dpi"
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

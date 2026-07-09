@@ -1,0 +1,67 @@
+{
+  "module": "security",
+  "func": "start_heartbeat",
+  "kind": "func",
+  "name": "start_heartbeat",
+  "filename": "<frozen security>",
+  "argcount": 3,
+  "nlocals": 5,
+  "stacksize": 6,
+  "flags": 536870915,
+  "names": [
+    "_heartbeat_thread",
+    "is_alive",
+    "_heartbeat_stop",
+    "threading",
+    "Thread",
+    "_heartbeat_worker",
+    "start"
+  ],
+  "varnames": [
+    "server_url",
+    "machine_id",
+    "interval",
+    "__assert_armored__",
+    "_var_var_73"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "启动心跳验证"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "bool",
+      "value": true
+    },
+    {
+      "type": "tuple",
+      "len": 3
+    }
+  ]
+}

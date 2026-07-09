@@ -1,0 +1,39 @@
+{
+  "module": "security",
+  "func": "init_integrity_check",
+  "kind": "func",
+  "name": "init_integrity_check",
+  "filename": "<frozen security>",
+  "argcount": 0,
+  "nlocals": 1,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "_calculate_exe_hash",
+    "_exe_hash"
+  ],
+  "varnames": [
+    "__assert_armored__"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "初始化完整性校验，返回hash供后续验证"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

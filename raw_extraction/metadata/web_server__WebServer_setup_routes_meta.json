@@ -1,0 +1,189 @@
+{
+  "module": "web_server",
+  "func": "WebServer.setup_routes",
+  "kind": "method",
+  "name": "setup_routes",
+  "filename": "<frozen web_server>",
+  "argcount": 1,
+  "nlocals": 17,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "app",
+    "route",
+    "_editable_config_data"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__",
+    "_var_var_1",
+    "_var_var_2",
+    "_var_var_3",
+    "_var_var_4",
+    "_var_var_5",
+    "_var_var_6",
+    "_var_var_7",
+    "_var_var_8",
+    "_var_var_9",
+    "_var_var_10",
+    "_var_var_11",
+    "_var_var_12",
+    "_var_var_13",
+    "_var_var_14",
+    "_var_var_15"
+  ],
+  "cellvars": [
+    "self"
+  ],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "设置路由"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "/"
+    },
+    {
+      "type": "code",
+      "name": "index"
+    },
+    {
+      "type": "str",
+      "value": "/<path:filename>"
+    },
+    {
+      "type": "code",
+      "name": "static_files"
+    },
+    {
+      "type": "str",
+      "value": "/api/workflows"
+    },
+    {
+      "type": "str",
+      "value": "GET"
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "code",
+      "name": "list_workflows"
+    },
+    {
+      "type": "str",
+      "value": "/api/workflow/<filename>"
+    },
+    {
+      "type": "code",
+      "name": "get_workflow"
+    },
+    {
+      "type": "str",
+      "value": "POST"
+    },
+    {
+      "type": "str",
+      "value": "PUT"
+    },
+    {
+      "type": "code",
+      "name": "save_workflow"
+    },
+    {
+      "type": "str",
+      "value": "DELETE"
+    },
+    {
+      "type": "code",
+      "name": "delete_workflow"
+    },
+    {
+      "type": "str",
+      "value": "/api/images"
+    },
+    {
+      "type": "code",
+      "name": "list_images"
+    },
+    {
+      "type": "str",
+      "value": "/api/image/<filename>"
+    },
+    {
+      "type": "code",
+      "name": "get_image"
+    },
+    {
+      "type": "str",
+      "value": "/api/image"
+    },
+    {
+      "type": "code",
+      "name": "upload_image"
+    },
+    {
+      "type": "str",
+      "value": "/api/status"
+    },
+    {
+      "type": "code",
+      "name": "get_status"
+    },
+    {
+      "type": "str",
+      "value": "/api/editable_config"
+    },
+    {
+      "type": "code",
+      "name": "get_editable_config"
+    },
+    {
+      "type": "code",
+      "name": "save_editable_config"
+    },
+    {
+      "type": "str",
+      "value": "/api/mouse_position"
+    },
+    {
+      "type": "code",
+      "name": "get_mouse_position"
+    },
+    {
+      "type": "str",
+      "value": "/api/pick_color"
+    },
+    {
+      "type": "code",
+      "name": "pick_color"
+    },
+    {
+      "type": "str",
+      "value": "/api/pick_color_click"
+    },
+    {
+      "type": "code",
+      "name": "pick_color_click"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "None"
+    }
+  ]
+}

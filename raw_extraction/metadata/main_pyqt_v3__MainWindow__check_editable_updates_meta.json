@@ -1,0 +1,67 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow._check_editable_updates",
+  "kind": "method",
+  "name": "_check_editable_updates",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 1,
+  "nlocals": 3,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "web_server",
+    "get_updated_workflow",
+    "_editable_idle_count",
+    "current_workflow",
+    "_save_current_workflow",
+    "add_log",
+    "_update_workflow_display",
+    "_editable_check_timer",
+    "stop"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__",
+    "_var_var_196"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "检查可编辑配置是否有更新"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "str",
+      "value": "✅ 自定义配置已同步更新并保存"
+    },
+    {
+      "type": "int",
+      "value": 1
+    },
+    {
+      "type": "int",
+      "value": 300
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "None"
+    }
+  ]
+}

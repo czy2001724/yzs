@@ -1,0 +1,96 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow._show_import_result",
+  "kind": "method",
+  "name": "_show_import_result",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 4,
+  "nlocals": 6,
+  "stacksize": 6,
+  "flags": 536870915,
+  "names": [
+    "show_message",
+    "len",
+    "refresh_workflow_list"
+  ],
+  "varnames": [
+    "self",
+    "images",
+    "workflows",
+    "errors",
+    "__assert_armored__",
+    "_var_var_3"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "显示导入结果"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "str",
+      "value": "导入失败"
+    },
+    {
+      "type": "str",
+      "value": "未找到可导入的文件\n\n支持的格式：\n• 图片：png, jpg, jpeg, bmp\n• 配置：json"
+    },
+    {
+      "type": "str",
+      "value": "warning"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "str",
+      "value": "✅ 导入完成！\n\n"
+    },
+    {
+      "type": "str",
+      "value": "📷 图片: "
+    },
+    {
+      "type": "str",
+      "value": " 个\n"
+    },
+    {
+      "type": "str",
+      "value": "📄 配置: "
+    },
+    {
+      "type": "str",
+      "value": "\n⚠️ "
+    },
+    {
+      "type": "str",
+      "value": " 个文件导入失败"
+    },
+    {
+      "type": "str",
+      "value": "导入结果"
+    },
+    {
+      "type": "str",
+      "value": "info"
+    }
+  ]
+}

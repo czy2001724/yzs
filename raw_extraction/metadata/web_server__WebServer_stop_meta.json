@@ -1,0 +1,46 @@
+{
+  "module": "web_server",
+  "func": "WebServer.stop",
+  "kind": "method",
+  "name": "stop",
+  "filename": "<frozen web_server>",
+  "argcount": 1,
+  "nlocals": 2,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "is_running"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "停止服务器（daemon 线程会在主程序退出时自动结束）"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "None"
+    }
+  ]
+}

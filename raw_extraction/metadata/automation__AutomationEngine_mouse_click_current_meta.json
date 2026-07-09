@@ -1,0 +1,113 @@
+{
+  "module": "automation",
+  "func": "AutomationEngine.mouse_click_current",
+  "kind": "method",
+  "name": "mouse_click_current",
+  "filename": "<frozen automation>",
+  "argcount": 4,
+  "nlocals": 8,
+  "stacksize": 9,
+  "flags": 536870915,
+  "names": [
+    "_humanize_delay",
+    "time",
+    "perf_counter",
+    "pyautogui",
+    "mouseDown",
+    "precise_sleep",
+    "mouseUp",
+    "log",
+    "click",
+    "Exception"
+  ],
+  "varnames": [
+    "self",
+    "button",
+    "clicks",
+    "hold_time",
+    "__assert_armored__",
+    "_var_var_100",
+    "_var_var_140",
+    "_var_var_3"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "在当前鼠标位置点击"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "str",
+      "value": "鼠标按住: 当前位置 "
+    },
+    {
+      "type": "str",
+      "value": "键 (指定"
+    },
+    {
+      "type": "str",
+      "value": "秒-实际"
+    },
+    {
+      "type": "str",
+      "value": ".3f"
+    },
+    {
+      "type": "str",
+      "value": "秒)"
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "str",
+      "value": "鼠标点击: 当前位置 "
+    },
+    {
+      "type": "str",
+      "value": "键 "
+    },
+    {
+      "type": "str",
+      "value": "次"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bool",
+      "value": true
+    },
+    {
+      "type": "str",
+      "value": "鼠标点击失败: "
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "bool",
+      "value": false
+    }
+  ]
+}

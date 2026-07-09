@@ -1,0 +1,209 @@
+/*======================================================================*/
+/* Function: _get_network_time */
+/* File: <frozen security> */
+/* Args: 0, Locals: 7, Stack: 6 */
+/*======================================================================*/
+
+    """获取网络时间（多源）"""
+
+    # --- Names (global references) ---
+    #   time
+    #   requests
+    #   get
+    #   status_code
+    #   json
+    #   float
+
+    # --- Variable names ---
+    #   __assert_armored__
+    #   _var_var_57
+    #   _var_var_76
+    #   _var_var_77
+    #   _var_var_58
+    #   _var_var_78
+    #   _var_var_22
+
+    # --- String constants ---
+    #   '获取网络时间（多源）'
+    #   'https://worldtimeapi.org/api/ip'
+    #   'https://api.m.taobao.com/rest/api3.do?api=mtop.common.getTimestamp'
+    #   'unixtime'
+    #   'data'
+
+    # --- Integer constants ---
+    #   3
+    #   200
+    #   1000
+
+    # --- Bytecode Disassembly ---
+ 537            NOP
+                NOP
+                LOAD_CONST               2 (None)
+                PUSH_NULL
+
+ 538            LOAD_CONST               3 (b'\x10\xab*\x04\xa3\x01\x00\x00\x03\x00\x00\x1aT\x01\x00\x00\x01\x00\x00\x00')
+                BUILD_TUPLE              1
+                CALL_FUNCTION_EX         0
+                POP_TOP
+                RESUME                   0
+                LOAD_CONST               1 (None)
+                STORE_FAST               0 (__assert_armored__)
+                NOP
+                NOP
+
+ 537            NOP
+
+ 539    L1:     LOAD_CONST               4 (0)
+                LOAD_CONST               5 (None)
+                IMPORT_NAME              0 (time)
+                STORE_FAST               1 (_var_var_57)
+
+ 541            LOAD_CONST               6 ('https://worldtimeapi.org/api/ip')
+
+ 542            LOAD_CONST               7 ('https://api.m.taobao.com/rest/api3.do?api=mtop.common.getTimestamp')
+
+ 540            BUILD_LIST               2
+                STORE_FAST               2 (_var_var_76)
+
+ 545            LOAD_FAST                2 (_var_var_76)
+                GET_ITER
+        L2:     FOR_ITER               137 (to L13)
+                STORE_FAST               3 (_var_var_77)
+
+ 546    L3:     NOP
+
+ 547    L4:     LOAD_CONST               4 (0)
+                LOAD_CONST               5 (None)
+                IMPORT_NAME              1 (requests)
+                STORE_FAST               4 (_var_var_58)
+
+ 548            LOAD_FAST                4 (_var_var_58)
+                LOAD_ATTR                5 (get + NULL|self)
+                LOAD_FAST                3 (_var_var_77)
+                LOAD_CONST               8 (3)
+                LOAD_CONST               9 (('timeout',))
+                CALL_KW                  2
+                STORE_FAST               5 (_var_var_78)
+
+ 549            LOAD_FAST                5 (_var_var_78)
+                LOAD_ATTR                6 (status_code)
+                LOAD_CONST              10 (200)
+                COMPARE_OP              88 (bool(==))
+                POP_JUMP_IF_FALSE       97 (to L12)
+
+ 550            LOAD_FAST                5 (_var_var_78)
+                LOAD_ATTR                9 (json + NULL|self)
+                CALL                     0
+                STORE_FAST               6 (_var_var_22)
+
+ 552            LOAD_CONST              11 ('unixtime')
+                LOAD_FAST                6 (_var_var_22)
+                CONTAINS_OP              0
+                POP_JUMP_IF_FALSE       25 (to L7)
+
+ 553            LOAD_GLOBAL             11 (float + NULL)
+                LOAD_FAST                6 (_var_var_22)
+                LOAD_CONST              11 ('unixtime')
+                BINARY_SUBSCR
+                CALL                     1
+        L5:     SWAP                     2
+                POP_TOP
+
+ 559    L6:     NOP
+                NOP
+                NOP
+                JUMP_FORWARD            92 (to L20)
+                CALL                     1
+                POP_TOP
+                RETURN_VALUE
+
+ 555    L7:     LOAD_CONST              13 ('data')
+                LOAD_FAST                6 (_var_var_22)
+                CONTAINS_OP              0
+                POP_JUMP_IF_FALSE       42 (to L11)
+                LOAD_CONST              14 ('t')
+                LOAD_FAST                6 (_var_var_22)
+                LOAD_CONST              13 ('data')
+                BINARY_SUBSCR
+                CONTAINS_OP              0
+                POP_JUMP_IF_FALSE       31 (to L10)
+
+ 556            LOAD_GLOBAL             11 (float + NULL)
+                LOAD_FAST                6 (_var_var_22)
+                LOAD_CONST              13 ('data')
+                BINARY_SUBSCR
+                LOAD_CONST              14 ('t')
+                BINARY_SUBSCR
+                CALL                     1
+                LOAD_CONST              15 (1000)
+                BINARY_OP               11 (/)
+        L8:     SWAP                     2
+                POP_TOP
+
+ 559    L9:     NOP
+                NOP
+                NOP
+                JUMP_FORWARD            46 (to L20)
+                CALL                     1
+                POP_TOP
+                RETURN_VALUE
+
+ 555   L10:     JUMP_BACKWARD          135 (to L2)
+       L11:     JUMP_BACKWARD          137 (to L2)
+
+ 549   L12:     JUMP_BACKWARD          139 (to L2)
+
+ 545   L13:     END_FOR
+                POP_TOP
+
+ 559   L14:     LOAD_CONST               5 (None)
+                NOP
+                NOP
+                NOP
+                JUMP_FORWARD            27 (to L20)
+                CACHE
+                CACHE
+                CACHE
+                POP_TOP
+                RETURN_CONST             5 (None)
+
+  --   L15:     PUSH_EXC_INFO
+
+ 557            POP_TOP
+
+ 558   L16:     POP_EXCEPT
+                JUMP_BACKWARD          156 (to L2)
+
+  --   L17:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L18:     PUSH_EXC_INFO
+
+ 559            LOAD_CONST              12 (None)
+                NOP
+                PUSH_NULL
+                LOAD_CONST               3 (b'\x10\xab*\x04\xa3\x01\x00\x00\x03\x00\x00\x1aT\x01\x00\x00\x01\x00\x00\x00')
+                CALL                     1
+                POP_TOP
+                RERAISE                  0
+
+  --   L19:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L20:     LOAD_CONST              12 (None)
+                PUSH_NULL
+                LOAD_CONST               3 (b'\x10\xab*\x04\xa3\x01\x00\x00\x03\x00\x00\x1aT\x01\x00\x00\x01\x00\x00\x00')
+                BUILD_TUPLE              1
+                CALL_FUNCTION_EX         0
+                POP_TOP
+                RETURN_VALUE
+ExceptionTable:
+  L1 to L3 -> L18 [0]
+  L4 to L5 -> L15 [1]
+  L5 to L6 -> L18 [0]
+  L7 to L8 -> L15 [1]
+  L8 to L9 -> L18 [0]
+  L10 to L14 -> L18 [0]
+  L15 to L16 -> L17 [2] lasti
+  L16 to L18 -> L18 [0]
+  L18 to L19 -> L19 [1] lasti

@@ -1,0 +1,210 @@
+{
+  "module": "automation",
+  "func": "AutomationEngine._find_image_in_region",
+  "kind": "method",
+  "name": "_find_image_in_region",
+  "filename": "<frozen automation>",
+  "argcount": 5,
+  "nlocals": 56,
+  "stacksize": 7,
+  "flags": 536870915,
+  "names": [
+    "os",
+    "path",
+    "join",
+    "images_folder",
+    "exists",
+    "PIL",
+    "ImageGrab",
+    "grab",
+    "np",
+    "array",
+    "_template_cache",
+    "load_image_cv2",
+    "cv2",
+    "IMREAD_COLOR",
+    "IMREAD_GRAYSCALE",
+    "cvtColor",
+    "COLOR_RGB2BGR",
+    "COLOR_RGB2GRAY",
+    "shape",
+    "int",
+    "resize",
+    "INTER_LINEAR",
+    "matchTemplate",
+    "TM_CCOEFF_NORMED",
+    "minMaxLoc",
+    "mean",
+    "sqrt",
+    "sum",
+    "COLOR_BGR2HSV",
+    "abs",
+    "Exception"
+  ],
+  "varnames": [
+    "self",
+    "image_name",
+    "region",
+    "confidence",
+    "color_match",
+    "__assert_armored__",
+    "_var_var_46",
+    "_var_var_47",
+    "_var_var_24",
+    "_var_var_25",
+    "_var_var_57",
+    "_var_var_56",
+    "_var_var_60",
+    "_var_var_48",
+    "_var_var_49",
+    "_var_var_61",
+    "_var_var_62",
+    "_var_var_63",
+    "_var_var_64",
+    "_var_var_65",
+    "_var_var_66",
+    "_var_var_67",
+    "_var_var_68",
+    "_var_var_69",
+    "_var_var_70",
+    "_var_var_71",
+    "_var_var_72",
+    "_var_var_73",
+    "_var_var_74",
+    "_var_var_51",
+    "_var_var_75",
+    "_var_var_76",
+    "_var_var_77",
+    "_var_var_78",
+    "_var_var_44",
+    "_var_var_52",
+    "_var_var_53",
+    "_var_var_54",
+    "_var_var_55",
+    "_var_var_79",
+    "_var_var_80",
+    "_var_var_81",
+    "_var_var_82",
+    "_var_var_83",
+    "_var_var_84",
+    "_var_var_85",
+    "_var_var_86",
+    "_var_var_87",
+    "_var_var_88",
+    "_var_var_89",
+    "_var_var_90",
+    "_var_var_91",
+    "_var_var_92",
+    "_var_var_58",
+    "_var_var_59",
+    "_var_var_3"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "在指定区域内识别图片（支持多尺度匹配，适应不同DPI/缩放）\n\n\n\nArgs:\n\n    image_name: 图片文件名\n\n    region: 区域坐标 {x, y, width, height}\n\n    confidence: 置信度\n\n    color_match: 是否使用彩色匹配（区分颜色）\n\n"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "str",
+      "value": "x"
+    },
+    {
+      "type": "str",
+      "value": "y"
+    },
+    {
+      "type": "str",
+      "value": "width"
+    },
+    {
+      "type": "str",
+      "value": "height"
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "str",
+      "value": "_"
+    },
+    {
+      "type": "str",
+      "value": "color"
+    },
+    {
+      "type": "str",
+      "value": "gray"
+    },
+    {
+      "type": "int",
+      "value": 2
+    },
+    {
+      "type": "tuple",
+      "len": 9
+    },
+    {
+      "type": "float",
+      "value": 1.0
+    },
+    {
+      "type": "int",
+      "value": 5
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "float",
+      "value": 0.95
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "int",
+      "value": 80
+    },
+    {
+      "type": "int",
+      "value": 1
+    },
+    {
+      "type": "int",
+      "value": 50
+    }
+  ]
+}

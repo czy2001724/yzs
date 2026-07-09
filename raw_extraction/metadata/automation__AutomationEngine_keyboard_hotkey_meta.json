@@ -1,0 +1,98 @@
+{
+  "module": "automation",
+  "func": "AutomationEngine.keyboard_hotkey",
+  "kind": "method",
+  "name": "keyboard_hotkey",
+  "filename": "<frozen automation>",
+  "argcount": 1,
+  "nlocals": 8,
+  "stacksize": 9,
+  "flags": 536870919,
+  "names": [
+    "time",
+    "perf_counter",
+    "pyautogui",
+    "keyDown",
+    "precise_sleep",
+    "reversed",
+    "keyUp",
+    "log",
+    "join",
+    "hotkey",
+    "Exception"
+  ],
+  "varnames": [
+    "self",
+    "hold_time",
+    "keys",
+    "__assert_armored__",
+    "_var_var_100",
+    "_var_var_37",
+    "_var_var_140",
+    "_var_var_3"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "组合键"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "str",
+      "value": "组合键: "
+    },
+    {
+      "type": "str",
+      "value": "+"
+    },
+    {
+      "type": "str",
+      "value": " (指定"
+    },
+    {
+      "type": "str",
+      "value": "秒-实际"
+    },
+    {
+      "type": "str",
+      "value": ".3f"
+    },
+    {
+      "type": "str",
+      "value": "秒)"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bool",
+      "value": true
+    },
+    {
+      "type": "str",
+      "value": "组合键失败: "
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "bool",
+      "value": false
+    }
+  ]
+}

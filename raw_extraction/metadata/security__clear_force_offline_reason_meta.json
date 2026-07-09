@@ -1,0 +1,41 @@
+{
+  "module": "security",
+  "func": "clear_force_offline_reason",
+  "kind": "func",
+  "name": "clear_force_offline_reason",
+  "filename": "<frozen security>",
+  "argcount": 0,
+  "nlocals": 1,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "_force_offline_reason"
+  ],
+  "varnames": [
+    "__assert_armored__"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "清除强制下线原因（UI已显示后调用）"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "module": "activation",
+  "func": "ActivationManager.get_dynamic_api_path",
+  "kind": "method",
+  "name": "get_dynamic_api_path",
+  "filename": "<frozen activation>",
+  "argcount": 1,
+  "nlocals": 8,
+  "stacksize": 6,
+  "flags": 536870915,
+  "names": [
+    "datetime",
+    "now",
+    "_dynamic_api_cache",
+    "fromisoformat",
+    "_pinned_post",
+    "server_url",
+    "API_SECRET_KEY",
+    "CLIENT_VERSION",
+    "status_code",
+    "json",
+    "get",
+    "verify_signature",
+    "isoformat",
+    "total_seconds"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__",
+    "_var_var_67",
+    "_var_var_68",
+    "_var_var_43",
+    "_var_var_44",
+    "_var_var_45",
+    "_var_var_69"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "获取动态API路径（带缓存和容错）"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "api_path"
+    },
+    {
+      "type": "str",
+      "value": "valid_until"
+    },
+    {
+      "type": "bool",
+      "value": true
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "str",
+      "value": "/config/get_api_path"
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "int",
+      "value": 10
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "int",
+      "value": 200
+    },
+    {
+      "type": "str",
+      "value": "success"
+    },
+    {
+      "type": "str",
+      "value": "signature"
+    },
+    {
+      "type": "str",
+      "value": "last_fetch"
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "int",
+      "value": 7200
+    }
+  ]
+}

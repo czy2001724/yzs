@@ -1,0 +1,233 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MiniWindow.setup_ui",
+  "kind": "method",
+  "name": "setup_ui",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 1,
+  "nlocals": 9,
+  "stacksize": 6,
+  "flags": 536870915,
+  "names": [
+    "QVBoxLayout",
+    "setContentsMargins",
+    "setSpacing",
+    "QFrame",
+    "main_container",
+    "setStyleSheet",
+    "setObjectName",
+    "QHBoxLayout",
+    "QLabel",
+    "setCursor",
+    "QCursor",
+    "Qt",
+    "SizeAllCursor",
+    "addWidget",
+    "status_indicator",
+    "QPushButton",
+    "start_btn",
+    "setFixedSize",
+    "clicked",
+    "connect",
+    "on_start",
+    "stop_btn",
+    "setEnabled",
+    "on_stop",
+    "pause_btn",
+    "on_pause",
+    "topmost_btn",
+    "toggle_topmost",
+    "log_btn",
+    "setCheckable",
+    "toggle_log_panel",
+    "on_expand",
+    "log_panel",
+    "setMinimumHeight",
+    "log_panel_height",
+    "setVisible",
+    "QTextEdit",
+    "mini_log_text",
+    "setReadOnly",
+    "resize_handle",
+    "setFixedHeight",
+    "setAlignment",
+    "AlignCenter",
+    "SizeVerCursor",
+    "installEventFilter",
+    "resizing",
+    "resize_start_y",
+    "resize_start_height",
+    "sync_status",
+    "QTimer",
+    "status_timer",
+    "timeout",
+    "start"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__",
+    "_var_var_36",
+    "_var_var_335",
+    "_var_var_336",
+    "_var_var_337",
+    "_var_var_338",
+    "_var_var_339",
+    "_var_var_79"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "None"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "str",
+      "value": "\n\n            QFrame#mainContainer {\n\n                background: qlineargradient(x1:0, y1:0, x2:1, y2:0,\n\n                    stop:0 #1a1a2e, stop:1 #2a2a4e);\n\n                border-radius: 12px;\n\n                border: 1px solid #3a3a5a;\n\n            }\n\n        "
+    },
+    {
+      "type": "str",
+      "value": "mainContainer"
+    },
+    {
+      "type": "int",
+      "value": 10
+    },
+    {
+      "type": "int",
+      "value": 8
+    },
+    {
+      "type": "str",
+      "value": "≡"
+    },
+    {
+      "type": "str",
+      "value": "\n\n            color: #888; font-size: 16px; font-weight: bold;\n\n            padding: 0 4px; cursor: move;\n\n        "
+    },
+    {
+      "type": "str",
+      "value": "●"
+    },
+    {
+      "type": "str",
+      "value": "color: #ef4444; font-size: 14px;"
+    },
+    {
+      "type": "str",
+      "value": "▶"
+    },
+    {
+      "type": "int",
+      "value": 36
+    },
+    {
+      "type": "str",
+      "value": "\n\n            QPushButton {\n\n                background: #22c55e; color: white; border: none;\n\n                border-radius: 8px; font-size: 14px; font-weight: bold;\n\n            }\n\n            QPushButton:hover { background: #16a34a; }\n\n            QPushButton:disabled { background: #166534; color: #888; }\n\n        "
+    },
+    {
+      "type": "str",
+      "value": "⏹"
+    },
+    {
+      "type": "str",
+      "value": "\n\n            QPushButton {\n\n                background: #ef4444; color: white; border: none;\n\n                border-radius: 8px; font-size: 14px; font-weight: bold;\n\n            }\n\n            QPushButton:hover { background: #dc2626; }\n\n            QPushButton:disabled { background: #7f1d1d; color: #888; }\n\n        "
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "str",
+      "value": "⏸"
+    },
+    {
+      "type": "str",
+      "value": "\n\n            QPushButton {\n\n                background: #f59e0b; color: white; border: none;\n\n                border-radius: 8px; font-size: 14px; font-weight: bold;\n\n            }\n\n            QPushButton:hover { background: #d97706; }\n\n            QPushButton:disabled { background: #78350f; color: #888; }\n\n        "
+    },
+    {
+      "type": "str",
+      "value": "📌"
+    },
+    {
+      "type": "str",
+      "value": "\n\n            QPushButton {\n\n                background: #6366f1; color: white; border: none;\n\n                border-radius: 8px; font-size: 14px;\n\n            }\n\n            QPushButton:hover { background: #4f46e5; }\n\n        "
+    },
+    {
+      "type": "str",
+      "value": "📋"
+    },
+    {
+      "type": "str",
+      "value": "\n\n            QPushButton {\n\n                background: #64748b; color: white; border: none;\n\n                border-radius: 8px; font-size: 14px;\n\n            }\n\n            QPushButton:hover { background: #475569; }\n\n        "
+    },
+    {
+      "type": "bool",
+      "value": true
+    },
+    {
+      "type": "str",
+      "value": "🔼"
+    },
+    {
+      "type": "str",
+      "value": "\n\n            QPushButton {\n\n                background: #8b5cf6; color: white; border: none;\n\n                border-radius: 8px; font-size: 14px;\n\n            }\n\n            QPushButton:hover { background: #7c3aed; }\n\n        "
+    },
+    {
+      "type": "str",
+      "value": "\n\n            QFrame {\n\n                background: rgba(0, 0, 0, 0.9);\n\n                border-bottom-left-radius: 12px;\n\n                border-bottom-right-radius: 12px;\n\n            }\n\n        "
+    },
+    {
+      "type": "int",
+      "value": 100
+    },
+    {
+      "type": "int",
+      "value": 180
+    },
+    {
+      "type": "int",
+      "value": 6
+    },
+    {
+      "type": "int",
+      "value": 4
+    },
+    {
+      "type": "str",
+      "value": "\n\n            QTextEdit {\n\n                background: transparent;\n\n                color: #e0e0e0;\n\n                border: none;\n\n                font-size: 13px;\n\n                line-height: 1.4;\n\n                font-family: 'Microsoft YaHei UI', Consolas, monospace;\n\n            }\n\n        "
+    },
+    {
+      "type": "str",
+      "value": "━━━"
+    },
+    {
+      "type": "int",
+      "value": 16
+    },
+    {
+      "type": "str",
+      "value": "\n\n            QLabel {\n\n                color: rgba(255, 255, 255, 0.3);\n\n                font-size: 10px;\n\n                letter-spacing: 2px;\n\n            }\n\n            QLabel:hover {\n\n                color: rgba(255, 255, 255, 0.6);\n\n            }\n\n        "
+    },
+    {
+      "type": "int",
+      "value": 500
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

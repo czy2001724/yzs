@@ -1,0 +1,69 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow.toggle_coord_display",
+  "kind": "method",
+  "name": "toggle_coord_display",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 1,
+  "nlocals": 2,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "hasattr",
+    "coord_overlay",
+    "CoordOverlay",
+    "show",
+    "coord_btn",
+    "setText",
+    "setStyleSheet",
+    "close"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "切换实时坐标显示"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "coord_overlay"
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "str",
+      "value": "📍 关闭坐标"
+    },
+    {
+      "type": "str",
+      "value": "background-color: #ef4444; color: white;"
+    },
+    {
+      "type": "str",
+      "value": "📍 显示坐标"
+    },
+    {
+      "type": "str",
+      "value": ""
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

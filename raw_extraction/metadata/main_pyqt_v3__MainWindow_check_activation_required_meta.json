@@ -1,0 +1,71 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow.check_activation_required",
+  "kind": "method",
+  "name": "check_activation_required",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 1,
+  "nlocals": 4,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "activation",
+    "is_activated",
+    "show_activation_dialog",
+    "perform_full_security_check",
+    "is_heartbeat_valid",
+    "_activation_fail_count",
+    "add_log"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__",
+    "_var_var_211",
+    "_var_var_147"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "检查激活状态（增强版：多重验证）"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "int",
+      "value": 1
+    },
+    {
+      "type": "int",
+      "value": 3
+    },
+    {
+      "type": "str",
+      "value": "⚠️ 网络验证失败"
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "bool",
+      "value": true
+    }
+  ]
+}

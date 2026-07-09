@@ -1,0 +1,50 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow.show_workflow_detail",
+  "kind": "method",
+  "name": "show_workflow_detail",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 1,
+  "nlocals": 3,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "current_workflow",
+    "get",
+    "webbrowser",
+    "open"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__",
+    "_var_var_195"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "查看配置详情"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "detail_url"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "None"
+    }
+  ]
+}

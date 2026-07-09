@@ -1,0 +1,98 @@
+{
+  "module": "activation",
+  "func": "ActivationManager._update_last_online",
+  "kind": "method",
+  "name": "_update_last_online",
+  "filename": "<frozen activation>",
+  "argcount": 1,
+  "nlocals": 5,
+  "stacksize": 8,
+  "flags": 536870915,
+  "names": [
+    "os",
+    "path",
+    "exists",
+    "activation_file",
+    "open",
+    "json",
+    "load",
+    "datetime",
+    "now",
+    "isoformat",
+    "_generate_local_hmac",
+    "dump",
+    "Exception",
+    "print"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__",
+    "_var_var_30",
+    "_var_var_44",
+    "_var_var_7"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "更新最后在线时间（带HMAC签名）"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "r"
+    },
+    {
+      "type": "str",
+      "value": "utf-8"
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "str",
+      "value": "last_online"
+    },
+    {
+      "type": "str",
+      "value": "hmac"
+    },
+    {
+      "type": "str",
+      "value": "w"
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "int",
+      "value": 2
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "str",
+      "value": "更新在线时间失败: "
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

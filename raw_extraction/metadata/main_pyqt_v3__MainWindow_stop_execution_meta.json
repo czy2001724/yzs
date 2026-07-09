@@ -1,0 +1,45 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow.stop_execution",
+  "kind": "method",
+  "name": "stop_execution",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 1,
+  "nlocals": 2,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "engine",
+    "stop",
+    "add_log",
+    "on_execution_complete"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "None"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "已停止执行"
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

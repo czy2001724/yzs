@@ -1,0 +1,51 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow.switch_page",
+  "kind": "method",
+  "name": "switch_page",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 2,
+  "nlocals": 5,
+  "stacksize": 6,
+  "flags": 536870915,
+  "names": [
+    "pages",
+    "setCurrentIndex",
+    "enumerate",
+    "nav_buttons",
+    "setProperty",
+    "setStyle",
+    "style"
+  ],
+  "varnames": [
+    "self",
+    "index",
+    "__assert_armored__",
+    "_var_var_170",
+    "_var_var_171"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "None"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "active"
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

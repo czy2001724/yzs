@@ -1,0 +1,51 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow.start_log_cleanup_timer",
+  "kind": "method",
+  "name": "start_log_cleanup_timer",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 1,
+  "nlocals": 2,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "QTimer",
+    "log_cleanup_timer",
+    "timeout",
+    "connect",
+    "auto_clear_log",
+    "start"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "启动日志定时清理（每6小时）"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "int",
+      "value": 21600000
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "None"
+    }
+  ]
+}

@@ -1,0 +1,316 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow.show_screenshot_settings",
+  "kind": "method",
+  "name": "show_screenshot_settings",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 1,
+  "nlocals": 30,
+  "stacksize": 7,
+  "flags": 536870915,
+  "names": [
+    "PyQt5.QtWidgets",
+    "QGroupBox",
+    "QFormLayout",
+    "QSpinBox",
+    "QDialog",
+    "QCheckBox",
+    "setWindowTitle",
+    "setFixedSize",
+    "setStyleSheet",
+    "QVBoxLayout",
+    "setSpacing",
+    "setContentsMargins",
+    "screenshot_local_mode",
+    "setChecked",
+    "addWidget",
+    "addSpacing",
+    "QHBoxLayout",
+    "QLabel",
+    "setFixedWidth",
+    "QComboBox",
+    "screenshot_position",
+    "addItems",
+    "addLayout",
+    "screenshot_resolution",
+    "screenshot_max_count",
+    "setRange",
+    "setValue",
+    "setSpecialValueText",
+    "QLineEdit",
+    "screenshot_prefix",
+    "setText",
+    "setPlaceholderText",
+    "screenshot_quality",
+    "setSuffix",
+    "screenshot_push_enabled",
+    "os",
+    "path",
+    "join",
+    "get_app_path",
+    "exists",
+    "push_api_key",
+    "setWordWrap",
+    "addStretch",
+    "QPushButton",
+    "clicked",
+    "connect",
+    "load_screenshot_settings",
+    "exec_"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__",
+    "_var_var_109",
+    "_var_var_258",
+    "_var_var_259",
+    "_var_var_120",
+    "_var_var_260",
+    "_var_var_4",
+    "_var_var_261",
+    "_var_var_262",
+    "_var_var_263",
+    "_var_var_264",
+    "_var_var_265",
+    "_var_var_266",
+    "_var_var_267",
+    "_var_var_268",
+    "_var_var_269",
+    "_var_var_270",
+    "_var_var_271",
+    "_var_var_272",
+    "_var_var_273",
+    "_var_var_274",
+    "_var_var_275",
+    "_var_var_276",
+    "_var_var_277",
+    "_var_var_278",
+    "_var_var_279",
+    "_var_var_9",
+    "_var_var_280",
+    "_var_var_11"
+  ],
+  "cellvars": [
+    "self",
+    "_var_var_123"
+  ],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "显示截图设置对话框"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "tuple",
+      "len": 5
+    },
+    {
+      "type": "str",
+      "value": "截图设置"
+    },
+    {
+      "type": "int",
+      "value": 450
+    },
+    {
+      "type": "int",
+      "value": 580
+    },
+    {
+      "type": "str",
+      "value": "\n            QDialog { background: #1a1a2e; }\n            QLabel { color: #e0e0e0; font-size: 13px; }\n            QComboBox, QSpinBox, QLineEdit {\n                background: #2d2d44; color: #e0e0e0; border: 1px solid #3d3d5c;\n                border-radius: 4px; padding: 8px 10px; min-height: 32px;\n            }\n            QComboBox:hover, QSpinBox:hover, QLineEdit:hover { border-color: #6366f1; }\n            QPushButton {\n                background: #6366f1; color: white; border: none;\n                border-radius: 4px; padding: 10px 20px; font-weight: bold;\n            }\n            QPushButton:hover { background: #818cf8; }\n            QCheckBox { color: #e0e0e0; }\n            QCheckBox::indicator { width: 18px; height: 18px; }\n            QCheckBox::indicator:unchecked { background: #2d2d44; border: 1px solid #3d3d5c; border-radius: 3px; }\n            QCheckBox::indicator:checked { background: #6366f1; border: 1px solid #6366f1; border-radius: 3px; }\n        "
+    },
+    {
+      "type": "int",
+      "value": 12
+    },
+    {
+      "type": "int",
+      "value": 20
+    },
+    {
+      "type": "int",
+      "value": 15
+    },
+    {
+      "type": "str",
+      "value": "📁 本地保存截图"
+    },
+    {
+      "type": "bool",
+      "value": true
+    },
+    {
+      "type": "int",
+      "value": 5
+    },
+    {
+      "type": "str",
+      "value": "截图位置:"
+    },
+    {
+      "type": "int",
+      "value": 80
+    },
+    {
+      "type": "tuple",
+      "len": 5
+    },
+    {
+      "type": "str",
+      "value": "分辨率:"
+    },
+    {
+      "type": "tuple",
+      "len": 3
+    },
+    {
+      "type": "str",
+      "value": "本地最大数量:"
+    },
+    {
+      "type": "int",
+      "value": 9999
+    },
+    {
+      "type": "str",
+      "value": "无限制"
+    },
+    {
+      "type": "str",
+      "value": "文件名前缀:"
+    },
+    {
+      "type": "str",
+      "value": "screenshot"
+    },
+    {
+      "type": "str",
+      "value": "文件名前缀"
+    },
+    {
+      "type": "str",
+      "value": "压缩质量:"
+    },
+    {
+      "type": "int",
+      "value": 1
+    },
+    {
+      "type": "int",
+      "value": 100
+    },
+    {
+      "type": "int",
+      "value": 85
+    },
+    {
+      "type": "str",
+      "value": "%"
+    },
+    {
+      "type": "str",
+      "value": "(越高质量越好)"
+    },
+    {
+      "type": "str",
+      "value": "color: #888; font-size: 11px;"
+    },
+    {
+      "type": "int",
+      "value": 10
+    },
+    {
+      "type": "str",
+      "value": "📱 识别推送:"
+    },
+    {
+      "type": "str",
+      "value": "font-weight: bold; color: #6366f1;"
+    },
+    {
+      "type": "str",
+      "value": "截图后识别指定图片并推送消息"
+    },
+    {
+      "type": "str",
+      "value": "push_images.dat"
+    },
+    {
+      "type": "str",
+      "value": "✅ 已检测到推送图片包 (push_images.dat)"
+    },
+    {
+      "type": "str",
+      "value": "color: #34d399; font-size: 11px;"
+    },
+    {
+      "type": "str",
+      "value": "⚠️ 未找到推送图片包，请联系管理员获取"
+    },
+    {
+      "type": "str",
+      "value": "color: #f59e0b; font-size: 11px;"
+    },
+    {
+      "type": "str",
+      "value": "💡 识别到图片会自动推送到您的微信"
+    },
+    {
+      "type": "str",
+      "value": "API密钥:"
+    },
+    {
+      "type": "str",
+      "value": "在 6hzs.nzwl.top 网站登录后获取"
+    },
+    {
+      "type": "str",
+      "value": "💡 访问 http://6hzs.nzwl.top 微信扫码登录获取API密钥"
+    },
+    {
+      "type": "str",
+      "value": "💡 本地保存路径: "
+    },
+    {
+      "type": "str",
+      "value": "jt"
+    },
+    {
+      "type": "str",
+      "value": "📂 打开文件夹"
+    },
+    {
+      "type": "code",
+      "name": "<lambda>"
+    },
+    {
+      "type": "str",
+      "value": "💾 保存设置"
+    },
+    {
+      "type": "code",
+      "name": "<lambda>"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "None"
+    }
+  ]
+}

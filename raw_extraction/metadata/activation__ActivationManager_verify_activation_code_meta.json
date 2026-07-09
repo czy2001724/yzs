@@ -1,0 +1,209 @@
+{
+  "module": "activation",
+  "func": "ActivationManager.verify_activation_code",
+  "kind": "method",
+  "name": "verify_activation_code",
+  "filename": "<frozen activation>",
+  "argcount": 2,
+  "nlocals": 14,
+  "stacksize": 8,
+  "flags": 536870915,
+  "names": [
+    "_pinned_post",
+    "server_url",
+    "machine_id",
+    "API_SECRET_KEY",
+    "CLIENT_VERSION",
+    "status_code",
+    "json",
+    "get",
+    "verify_signature",
+    "items",
+    "datetime",
+    "now",
+    "isoformat",
+    "_generate_local_hmac",
+    "open",
+    "activation_file",
+    "dump",
+    "is_activated",
+    "activation_code",
+    "fromisoformat",
+    "activation_expiry",
+    "start_heartbeat",
+    "lower",
+    "requests",
+    "exceptions",
+    "RequestException",
+    "Exception",
+    "str"
+  ],
+  "varnames": [
+    "self",
+    "code",
+    "__assert_armored__",
+    "_var_var_43",
+    "_var_var_44",
+    "_var_var_45",
+    "_var_var_46",
+    "_var_var_3",
+    "_var_var_4",
+    "_var_var_47",
+    "_var_var_48",
+    "_var_var_30",
+    "_var_var_6",
+    "_var_var_7"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "验证激活码"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "/v2/xK9mT2pQ8wR5/activate"
+    },
+    {
+      "type": "tuple",
+      "len": 4
+    },
+    {
+      "type": "int",
+      "value": 10
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "int",
+      "value": 200
+    },
+    {
+      "type": "str",
+      "value": "valid"
+    },
+    {
+      "type": "str",
+      "value": "signature"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "str",
+      "value": "machine_id"
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "str",
+      "value": "expiry"
+    },
+    {
+      "type": "tuple",
+      "len": 6
+    },
+    {
+      "type": "str",
+      "value": "hmac"
+    },
+    {
+      "type": "str",
+      "value": "w"
+    },
+    {
+      "type": "str",
+      "value": "utf-8"
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "int",
+      "value": 2
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "bool",
+      "value": true
+    },
+    {
+      "type": "int",
+      "value": 120
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "str",
+      "value": "message"
+    },
+    {
+      "type": "str",
+      "value": "激活码无效"
+    },
+    {
+      "type": "str",
+      "value": "unbound"
+    },
+    {
+      "type": "str",
+      "value": "未绑定"
+    },
+    {
+      "type": "str",
+      "value": "该激活码未绑定机器码，请先绑定。\n"
+    },
+    {
+      "type": "str",
+      "value": "服务器错误: "
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "str",
+      "value": "验证失败: "
+    }
+  ]
+}

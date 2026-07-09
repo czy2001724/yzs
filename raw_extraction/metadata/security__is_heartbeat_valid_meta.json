@@ -1,0 +1,38 @@
+{
+  "module": "security",
+  "func": "is_heartbeat_valid",
+  "kind": "func",
+  "name": "is_heartbeat_valid",
+  "filename": "<frozen security>",
+  "argcount": 0,
+  "nlocals": 1,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "_last_heartbeat_success"
+  ],
+  "varnames": [
+    "__assert_armored__"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "检查心跳状态"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

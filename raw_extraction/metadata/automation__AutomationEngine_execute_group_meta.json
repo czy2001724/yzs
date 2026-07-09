@@ -1,0 +1,371 @@
+{
+  "module": "automation",
+  "func": "AutomationEngine.execute_group",
+  "kind": "method",
+  "name": "execute_group",
+  "filename": "<frozen automation>",
+  "argcount": 3,
+  "nlocals": 27,
+  "stacksize": 11,
+  "flags": 536870915,
+  "names": [
+    "stop_continuous_tasks",
+    "get",
+    "humanize_enabled",
+    "humanize_position_range",
+    "humanize_delay_range",
+    "log",
+    "int",
+    "current_group",
+    "jump_to_group",
+    "start_continuous_task",
+    "append",
+    "time",
+    "is_running",
+    "sleep",
+    "stop_group_continuous_tasks",
+    "return_from_call",
+    "getattr",
+    "enumerate",
+    "is_paused",
+    "current_step",
+    "update_status",
+    "len",
+    "execute_step",
+    "call_stack",
+    "range"
+  ],
+  "varnames": [
+    "self",
+    "group",
+    "group_index",
+    "__assert_armored__",
+    "_var_var_268",
+    "_var_var_12",
+    "_var_var_288",
+    "_var_var_289",
+    "_var_var_290",
+    "_var_var_291",
+    "_var_var_292",
+    "_var_var_293",
+    "_var_var_294",
+    "_var_var_284",
+    "_var_var_295",
+    "_var_var_100",
+    "_var_var_296",
+    "_var_var_22",
+    "_var_var_285",
+    "_var_var_243",
+    "_var_var_277",
+    "_var_var_297",
+    "_var_var_298",
+    "_var_var_227",
+    "_var_var_286",
+    "_var_var_287",
+    "_var_var_299"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "执行单个组合\n\n\n\nArgs:\n\n    group: 组合配置\n\n    group_index: 组合索引\n\n    \n\nReturns:\n\n    bool: 是否正常完成（非跳转）\n\n"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "name"
+    },
+    {
+      "type": "str",
+      "value": "组合 "
+    },
+    {
+      "type": "int",
+      "value": 1
+    },
+    {
+      "type": "str",
+      "value": "steps"
+    },
+    {
+      "type": "str",
+      "value": "humanize"
+    },
+    {
+      "type": "str",
+      "value": "enabled"
+    },
+    {
+      "type": "bool",
+      "value": true
+    },
+    {
+      "type": "str",
+      "value": "position_range"
+    },
+    {
+      "type": "int",
+      "value": 3
+    },
+    {
+      "type": "str",
+      "value": "delay_min"
+    },
+    {
+      "type": "int",
+      "value": 20
+    },
+    {
+      "type": "float",
+      "value": 1000.0
+    },
+    {
+      "type": "str",
+      "value": "delay_max"
+    },
+    {
+      "type": "int",
+      "value": 150
+    },
+    {
+      "type": "str",
+      "value": "🎭 人类化: ±"
+    },
+    {
+      "type": "str",
+      "value": "px, "
+    },
+    {
+      "type": "int",
+      "value": 1000
+    },
+    {
+      "type": "str",
+      "value": "~"
+    },
+    {
+      "type": "str",
+      "value": "ms"
+    },
+    {
+      "type": "str",
+      "value": "loop_mode"
+    },
+    {
+      "type": "str",
+      "value": "once"
+    },
+    {
+      "type": "str",
+      "value": "loop_enabled"
+    },
+    {
+      "type": "str",
+      "value": "infinite"
+    },
+    {
+      "type": "str",
+      "value": "loop_duration"
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "str",
+      "value": "duration"
+    },
+    {
+      "type": "str",
+      "value": "loop_count"
+    },
+    {
+      "type": "str",
+      "value": "count"
+    },
+    {
+      "type": "str",
+      "value": "▶ 开始执行组合 "
+    },
+    {
+      "type": "str",
+      "value": ": "
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "str",
+      "value": "type"
+    },
+    {
+      "type": "str",
+      "value": "continuous_click"
+    },
+    {
+      "type": "str",
+      "value": " 已达到执行时间限制 "
+    },
+    {
+      "type": "str",
+      "value": "秒"
+    },
+    {
+      "type": "str",
+      "value": " 第 "
+    },
+    {
+      "type": "str",
+      "value": " 次循环"
+    },
+    {
+      "type": "float",
+      "value": 0.1
+    },
+    {
+      "type": "str",
+      "value": " 触发跳转，中断当前执行"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "str",
+      "value": "return_step_index"
+    },
+    {
+      "type": "str",
+      "value": "📞 从步骤 "
+    },
+    {
+      "type": "str",
+      "value": " 继续执行"
+    },
+    {
+      "type": "str",
+      "value": "步骤 "
+    },
+    {
+      "type": "str",
+      "value": "执行: "
+    },
+    {
+      "type": "str",
+      "value": "  ["
+    },
+    {
+      "type": "str",
+      "value": "/"
+    },
+    {
+      "type": "str",
+      "value": "] "
+    },
+    {
+      "type": "str",
+      "value": "call_group"
+    },
+    {
+      "type": "str",
+      "value": "_call_return_mode"
+    },
+    {
+      "type": "str",
+      "value": "current"
+    },
+    {
+      "type": "str",
+      "value": "custom"
+    },
+    {
+      "type": "str",
+      "value": "_call_return_group"
+    },
+    {
+      "type": "str",
+      "value": "_call_return_step"
+    },
+    {
+      "type": "int",
+      "value": 9999
+    },
+    {
+      "type": "str",
+      "value": "📞 调用栈压入: 组合"
+    },
+    {
+      "type": "str",
+      "value": " 步骤"
+    },
+    {
+      "type": "int",
+      "value": 2
+    },
+    {
+      "type": "str",
+      "value": " 触发跳转"
+    },
+    {
+      "type": "str",
+      "value": "on_fail"
+    },
+    {
+      "type": "str",
+      "value": "continue"
+    },
+    {
+      "type": "str",
+      "value": "stop"
+    },
+    {
+      "type": "str",
+      "value": "步骤失败，停止执行"
+    },
+    {
+      "type": "str",
+      "value": "retry"
+    },
+    {
+      "type": "str",
+      "value": "retry_count"
+    },
+    {
+      "type": "str",
+      "value": "  重试 "
+    },
+    {
+      "type": "str",
+      "value": "  重试"
+    },
+    {
+      "type": "str",
+      "value": "次仍失败"
+    },
+    {
+      "type": "str",
+      "value": "fail_jump_group"
+    },
+    {
+      "type": "str",
+      "value": "✓ 组合 "
+    },
+    {
+      "type": "str",
+      "value": " 执行完成: "
+    }
+  ]
+}

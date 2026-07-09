@@ -1,0 +1,79 @@
+{
+  "module": "security",
+  "func": "init_time_check",
+  "kind": "func",
+  "name": "init_time_check",
+  "filename": "<frozen security>",
+  "argcount": 0,
+  "nlocals": 4,
+  "stacksize": 8,
+  "flags": 536870915,
+  "names": [
+    "time",
+    "_last_valid_time",
+    "_get_network_time",
+    "_network_time_offset",
+    "getattr",
+    "sys",
+    "os",
+    "path",
+    "join",
+    "dirname",
+    "executable",
+    "_time_file",
+    "open",
+    "write",
+    "str",
+    "int"
+  ],
+  "varnames": [
+    "__assert_armored__",
+    "_var_var_57",
+    "_var_var_79",
+    "_var_var_21"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "初始化时间检查"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "str",
+      "value": "frozen"
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "str",
+      "value": ".timestamp"
+    },
+    {
+      "type": "str",
+      "value": "w"
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

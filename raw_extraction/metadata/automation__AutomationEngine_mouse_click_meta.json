@@ -1,0 +1,97 @@
+{
+  "module": "automation",
+  "func": "AutomationEngine.mouse_click",
+  "kind": "method",
+  "name": "mouse_click",
+  "filename": "<frozen automation>",
+  "argcount": 5,
+  "nlocals": 7,
+  "stacksize": 11,
+  "flags": 536870915,
+  "names": [
+    "_humanize_position",
+    "_smooth_move_to",
+    "_humanize_delay",
+    "pyautogui",
+    "click",
+    "log",
+    "Exception"
+  ],
+  "varnames": [
+    "self",
+    "x",
+    "y",
+    "button",
+    "clicks",
+    "__assert_armored__",
+    "_var_var_3"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "鼠标点击（先丝滑移动再点击）"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "float",
+      "value": 0.25
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "str",
+      "value": "鼠标点击: ("
+    },
+    {
+      "type": "str",
+      "value": ", "
+    },
+    {
+      "type": "str",
+      "value": ") "
+    },
+    {
+      "type": "str",
+      "value": "键 "
+    },
+    {
+      "type": "str",
+      "value": "次"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bool",
+      "value": true
+    },
+    {
+      "type": "str",
+      "value": "鼠标点击失败: "
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "bool",
+      "value": false
+    }
+  ]
+}

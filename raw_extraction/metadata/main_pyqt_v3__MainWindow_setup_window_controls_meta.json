@@ -1,0 +1,96 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow.setup_window_controls",
+  "kind": "method",
+  "name": "setup_window_controls",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 2,
+  "nlocals": 7,
+  "stacksize": 6,
+  "flags": 536870915,
+  "names": [
+    "QFrame",
+    "setObjectName",
+    "setFixedHeight",
+    "QHBoxLayout",
+    "setContentsMargins",
+    "addStretch",
+    "QPushButton",
+    "clicked",
+    "connect",
+    "showMinimized",
+    "addWidget",
+    "max_btn",
+    "toggle_maximize",
+    "close"
+  ],
+  "varnames": [
+    "self",
+    "parent_layout",
+    "__assert_armored__",
+    "_var_var_54",
+    "_var_var_55",
+    "_var_var_56",
+    "_var_var_57"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "None"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "windowControls"
+    },
+    {
+      "type": "int",
+      "value": 40
+    },
+    {
+      "type": "int",
+      "value": 15
+    },
+    {
+      "type": "int",
+      "value": 5
+    },
+    {
+      "type": "int",
+      "value": 8
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "str",
+      "value": "─"
+    },
+    {
+      "type": "str",
+      "value": "□"
+    },
+    {
+      "type": "str",
+      "value": "✕"
+    },
+    {
+      "type": "str",
+      "value": "closeBtn"
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

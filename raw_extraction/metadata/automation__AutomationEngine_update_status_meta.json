@@ -1,0 +1,45 @@
+{
+  "module": "automation",
+  "func": "AutomationEngine.update_status",
+  "kind": "method",
+  "name": "update_status",
+  "filename": "<frozen automation>",
+  "argcount": 4,
+  "nlocals": 5,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "status_callback"
+  ],
+  "varnames": [
+    "self",
+    "group_index",
+    "step_index",
+    "message",
+    "__assert_armored__"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "更新执行状态"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "None"
+    }
+  ]
+}

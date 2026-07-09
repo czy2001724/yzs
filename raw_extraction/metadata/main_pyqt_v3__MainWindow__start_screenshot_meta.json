@@ -1,0 +1,49 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow._start_screenshot",
+  "kind": "method",
+  "name": "_start_screenshot",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 1,
+  "nlocals": 2,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "ScreenshotWindow",
+    "images_folder",
+    "screenshot_window",
+    "screenshot_taken",
+    "connect",
+    "_on_screenshot_done",
+    "screenshot_cancelled",
+    "_on_screenshot_cancelled"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "启动截图窗口"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "None"
+    }
+  ]
+}

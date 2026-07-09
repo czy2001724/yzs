@@ -1,0 +1,75 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "generate_random_title",
+  "kind": "func",
+  "name": "generate_random_title",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 0,
+  "nlocals": 4,
+  "stacksize": 9,
+  "flags": 536870915,
+  "names": [
+    "random",
+    "choice",
+    "join",
+    "choices",
+    "string",
+    "digits",
+    "randint"
+  ],
+  "varnames": [
+    "__assert_armored__",
+    "_var_var_0",
+    "_var_var_1",
+    "_var_var_2"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "每次启动生成随机窗口标题"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "tuple",
+      "len": 15
+    },
+    {
+      "type": "float",
+      "value": 0.5
+    },
+    {
+      "type": "str",
+      "value": ""
+    },
+    {
+      "type": "int",
+      "value": 1
+    },
+    {
+      "type": "int",
+      "value": 3
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "str",
+      "value": " "
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

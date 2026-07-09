@@ -1,0 +1,159 @@
+/*======================================================================*/
+/* Function: perform_full_security_check */
+/* File: <frozen security> */
+/* Args: 0, Locals: 5, Stack: 5 */
+/*======================================================================*/
+
+    """执行完整的安全检查"""
+
+    # --- Names (global references) ---
+    #   perform_security_check
+    #   verify_integrity
+    #   verify_time
+    #   _heartbeat_thread
+    #   is_heartbeat_valid
+
+    # --- Variable names ---
+    #   __assert_armored__
+    #   _var_var_84
+    #   _var_var_85
+    #   _var_var_86
+    #   _var_var_87
+
+    # --- String constants ---
+    #   '执行完整的安全检查'
+
+    # --- Bytecode Disassembly ---
+ 632            NOP
+                NOP
+                LOAD_CONST               2 (None)
+                PUSH_NULL
+
+ 633            LOAD_CONST               3 (b'\xf0\xec\x96\x04\xa3\x01\x00\x00\x03\x00\x00\x1a\x0c\x01\x00\x00\x01\x00\x00\x00')
+                BUILD_TUPLE              1
+                CALL_FUNCTION_EX         0
+                POP_TOP
+                RESUME                   0
+                LOAD_CONST               1 (None)
+                STORE_FAST               0 (__assert_armored__)
+                NOP
+                NOP
+
+ 632            NOP
+
+ 635    L1:     LOAD_GLOBAL              1 (perform_security_check + NULL)
+                CALL                     0
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST   18 (_var_var_84, _var_var_85)
+
+ 636            LOAD_FAST                1 (_var_var_84)
+                TO_BOOL
+                POP_JUMP_IF_TRUE        13 (to L3)
+
+ 637            LOAD_CONST               4 (False)
+                LOAD_FAST                2 (_var_var_85)
+                BUILD_TUPLE              2
+
+ 652    L2:     NOP
+                NOP
+                NOP
+                JUMP_FORWARD           121 (to L12)
+                CALL                     1
+                POP_TOP
+                RETURN_VALUE
+
+ 640    L3:     LOAD_GLOBAL              3 (verify_integrity + NULL)
+                CALL                     0
+                TO_BOOL
+                POP_JUMP_IF_TRUE        11 (to L5)
+
+ 641    L4:     NOP
+
+ 652            LOAD_CONST               6 ((False, '程序完整性校验失败'))
+                NOP
+                NOP
+                NOP
+                JUMP_FORWARD            94 (to L12)
+                CACHE
+                CACHE
+                CACHE
+                POP_TOP
+                RETURN_CONST             6 ((False, '程序完整性校验失败'))
+
+ 644    L5:     LOAD_GLOBAL              5 (verify_time + NULL)
+                CALL                     0
+                UNPACK_SEQUENCE          2
+                STORE_FAST_STORE_FAST   52 (_var_var_86, _var_var_87)
+
+ 645            LOAD_FAST                3 (_var_var_86)
+                TO_BOOL
+                POP_JUMP_IF_TRUE        13 (to L7)
+
+ 646            LOAD_CONST               4 (False)
+                LOAD_FAST                4 (_var_var_87)
+                BUILD_TUPLE              2
+
+ 652    L6:     NOP
+                NOP
+                NOP
+                JUMP_FORWARD            63 (to L12)
+                CALL                     1
+                POP_TOP
+                RETURN_VALUE
+
+ 649    L7:     LOAD_GLOBAL              6 (_heartbeat_thread)
+                POP_JUMP_IF_NONE        26 (to L9)
+                LOAD_GLOBAL              9 (is_heartbeat_valid + NULL)
+                CALL                     0
+                TO_BOOL
+                POP_JUMP_IF_TRUE        11 (to L9)
+
+ 650    L8:     NOP
+
+ 652            LOAD_CONST               7 ((False, '网络验证失败'))
+                NOP
+                NOP
+                NOP
+                JUMP_FORWARD            29 (to L12)
+                CACHE
+                CACHE
+                CACHE
+                POP_TOP
+                RETURN_CONST             7 ((False, '网络验证失败'))
+        L9:     LOAD_CONST               8 ((True, '安全检查通过'))
+                NOP
+                NOP
+                NOP
+                JUMP_FORWARD            19 (to L12)
+                CACHE
+                CACHE
+                CACHE
+                POP_TOP
+                RETURN_CONST             8 ((True, '安全检查通过'))
+
+  --   L10:     PUSH_EXC_INFO
+
+ 652            LOAD_CONST               5 (None)
+                NOP
+                PUSH_NULL
+                LOAD_CONST               3 (b'\xf0\xec\x96\x04\xa3\x01\x00\x00\x03\x00\x00\x1a\x0c\x01\x00\x00\x01\x00\x00\x00')
+                CALL                     1
+                POP_TOP
+                RERAISE                  0
+
+  --   L11:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L12:     LOAD_CONST               5 (None)
+                PUSH_NULL
+                LOAD_CONST               3 (b'\xf0\xec\x96\x04\xa3\x01\x00\x00\x03\x00\x00\x1a\x0c\x01\x00\x00\x01\x00\x00\x00')
+                BUILD_TUPLE              1
+                CALL_FUNCTION_EX         0
+                POP_TOP
+                RETURN_VALUE
+ExceptionTable:
+  L1 to L2 -> L10 [0]
+  L3 to L4 -> L10 [0]
+  L5 to L6 -> L10 [0]
+  L7 to L8 -> L10 [0]
+  L10 to L11 -> L11 [1] lasti

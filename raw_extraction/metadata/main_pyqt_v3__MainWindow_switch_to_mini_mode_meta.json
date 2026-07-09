@@ -1,0 +1,47 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow.switch_to_mini_mode",
+  "kind": "method",
+  "name": "switch_to_mini_mode",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 1,
+  "nlocals": 2,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "geometry",
+    "main_geometry",
+    "hide",
+    "MiniWindow",
+    "mini_window",
+    "show"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "切换到迷你模式"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "None"
+    }
+  ]
+}

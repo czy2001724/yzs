@@ -1,0 +1,181 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow.load_screenshot_settings",
+  "kind": "method",
+  "name": "load_screenshot_settings",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 1,
+  "nlocals": 9,
+  "stacksize": 9,
+  "flags": 536870915,
+  "names": [
+    "os",
+    "path",
+    "join",
+    "get_app_path",
+    "exists",
+    "open",
+    "json",
+    "load",
+    "screenshot_local_mode",
+    "setChecked",
+    "get",
+    "screenshot_position",
+    "setCurrentIndex",
+    "screenshot_resolution",
+    "screenshot_max_count",
+    "setValue",
+    "screenshot_prefix",
+    "setText",
+    "screenshot_quality",
+    "screenshot_push_enabled",
+    "base64",
+    "push_api_key",
+    "b64decode",
+    "decode",
+    "Exception"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__",
+    "_var_var_281",
+    "_var_var_148",
+    "_var_var_203",
+    "_var_var_282",
+    "_var_var_283",
+    "_var_var_284",
+    "_var_var_116"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "加载截图设置"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "screenshot_settings.json"
+    },
+    {
+      "type": "str",
+      "value": "r"
+    },
+    {
+      "type": "str",
+      "value": "utf-8"
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "str",
+      "value": "local_mode"
+    },
+    {
+      "type": "bool",
+      "value": true
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "int",
+      "value": 1
+    },
+    {
+      "type": "int",
+      "value": 2
+    },
+    {
+      "type": "int",
+      "value": 3
+    },
+    {
+      "type": "int",
+      "value": 4
+    },
+    {
+      "type": "tuple",
+      "len": 5
+    },
+    {
+      "type": "str",
+      "value": "position"
+    },
+    {
+      "type": "str",
+      "value": "center"
+    },
+    {
+      "type": "tuple",
+      "len": 3
+    },
+    {
+      "type": "str",
+      "value": "resolution"
+    },
+    {
+      "type": "str",
+      "value": "1080p"
+    },
+    {
+      "type": "str",
+      "value": "max_count"
+    },
+    {
+      "type": "str",
+      "value": "prefix"
+    },
+    {
+      "type": "str",
+      "value": "screenshot"
+    },
+    {
+      "type": "str",
+      "value": "quality"
+    },
+    {
+      "type": "int",
+      "value": 85
+    },
+    {
+      "type": "str",
+      "value": "push_enabled"
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "str",
+      "value": "push_api_key_b64"
+    },
+    {
+      "type": "str",
+      "value": ""
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "str",
+      "value": "push_api_key"
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

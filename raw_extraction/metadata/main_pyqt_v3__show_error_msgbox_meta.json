@@ -1,0 +1,55 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "show_error_msgbox",
+  "kind": "func",
+  "name": "show_error_msgbox",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 2,
+  "nlocals": 4,
+  "stacksize": 6,
+  "flags": 536870915,
+  "names": [
+    "ctypes",
+    "windll",
+    "user32",
+    "MessageBoxW"
+  ],
+  "varnames": [
+    "title",
+    "message",
+    "__assert_armored__",
+    "_var_var_30"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "显示错误消息框（不依赖PyQt）"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "int",
+      "value": 16
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

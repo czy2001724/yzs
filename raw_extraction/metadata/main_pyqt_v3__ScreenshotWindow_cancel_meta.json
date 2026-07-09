@@ -1,0 +1,40 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "ScreenshotWindow.cancel",
+  "kind": "method",
+  "name": "cancel",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 1,
+  "nlocals": 2,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "close",
+    "screenshot_cancelled",
+    "emit"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "None"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

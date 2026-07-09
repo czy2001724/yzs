@@ -1,0 +1,98 @@
+/*======================================================================*/
+/* Function: verify_integrity */
+/* File: <frozen security> */
+/* Args: 0, Locals: 2, Stack: 5 */
+/*======================================================================*/
+
+    """验证代码完整性"""
+
+    # --- Names (global references) ---
+    #   _exe_hash
+    #   getattr
+    #   sys
+    #   _calculate_exe_hash
+
+    # --- Variable names ---
+    #   __assert_armored__
+    #   _var_var_75
+
+    # --- String constants ---
+    #   '验证代码完整性'
+    #   'frozen'
+
+    # --- Bytecode Disassembly ---
+ 520           NOP
+               NOP
+               LOAD_CONST               2 (None)
+               PUSH_NULL
+
+ 521           LOAD_CONST               3 (b'p\xf7^\x04\xa3\x01\x00\x00\x01\x00\x00\x1a\x86\x00\x00\x00\x01\x00\x00\x00')
+               BUILD_TUPLE              1
+               CALL_FUNCTION_EX         0
+               POP_TOP
+               RESUME                   0
+               LOAD_CONST               1 (None)
+               STORE_FAST               0 (__assert_armored__)
+               NOP
+               NOP
+
+ 520           NOP
+
+ 522   L1:     LOAD_GLOBAL              0 (_exe_hash)
+               POP_JUMP_IF_NOT_NONE    31 (to L3)
+
+ 525           LOAD_GLOBAL              3 (getattr + NULL)
+               LOAD_GLOBAL              4 (sys)
+               LOAD_CONST               4 ('frozen')
+               LOAD_CONST               5 (False)
+               CALL                     3
+               TO_BOOL
+               UNARY_NOT
+
+ 528   L2:     NOP
+               NOP
+               NOP
+               JUMP_FORWARD            48 (to L7)
+               CALL                     1
+               POP_TOP
+               RETURN_VALUE
+
+ 527   L3:     LOAD_GLOBAL              7 (_calculate_exe_hash + NULL)
+               CALL                     0
+               STORE_FAST               1 (_var_var_75)
+
+ 528           LOAD_FAST                1 (_var_var_75)
+               LOAD_GLOBAL              0 (_exe_hash)
+               COMPARE_OP              72 (==)
+       L4:     NOP
+               NOP
+               NOP
+               JUMP_FORWARD            20 (to L7)
+               CALL                     1
+               POP_TOP
+               RETURN_VALUE
+
+  --   L5:     PUSH_EXC_INFO
+
+ 528           LOAD_CONST               6 (None)
+               NOP
+               PUSH_NULL
+               LOAD_CONST               3 (b'p\xf7^\x04\xa3\x01\x00\x00\x01\x00\x00\x1a\x86\x00\x00\x00\x01\x00\x00\x00')
+               CALL                     1
+               POP_TOP
+               RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+       L7:     LOAD_CONST               6 (None)
+               PUSH_NULL
+               LOAD_CONST               3 (b'p\xf7^\x04\xa3\x01\x00\x00\x01\x00\x00\x1a\x86\x00\x00\x00\x01\x00\x00\x00')
+               BUILD_TUPLE              1
+               CALL_FUNCTION_EX         0
+               POP_TOP
+               RETURN_VALUE
+ExceptionTable:
+  L1 to L2 -> L5 [0]
+  L3 to L4 -> L5 [0]
+  L5 to L6 -> L6 [1] lasti

@@ -1,0 +1,67 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow._update_countdown",
+  "kind": "method",
+  "name": "_update_countdown",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 1,
+  "nlocals": 2,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "detect_countdown",
+    "detect_status_label",
+    "setText",
+    "countdown_timer",
+    "stop",
+    "_do_detect_window"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "更新倒计时"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "int",
+      "value": 1
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "str",
+      "value": "⏱️ "
+    },
+    {
+      "type": "str",
+      "value": " 秒后检测，请将鼠标移到目标窗口..."
+    },
+    {
+      "type": "str",
+      "value": "🔍 正在检测..."
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "None"
+    }
+  ]
+}

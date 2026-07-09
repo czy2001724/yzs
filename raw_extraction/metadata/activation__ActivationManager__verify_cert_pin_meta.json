@@ -1,0 +1,153 @@
+{
+  "module": "activation",
+  "func": "ActivationManager._verify_cert_pin",
+  "kind": "method",
+  "name": "_verify_cert_pin",
+  "filename": "<frozen activation>",
+  "argcount": 1,
+  "nlocals": 20,
+  "stacksize": 8,
+  "flags": 536870915,
+  "names": [
+    "_CERT_PINS",
+    "_pin_verified",
+    "server_url",
+    "startswith",
+    "ssl",
+    "socket",
+    "urllib.parse",
+    "urlparse",
+    "cryptography",
+    "x509",
+    "cryptography.hazmat.primitives.serialization",
+    "Encoding",
+    "PublicFormat",
+    "hostname",
+    "port",
+    "create_default_context",
+    "create_connection",
+    "wrap_socket",
+    "getattr",
+    "load_der_x509_certificate",
+    "public_key",
+    "public_bytes",
+    "DER",
+    "SubjectPublicKeyInfo",
+    "base64",
+    "b64encode",
+    "hashlib",
+    "sha256",
+    "digest",
+    "decode",
+    "ActivationManager",
+    "getpeercert",
+    "print",
+    "Exception"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__",
+    "_var_var_11",
+    "_var_var_12",
+    "_var_var_13",
+    "_var_var_14",
+    "_var_var_15",
+    "_var_var_16",
+    "_var_var_17",
+    "_var_var_18",
+    "_var_var_19",
+    "_var_var_20",
+    "_var_var_21",
+    "_var_var_22",
+    "_var_var_23",
+    "_var_var_24",
+    "_var_var_25",
+    "_var_var_26",
+    "_var_var_27",
+    "_var_var_7"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "验证服务器证书SPKI Pin（防止中间人攻击，即使安装了伪造CA证书）"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bool",
+      "value": true
+    },
+    {
+      "type": "str",
+      "value": "https://"
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "int",
+      "value": 443
+    },
+    {
+      "type": "int",
+      "value": 10
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "str",
+      "value": "get_verified_chain"
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "str",
+      "value": "证书固定验证失败! 期望Pin之一: "
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "str",
+      "value": "证书固定检查异常: "
+    }
+  ]
+}

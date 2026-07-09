@@ -1,0 +1,67 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow._start_editable_update_checker",
+  "kind": "method",
+  "name": "_start_editable_update_checker",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 1,
+  "nlocals": 3,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "_editable_idle_count",
+    "hasattr",
+    "PyQt5.QtCore",
+    "QTimer",
+    "_editable_check_timer",
+    "timeout",
+    "connect",
+    "_check_editable_updates",
+    "start"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__",
+    "_var_var_158"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "启动定时检查可编辑配置更新"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "str",
+      "value": "_editable_check_timer"
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "int",
+      "value": 1000
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "None"
+    }
+  ]
+}

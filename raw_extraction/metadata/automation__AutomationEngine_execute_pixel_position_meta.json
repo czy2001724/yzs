@@ -1,0 +1,276 @@
+{
+  "module": "automation",
+  "func": "AutomationEngine.execute_pixel_position",
+  "kind": "method",
+  "name": "execute_pixel_position",
+  "filename": "<frozen automation>",
+  "argcount": 2,
+  "nlocals": 25,
+  "stacksize": 13,
+  "flags": 536870915,
+  "names": [
+    "keyboard",
+    "get",
+    "log",
+    "is_running",
+    "find_image",
+    "time",
+    "sleep",
+    "abs",
+    "press",
+    "release"
+  ],
+  "varnames": [
+    "self",
+    "step",
+    "__assert_armored__",
+    "_var_var_110",
+    "_var_var_35",
+    "_var_var_111",
+    "_var_var_112",
+    "_var_var_94",
+    "_var_var_34",
+    "_var_var_113",
+    "_var_var_114",
+    "_var_var_115",
+    "_var_var_116",
+    "_var_var_117",
+    "_var_var_118",
+    "_var_var_119",
+    "_var_var_44",
+    "_var_var_120",
+    "_var_var_121",
+    "_var_var_45",
+    "_var_var_122",
+    "_var_var_123",
+    "_var_var_37",
+    "_var_var_124",
+    "_var_var_125"
+  ],
+  "cellvars": [
+    "_var_var_109"
+  ],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "像素级定位 - 通过图片识别和WASD按键调整位置\n\nArgs:\n    step: 包含以下参数\n        - image: 参考图片名\n        - target_x, target_y: 目标坐标\n        - tolerance: 误差范围（像素）\n        - ms_per_pixel: 每像素对应的按键时长（毫秒）\n        - confidence: 图片识别置信度\n        - max_attempts: 最大调整次数\n        - key_up, key_down, key_left, key_right: WASD按键\n"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "str",
+      "value": "image"
+    },
+    {
+      "type": "str",
+      "value": ""
+    },
+    {
+      "type": "str",
+      "value": "target_x"
+    },
+    {
+      "type": "str",
+      "value": "target_y"
+    },
+    {
+      "type": "str",
+      "value": "tolerance"
+    },
+    {
+      "type": "int",
+      "value": 5
+    },
+    {
+      "type": "str",
+      "value": "ms_per_pixel"
+    },
+    {
+      "type": "int",
+      "value": 10
+    },
+    {
+      "type": "str",
+      "value": "confidence"
+    },
+    {
+      "type": "float",
+      "value": 0.8
+    },
+    {
+      "type": "str",
+      "value": "max_attempts"
+    },
+    {
+      "type": "int",
+      "value": 20
+    },
+    {
+      "type": "str",
+      "value": "key_up"
+    },
+    {
+      "type": "str",
+      "value": "w"
+    },
+    {
+      "type": "str",
+      "value": "key_down"
+    },
+    {
+      "type": "str",
+      "value": "s"
+    },
+    {
+      "type": "str",
+      "value": "key_left"
+    },
+    {
+      "type": "str",
+      "value": "a"
+    },
+    {
+      "type": "str",
+      "value": "key_right"
+    },
+    {
+      "type": "str",
+      "value": "d"
+    },
+    {
+      "type": "str",
+      "value": "🎯 像素级定位: 图片="
+    },
+    {
+      "type": "str",
+      "value": " 目标("
+    },
+    {
+      "type": "str",
+      "value": ", "
+    },
+    {
+      "type": "str",
+      "value": ") 误差±"
+    },
+    {
+      "type": "str",
+      "value": "px"
+    },
+    {
+      "type": "str",
+      "value": "❌ 未指定参考图片"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "code",
+      "name": "calc_duration"
+    },
+    {
+      "type": "str",
+      "value": "  第"
+    },
+    {
+      "type": "int",
+      "value": 1
+    },
+    {
+      "type": "str",
+      "value": "次: 未找到参考图片"
+    },
+    {
+      "type": "float",
+      "value": 0.3
+    },
+    {
+      "type": "str",
+      "value": "次: 当前("
+    },
+    {
+      "type": "str",
+      "value": ") 偏移("
+    },
+    {
+      "type": "str",
+      "value": ")"
+    },
+    {
+      "type": "str",
+      "value": "✅ 定位成功! 偏移("
+    },
+    {
+      "type": "str",
+      "value": ")在误差范围内"
+    },
+    {
+      "type": "bool",
+      "value": true
+    },
+    {
+      "type": "str",
+      "value": "下"
+    },
+    {
+      "type": "str",
+      "value": "上"
+    },
+    {
+      "type": "str",
+      "value": "    按 "
+    },
+    {
+      "type": "str",
+      "value": "("
+    },
+    {
+      "type": "str",
+      "value": ") "
+    },
+    {
+      "type": "str",
+      "value": "ms"
+    },
+    {
+      "type": "int",
+      "value": 1000
+    },
+    {
+      "type": "float",
+      "value": 0.2
+    },
+    {
+      "type": "str",
+      "value": "右"
+    },
+    {
+      "type": "str",
+      "value": "左"
+    },
+    {
+      "type": "str",
+      "value": "⚠️ 像素级定位: 达到最大调整次数("
+    }
+  ]
+}

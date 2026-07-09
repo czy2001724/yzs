@@ -1,0 +1,126 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow.show_dpi_setting",
+  "kind": "method",
+  "name": "show_dpi_setting",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 1,
+  "nlocals": 9,
+  "stacksize": 15,
+  "flags": 536870915,
+  "names": [
+    "PyQt5.QtWidgets",
+    "QInputDialog",
+    "engine",
+    "fps_user_dpi",
+    "fps_standard_dpi",
+    "getInt",
+    "save_fps_dpi_config",
+    "QMessageBox",
+    "information",
+    "int"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__",
+    "_var_var_99",
+    "_var_var_100",
+    "_var_var_101",
+    "_var_var_102",
+    "_var_var_103",
+    "_var_var_104",
+    "_var_var_105"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "显示DPI设置对话框"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "str",
+      "value": "设置鼠标DPI"
+    },
+    {
+      "type": "str",
+      "value": "请输入你的鼠标DPI值:\n\n当前DPI: "
+    },
+    {
+      "type": "str",
+      "value": "\n标准DPI: "
+    },
+    {
+      "type": "str",
+      "value": "\n当前倍率: "
+    },
+    {
+      "type": "str",
+      "value": ".2f"
+    },
+    {
+      "type": "str",
+      "value": "\n\n说明: 配置文件基于DPI "
+    },
+    {
+      "type": "str",
+      "value": " 编写\n软件会自动根据你的DPI换算FPS视角移动距离"
+    },
+    {
+      "type": "int",
+      "value": 100
+    },
+    {
+      "type": "int",
+      "value": 10000
+    },
+    {
+      "type": "str",
+      "value": "DPI已保存"
+    },
+    {
+      "type": "str",
+      "value": "鼠标DPI已设置为: "
+    },
+    {
+      "type": "str",
+      "value": "\nFPS视角移动倍率: "
+    },
+    {
+      "type": "str",
+      "value": "\n\n例如: 配置中设置移动100像素\n实际移动: 100 × "
+    },
+    {
+      "type": "str",
+      "value": " = "
+    },
+    {
+      "type": "str",
+      "value": "像素"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "None"
+    }
+  ]
+}

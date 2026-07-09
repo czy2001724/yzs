@@ -1,0 +1,106 @@
+{
+  "module": "automation",
+  "func": "AutomationEngine.window_exists_v2",
+  "kind": "method",
+  "name": "window_exists_v2",
+  "filename": "<frozen automation>",
+  "argcount": 3,
+  "nlocals": 9,
+  "stacksize": 9,
+  "flags": 536870915,
+  "names": [
+    "find_window",
+    "win32gui",
+    "GetWindowText",
+    "log",
+    "get",
+    "Exception"
+  ],
+  "varnames": [
+    "self",
+    "find_by",
+    "target",
+    "__assert_armored__",
+    "_var_var_214",
+    "_var_var_200",
+    "_var_var_190",
+    "_var_var_195",
+    "_var_var_3"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "检测窗口是否存在（支持多种查找方式）"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "进程名"
+    },
+    {
+      "type": "str",
+      "value": "窗口标题"
+    },
+    {
+      "type": "str",
+      "value": "PID"
+    },
+    {
+      "type": "tuple",
+      "len": 3
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "str",
+      "value": "✓ 检测到窗口: "
+    },
+    {
+      "type": "str",
+      "value": " ["
+    },
+    {
+      "type": "str",
+      "value": "="
+    },
+    {
+      "type": "str",
+      "value": "]"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bool",
+      "value": true
+    },
+    {
+      "type": "str",
+      "value": "✗ 未检测到窗口 ["
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "str",
+      "value": "检测窗口失败: "
+    }
+  ]
+}

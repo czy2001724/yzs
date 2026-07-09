@@ -1,0 +1,115 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow.open_config_encryptor",
+  "kind": "method",
+  "name": "open_config_encryptor",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 1,
+  "nlocals": 6,
+  "stacksize": 16,
+  "flags": 536870915,
+  "names": [
+    "PyQt5.QtWidgets",
+    "QDialog",
+    "QVBoxLayout",
+    "QHBoxLayout",
+    "QPushButton",
+    "QLabel",
+    "QFileDialog",
+    "QTextEdit",
+    "QGroupBox",
+    "PyQt5.QtCore",
+    "Qt",
+    "PyQt5.QtGui",
+    "QFont",
+    "base64",
+    "hashlib",
+    "cryptography.hazmat.primitives.ciphers",
+    "Cipher",
+    "algorithms",
+    "modes",
+    "cryptography.hazmat.backends",
+    "default_backend",
+    "workflows_folder",
+    "exec_"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__",
+    "_var_var_120",
+    "_var_var_121",
+    "_var_var_122",
+    "_var_var_123"
+  ],
+  "cellvars": [
+    "_var_var_106",
+    "_var_var_107",
+    "_var_var_108",
+    "_var_var_109",
+    "_var_var_110",
+    "_var_var_111",
+    "_var_var_112",
+    "_var_var_113",
+    "_var_var_114",
+    "_var_var_115",
+    "_var_var_116",
+    "_var_var_117",
+    "_var_var_118",
+    "_var_var_119"
+  ],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "打开配置文件加密工具"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "tuple",
+      "len": 8
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "tuple",
+      "len": 3
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "code",
+      "name": "EncryptorDialog"
+    },
+    {
+      "type": "str",
+      "value": "EncryptorDialog"
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

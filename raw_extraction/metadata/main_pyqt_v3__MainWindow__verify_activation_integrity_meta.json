@@ -1,0 +1,188 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow._verify_activation_integrity",
+  "kind": "method",
+  "name": "_verify_activation_integrity",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 1,
+  "nlocals": 28,
+  "stacksize": 7,
+  "flags": 536870915,
+  "names": [
+    "json",
+    "hmac",
+    "hashlib",
+    "os",
+    "path",
+    "exists",
+    "activation",
+    "activation_file",
+    "open",
+    "load",
+    "get",
+    "bytes",
+    "items",
+    "dumps",
+    "encode",
+    "new",
+    "sha256",
+    "hexdigest",
+    "compare_digest",
+    "machine_id",
+    "cryptography.hazmat.primitives",
+    "hashes",
+    "serialization",
+    "cryptography.hazmat.primitives.asymmetric",
+    "padding",
+    "cryptography.hazmat.backends",
+    "default_backend",
+    "base64",
+    "load_pem_public_key",
+    "verify",
+    "b64decode",
+    "PKCS1v15",
+    "SHA256",
+    "Exception",
+    "datetime",
+    "fromisoformat",
+    "now"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__",
+    "_var_var_218",
+    "_var_var_219",
+    "_var_var_220",
+    "_var_var_148",
+    "_var_var_137",
+    "_var_var_221",
+    "_var_var_222",
+    "_var_var_223",
+    "_var_var_197",
+    "_var_var_198",
+    "_var_var_224",
+    "_var_var_225",
+    "_var_var_226",
+    "_var_var_227",
+    "_var_var_228",
+    "_var_var_229",
+    "_var_var_230",
+    "_var_var_231",
+    "_var_var_232",
+    "_var_var_233",
+    "_var_var_234",
+    "_var_var_235",
+    "_var_var_236",
+    "_var_var_237",
+    "_var_var_238",
+    "_var_var_239"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "验证激活完整性（内联HMAC验证，防止函数Hook和属性篡改）"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "str",
+      "value": "r"
+    },
+    {
+      "type": "str",
+      "value": "utf-8"
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "str",
+      "value": "hmac"
+    },
+    {
+      "type": "tuple",
+      "len": 31
+    },
+    {
+      "type": "code",
+      "name": "<genexpr>"
+    },
+    {
+      "type": "bool",
+      "value": true
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "str",
+      "value": "machine_id"
+    },
+    {
+      "type": "str",
+      "value": "signed_data"
+    },
+    {
+      "type": "str",
+      "value": "expiry"
+    },
+    {
+      "type": "str",
+      "value": "2000-01-01"
+    },
+    {
+      "type": "str",
+      "value": "signature"
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "bytes",
+      "len": 450
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    }
+  ]
+}

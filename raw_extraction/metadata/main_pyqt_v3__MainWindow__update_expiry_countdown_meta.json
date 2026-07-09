@@ -1,0 +1,97 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow._update_expiry_countdown",
+  "kind": "method",
+  "name": "_update_expiry_countdown",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 1,
+  "nlocals": 4,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "hasattr",
+    "activation",
+    "is_activated",
+    "_expiry_countdown_timer",
+    "stop",
+    "get_remaining_seconds",
+    "activation_label",
+    "setText",
+    "setStyleSheet",
+    "add_log",
+    "engine",
+    "is_running",
+    "stop_execution",
+    "start_btn",
+    "setEnabled",
+    "get_remaining_time",
+    "_apply_countdown_style",
+    "Exception"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__",
+    "_var_var_216",
+    "_var_var_217"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "每秒更新到期倒计时显示"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "activation"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "str",
+      "value": "❌ 已过期"
+    },
+    {
+      "type": "str",
+      "value": "\n                    #activationStatus {\n                        background: rgba(239, 68, 68, 0.3);\n                        border-radius: 8px;\n                        padding: 10px 12px;\n                        margin: 8px 10px;\n                        font-size: 11px;\n                        color: #fca5a5;\n                    }\n                "
+    },
+    {
+      "type": "str",
+      "value": "⏰ 激活码已到期，自动停止运行"
+    },
+    {
+      "type": "str",
+      "value": "engine"
+    },
+    {
+      "type": "str",
+      "value": "⏹️ 自动化已停止"
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "str",
+      "value": "✅ 已激活\n⏳ "
+    }
+  ]
+}

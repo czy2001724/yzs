@@ -1,0 +1,102 @@
+{
+  "module": "security",
+  "func": "verify_time",
+  "kind": "func",
+  "name": "verify_time",
+  "filename": "<frozen security>",
+  "argcount": 0,
+  "nlocals": 8,
+  "stacksize": 8,
+  "flags": 536870915,
+  "names": [
+    "time",
+    "_last_valid_time",
+    "_time_file",
+    "os",
+    "path",
+    "exists",
+    "open",
+    "int",
+    "read",
+    "strip",
+    "_network_time_offset",
+    "_get_network_time",
+    "abs",
+    "write",
+    "str"
+  ],
+  "varnames": [
+    "__assert_armored__",
+    "_var_var_57",
+    "_var_var_80",
+    "_var_var_21",
+    "_var_var_81",
+    "_var_var_82",
+    "_var_var_79",
+    "_var_var_83"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "验证时间是否被篡改（增强版）"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "int",
+      "value": 600
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "str",
+      "value": "r"
+    },
+    {
+      "type": "int",
+      "value": 7200
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "int",
+      "value": 300
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "str",
+      "value": "w"
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    }
+  ]
+}

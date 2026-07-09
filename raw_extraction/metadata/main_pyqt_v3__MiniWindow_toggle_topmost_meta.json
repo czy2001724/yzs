@@ -1,0 +1,57 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MiniWindow.toggle_topmost",
+  "kind": "method",
+  "name": "toggle_topmost",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 1,
+  "nlocals": 2,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "is_topmost",
+    "setWindowFlags",
+    "windowFlags",
+    "Qt",
+    "WindowStaysOnTopHint",
+    "topmost_btn",
+    "setStyleSheet",
+    "show"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "切换置顶"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "\n\n                QPushButton {\n\n                    background: #6366f1; color: white; border: none;\n\n                    border-radius: 6px; font-size: 12px;\n\n                }\n\n                QPushButton:hover { background: #4f46e5; }\n\n            "
+    },
+    {
+      "type": "str",
+      "value": "\n\n                QPushButton {\n\n                    background: #4b5563; color: white; border: none;\n\n                    border-radius: 6px; font-size: 12px;\n\n                }\n\n                QPushButton:hover { background: #374151; }\n\n            "
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "None"
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "module": "automation",
+  "func": "AutomationEngine._handle_image_result",
+  "kind": "method",
+  "name": "_handle_image_result",
+  "filename": "<frozen automation>",
+  "argcount": 4,
+  "nlocals": 8,
+  "stacksize": 6,
+  "flags": 536870915,
+  "names": [
+    "get",
+    "log",
+    "is_running",
+    "jump_to_group"
+  ],
+  "varnames": [
+    "self",
+    "step",
+    "success",
+    "action_name",
+    "__assert_armored__",
+    "_var_var_38",
+    "_var_var_106",
+    "_var_var_227"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "处理图片识别类步骤的成功/失败结果\n\n\n\nArgs:\n\n    step: 步骤配置\n\n    success: 是否成功\n\n    action_name: 操作名称（用于日志）\n\n    \n\nReturns:\n\n    bool: 是否成功（可能被修改）\n\n"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "on_success"
+    },
+    {
+      "type": "str",
+      "value": "continue"
+    },
+    {
+      "type": "str",
+      "value": "stop"
+    },
+    {
+      "type": "str",
+      "value": "成功，停止当前组合"
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bool",
+      "value": true
+    },
+    {
+      "type": "str",
+      "value": "jump"
+    },
+    {
+      "type": "str",
+      "value": "success_jump_group"
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "str",
+      "value": "成功，跳转到组合 "
+    },
+    {
+      "type": "int",
+      "value": 1
+    },
+    {
+      "type": "str",
+      "value": "on_fail"
+    },
+    {
+      "type": "str",
+      "value": "失败，停止当前组合"
+    },
+    {
+      "type": "str",
+      "value": "fail_jump_group"
+    },
+    {
+      "type": "str",
+      "value": "失败，跳转到组合 "
+    },
+    {
+      "type": "str",
+      "value": "retry"
+    }
+  ]
+}

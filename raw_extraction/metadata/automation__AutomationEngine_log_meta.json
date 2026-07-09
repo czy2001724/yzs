@@ -1,0 +1,61 @@
+{
+  "module": "automation",
+  "func": "AutomationEngine.log",
+  "kind": "method",
+  "name": "log",
+  "filename": "<frozen automation>",
+  "argcount": 2,
+  "nlocals": 5,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "datetime",
+    "now",
+    "strftime",
+    "print",
+    "log_callback"
+  ],
+  "varnames": [
+    "self",
+    "message",
+    "__assert_armored__",
+    "_var_var_26",
+    "_var_var_27"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "记录日志"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "%H:%M:%S"
+    },
+    {
+      "type": "str",
+      "value": "["
+    },
+    {
+      "type": "str",
+      "value": "] "
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "None"
+    }
+  ]
+}

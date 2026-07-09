@@ -1,0 +1,215 @@
+{
+  "module": "automation",
+  "func": "AutomationEngine.start_continuous_task",
+  "kind": "method",
+  "name": "start_continuous_task",
+  "filename": "<frozen automation>",
+  "argcount": 3,
+  "nlocals": 7,
+  "stacksize": 15,
+  "flags": 536870915,
+  "names": [
+    "get",
+    "max",
+    "continuous_lock",
+    "continuous_tasks",
+    "append",
+    "threading",
+    "Thread",
+    "start",
+    "log"
+  ],
+  "varnames": [
+    "self",
+    "step",
+    "group_id",
+    "__assert_armored__",
+    "_var_var_41",
+    "_var_var_42",
+    "_var_var_43"
+  ],
+  "cellvars": [
+    "self",
+    "group_id",
+    "_var_var_30",
+    "_var_var_31",
+    "_var_var_32",
+    "_var_var_33",
+    "_var_var_34",
+    "_var_var_35",
+    "_var_var_36",
+    "_var_var_37",
+    "_var_var_6",
+    "_var_var_7",
+    "_var_var_38",
+    "_var_var_39",
+    "_var_var_40"
+  ],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "启动常驻点击/按键任务（仅在当前组合执行时运行）"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "image"
+    },
+    {
+      "type": "str",
+      "value": ""
+    },
+    {
+      "type": "str",
+      "value": "confidence"
+    },
+    {
+      "type": "float",
+      "value": 0.8
+    },
+    {
+      "type": "str",
+      "value": "offset_x"
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "str",
+      "value": "offset_y"
+    },
+    {
+      "type": "float",
+      "value": 0.2
+    },
+    {
+      "type": "str",
+      "value": "interval"
+    },
+    {
+      "type": "float",
+      "value": 0.5
+    },
+    {
+      "type": "str",
+      "value": "click_interval"
+    },
+    {
+      "type": "int",
+      "value": 1
+    },
+    {
+      "type": "str",
+      "value": "click_delay"
+    },
+    {
+      "type": "float",
+      "value": 1.0
+    },
+    {
+      "type": "str",
+      "value": "button"
+    },
+    {
+      "type": "str",
+      "value": "left"
+    },
+    {
+      "type": "str",
+      "value": "action_type"
+    },
+    {
+      "type": "str",
+      "value": "click"
+    },
+    {
+      "type": "str",
+      "value": "key"
+    },
+    {
+      "type": "str",
+      "value": "on_success"
+    },
+    {
+      "type": "str",
+      "value": "continue"
+    },
+    {
+      "type": "str",
+      "value": "success_jump_group"
+    },
+    {
+      "type": "int",
+      "value": -1
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "tuple",
+      "len": 3
+    },
+    {
+      "type": "code",
+      "name": "continuous_worker"
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "bool",
+      "value": true
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "str",
+      "value": "按键("
+    },
+    {
+      "type": "str",
+      "value": ")"
+    },
+    {
+      "type": "str",
+      "value": "点击("
+    },
+    {
+      "type": "str",
+      "value": "🔄 常驻任务已启动: "
+    },
+    {
+      "type": "str",
+      "value": " - "
+    },
+    {
+      "type": "str",
+      "value": " (组合"
+    },
+    {
+      "type": "str",
+      "value": ", 间隔"
+    },
+    {
+      "type": "str",
+      "value": "秒)"
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

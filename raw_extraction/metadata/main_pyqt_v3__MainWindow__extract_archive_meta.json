@@ -1,0 +1,120 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow._extract_archive",
+  "kind": "method",
+  "name": "_extract_archive",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 3,
+  "nlocals": 15,
+  "stacksize": 8,
+  "flags": 536870915,
+  "names": [
+    "tempfile",
+    "os",
+    "path",
+    "basename",
+    "lower",
+    "endswith",
+    "zipfile",
+    "ZipFile",
+    "namelist",
+    "realpath",
+    "join",
+    "startswith",
+    "sep",
+    "add_log",
+    "extractall",
+    "rarfile",
+    "RarFile",
+    "ImportError",
+    "py7zr",
+    "SevenZipFile",
+    "getnames",
+    "Exception"
+  ],
+  "varnames": [
+    "self",
+    "archive_path",
+    "extract_to",
+    "__assert_armored__",
+    "_var_var_312",
+    "_var_var_23",
+    "_var_var_318",
+    "_var_var_319",
+    "_var_var_320",
+    "_var_var_321",
+    "_var_var_322",
+    "_var_var_323",
+    "_var_var_324",
+    "_var_var_325",
+    "_var_var_28"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "解压压缩包到指定目录"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "str",
+      "value": ".zip"
+    },
+    {
+      "type": "str",
+      "value": "r"
+    },
+    {
+      "type": "str",
+      "value": "⚠️ 检测到不安全的压缩包路径: "
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "bool",
+      "value": true
+    },
+    {
+      "type": "str",
+      "value": ".rar"
+    },
+    {
+      "type": "str",
+      "value": "⚠️ 需要安装 rarfile 库来解压 RAR 文件: pip install rarfile"
+    },
+    {
+      "type": "str",
+      "value": ".7z"
+    },
+    {
+      "type": "str",
+      "value": "⚠️ 需要安装 py7zr 库来解压 7z 文件: pip install py7zr"
+    },
+    {
+      "type": "str",
+      "value": "⚠️ 解压失败: "
+    }
+  ]
+}

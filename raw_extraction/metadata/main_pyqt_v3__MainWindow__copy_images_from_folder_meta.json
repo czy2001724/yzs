@@ -1,0 +1,63 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow._copy_images_from_folder",
+  "kind": "method",
+  "name": "_copy_images_from_folder",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 2,
+  "nlocals": 7,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "shutil",
+    "os",
+    "listdir",
+    "_is_image_file",
+    "path",
+    "join",
+    "isfile",
+    "copy2",
+    "images_folder"
+  ],
+  "varnames": [
+    "self",
+    "folder",
+    "__assert_armored__",
+    "_var_var_302",
+    "_var_var_155",
+    "_var_var_310",
+    "_var_var_330"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "从文件夹复制所有图片"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "int",
+      "value": 1
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

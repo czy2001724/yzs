@@ -1,0 +1,128 @@
+{
+  "module": "web_server",
+  "func": "WebServer.set_editable_config",
+  "kind": "method",
+  "name": "set_editable_config",
+  "filename": "<frozen web_server>",
+  "argcount": 3,
+  "nlocals": 16,
+  "stacksize": 12,
+  "flags": 536870915,
+  "names": [
+    "get",
+    "len",
+    "copy",
+    "append",
+    "_editable_config_data"
+  ],
+  "varnames": [
+    "self",
+    "workflow",
+    "editable_config",
+    "__assert_armored__",
+    "_var_var_76",
+    "_var_var_53",
+    "_var_var_77",
+    "_var_var_55",
+    "_var_var_56",
+    "_var_var_78",
+    "_var_var_79",
+    "_var_var_80",
+    "_var_var_81",
+    "_var_var_82",
+    "_var_var_58",
+    "_var_var_83"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "设置可编辑配置数据"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "groups"
+    },
+    {
+      "type": "str",
+      "value": "items"
+    },
+    {
+      "type": "str",
+      "value": "group_index"
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "str",
+      "value": "step_index"
+    },
+    {
+      "type": "str",
+      "value": "mode"
+    },
+    {
+      "type": "str",
+      "value": "single"
+    },
+    {
+      "type": "str",
+      "value": "label"
+    },
+    {
+      "type": "str",
+      "value": ""
+    },
+    {
+      "type": "str",
+      "value": "batch_id"
+    },
+    {
+      "type": "str",
+      "value": "batch_main"
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "str",
+      "value": "batch_targets"
+    },
+    {
+      "type": "str",
+      "value": "steps"
+    },
+    {
+      "type": "tuple",
+      "len": 8
+    },
+    {
+      "type": "str",
+      "value": "name"
+    },
+    {
+      "type": "tuple",
+      "len": 4
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "None"
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "module": "web_server",
+  "func": "WebServer.set_current_workflow",
+  "kind": "method",
+  "name": "set_current_workflow",
+  "filename": "<frozen web_server>",
+  "argcount": 3,
+  "nlocals": 4,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "_current_workflow",
+    "_current_workflow_filename"
+  ],
+  "varnames": [
+    "self",
+    "workflow",
+    "filename",
+    "__assert_armored__"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "设置当前加载的workflow（用于加密配置的编辑）"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "None"
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow.mouseMoveEvent",
+  "kind": "method",
+  "name": "mouseMoveEvent",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 2,
+  "nlocals": 3,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "buttons",
+    "Qt",
+    "LeftButton",
+    "_drag_pos",
+    "move",
+    "globalPos"
+  ],
+  "varnames": [
+    "self",
+    "event",
+    "__assert_armored__"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "None"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "module": "activation",
+  "func": "ActivationManager.get_remaining_time",
+  "kind": "method",
+  "name": "get_remaining_time",
+  "filename": "<frozen activation>",
+  "argcount": 1,
+  "nlocals": 8,
+  "stacksize": 8,
+  "flags": 536870915,
+  "names": [
+    "is_activated",
+    "activation_expiry",
+    "datetime",
+    "now",
+    "int",
+    "total_seconds",
+    "days",
+    "seconds"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__",
+    "_var_var_61",
+    "_var_var_62",
+    "_var_var_63",
+    "_var_var_64",
+    "_var_var_65",
+    "_var_var_66"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "获取剩余时间（含秒数）"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "int",
+      "value": 3600
+    },
+    {
+      "type": "int",
+      "value": 60
+    },
+    {
+      "type": "str",
+      "value": "天 "
+    },
+    {
+      "type": "str",
+      "value": "时"
+    },
+    {
+      "type": "str",
+      "value": "分"
+    },
+    {
+      "type": "str",
+      "value": "秒"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "str",
+      "value": "未激活"
+    }
+  ]
+}

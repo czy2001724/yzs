@@ -1,0 +1,208 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow.load_workflow_file",
+  "kind": "method",
+  "name": "load_workflow_file",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 2,
+  "nlocals": 17,
+  "stacksize": 8,
+  "flags": 536870915,
+  "names": [
+    "endswith",
+    "_decrypt_config_file",
+    "Exception",
+    "show_message",
+    "engine",
+    "load_workflow",
+    "current_workflow",
+    "current_workflow_path",
+    "get",
+    "os",
+    "path",
+    "basename",
+    "config_name_label",
+    "setText",
+    "len",
+    "sum",
+    "config_stats_label",
+    "config_desc_text",
+    "setPlainText",
+    "detail_btn",
+    "setEnabled",
+    "bool",
+    "btn_editor",
+    "custom_config_btn",
+    "setVisible",
+    "add_log",
+    "save_settings",
+    "range",
+    "config_combo",
+    "count",
+    "itemData",
+    "setCurrentIndex"
+  ],
+  "varnames": [
+    "self",
+    "filepath",
+    "__assert_armored__",
+    "_var_var_186",
+    "_var_var_176",
+    "_var_var_28",
+    "_var_var_177",
+    "_var_var_187",
+    "_var_var_188",
+    "_var_var_189",
+    "_var_var_190",
+    "_var_var_124",
+    "_var_var_175",
+    "_var_var_191",
+    "_var_var_192",
+    "_var_var_193",
+    "_var_var_170"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "加载配置文件（支持加密 .enc 文件）"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": ".enc"
+    },
+    {
+      "type": "bool",
+      "value": true
+    },
+    {
+      "type": "str",
+      "value": "_encrypted"
+    },
+    {
+      "type": "str",
+      "value": "_enc_editable"
+    },
+    {
+      "type": "str",
+      "value": "错误"
+    },
+    {
+      "type": "str",
+      "value": "解密配置文件失败: "
+    },
+    {
+      "type": "str",
+      "value": "error"
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "str",
+      "value": "name"
+    },
+    {
+      "type": "str",
+      "value": "groups"
+    },
+    {
+      "type": "code",
+      "name": "<genexpr>"
+    },
+    {
+      "type": "str",
+      "value": "default_group"
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "str",
+      "value": "组合 "
+    },
+    {
+      "type": "int",
+      "value": 1
+    },
+    {
+      "type": "str",
+      "value": "组合 1"
+    },
+    {
+      "type": "str",
+      "value": "📦 "
+    },
+    {
+      "type": "str",
+      "value": " 个组合 · "
+    },
+    {
+      "type": "str",
+      "value": " 个步骤 · ⭐ 启动: "
+    },
+    {
+      "type": "str",
+      "value": "steps"
+    },
+    {
+      "type": "str",
+      "value": " 个步骤"
+    },
+    {
+      "type": "str",
+      "value": "description"
+    },
+    {
+      "type": "str",
+      "value": ""
+    },
+    {
+      "type": "str",
+      "value": "detail_url"
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "str",
+      "value": "editable_config"
+    },
+    {
+      "type": "str",
+      "value": "enabled"
+    },
+    {
+      "type": "str",
+      "value": "items"
+    },
+    {
+      "type": "str",
+      "value": "已加载配置: "
+    },
+    {
+      "type": "str",
+      "value": "last_workflow"
+    },
+    {
+      "type": "str",
+      "value": "无法加载配置文件"
+    }
+  ]
+}

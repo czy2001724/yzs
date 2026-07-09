@@ -1,0 +1,81 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "write_crash_log",
+  "kind": "func",
+  "name": "write_crash_log",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 1,
+  "nlocals": 4,
+  "stacksize": 7,
+  "flags": 536870915,
+  "names": [
+    "get_crash_log_path",
+    "open",
+    "write",
+    "datetime",
+    "now",
+    "strftime"
+  ],
+  "varnames": [
+    "error_msg",
+    "__assert_armored__",
+    "_var_var_347",
+    "_var_var_148"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "写入崩溃日志"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "a"
+    },
+    {
+      "type": "str",
+      "value": "utf-8"
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "str",
+      "value": "\n"
+    },
+    {
+      "type": "str",
+      "value": "=================================================="
+    },
+    {
+      "type": "str",
+      "value": "时间: "
+    },
+    {
+      "type": "str",
+      "value": "%Y-%m-%d %H:%M:%S"
+    },
+    {
+      "type": "str",
+      "value": "错误: "
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

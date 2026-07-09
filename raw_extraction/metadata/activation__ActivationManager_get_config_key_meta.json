@@ -1,0 +1,116 @@
+{
+  "module": "activation",
+  "func": "ActivationManager.get_config_key",
+  "kind": "method",
+  "name": "get_config_key",
+  "filename": "<frozen activation>",
+  "argcount": 1,
+  "nlocals": 6,
+  "stacksize": 7,
+  "flags": 536870915,
+  "names": [
+    "_pinned_post",
+    "server_url",
+    "machine_id",
+    "API_SECRET_KEY",
+    "CLIENT_VERSION",
+    "status_code",
+    "json",
+    "get",
+    "verify_signature",
+    "Exception",
+    "str"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__",
+    "_var_var_43",
+    "_var_var_44",
+    "_var_var_45",
+    "_var_var_7"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "获取配置解密密钥（方案A）"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "/v2/xK9mT2pQ8wR5/config_key"
+    },
+    {
+      "type": "tuple",
+      "len": 3
+    },
+    {
+      "type": "int",
+      "value": 10
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "int",
+      "value": 200
+    },
+    {
+      "type": "str",
+      "value": "success"
+    },
+    {
+      "type": "str",
+      "value": "signature"
+    },
+    {
+      "type": "bool",
+      "value": true
+    },
+    {
+      "type": "str",
+      "value": "config_key"
+    },
+    {
+      "type": "str",
+      "value": "valid_until"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "tuple",
+      "len": 3
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "str",
+      "value": "message"
+    },
+    {
+      "type": "str",
+      "value": "获取失败"
+    },
+    {
+      "type": "tuple",
+      "len": 3
+    }
+  ]
+}

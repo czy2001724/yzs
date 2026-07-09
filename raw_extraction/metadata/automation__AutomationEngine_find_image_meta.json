@@ -1,0 +1,137 @@
+{
+  "module": "automation",
+  "func": "AutomationEngine.find_image",
+  "kind": "method",
+  "name": "find_image",
+  "filename": "<frozen automation>",
+  "argcount": 4,
+  "nlocals": 22,
+  "stacksize": 11,
+  "flags": 536870915,
+  "names": [
+    "get_image_path",
+    "os",
+    "path",
+    "exists",
+    "log",
+    "pyautogui",
+    "screenshot",
+    "np",
+    "array",
+    "cv2",
+    "cvtColor",
+    "COLOR_RGB2GRAY",
+    "_template_cache",
+    "load_image_cv2",
+    "IMREAD_GRAYSCALE",
+    "matchTemplate",
+    "TM_CCOEFF_NORMED",
+    "minMaxLoc",
+    "shape",
+    "Exception"
+  ],
+  "varnames": [
+    "self",
+    "image_name",
+    "confidence",
+    "region",
+    "__assert_armored__",
+    "_var_var_46",
+    "_var_var_48",
+    "_var_var_49",
+    "_var_var_50",
+    "_var_var_51",
+    "_var_var_24",
+    "_var_var_25",
+    "_var_var_57",
+    "_var_var_56",
+    "_var_var_44",
+    "_var_var_52",
+    "_var_var_53",
+    "_var_var_54",
+    "_var_var_55",
+    "_var_var_58",
+    "_var_var_59",
+    "_var_var_3"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "查找图片位置"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "图片不存在: "
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "str",
+      "value": "无法加载图片: "
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "int",
+      "value": 2
+    },
+    {
+      "type": "int",
+      "value": 1
+    },
+    {
+      "type": "str",
+      "value": "找到图片 "
+    },
+    {
+      "type": "str",
+      "value": ": ("
+    },
+    {
+      "type": "str",
+      "value": ", "
+    },
+    {
+      "type": "str",
+      "value": ") 置信度: "
+    },
+    {
+      "type": "str",
+      "value": ".2f"
+    },
+    {
+      "type": "str",
+      "value": "未找到图片 "
+    },
+    {
+      "type": "str",
+      "value": " (最高置信度: "
+    },
+    {
+      "type": "str",
+      "value": ")"
+    },
+    {
+      "type": "str",
+      "value": "图像识别失败: "
+    }
+  ]
+}

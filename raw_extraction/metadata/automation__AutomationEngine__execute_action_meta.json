@@ -1,0 +1,175 @@
+{
+  "module": "automation",
+  "func": "AutomationEngine._execute_action",
+  "kind": "method",
+  "name": "_execute_action",
+  "filename": "<frozen automation>",
+  "argcount": 4,
+  "nlocals": 17,
+  "stacksize": 9,
+  "flags": 536870915,
+  "names": [
+    "get",
+    "_smooth_move_to",
+    "_humanize_delay",
+    "pyautogui",
+    "click",
+    "log",
+    "keyboard",
+    "press_and_release",
+    "time",
+    "sleep",
+    "Exception"
+  ],
+  "varnames": [
+    "self",
+    "action",
+    "ref_x",
+    "ref_y",
+    "__assert_armored__",
+    "_var_var_30",
+    "_var_var_138",
+    "_var_var_24",
+    "_var_var_25",
+    "_var_var_6",
+    "_var_var_7",
+    "_var_var_31",
+    "_var_var_111",
+    "_var_var_112",
+    "_var_var_139",
+    "_var_var_37",
+    "_var_var_3"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "执行单个动作（用于变换识别的动作序列）"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "type"
+    },
+    {
+      "type": "str",
+      "value": ""
+    },
+    {
+      "type": "str",
+      "value": "delay_after"
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "str",
+      "value": "click"
+    },
+    {
+      "type": "str",
+      "value": "x"
+    },
+    {
+      "type": "str",
+      "value": "y"
+    },
+    {
+      "type": "str",
+      "value": "offset_x"
+    },
+    {
+      "type": "str",
+      "value": "offset_y"
+    },
+    {
+      "type": "str",
+      "value": "button"
+    },
+    {
+      "type": "str",
+      "value": "left"
+    },
+    {
+      "type": "float",
+      "value": 0.25
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "str",
+      "value": "  ↪ 点击: ("
+    },
+    {
+      "type": "str",
+      "value": ", "
+    },
+    {
+      "type": "str",
+      "value": ") "
+    },
+    {
+      "type": "str",
+      "value": "键"
+    },
+    {
+      "type": "str",
+      "value": "move"
+    },
+    {
+      "type": "str",
+      "value": "target"
+    },
+    {
+      "type": "str",
+      "value": "match_center"
+    },
+    {
+      "type": "str",
+      "value": "  ↪ 移动: ("
+    },
+    {
+      "type": "str",
+      "value": ")"
+    },
+    {
+      "type": "str",
+      "value": "key"
+    },
+    {
+      "type": "str",
+      "value": "  ↪ 按键: '"
+    },
+    {
+      "type": "str",
+      "value": "'"
+    },
+    {
+      "type": "str",
+      "value": "  ⚠️ 动作执行失败: "
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

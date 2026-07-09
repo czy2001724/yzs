@@ -1,0 +1,51 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow.take_screenshot",
+  "kind": "method",
+  "name": "take_screenshot",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 1,
+  "nlocals": 2,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "check_activation_required",
+    "_verify_activation_integrity",
+    "hide",
+    "QTimer",
+    "singleShot",
+    "_start_screenshot"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "截图 - 使用PyQt5实现"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "int",
+      "value": 200
+    }
+  ]
+}

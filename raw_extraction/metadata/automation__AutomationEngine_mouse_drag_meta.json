@@ -1,0 +1,94 @@
+{
+  "module": "automation",
+  "func": "AutomationEngine.mouse_drag",
+  "kind": "method",
+  "name": "mouse_drag",
+  "filename": "<frozen automation>",
+  "argcount": 6,
+  "nlocals": 8,
+  "stacksize": 13,
+  "flags": 536870915,
+  "names": [
+    "pyautogui",
+    "moveTo",
+    "time",
+    "sleep",
+    "drag",
+    "log",
+    "Exception"
+  ],
+  "varnames": [
+    "self",
+    "start_x",
+    "start_y",
+    "end_x",
+    "end_y",
+    "duration",
+    "__assert_armored__",
+    "_var_var_3"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "鼠标拖拽"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "float",
+      "value": 0.05
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "str",
+      "value": "鼠标拖拽: ("
+    },
+    {
+      "type": "str",
+      "value": ", "
+    },
+    {
+      "type": "str",
+      "value": ") -> ("
+    },
+    {
+      "type": "str",
+      "value": ") "
+    },
+    {
+      "type": "str",
+      "value": "秒"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bool",
+      "value": true
+    },
+    {
+      "type": "str",
+      "value": "鼠标拖拽失败: "
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "bool",
+      "value": false
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "module": "automation",
+  "func": "AutomationEngine.get_window_by_process",
+  "kind": "method",
+  "name": "get_window_by_process",
+  "filename": "<frozen automation>",
+  "argcount": 2,
+  "nlocals": 3,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "find_window"
+  ],
+  "varnames": [
+    "self",
+    "process_name",
+    "__assert_armored__"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "根据进程名获取窗口句柄（兼容旧代码）"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "process_name"
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

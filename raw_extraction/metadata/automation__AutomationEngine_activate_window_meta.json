@@ -1,0 +1,79 @@
+{
+  "module": "automation",
+  "func": "AutomationEngine.activate_window",
+  "kind": "method",
+  "name": "activate_window",
+  "filename": "<frozen automation>",
+  "argcount": 2,
+  "nlocals": 7,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "win32gui",
+    "win32con",
+    "get_window_by_process",
+    "log",
+    "IsIconic",
+    "ShowWindow",
+    "SW_RESTORE",
+    "SetForegroundWindow",
+    "Exception"
+  ],
+  "varnames": [
+    "self",
+    "process_name",
+    "__assert_armored__",
+    "_var_var_190",
+    "_var_var_198",
+    "_var_var_200",
+    "_var_var_3"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "激活/切换到指定窗口"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "str",
+      "value": "未找到程序窗口: "
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "str",
+      "value": "切换到窗口: "
+    },
+    {
+      "type": "bool",
+      "value": true
+    },
+    {
+      "type": "str",
+      "value": "切换窗口失败: "
+    }
+  ]
+}

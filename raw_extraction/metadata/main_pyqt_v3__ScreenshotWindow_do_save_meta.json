@@ -1,0 +1,115 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "ScreenshotWindow.do_save",
+  "kind": "method",
+  "name": "do_save",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 2,
+  "nlocals": 13,
+  "stacksize": 10,
+  "flags": 536870915,
+  "names": [
+    "selected_rect",
+    "cancel",
+    "screenshot",
+    "copy",
+    "datetime",
+    "now",
+    "strftime",
+    "os",
+    "path",
+    "join",
+    "save_folder",
+    "makedirs",
+    "save",
+    "toImage",
+    "x",
+    "y",
+    "width",
+    "height",
+    "QApplication",
+    "clipboard",
+    "setText",
+    "Exception",
+    "print",
+    "close",
+    "screenshot_taken",
+    "emit",
+    "screenshot_cancelled"
+  ],
+  "varnames": [
+    "self",
+    "copy_to_clipboard",
+    "__assert_armored__",
+    "_var_var_20",
+    "_var_var_21",
+    "_var_var_22",
+    "_var_var_23",
+    "_var_var_24",
+    "_var_var_25",
+    "_var_var_16",
+    "_var_var_26",
+    "_var_var_27",
+    "_var_var_28"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "保存截图\n\n\n\nArgs:\n\n    copy_to_clipboard: 是否同时复制图片名和坐标到剪贴板\n\n"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "str",
+      "value": "%Y%m%d_%H%M%S"
+    },
+    {
+      "type": "str",
+      "value": "screenshot_"
+    },
+    {
+      "type": "str",
+      "value": ".png"
+    },
+    {
+      "type": "bool",
+      "value": true
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "str",
+      "value": "PNG"
+    },
+    {
+      "type": "str",
+      "value": "|"
+    },
+    {
+      "type": "str",
+      "value": ","
+    },
+    {
+      "type": "str",
+      "value": "截图保存失败: "
+    }
+  ]
+}

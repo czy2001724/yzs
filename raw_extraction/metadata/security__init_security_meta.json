@@ -1,0 +1,70 @@
+{
+  "module": "security",
+  "func": "init_security",
+  "kind": "func",
+  "name": "init_security",
+  "filename": "<frozen security>",
+  "argcount": 2,
+  "nlocals": 3,
+  "stacksize": 6,
+  "flags": 536870915,
+  "names": [
+    "init_integrity_check",
+    "init_time_check",
+    "getattr",
+    "sys",
+    "security_check_with_warning",
+    "exit",
+    "start_heartbeat"
+  ],
+  "varnames": [
+    "server_url",
+    "machine_id",
+    "__assert_armored__"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "\n初始化安全模块\n在程序启动时调用\n\nArgs:\n    server_url: 服务器地址（用于心跳验证）\n    machine_id: 机器ID（用于心跳验证）\n"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "frozen"
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "int",
+      "value": 1
+    },
+    {
+      "type": "int",
+      "value": 120
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bool",
+      "value": true
+    }
+  ]
+}

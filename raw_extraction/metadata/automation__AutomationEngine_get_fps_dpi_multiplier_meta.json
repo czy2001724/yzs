@@ -1,0 +1,40 @@
+{
+  "module": "automation",
+  "func": "AutomationEngine.get_fps_dpi_multiplier",
+  "kind": "method",
+  "name": "get_fps_dpi_multiplier",
+  "filename": "<frozen automation>",
+  "argcount": 1,
+  "nlocals": 2,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "fps_standard_dpi",
+    "fps_user_dpi"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "获取FPS DPI倍率（标准DPI / 用户DPI）"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

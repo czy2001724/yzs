@@ -1,0 +1,171 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow.save_screenshot_settings",
+  "kind": "method",
+  "name": "save_screenshot_settings",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 2,
+  "nlocals": 8,
+  "stacksize": 12,
+  "flags": 536870915,
+  "names": [
+    "screenshot_local_mode",
+    "isChecked",
+    "get",
+    "screenshot_position",
+    "currentIndex",
+    "screenshot_resolution",
+    "screenshot_max_count",
+    "value",
+    "screenshot_prefix",
+    "text",
+    "screenshot_quality",
+    "screenshot_push_enabled",
+    "push_api_key",
+    "strip",
+    "__import__",
+    "b64encode",
+    "encode",
+    "decode",
+    "os",
+    "path",
+    "join",
+    "get_app_path",
+    "open",
+    "json",
+    "dump",
+    "add_log",
+    "accept",
+    "Exception"
+  ],
+  "varnames": [
+    "self",
+    "dialog",
+    "__assert_armored__",
+    "_var_var_282",
+    "_var_var_203",
+    "_var_var_281",
+    "_var_var_148",
+    "_var_var_28"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "保存截图设置"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "center"
+    },
+    {
+      "type": "str",
+      "value": "top_left"
+    },
+    {
+      "type": "str",
+      "value": "top_right"
+    },
+    {
+      "type": "str",
+      "value": "bottom_left"
+    },
+    {
+      "type": "str",
+      "value": "bottom_right"
+    },
+    {
+      "type": "tuple",
+      "len": 5
+    },
+    {
+      "type": "str",
+      "value": "1080p"
+    },
+    {
+      "type": "str",
+      "value": "900p"
+    },
+    {
+      "type": "str",
+      "value": "720p"
+    },
+    {
+      "type": "tuple",
+      "len": 3
+    },
+    {
+      "type": "str",
+      "value": "screenshot"
+    },
+    {
+      "type": "str",
+      "value": "base64"
+    },
+    {
+      "type": "str",
+      "value": "utf-8"
+    },
+    {
+      "type": "str",
+      "value": "ascii"
+    },
+    {
+      "type": "str",
+      "value": ""
+    },
+    {
+      "type": "tuple",
+      "len": 8
+    },
+    {
+      "type": "str",
+      "value": "screenshot_settings.json"
+    },
+    {
+      "type": "str",
+      "value": "w"
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "int",
+      "value": 2
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "str",
+      "value": "📷 截图设置已保存"
+    },
+    {
+      "type": "str",
+      "value": "❌ 保存设置失败: "
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

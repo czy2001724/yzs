@@ -1,0 +1,77 @@
+{
+  "module": "security",
+  "func": "security_check_with_warning",
+  "kind": "func",
+  "name": "security_check_with_warning",
+  "filename": "<frozen security>",
+  "argcount": 0,
+  "nlocals": 4,
+  "stacksize": 6,
+  "flags": 536870915,
+  "names": [
+    "perform_security_check",
+    "ctypes",
+    "windll",
+    "user32",
+    "MessageBoxW",
+    "print"
+  ],
+  "varnames": [
+    "__assert_armored__",
+    "_var_var_84",
+    "_var_var_85",
+    "_var_var_5"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "执行安全检查，如果不安全则显示警告"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "str",
+      "value": "程序检测到异常环境，无法运行。\n原因: "
+    },
+    {
+      "type": "str",
+      "value": "安全检查失败"
+    },
+    {
+      "type": "int",
+      "value": 16
+    },
+    {
+      "type": "str",
+      "value": "安全检查失败: "
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "bool",
+      "value": true
+    }
+  ]
+}

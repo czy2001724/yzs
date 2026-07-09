@@ -1,0 +1,146 @@
+/*======================================================================*/
+/* Function: precise_sleep */
+/* File: <frozen automation> */
+/* Args: 1, Locals: 3, Stack: 5 */
+/*======================================================================*/
+
+    """精确延时函数 - 使用忙等待实现高精度计时
+
+
+
+Windows 的 time.sleep() 精度通常只有 10-15ms，
+
+此函数通过忙等待实现更高精度的延时。
+
+
+
+Args:
+
+    duration: 延时时间（秒）
+
+"""
+
+    # --- Names (global references) ---
+    #   time
+    #   perf_counter
+    #   sleep
+
+    # --- Variable names ---
+    #   duration
+    #   __assert_armored__
+    #   _var_var_0
+
+    # --- String constants ---
+    #   '精确延时函数 - 使用忙等待实现高精度计时\n\n\n\nWindows 的 time.sleep() 精度通常只有 10-15ms，\n\n此函数通过忙等待实现更高精度的延时。\n\n\n\nArgs:\n\n    duration: 延时时间（秒）\n\n'
+
+    # --- Bytecode Disassembly ---
+  74            NOP
+                NOP
+                LOAD_CONST               2 (None)
+                PUSH_NULL
+
+  75            LOAD_CONST               3 (b'\xf0z\x1f\xf2W\x02\x00\x00\x03\x00\x00\x1a\x10\x01\x00\x00\x01\x00\x00\x00')
+                BUILD_TUPLE              1
+                CALL_FUNCTION_EX         0
+                POP_TOP
+                RESUME                   0
+                LOAD_CONST               1 (None)
+                STORE_FAST               1 (__assert_armored__)
+                NOP
+                NOP
+
+  74            NOP
+
+  92    L1:     LOAD_FAST                0 (duration)
+                LOAD_CONST               4 (0)
+                COMPARE_OP              58 (bool(<=))
+                POP_JUMP_IF_FALSE       11 (to L3)
+
+  94    L2:     NOP
+
+ 114            LOAD_CONST               6 (None)
+                NOP
+                NOP
+                NOP
+                JUMP_FORWARD           137 (to L10)
+                CACHE
+                CACHE
+                CACHE
+                POP_TOP
+                RETURN_CONST             6 (None)
+
+ 100    L3:     LOAD_GLOBAL              0 (time)
+                LOAD_ATTR                2 (perf_counter)
+                PUSH_NULL
+                CALL                     0
+                LOAD_FAST                0 (duration)
+                BINARY_OP                0 (+)
+                STORE_FAST               2 (_var_var_0)
+
+ 106            LOAD_FAST                0 (duration)
+                LOAD_CONST               7 (0.02)
+                COMPARE_OP             148 (bool(>))
+                POP_JUMP_IF_FALSE       25 (to L4)
+
+ 108            LOAD_GLOBAL              0 (time)
+                LOAD_ATTR                4 (sleep)
+                PUSH_NULL
+                LOAD_FAST                0 (duration)
+                LOAD_CONST               8 (0.015)
+                BINARY_OP               10 (-)
+                CALL                     1
+                POP_TOP
+
+ 114    L4:     LOAD_GLOBAL              0 (time)
+                LOAD_ATTR                2 (perf_counter)
+                PUSH_NULL
+                CALL                     0
+                LOAD_FAST                2 (_var_var_0)
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_FALSE       28 (to L7)
+
+ 116    L5:     NOP
+
+ 114            LOAD_GLOBAL              0 (time)
+                LOAD_ATTR                2 (perf_counter)
+                PUSH_NULL
+                CALL                     0
+                LOAD_FAST                2 (_var_var_0)
+                COMPARE_OP              18 (bool(<))
+                POP_JUMP_IF_FALSE        2 (to L7)
+        L6:     JUMP_BACKWARD           28 (to L5)
+        L7:     LOAD_CONST               6 (None)
+                NOP
+                NOP
+                NOP
+                JUMP_FORWARD            19 (to L10)
+                CACHE
+                CACHE
+                CACHE
+                POP_TOP
+                RETURN_CONST             6 (None)
+
+  --    L8:     PUSH_EXC_INFO
+
+ 114            LOAD_CONST               5 (None)
+                NOP
+                PUSH_NULL
+                LOAD_CONST               3 (b'\xf0z\x1f\xf2W\x02\x00\x00\x03\x00\x00\x1a\x10\x01\x00\x00\x01\x00\x00\x00')
+                CALL                     1
+                POP_TOP
+                RERAISE                  0
+
+  --    L9:     COPY                     3
+                POP_EXCEPT
+                RERAISE                  1
+       L10:     LOAD_CONST               5 (None)
+                PUSH_NULL
+                LOAD_CONST               3 (b'\xf0z\x1f\xf2W\x02\x00\x00\x03\x00\x00\x1a\x10\x01\x00\x00\x01\x00\x00\x00')
+                BUILD_TUPLE              1
+                CALL_FUNCTION_EX         0
+                POP_TOP
+                RETURN_VALUE
+ExceptionTable:
+  L1 to L2 -> L8 [0]
+  L3 to L6 -> L8 [0]
+  L8 to L9 -> L9 [1] lasti

@@ -1,0 +1,53 @@
+{
+  "module": "activation",
+  "func": "ActivationManager.clear_activation",
+  "kind": "method",
+  "name": "clear_activation",
+  "filename": "<frozen activation>",
+  "argcount": 1,
+  "nlocals": 2,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "is_activated",
+    "activation_code",
+    "activation_expiry",
+    "os",
+    "path",
+    "exists",
+    "activation_file",
+    "remove"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "清除激活信息"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

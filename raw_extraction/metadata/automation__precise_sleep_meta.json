@@ -1,0 +1,57 @@
+{
+  "module": "automation",
+  "func": "precise_sleep",
+  "kind": "func",
+  "name": "precise_sleep",
+  "filename": "<frozen automation>",
+  "argcount": 1,
+  "nlocals": 3,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "time",
+    "perf_counter",
+    "sleep"
+  ],
+  "varnames": [
+    "duration",
+    "__assert_armored__",
+    "_var_var_0"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "精确延时函数 - 使用忙等待实现高精度计时\n\n\n\nWindows 的 time.sleep() 精度通常只有 10-15ms，\n\n此函数通过忙等待实现更高精度的延时。\n\n\n\nArgs:\n\n    duration: 延时时间（秒）\n\n"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "float",
+      "value": 0.02
+    },
+    {
+      "type": "float",
+      "value": 0.015
+    }
+  ]
+}

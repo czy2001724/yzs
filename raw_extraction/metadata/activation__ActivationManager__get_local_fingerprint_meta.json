@@ -1,0 +1,114 @@
+{
+  "module": "activation",
+  "func": "ActivationManager._get_local_fingerprint",
+  "kind": "method",
+  "name": "_get_local_fingerprint",
+  "filename": "<frozen activation>",
+  "argcount": 1,
+  "nlocals": 8,
+  "stacksize": 8,
+  "flags": 536870915,
+  "names": [
+    "socket",
+    "getpass",
+    "append",
+    "gethostname",
+    "getuser",
+    "subprocess",
+    "run",
+    "os",
+    "name",
+    "CREATE_NO_WINDOW",
+    "returncode",
+    "stdout",
+    "strip",
+    "split",
+    "join",
+    "hashlib",
+    "sha256",
+    "encode",
+    "hexdigest"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__",
+    "_var_var_12",
+    "_var_var_40",
+    "_var_var_41",
+    "_var_var_34",
+    "_var_var_36",
+    "_var_var_42"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "获取本机指纹（用于验证缓存文件是否被复制）"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "tuple",
+      "len": 4
+    },
+    {
+      "type": "bool",
+      "value": true
+    },
+    {
+      "type": "int",
+      "value": 5
+    },
+    {
+      "type": "str",
+      "value": "nt"
+    },
+    {
+      "type": "tuple",
+      "len": 4
+    },
+    {
+      "type": "str",
+      "value": "\n"
+    },
+    {
+      "type": "str",
+      "value": "InstallDate"
+    },
+    {
+      "type": "int",
+      "value": 8
+    },
+    {
+      "type": "str",
+      "value": "_"
+    },
+    {
+      "type": "int",
+      "value": 16
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "str",
+      "value": "unknown"
+    }
+  ]
+}

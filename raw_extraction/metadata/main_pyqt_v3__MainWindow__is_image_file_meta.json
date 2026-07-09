@@ -1,0 +1,46 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow._is_image_file",
+  "kind": "method",
+  "name": "_is_image_file",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 2,
+  "nlocals": 4,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "lower",
+    "endswith"
+  ],
+  "varnames": [
+    "self",
+    "filename",
+    "__assert_armored__",
+    "_var_var_316"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "判断是否是图片文件"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "tuple",
+      "len": 6
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

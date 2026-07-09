@@ -1,0 +1,58 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow.toggle_topmost",
+  "kind": "method",
+  "name": "toggle_topmost",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 1,
+  "nlocals": 3,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "topmost_btn",
+    "isChecked",
+    "setWindowFlags",
+    "windowFlags",
+    "Qt",
+    "WindowStaysOnTopHint",
+    "add_log",
+    "show"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__",
+    "_var_var_288"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "切换窗口置顶"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "窗口已置顶"
+    },
+    {
+      "type": "str",
+      "value": "已取消置顶"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "None"
+    }
+  ]
+}

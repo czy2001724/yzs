@@ -1,0 +1,118 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow.refresh_workflow_list",
+  "kind": "method",
+  "name": "refresh_workflow_list",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 1,
+  "nlocals": 14,
+  "stacksize": 8,
+  "flags": 536870915,
+  "names": [
+    "config_combo",
+    "clear",
+    "addItem",
+    "glob",
+    "os",
+    "path",
+    "join",
+    "workflows_folder",
+    "sorted",
+    "basename",
+    "endswith",
+    "_decrypt_config_file",
+    "get",
+    "replace",
+    "open",
+    "json",
+    "load"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__",
+    "_var_var_172",
+    "_var_var_173",
+    "_var_var_174",
+    "_var_var_24",
+    "_var_var_23",
+    "_var_var_175",
+    "_var_var_137",
+    "_var_var_176",
+    "_var_var_2",
+    "_var_var_177",
+    "_var_var_148",
+    "_var_var_178"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "刷新配置文件列表"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "-- 请选择配置文件 --"
+    },
+    {
+      "type": "str",
+      "value": ""
+    },
+    {
+      "type": "str",
+      "value": "*.json"
+    },
+    {
+      "type": "str",
+      "value": "*.enc"
+    },
+    {
+      "type": "str",
+      "value": ".enc"
+    },
+    {
+      "type": "str",
+      "value": " 🔒"
+    },
+    {
+      "type": "str",
+      "value": " 🔐"
+    },
+    {
+      "type": "str",
+      "value": "name"
+    },
+    {
+      "type": "str",
+      "value": "r"
+    },
+    {
+      "type": "str",
+      "value": "utf-8"
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "str",
+      "value": ".json"
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

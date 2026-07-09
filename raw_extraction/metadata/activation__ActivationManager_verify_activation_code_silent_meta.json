@@ -1,0 +1,135 @@
+{
+  "module": "activation",
+  "func": "ActivationManager.verify_activation_code_silent",
+  "kind": "method",
+  "name": "verify_activation_code_silent",
+  "filename": "<frozen activation>",
+  "argcount": 2,
+  "nlocals": 7,
+  "stacksize": 8,
+  "flags": 536870915,
+  "names": [
+    "_pinned_post",
+    "server_url",
+    "machine_id",
+    "API_SECRET_KEY",
+    "CLIENT_VERSION",
+    "status_code",
+    "json",
+    "get",
+    "verify_signature",
+    "requests",
+    "exceptions",
+    "RequestException",
+    "Exception"
+  ],
+  "varnames": [
+    "self",
+    "code",
+    "__assert_armored__",
+    "_var_var_43",
+    "_var_var_44",
+    "_var_var_45",
+    "_var_var_7"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "静默验证激活码\n返回: (success, message, server_reachable)\n- server_reachable=True: 服务器有明确响应（成功或拒绝）\n- server_reachable=False: 网络不可达/服务器故障\n"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "/v2/xK9mT2pQ8wR5/activate"
+    },
+    {
+      "type": "tuple",
+      "len": 4
+    },
+    {
+      "type": "int",
+      "value": 5
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "int",
+      "value": 200
+    },
+    {
+      "type": "str",
+      "value": "valid"
+    },
+    {
+      "type": "str",
+      "value": "signature"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "tuple",
+      "len": 3
+    },
+    {
+      "type": "tuple",
+      "len": 3
+    },
+    {
+      "type": "str",
+      "value": "machine_id"
+    },
+    {
+      "type": "tuple",
+      "len": 3
+    },
+    {
+      "type": "tuple",
+      "len": 3
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "str",
+      "value": "message"
+    },
+    {
+      "type": "str",
+      "value": "激活码无效"
+    },
+    {
+      "type": "bool",
+      "value": true
+    },
+    {
+      "type": "str",
+      "value": "服务器错误: "
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "tuple",
+      "len": 3
+    },
+    {
+      "type": "tuple",
+      "len": 3
+    }
+  ]
+}

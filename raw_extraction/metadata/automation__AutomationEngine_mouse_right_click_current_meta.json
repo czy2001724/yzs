@@ -1,0 +1,47 @@
+{
+  "module": "automation",
+  "func": "AutomationEngine.mouse_right_click_current",
+  "kind": "method",
+  "name": "mouse_right_click_current",
+  "filename": "<frozen automation>",
+  "argcount": 1,
+  "nlocals": 2,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "mouse_click_current"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "在当前鼠标位置右键点击"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "right"
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

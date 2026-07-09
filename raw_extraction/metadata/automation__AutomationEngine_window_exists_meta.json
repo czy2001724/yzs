@@ -1,0 +1,113 @@
+{
+  "module": "automation",
+  "func": "AutomationEngine.window_exists",
+  "kind": "method",
+  "name": "window_exists",
+  "filename": "<frozen automation>",
+  "argcount": 2,
+  "nlocals": 7,
+  "stacksize": 8,
+  "flags": 536870915,
+  "names": [
+    "win32gui",
+    "win32process",
+    "psutil",
+    "lower",
+    "endswith",
+    "EnumWindows",
+    "log",
+    "len",
+    "join",
+    "Exception"
+  ],
+  "varnames": [
+    "self",
+    "window_title",
+    "__assert_armored__",
+    "_var_var_224",
+    "_var_var_57",
+    "_var_var_225",
+    "_var_var_3"
+  ],
+  "cellvars": [
+    "_var_var_219",
+    "_var_var_220",
+    "_var_var_221",
+    "_var_var_222",
+    "_var_var_189",
+    "_var_var_223",
+    "_var_var_190",
+    "_var_var_191"
+  ],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "检测窗口是否存在（通过标题或进程名匹配）"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "str",
+      "value": ""
+    },
+    {
+      "type": "str",
+      "value": ".exe"
+    },
+    {
+      "type": "code",
+      "name": "enum_callback"
+    },
+    {
+      "type": "str",
+      "value": "✓ 检测到窗口: "
+    },
+    {
+      "type": "str",
+      "value": "✗ 未检测到窗口: "
+    },
+    {
+      "type": "int",
+      "value": 2
+    },
+    {
+      "type": "int",
+      "value": 5
+    },
+    {
+      "type": "str",
+      "value": "  当前窗口示例: "
+    },
+    {
+      "type": "str",
+      "value": ", "
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "str",
+      "value": "检测窗口失败: "
+    }
+  ]
+}

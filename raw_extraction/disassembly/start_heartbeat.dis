@@ -1,0 +1,128 @@
+/*======================================================================*/
+/* Function: start_heartbeat */
+/* File: <frozen security> */
+/* Args: 3, Locals: 5, Stack: 6 */
+/*======================================================================*/
+
+    """启动心跳验证"""
+
+    # --- Names (global references) ---
+    #   _heartbeat_thread
+    #   is_alive
+    #   _heartbeat_stop
+    #   threading
+    #   Thread
+    #   _heartbeat_worker
+    #   start
+
+    # --- Variable names ---
+    #   server_url
+    #   machine_id
+    #   interval
+    #   __assert_armored__
+    #   _var_var_73
+
+    # --- String constants ---
+    #   '启动心跳验证'
+
+    # --- Bytecode Disassembly ---
+ 463           NOP
+               NOP
+               LOAD_CONST               2 (None)
+               PUSH_NULL
+
+ 464           LOAD_CONST               3 (b'\x10B\xbe\x04\xa3\x01\x00\x00\x03\x00\x00\x1a\xce\x00\x00\x00\x01\x00\x00\x00')
+               BUILD_TUPLE              1
+               CALL_FUNCTION_EX         0
+               POP_TOP
+               RESUME                   0
+               LOAD_CONST               1 (None)
+               STORE_FAST               3 (__assert_armored__)
+               NOP
+               NOP
+
+ 463           NOP
+
+ 467   L1:     LOAD_GLOBAL              0 (_heartbeat_thread)
+               POP_JUMP_IF_NONE        36 (to L3)
+               LOAD_GLOBAL              0 (_heartbeat_thread)
+               LOAD_ATTR                3 (is_alive + NULL|self)
+               CALL                     0
+               TO_BOOL
+               POP_JUMP_IF_FALSE       11 (to L3)
+
+ 468   L2:     NOP
+
+ 477           LOAD_CONST               4 (None)
+               NOP
+               NOP
+               NOP
+               JUMP_FORWARD            78 (to L7)
+               CACHE
+               CACHE
+               CACHE
+               POP_TOP
+               RETURN_CONST             4 (None)
+
+ 470   L3:     LOAD_CONST               6 (False)
+               STORE_GLOBAL             2 (_heartbeat_stop)
+
+ 471           LOAD_CONST               7 (0)
+               LOAD_CONST               4 (None)
+               IMPORT_NAME              3 (threading)
+               STORE_FAST               4 (_var_var_73)
+
+ 472           LOAD_FAST                4 (_var_var_73)
+               LOAD_ATTR                9 (Thread + NULL|self)
+
+ 473           LOAD_GLOBAL             10 (_heartbeat_worker)
+
+ 474           LOAD_FAST_LOAD_FAST      1 (server_url, machine_id)
+               LOAD_FAST                2 (interval)
+               BUILD_TUPLE              3
+
+ 475           LOAD_CONST               8 (True)
+
+ 472           LOAD_CONST               9 (('target', 'args', 'daemon'))
+               CALL_KW                  3
+               STORE_GLOBAL             0 (_heartbeat_thread)
+
+ 477           LOAD_GLOBAL              0 (_heartbeat_thread)
+               LOAD_ATTR               13 (start + NULL|self)
+               CALL                     0
+               POP_TOP
+       L4:     LOAD_CONST               4 (None)
+               NOP
+               NOP
+               NOP
+               JUMP_FORWARD            19 (to L7)
+               CACHE
+               CACHE
+               CACHE
+               POP_TOP
+               RETURN_CONST             4 (None)
+
+  --   L5:     PUSH_EXC_INFO
+
+ 477           LOAD_CONST               5 (None)
+               NOP
+               PUSH_NULL
+               LOAD_CONST               3 (b'\x10B\xbe\x04\xa3\x01\x00\x00\x03\x00\x00\x1a\xce\x00\x00\x00\x01\x00\x00\x00')
+               CALL                     1
+               POP_TOP
+               RERAISE                  0
+
+  --   L6:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+       L7:     LOAD_CONST               5 (None)
+               PUSH_NULL
+               LOAD_CONST               3 (b'\x10B\xbe\x04\xa3\x01\x00\x00\x03\x00\x00\x1a\xce\x00\x00\x00\x01\x00\x00\x00')
+               BUILD_TUPLE              1
+               CALL_FUNCTION_EX         0
+               POP_TOP
+               RETURN_VALUE
+ExceptionTable:
+  L1 to L2 -> L5 [0]
+  L3 to L4 -> L5 [0]
+  L5 to L6 -> L6 [1] lasti

@@ -1,0 +1,102 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "ScreenshotWindow.paintEvent",
+  "kind": "method",
+  "name": "paintEvent",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 2,
+  "nlocals": 6,
+  "stacksize": 9,
+  "flags": 536870915,
+  "names": [
+    "QPainter",
+    "drawPixmap",
+    "screenshot",
+    "fillRect",
+    "rect",
+    "QColor",
+    "selection_done",
+    "selected_rect",
+    "setPen",
+    "drawRect",
+    "setFont",
+    "QFont",
+    "drawText",
+    "x",
+    "width",
+    "Qt",
+    "AlignHCenter"
+  ],
+  "varnames": [
+    "self",
+    "event",
+    "__assert_armored__",
+    "_var_var_14",
+    "_var_var_15",
+    "_var_var_16"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "None"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "int",
+      "value": 100
+    },
+    {
+      "type": "int",
+      "value": 99
+    },
+    {
+      "type": "int",
+      "value": 102
+    },
+    {
+      "type": "int",
+      "value": 241
+    },
+    {
+      "type": "int",
+      "value": 255
+    },
+    {
+      "type": "str",
+      "value": "Microsoft YaHei UI"
+    },
+    {
+      "type": "int",
+      "value": 12
+    },
+    {
+      "type": "str",
+      "value": "🖱️ 按住拖动选择区域 | ESC 取消 | 右键 取消"
+    },
+    {
+      "type": "int",
+      "value": 50
+    },
+    {
+      "type": "int",
+      "value": 30
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

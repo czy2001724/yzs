@@ -1,0 +1,76 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow.load_last_workflow",
+  "kind": "method",
+  "name": "load_last_workflow",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 1,
+  "nlocals": 6,
+  "stacksize": 6,
+  "flags": 536870915,
+  "names": [
+    "os",
+    "path",
+    "exists",
+    "settings_file",
+    "open",
+    "json",
+    "load",
+    "get",
+    "load_workflow_file",
+    "Exception",
+    "print"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__",
+    "_var_var_148",
+    "_var_var_203",
+    "_var_var_204",
+    "_var_var_28"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "加载上次的配置"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "r"
+    },
+    {
+      "type": "str",
+      "value": "utf-8"
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "str",
+      "value": "last_workflow"
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "str",
+      "value": "加载上次配置失败: "
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

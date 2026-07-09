@@ -1,0 +1,118 @@
+{
+  "module": "activation",
+  "func": "ActivationManager.unbind_device",
+  "kind": "method",
+  "name": "unbind_device",
+  "filename": "<frozen activation>",
+  "argcount": 1,
+  "nlocals": 5,
+  "stacksize": 7,
+  "flags": 536870915,
+  "names": [
+    "activation_code",
+    "_pinned_post",
+    "server_url",
+    "machine_id",
+    "API_SECRET_KEY",
+    "status_code",
+    "json",
+    "get",
+    "clear_activation",
+    "requests",
+    "exceptions",
+    "RequestException",
+    "Exception",
+    "str"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__",
+    "_var_var_43",
+    "_var_var_44",
+    "_var_var_7"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "手动解绑设备"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "str",
+      "value": "/unbind"
+    },
+    {
+      "type": "tuple",
+      "len": 3
+    },
+    {
+      "type": "int",
+      "value": 10
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "int",
+      "value": 200
+    },
+    {
+      "type": "str",
+      "value": "success"
+    },
+    {
+      "type": "bool",
+      "value": true
+    },
+    {
+      "type": "str",
+      "value": "message"
+    },
+    {
+      "type": "str",
+      "value": "解绑成功"
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "str",
+      "value": "解绑失败"
+    },
+    {
+      "type": "str",
+      "value": "服务器错误: "
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "str",
+      "value": "解绑失败: "
+    }
+  ]
+}

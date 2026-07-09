@@ -1,0 +1,236 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow.setup_tools_page",
+  "kind": "method",
+  "name": "setup_tools_page",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 1,
+  "nlocals": 18,
+  "stacksize": 6,
+  "flags": 536870915,
+  "names": [
+    "QWidget",
+    "QVBoxLayout",
+    "setContentsMargins",
+    "setSpacing",
+    "QLabel",
+    "setObjectName",
+    "addWidget",
+    "QHBoxLayout",
+    "QPushButton",
+    "setFixedSize",
+    "clicked",
+    "connect",
+    "take_screenshot",
+    "detect_window_info",
+    "show_dpi_setting",
+    "open_config_encryptor",
+    "coord_btn",
+    "toggle_coord_display",
+    "show_screenshot_settings",
+    "addStretch",
+    "addLayout",
+    "detect_status_label",
+    "setStyleSheet",
+    "QFrame",
+    "window_info_frame",
+    "setVisible",
+    "setFixedWidth",
+    "proc_name_label",
+    "setTextInteractionFlags",
+    "Qt",
+    "TextSelectableByMouse",
+    "proc_copy_btn",
+    "win_title_label",
+    "title_copy_btn",
+    "pid_label",
+    "pid_copy_btn",
+    "pages"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__",
+    "_var_var_85",
+    "_var_var_86",
+    "_var_var_43",
+    "_var_var_87",
+    "_var_var_88",
+    "_var_var_89",
+    "_var_var_90",
+    "_var_var_91",
+    "_var_var_92",
+    "_var_var_66",
+    "_var_var_93",
+    "_var_var_94",
+    "_var_var_95",
+    "_var_var_96",
+    "_var_var_97",
+    "_var_var_98"
+  ],
+  "cellvars": [
+    "self"
+  ],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "工具页面"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "int",
+      "value": 20
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "int",
+      "value": 15
+    },
+    {
+      "type": "str",
+      "value": "工具箱"
+    },
+    {
+      "type": "str",
+      "value": "pageTitle"
+    },
+    {
+      "type": "int",
+      "value": 10
+    },
+    {
+      "type": "str",
+      "value": "📷 截图"
+    },
+    {
+      "type": "int",
+      "value": 80
+    },
+    {
+      "type": "int",
+      "value": 32
+    },
+    {
+      "type": "str",
+      "value": "🔍 检测窗口"
+    },
+    {
+      "type": "int",
+      "value": 100
+    },
+    {
+      "type": "str",
+      "value": "🎮 设置DPI"
+    },
+    {
+      "type": "str",
+      "value": "🔐 配置加密"
+    },
+    {
+      "type": "str",
+      "value": "📍 显示坐标"
+    },
+    {
+      "type": "str",
+      "value": "⚙️ 截图设置"
+    },
+    {
+      "type": "str",
+      "value": ""
+    },
+    {
+      "type": "str",
+      "value": "color: #f59e0b; font-size: 13px;"
+    },
+    {
+      "type": "str",
+      "value": "background: #1e1e2e; border-radius: 6px; padding: 10px;"
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "int",
+      "value": 12
+    },
+    {
+      "type": "int",
+      "value": 8
+    },
+    {
+      "type": "str",
+      "value": "进程名:"
+    },
+    {
+      "type": "int",
+      "value": 60
+    },
+    {
+      "type": "str",
+      "value": "-"
+    },
+    {
+      "type": "str",
+      "value": "color: #10b981;"
+    },
+    {
+      "type": "int",
+      "value": 1
+    },
+    {
+      "type": "str",
+      "value": "复制"
+    },
+    {
+      "type": "str",
+      "value": "padding: 3px 8px;"
+    },
+    {
+      "type": "code",
+      "name": "<lambda>"
+    },
+    {
+      "type": "str",
+      "value": "标题:"
+    },
+    {
+      "type": "str",
+      "value": "color: #6366f1;"
+    },
+    {
+      "type": "code",
+      "name": "<lambda>"
+    },
+    {
+      "type": "str",
+      "value": "PID:"
+    },
+    {
+      "type": "str",
+      "value": "color: #f59e0b;"
+    },
+    {
+      "type": "code",
+      "name": "<lambda>"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "None"
+    }
+  ]
+}

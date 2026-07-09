@@ -1,0 +1,72 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MiniWindow.sync_log",
+  "kind": "method",
+  "name": "sync_log",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 1,
+  "nlocals": 5,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "hasattr",
+    "main_window",
+    "log_text",
+    "toPlainText",
+    "split",
+    "len",
+    "mini_log_text",
+    "setText",
+    "join",
+    "verticalScrollBar",
+    "setValue",
+    "maximum"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__",
+    "_var_var_341",
+    "_var_var_342",
+    "_var_var_343"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "同步主窗口日志"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "log_text"
+    },
+    {
+      "type": "str",
+      "value": "\n"
+    },
+    {
+      "type": "int",
+      "value": 50
+    },
+    {
+      "type": "int",
+      "value": -50
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

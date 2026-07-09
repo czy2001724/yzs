@@ -1,0 +1,99 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow._save_current_workflow",
+  "kind": "method",
+  "name": "_save_current_workflow",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 1,
+  "nlocals": 8,
+  "stacksize": 8,
+  "flags": 536870915,
+  "names": [
+    "current_workflow",
+    "hasattr",
+    "current_workflow_path",
+    "items",
+    "startswith",
+    "endswith",
+    "_encrypt_and_save_config",
+    "open",
+    "json",
+    "dump",
+    "Exception",
+    "add_log"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__",
+    "_var_var_24",
+    "_var_var_197",
+    "_var_var_198",
+    "_var_var_199",
+    "_var_var_148",
+    "_var_var_28"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "保存当前workflow到文件"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "current_workflow_path"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "str",
+      "value": "_"
+    },
+    {
+      "type": "str",
+      "value": ".enc"
+    },
+    {
+      "type": "str",
+      "value": "w"
+    },
+    {
+      "type": "str",
+      "value": "utf-8"
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "int",
+      "value": 2
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "str",
+      "value": "⚠️ 保存配置失败: "
+    }
+  ]
+}

@@ -1,0 +1,287 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow.show_activation_dialog",
+  "kind": "method",
+  "name": "show_activation_dialog",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 1,
+  "nlocals": 21,
+  "stacksize": 7,
+  "flags": 536870915,
+  "names": [
+    "QDialog",
+    "setWindowTitle",
+    "setWindowFlags",
+    "windowFlags",
+    "Qt",
+    "FramelessWindowHint",
+    "setFixedSize",
+    "setStyleSheet",
+    "QVBoxLayout",
+    "setContentsMargins",
+    "setSpacing",
+    "QHBoxLayout",
+    "addStretch",
+    "QPushButton",
+    "clicked",
+    "connect",
+    "reject",
+    "addWidget",
+    "addLayout",
+    "QLabel",
+    "setFont",
+    "QFont",
+    "Bold",
+    "setAlignment",
+    "AlignCenter",
+    "activation",
+    "is_activated",
+    "get_remaining_time",
+    "addSpacing",
+    "QLineEdit",
+    "setPlaceholderText",
+    "QFrame",
+    "setFixedHeight",
+    "get_unbind_status",
+    "get",
+    "setEnabled",
+    "move",
+    "x",
+    "width",
+    "y",
+    "height",
+    "exec_"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__",
+    "_var_var_4",
+    "_var_var_242",
+    "_var_var_57",
+    "_var_var_43",
+    "_var_var_243",
+    "_var_var_9",
+    "_var_var_244",
+    "_var_var_245",
+    "_var_var_13",
+    "_var_var_68",
+    "_var_var_246",
+    "_var_var_247",
+    "_var_var_248",
+    "_var_var_249",
+    "_var_var_250",
+    "_var_var_251",
+    "_var_var_252",
+    "_var_var_253",
+    "_var_var_254"
+  ],
+  "cellvars": [
+    "self",
+    "_var_var_240",
+    "_var_var_241",
+    "_var_var_123"
+  ],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "None"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "软件激活"
+    },
+    {
+      "type": "int",
+      "value": 420
+    },
+    {
+      "type": "int",
+      "value": 380
+    },
+    {
+      "type": "str",
+      "value": "\n\n            QDialog { background: #1a1a2e; border: 1px solid #3a3a4a; border-radius: 12px; }\n\n            QLabel { color: #e0e0e0; }\n\n            QLineEdit { background: #2a2a3a; border: 1px solid #3a3a4a; border-radius: 6px; padding: 10px; color: #e0e0e0; }\n\n            QLineEdit:focus { border-color: #6366f1; }\n\n        "
+    },
+    {
+      "type": "int",
+      "value": 25
+    },
+    {
+      "type": "int",
+      "value": 15
+    },
+    {
+      "type": "int",
+      "value": 20
+    },
+    {
+      "type": "int",
+      "value": 10
+    },
+    {
+      "type": "str",
+      "value": "✕"
+    },
+    {
+      "type": "int",
+      "value": 26
+    },
+    {
+      "type": "str",
+      "value": "background: transparent; font-size: 14px;"
+    },
+    {
+      "type": "str",
+      "value": "🔐 软件激活"
+    },
+    {
+      "type": "str",
+      "value": "Microsoft YaHei UI"
+    },
+    {
+      "type": "int",
+      "value": 18
+    },
+    {
+      "type": "str",
+      "value": "✅ 已激活，剩余: "
+    },
+    {
+      "type": "str",
+      "value": "color: #22c55e; font-size: 13px;"
+    },
+    {
+      "type": "str",
+      "value": "❌ 未激活"
+    },
+    {
+      "type": "str",
+      "value": "color: #ef4444; font-size: 13px;"
+    },
+    {
+      "type": "int",
+      "value": 5
+    },
+    {
+      "type": "str",
+      "value": "请输入激活码..."
+    },
+    {
+      "type": "str",
+      "value": "🔑 激活"
+    },
+    {
+      "type": "str",
+      "value": "\n\n            background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #6366f1, stop:1 #8b5cf6);\n\n            color: white; font-weight: bold; border-radius: 6px; padding: 10px;\n\n        "
+    },
+    {
+      "type": "code",
+      "name": "do_activate"
+    },
+    {
+      "type": "str",
+      "value": "取消"
+    },
+    {
+      "type": "int",
+      "value": 1
+    },
+    {
+      "type": "str",
+      "value": "background: #3a3a4a; margin: 10px 0;"
+    },
+    {
+      "type": "str",
+      "value": "🔓 设备解绑"
+    },
+    {
+      "type": "int",
+      "value": 12
+    },
+    {
+      "type": "str",
+      "value": "unbind_count"
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "str",
+      "value": "can_unbind"
+    },
+    {
+      "type": "bool",
+      "value": true
+    },
+    {
+      "type": "str",
+      "value": "remaining_days"
+    },
+    {
+      "type": "str",
+      "value": "cooldown_days"
+    },
+    {
+      "type": "int",
+      "value": 30
+    },
+    {
+      "type": "str",
+      "value": "已解绑次数: "
+    },
+    {
+      "type": "str",
+      "value": " 次 | 冷却期: "
+    },
+    {
+      "type": "str",
+      "value": " 天"
+    },
+    {
+      "type": "str",
+      "value": "\n⏳ 冷却中，还需等待 "
+    },
+    {
+      "type": "str",
+      "value": "color: #888; font-size: 11px;"
+    },
+    {
+      "type": "str",
+      "value": "🔓 手动解绑"
+    },
+    {
+      "type": "str",
+      "value": "\n\n                    background: #ef4444; color: white; font-weight: bold; \n\n                    border-radius: 6px; padding: 10px;\n\n                "
+    },
+    {
+      "type": "str",
+      "value": "\n\n                        background: #666; color: #999; font-weight: bold; \n\n                        border-radius: 6px; padding: 10px;\n\n                    "
+    },
+    {
+      "type": "code",
+      "name": "do_unbind"
+    },
+    {
+      "type": "str",
+      "value": "无法获取解绑状态，请检查网络"
+    },
+    {
+      "type": "int",
+      "value": 2
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

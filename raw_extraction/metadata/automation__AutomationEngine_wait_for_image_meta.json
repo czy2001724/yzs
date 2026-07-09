@@ -1,0 +1,60 @@
+{
+  "module": "automation",
+  "func": "AutomationEngine.wait_for_image",
+  "kind": "method",
+  "name": "wait_for_image",
+  "filename": "<frozen automation>",
+  "argcount": 4,
+  "nlocals": 7,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "time",
+    "is_running",
+    "jump_to_group",
+    "find_image",
+    "sleep",
+    "log"
+  ],
+  "varnames": [
+    "self",
+    "image_name",
+    "confidence",
+    "timeout",
+    "__assert_armored__",
+    "_var_var_100",
+    "_var_var_44"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "等待图片出现"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "float",
+      "value": 0.2
+    },
+    {
+      "type": "str",
+      "value": "等待图片超时: "
+    }
+  ]
+}

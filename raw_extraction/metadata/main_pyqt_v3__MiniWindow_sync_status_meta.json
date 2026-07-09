@@ -1,0 +1,77 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MiniWindow.sync_status",
+  "kind": "method",
+  "name": "sync_status",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 1,
+  "nlocals": 4,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "main_window",
+    "engine",
+    "is_running",
+    "is_paused",
+    "status_indicator",
+    "setStyleSheet",
+    "start_btn",
+    "setEnabled",
+    "stop_btn",
+    "pause_btn",
+    "setText",
+    "log_panel",
+    "isVisible",
+    "sync_log"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__",
+    "_var_var_340",
+    "_var_var_287"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "同步主窗口状态"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "color: #f59e0b; font-size: 14px;"
+    },
+    {
+      "type": "str",
+      "value": "color: #22c55e; font-size: 14px;"
+    },
+    {
+      "type": "str",
+      "value": "color: #ef4444; font-size: 14px;"
+    },
+    {
+      "type": "str",
+      "value": "▶"
+    },
+    {
+      "type": "str",
+      "value": "⏸"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "None"
+    }
+  ]
+}

@@ -1,0 +1,160 @@
+{
+  "module": "automation",
+  "func": "AutomationEngine.set_windowed_mode",
+  "kind": "method",
+  "name": "set_windowed_mode",
+  "filename": "<frozen automation>",
+  "argcount": 5,
+  "nlocals": 22,
+  "stacksize": 10,
+  "flags": 536870915,
+  "names": [
+    "win32gui",
+    "win32con",
+    "win32api",
+    "ctypes",
+    "get_window_by_process",
+    "log",
+    "GetSystemMetrics",
+    "SM_CXSCREEN",
+    "SM_CYSCREEN",
+    "GetWindowLong",
+    "GWL_STYLE",
+    "WS_POPUP",
+    "WS_OVERLAPPEDWINDOW",
+    "SetWindowLong",
+    "GWL_EXSTYLE",
+    "Structure",
+    "windll",
+    "user32",
+    "AdjustWindowRectEx",
+    "byref",
+    "right",
+    "left",
+    "bottom",
+    "top",
+    "SetWindowPos",
+    "HWND_TOP",
+    "SWP_FRAMECHANGED",
+    "SWP_SHOWWINDOW",
+    "Exception"
+  ],
+  "varnames": [
+    "self",
+    "process_name",
+    "width",
+    "height",
+    "preset_size",
+    "__assert_armored__",
+    "_var_var_190",
+    "_var_var_198",
+    "_var_var_208",
+    "_var_var_199",
+    "_var_var_200",
+    "_var_var_211",
+    "_var_var_212",
+    "_var_var_202",
+    "_var_var_203",
+    "_var_var_204",
+    "_var_var_205",
+    "_var_var_206",
+    "_var_var_207",
+    "_var_var_24",
+    "_var_var_25",
+    "_var_var_3"
+  ],
+  "cellvars": [
+    "_var_var_141"
+  ],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "将全屏/全屏窗口调整为窗口模式"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "str",
+      "value": "自定义"
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "tuple",
+      "len": 4
+    },
+    {
+      "type": "str",
+      "value": "未找到程序窗口: "
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "code",
+      "name": "RECT"
+    },
+    {
+      "type": "str",
+      "value": "RECT"
+    },
+    {
+      "type": "int",
+      "value": 2
+    },
+    {
+      "type": "str",
+      "value": "已调整为窗口模式: "
+    },
+    {
+      "type": "str",
+      "value": " -> "
+    },
+    {
+      "type": "str",
+      "value": "x"
+    },
+    {
+      "type": "bool",
+      "value": true
+    },
+    {
+      "type": "str",
+      "value": "调整窗口模式失败: "
+    }
+  ]
+}

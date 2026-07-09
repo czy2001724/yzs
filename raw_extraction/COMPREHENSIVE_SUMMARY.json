@@ -1,0 +1,8618 @@
+{
+  "activation": [
+    {
+      "func": "ActivationManager._get_local_fingerprint",
+      "names": [
+        "socket",
+        "getpass",
+        "append",
+        "gethostname",
+        "getuser",
+        "subprocess",
+        "run",
+        "os",
+        "name",
+        "CREATE_NO_WINDOW",
+        "returncode",
+        "stdout",
+        "strip",
+        "split",
+        "join",
+        "hashlib",
+        "sha256",
+        "encode",
+        "hexdigest"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_12",
+        "_var_var_40",
+        "_var_var_41",
+        "_var_var_34",
+        "_var_var_36",
+        "_var_var_42"
+      ],
+      "argcount": 1,
+      "strings": [
+        "获取本机指纹（用于验证缓存文件是否被复制）",
+        "nt",
+        "\n",
+        "InstallDate",
+        "_",
+        "unknown"
+      ]
+    },
+    {
+      "func": "ActivationManager._pinned_post",
+      "names": [
+        "_verify_cert_pin",
+        "ConnectionError",
+        "requests",
+        "post"
+      ],
+      "varnames": [
+        "self",
+        "url",
+        "kwargs",
+        "__assert_armored__"
+      ],
+      "argcount": 2,
+      "strings": [
+        "带证书固定验证的POST请求",
+        "服务器证书验证失败，可能存在中间人攻击"
+      ]
+    },
+    {
+      "func": "ActivationManager._save_activation",
+      "names": [
+        "machine_id",
+        "datetime",
+        "now",
+        "isoformat",
+        "_generate_local_hmac",
+        "open",
+        "activation_file",
+        "json",
+        "dump",
+        "is_activated",
+        "activation_code",
+        "fromisoformat",
+        "activation_expiry",
+        "Exception",
+        "print"
+      ],
+      "varnames": [
+        "self",
+        "code",
+        "expiry_str",
+        "signature",
+        "signed_data",
+        "__assert_armored__",
+        "_var_var_48",
+        "_var_var_30",
+        "_var_var_7"
+      ],
+      "argcount": 5,
+      "strings": [
+        "保存激活信息到本地文件（带HMAC签名+RSA签名数据）",
+        "signature",
+        "signed_data",
+        "hmac",
+        "w",
+        "utf-8",
+        "保存激活信息失败: "
+      ]
+    },
+    {
+      "func": "ActivationManager._save_machine_id_cache",
+      "names": [
+        "_get_local_fingerprint",
+        "open",
+        "write"
+      ],
+      "varnames": [
+        "self",
+        "cache_file",
+        "machine_id",
+        "__assert_armored__",
+        "_var_var_28",
+        "_var_var_30"
+      ],
+      "argcount": 3,
+      "strings": [
+        "保存machine_id到缓存文件（带本机指纹验证）",
+        "w",
+        ":"
+      ]
+    },
+    {
+      "func": "ActivationManager._update_last_online",
+      "names": [
+        "os",
+        "path",
+        "exists",
+        "activation_file",
+        "open",
+        "json",
+        "load",
+        "datetime",
+        "now",
+        "isoformat",
+        "_generate_local_hmac",
+        "dump",
+        "Exception",
+        "print"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_30",
+        "_var_var_44",
+        "_var_var_7"
+      ],
+      "argcount": 1,
+      "strings": [
+        "更新最后在线时间（带HMAC签名）",
+        "r",
+        "utf-8",
+        "last_online",
+        "hmac",
+        "w",
+        "更新在线时间失败: "
+      ]
+    },
+    {
+      "func": "ActivationManager._verify_cert_pin",
+      "names": [
+        "_CERT_PINS",
+        "_pin_verified",
+        "server_url",
+        "startswith",
+        "ssl",
+        "socket",
+        "urllib.parse",
+        "urlparse",
+        "cryptography",
+        "x509",
+        "cryptography.hazmat.primitives.serialization",
+        "Encoding",
+        "PublicFormat",
+        "hostname",
+        "port",
+        "create_default_context",
+        "create_connection",
+        "wrap_socket",
+        "getattr",
+        "load_der_x509_certificate",
+        "public_key",
+        "public_bytes",
+        "DER",
+        "SubjectPublicKeyInfo",
+        "base64",
+        "b64encode",
+        "hashlib",
+        "sha256",
+        "digest",
+        "decode",
+        "ActivationManager",
+        "getpeercert",
+        "print",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_11",
+        "_var_var_12",
+        "_var_var_13",
+        "_var_var_14",
+        "_var_var_15",
+        "_var_var_16",
+        "_var_var_17",
+        "_var_var_18",
+        "_var_var_19",
+        "_var_var_20",
+        "_var_var_21",
+        "_var_var_22",
+        "_var_var_23",
+        "_var_var_24",
+        "_var_var_25",
+        "_var_var_26",
+        "_var_var_27",
+        "_var_var_7"
+      ],
+      "argcount": 1,
+      "strings": [
+        "验证服务器证书SPKI Pin（防止中间人攻击，即使安装了伪造CA证书）",
+        "https://",
+        "get_verified_chain",
+        "证书固定验证失败! 期望Pin之一: ",
+        "证书固定检查异常: "
+      ]
+    },
+    {
+      "func": "ActivationManager.check_activation_status",
+      "names": [
+        "perform_security_check",
+        "print",
+        "os",
+        "path",
+        "exists",
+        "activation_file",
+        "open",
+        "json",
+        "load",
+        "get",
+        "_verify_local_hmac",
+        "verify_signature",
+        "machine_id",
+        "datetime",
+        "fromisoformat",
+        "now",
+        "verify_activation_code_silent",
+        "_update_last_online",
+        "is_activated",
+        "activation_code",
+        "activation_expiry",
+        "start_heartbeat",
+        "server_url",
+        "remove",
+        "total_seconds",
+        "OFFLINE_MAX_MINUTES",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_49",
+        "_var_var_50",
+        "_var_var_30",
+        "_var_var_44",
+        "_var_var_51",
+        "_var_var_46",
+        "_var_var_52",
+        "_var_var_53",
+        "_var_var_54",
+        "_var_var_47",
+        "_var_var_55",
+        "_var_var_56",
+        "_var_var_57",
+        "_var_var_58",
+        "_var_var_59",
+        "_var_var_60",
+        "_var_var_7"
+      ],
+      "argcount": 1,
+      "strings": [
+        "检查本地激活状态（增强版：HMAC验证+安全检查）",
+        "安全检查失败: ",
+        "r",
+        "utf-8",
+        "code",
+        "expiry",
+        "machine_id",
+        "last_online",
+        "激活文件签名验证失败，可能被篡改",
+        "signature",
+        "signed_data",
+        "RSA签名验证失败，激活文件可能被伪造",
+        "过期时间不一致，激活文件可能被篡改",
+        "激活文件缺少服务器签名",
+        "首次使用必须联网验证",
+        "服务器拒绝验证: ",
+        "离线模式: 已离线",
+        ".0f",
+        "分钟，最多允许",
+        "分钟",
+        "离线时间已超过",
+        "分钟，请联网验证",
+        "检查激活状态时出错: "
+      ]
+    },
+    {
+      "func": "ActivationManager.clear_activation",
+      "names": [
+        "is_activated",
+        "activation_code",
+        "activation_expiry",
+        "os",
+        "path",
+        "exists",
+        "activation_file",
+        "remove"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": [
+        "清除激活信息"
+      ]
+    },
+    {
+      "func": "ActivationManager.get_config_key",
+      "names": [
+        "_pinned_post",
+        "server_url",
+        "machine_id",
+        "API_SECRET_KEY",
+        "CLIENT_VERSION",
+        "status_code",
+        "json",
+        "get",
+        "verify_signature",
+        "Exception",
+        "str"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_43",
+        "_var_var_44",
+        "_var_var_45",
+        "_var_var_7"
+      ],
+      "argcount": 1,
+      "strings": [
+        "获取配置解密密钥（方案A）",
+        "/v2/xK9mT2pQ8wR5/config_key",
+        "success",
+        "signature",
+        "config_key",
+        "valid_until",
+        "message",
+        "获取失败"
+      ]
+    },
+    {
+      "func": "ActivationManager.get_dynamic_api_path",
+      "names": [
+        "datetime",
+        "now",
+        "_dynamic_api_cache",
+        "fromisoformat",
+        "_pinned_post",
+        "server_url",
+        "API_SECRET_KEY",
+        "CLIENT_VERSION",
+        "status_code",
+        "json",
+        "get",
+        "verify_signature",
+        "isoformat",
+        "total_seconds"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_67",
+        "_var_var_68",
+        "_var_var_43",
+        "_var_var_44",
+        "_var_var_45",
+        "_var_var_69"
+      ],
+      "argcount": 1,
+      "strings": [
+        "获取动态API路径（带缓存和容错）",
+        "api_path",
+        "valid_until",
+        "/config/get_api_path",
+        "success",
+        "signature",
+        "last_fetch"
+      ]
+    },
+    {
+      "func": "ActivationManager.get_exec_token",
+      "names": [
+        "_pinned_post",
+        "server_url",
+        "machine_id",
+        "API_SECRET_KEY",
+        "CLIENT_VERSION",
+        "status_code",
+        "json",
+        "get",
+        "verify_signature",
+        "Exception",
+        "str"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_43",
+        "_var_var_44",
+        "_var_var_45",
+        "_var_var_7"
+      ],
+      "argcount": 1,
+      "strings": [
+        "获取执行令牌（方案B）",
+        "/v2/xK9mT2pQ8wR5/exec_token",
+        "success",
+        "signature",
+        "exec_token",
+        "valid_until",
+        "message",
+        "获取失败"
+      ]
+    },
+    {
+      "func": "ActivationManager.get_machine_id",
+      "names": [
+        "_get_local_fingerprint",
+        "os",
+        "path",
+        "join",
+        "get_work_folder",
+        "exists",
+        "open",
+        "read",
+        "strip",
+        "split",
+        "len",
+        "subprocess",
+        "run",
+        "name",
+        "CREATE_NO_WINDOW",
+        "returncode",
+        "stdout",
+        "hashlib",
+        "sha256",
+        "encode",
+        "hexdigest",
+        "_save_machine_id_cache",
+        "Exception",
+        "print",
+        "platform",
+        "processor"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_28",
+        "_var_var_29",
+        "_var_var_30",
+        "_var_var_31",
+        "_var_var_32",
+        "_var_var_33",
+        "_var_var_34",
+        "_var_var_35",
+        "_var_var_36",
+        "_var_var_37",
+        "_var_var_38",
+        "_var_var_7",
+        "_var_var_39"
+      ],
+      "argcount": 1,
+      "strings": [
+        "获取机器唯一标识（基于C盘序列号，带缓存机制）",
+        ".machine_id",
+        "r",
+        ":",
+        "nt",
+        "\n",
+        "VolumeSerialNumber",
+        "SerialNumber",
+        "To be filled by O.E.M.",
+        "获取C盘序列号失败: ",
+        "FALLBACK_MACHINE_ID"
+      ]
+    },
+    {
+      "func": "ActivationManager.get_remaining_seconds",
+      "names": [
+        "is_activated",
+        "activation_expiry",
+        "int",
+        "datetime",
+        "now",
+        "total_seconds"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": [
+        "获取剩余总秒数，<=0 表示已过期"
+      ]
+    },
+    {
+      "func": "ActivationManager.get_remaining_time",
+      "names": [
+        "is_activated",
+        "activation_expiry",
+        "datetime",
+        "now",
+        "int",
+        "total_seconds",
+        "days",
+        "seconds"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_61",
+        "_var_var_62",
+        "_var_var_63",
+        "_var_var_64",
+        "_var_var_65",
+        "_var_var_66"
+      ],
+      "argcount": 1,
+      "strings": [
+        "获取剩余时间（含秒数）",
+        "天 ",
+        "时",
+        "分",
+        "秒",
+        "未激活"
+      ]
+    },
+    {
+      "func": "ActivationManager.get_unbind_status",
+      "names": [
+        "activation_code",
+        "_pinned_post",
+        "server_url",
+        "API_SECRET_KEY",
+        "status_code",
+        "json",
+        "get",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_43",
+        "_var_var_44"
+      ],
+      "argcount": 1,
+      "strings": [
+        "获取解绑状态（冷却时间等）",
+        "/unbind_status",
+        "success",
+        "can_unbind",
+        "unbind_count",
+        "remaining_days",
+        "cooldown_days"
+      ]
+    },
+    {
+      "func": "ActivationManager.unbind_device",
+      "names": [
+        "activation_code",
+        "_pinned_post",
+        "server_url",
+        "machine_id",
+        "API_SECRET_KEY",
+        "status_code",
+        "json",
+        "get",
+        "clear_activation",
+        "requests",
+        "exceptions",
+        "RequestException",
+        "Exception",
+        "str"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_43",
+        "_var_var_44",
+        "_var_var_7"
+      ],
+      "argcount": 1,
+      "strings": [
+        "手动解绑设备",
+        "/unbind",
+        "success",
+        "message",
+        "解绑成功",
+        "解绑失败",
+        "服务器错误: ",
+        "解绑失败: "
+      ]
+    },
+    {
+      "func": "ActivationManager.verify_activation_code",
+      "names": [
+        "_pinned_post",
+        "server_url",
+        "machine_id",
+        "API_SECRET_KEY",
+        "CLIENT_VERSION",
+        "status_code",
+        "json",
+        "get",
+        "verify_signature",
+        "items",
+        "datetime",
+        "now",
+        "isoformat",
+        "_generate_local_hmac",
+        "open",
+        "activation_file",
+        "dump",
+        "is_activated",
+        "activation_code",
+        "fromisoformat",
+        "activation_expiry",
+        "start_heartbeat",
+        "lower",
+        "requests",
+        "exceptions",
+        "RequestException",
+        "Exception",
+        "str"
+      ],
+      "varnames": [
+        "self",
+        "code",
+        "__assert_armored__",
+        "_var_var_43",
+        "_var_var_44",
+        "_var_var_45",
+        "_var_var_46",
+        "_var_var_3",
+        "_var_var_4",
+        "_var_var_47",
+        "_var_var_48",
+        "_var_var_30",
+        "_var_var_6",
+        "_var_var_7"
+      ],
+      "argcount": 2,
+      "strings": [
+        "验证激活码",
+        "/v2/xK9mT2pQ8wR5/activate",
+        "valid",
+        "signature",
+        "machine_id",
+        "expiry",
+        "hmac",
+        "w",
+        "utf-8",
+        "message",
+        "激活码无效",
+        "unbound",
+        "未绑定",
+        "该激活码未绑定机器码，请先绑定。\n",
+        "服务器错误: ",
+        "验证失败: "
+      ]
+    },
+    {
+      "func": "ActivationManager.verify_activation_code_silent",
+      "names": [
+        "_pinned_post",
+        "server_url",
+        "machine_id",
+        "API_SECRET_KEY",
+        "CLIENT_VERSION",
+        "status_code",
+        "json",
+        "get",
+        "verify_signature",
+        "requests",
+        "exceptions",
+        "RequestException",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "code",
+        "__assert_armored__",
+        "_var_var_43",
+        "_var_var_44",
+        "_var_var_45",
+        "_var_var_7"
+      ],
+      "argcount": 2,
+      "strings": [
+        "静默验证激活码\n返回: (success, message, server_reachable)\n- server_reachable=True: 服务器有明确响应（成功或拒绝）\n- server_reachable=False: 网络不可达/服务器故障\n",
+        "/v2/xK9mT2pQ8wR5/activate",
+        "valid",
+        "signature",
+        "machine_id",
+        "message",
+        "激活码无效",
+        "服务器错误: "
+      ]
+    },
+    {
+      "func": "ActivationManager.verify_with_dynamic_api",
+      "names": [
+        "get_dynamic_api_path",
+        "verify_activation_code",
+        "_pinned_post",
+        "server_url",
+        "machine_id",
+        "API_SECRET_KEY",
+        "CLIENT_VERSION",
+        "status_code",
+        "json",
+        "get",
+        "verify_signature",
+        "items",
+        "_save_activation",
+        "Exception",
+        "str"
+      ],
+      "varnames": [
+        "self",
+        "code",
+        "__assert_armored__",
+        "_var_var_56",
+        "_var_var_70",
+        "_var_var_43",
+        "_var_var_44",
+        "_var_var_45",
+        "_var_var_71",
+        "_var_var_3",
+        "_var_var_4",
+        "_var_var_72",
+        "_var_var_7"
+      ],
+      "argcount": 2,
+      "strings": [
+        "使用动态API路径验证激活码",
+        "/dyn/",
+        "/activate",
+        "valid",
+        "signature",
+        "expiry",
+        "message",
+        "激活失败"
+      ]
+    },
+    {
+      "func": "get_work_folder",
+      "names": [
+        "getattr",
+        "sys",
+        "os",
+        "path",
+        "dirname",
+        "executable",
+        "abspath",
+        "__file__"
+      ],
+      "varnames": [
+        "__assert_armored__"
+      ],
+      "argcount": 0,
+      "strings": [
+        "获取工作目录（支持 PyInstaller 打包）",
+        "frozen"
+      ]
+    },
+    {
+      "func": "verify_signature",
+      "names": [
+        "serialization",
+        "load_pem_public_key",
+        "SERVER_PUBLIC_KEY_PEM",
+        "encode",
+        "default_backend",
+        "items",
+        "json",
+        "dumps",
+        "verify",
+        "base64",
+        "b64decode",
+        "padding",
+        "PKCS1v15",
+        "hashes",
+        "SHA256",
+        "Exception",
+        "print"
+      ],
+      "varnames": [
+        "data",
+        "signature",
+        "__assert_armored__",
+        "_var_var_2",
+        "_var_var_3",
+        "_var_var_4",
+        "_var_var_5",
+        "_var_var_6",
+        "_var_var_7"
+      ],
+      "argcount": 2,
+      "strings": [
+        "验证服务器响应的数字签名",
+        "utf-8",
+        "signature",
+        "签名验证失败: "
+      ]
+    }
+  ],
+  "automation": [
+    {
+      "func": "AutomationEngine._cleanup_old_screenshots",
+      "names": [
+        "os",
+        "listdir",
+        "startswith",
+        "endswith",
+        "path",
+        "join",
+        "append",
+        "getctime",
+        "sort",
+        "len",
+        "pop",
+        "remove",
+        "log",
+        "basename",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "folder",
+        "prefix",
+        "max_count",
+        "__assert_armored__",
+        "_var_var_271",
+        "_var_var_1",
+        "_var_var_245",
+        "_var_var_272",
+        "_var_var_3"
+      ],
+      "argcount": 4,
+      "strings": [
+        "清理旧截图，保留最新的max_count张",
+        ".png",
+        ".jpg",
+        "🗑️ 已删除旧截图: ",
+        "⚠️ 清理旧截图失败: "
+      ]
+    },
+    {
+      "func": "AutomationEngine._execute_action",
+      "names": [
+        "get",
+        "_smooth_move_to",
+        "_humanize_delay",
+        "pyautogui",
+        "click",
+        "log",
+        "keyboard",
+        "press_and_release",
+        "time",
+        "sleep",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "action",
+        "ref_x",
+        "ref_y",
+        "__assert_armored__",
+        "_var_var_30",
+        "_var_var_138",
+        "_var_var_24",
+        "_var_var_25",
+        "_var_var_6",
+        "_var_var_7",
+        "_var_var_31",
+        "_var_var_111",
+        "_var_var_112",
+        "_var_var_139",
+        "_var_var_37",
+        "_var_var_3"
+      ],
+      "argcount": 4,
+      "strings": [
+        "执行单个动作（用于变换识别的动作序列）",
+        "type",
+        "",
+        "delay_after",
+        "click",
+        "x",
+        "y",
+        "offset_x",
+        "offset_y",
+        "button",
+        "left",
+        "  ↪ 点击: (",
+        ", ",
+        ") ",
+        "键",
+        "move",
+        "target",
+        "match_center",
+        "  ↪ 移动: (",
+        ")",
+        "key",
+        "  ↪ 按键: '",
+        "'",
+        "  ⚠️ 动作执行失败: "
+      ]
+    },
+    {
+      "func": "AutomationEngine._find_image_in_region",
+      "names": [
+        "os",
+        "path",
+        "join",
+        "images_folder",
+        "exists",
+        "PIL",
+        "ImageGrab",
+        "grab",
+        "np",
+        "array",
+        "_template_cache",
+        "load_image_cv2",
+        "cv2",
+        "IMREAD_COLOR",
+        "IMREAD_GRAYSCALE",
+        "cvtColor",
+        "COLOR_RGB2BGR",
+        "COLOR_RGB2GRAY",
+        "shape",
+        "int",
+        "resize",
+        "INTER_LINEAR",
+        "matchTemplate",
+        "TM_CCOEFF_NORMED",
+        "minMaxLoc",
+        "mean",
+        "sqrt",
+        "sum",
+        "COLOR_BGR2HSV",
+        "abs",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "image_name",
+        "region",
+        "confidence",
+        "color_match",
+        "__assert_armored__",
+        "_var_var_46",
+        "_var_var_47",
+        "_var_var_24",
+        "_var_var_25",
+        "_var_var_57",
+        "_var_var_56",
+        "_var_var_60",
+        "_var_var_48",
+        "_var_var_49",
+        "_var_var_61",
+        "_var_var_62",
+        "_var_var_63",
+        "_var_var_64",
+        "_var_var_65",
+        "_var_var_66",
+        "_var_var_67",
+        "_var_var_68",
+        "_var_var_69",
+        "_var_var_70",
+        "_var_var_71",
+        "_var_var_72",
+        "_var_var_73",
+        "_var_var_74",
+        "_var_var_51",
+        "_var_var_75",
+        "_var_var_76",
+        "_var_var_77",
+        "_var_var_78",
+        "_var_var_44",
+        "_var_var_52",
+        "_var_var_53",
+        "_var_var_54",
+        "_var_var_55",
+        "_var_var_79",
+        "_var_var_80",
+        "_var_var_81",
+        "_var_var_82",
+        "_var_var_83",
+        "_var_var_84",
+        "_var_var_85",
+        "_var_var_86",
+        "_var_var_87",
+        "_var_var_88",
+        "_var_var_89",
+        "_var_var_90",
+        "_var_var_91",
+        "_var_var_92",
+        "_var_var_58",
+        "_var_var_59",
+        "_var_var_3"
+      ],
+      "argcount": 5,
+      "strings": [
+        "在指定区域内识别图片（支持多尺度匹配，适应不同DPI/缩放）\n\n\n\nArgs:\n\n    image_name: 图片文件名\n\n    region: 区域坐标 {x, y, width, height}\n\n    confidence: 置信度\n\n    color_match: 是否使用彩色匹配（区分颜色）\n\n",
+        "x",
+        "y",
+        "width",
+        "height",
+        "_",
+        "color",
+        "gray"
+      ]
+    },
+    {
+      "func": "AutomationEngine._find_image_safe",
+      "names": [
+        "os",
+        "path",
+        "join",
+        "images_folder",
+        "exists",
+        "PIL",
+        "ImageGrab",
+        "grab",
+        "np",
+        "array",
+        "cv2",
+        "cvtColor",
+        "COLOR_RGB2GRAY",
+        "load_image_cv2",
+        "IMREAD_GRAYSCALE",
+        "matchTemplate",
+        "TM_CCOEFF_NORMED",
+        "minMaxLoc",
+        "shape",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "image_name",
+        "confidence",
+        "__assert_armored__",
+        "_var_var_46",
+        "_var_var_47",
+        "_var_var_48",
+        "_var_var_49",
+        "_var_var_50",
+        "_var_var_51",
+        "_var_var_44",
+        "_var_var_52",
+        "_var_var_53",
+        "_var_var_54",
+        "_var_var_55",
+        "_var_var_56",
+        "_var_var_57",
+        "_var_var_58",
+        "_var_var_59",
+        "_var_var_3"
+      ],
+      "argcount": 3,
+      "strings": [
+        "线程安全的图片识别（用于常驻任务）"
+      ]
+    },
+    {
+      "func": "AutomationEngine._handle_image_result",
+      "names": [
+        "get",
+        "log",
+        "is_running",
+        "jump_to_group"
+      ],
+      "varnames": [
+        "self",
+        "step",
+        "success",
+        "action_name",
+        "__assert_armored__",
+        "_var_var_38",
+        "_var_var_106",
+        "_var_var_227"
+      ],
+      "argcount": 4,
+      "strings": [
+        "处理图片识别类步骤的成功/失败结果\n\n\n\nArgs:\n\n    step: 步骤配置\n\n    success: 是否成功\n\n    action_name: 操作名称（用于日志）\n\n    \n\nReturns:\n\n    bool: 是否成功（可能被修改）\n\n",
+        "on_success",
+        "continue",
+        "stop",
+        "成功，停止当前组合",
+        "jump",
+        "success_jump_group",
+        "成功，跳转到组合 ",
+        "on_fail",
+        "失败，停止当前组合",
+        "fail_jump_group",
+        "失败，跳转到组合 ",
+        "retry"
+      ]
+    },
+    {
+      "func": "AutomationEngine._humanize_delay",
+      "names": [
+        "humanize_enabled",
+        "random",
+        "uniform",
+        "humanize_delay_range",
+        "time",
+        "sleep"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_4",
+        "_var_var_5"
+      ],
+      "argcount": 1,
+      "strings": [
+        "添加人类化随机延迟"
+      ]
+    },
+    {
+      "func": "AutomationEngine._humanize_position",
+      "names": [
+        "humanize_enabled",
+        "humanize_position_range",
+        "random",
+        "randint"
+      ],
+      "varnames": [
+        "self",
+        "x",
+        "y",
+        "__assert_armored__",
+        "_var_var_4",
+        "_var_var_6",
+        "_var_var_7"
+      ],
+      "argcount": 3,
+      "strings": [
+        "添加人类化位置偏移"
+      ]
+    },
+    {
+      "func": "AutomationEngine._load_fps_dpi_config",
+      "names": [
+        "os",
+        "path",
+        "exists",
+        "fps_config_file",
+        "open",
+        "json",
+        "load",
+        "get",
+        "fps_standard_dpi"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_1",
+        "_var_var_2"
+      ],
+      "argcount": 1,
+      "strings": [
+        "加载FPS DPI配置",
+        "r",
+        "utf-8",
+        "user_dpi"
+      ]
+    },
+    {
+      "func": "AutomationEngine._load_push_pack",
+      "names": [
+        "hmac",
+        "hashlib",
+        "os",
+        "path",
+        "join",
+        "get_app_path",
+        "exists",
+        "hasattr",
+        "_push_pack_cache",
+        "open",
+        "read",
+        "startswith",
+        "len",
+        "new",
+        "sha256",
+        "digest",
+        "compare_digest",
+        "log",
+        "bytes",
+        "enumerate",
+        "json",
+        "loads",
+        "decode",
+        "get",
+        "base64",
+        "b64decode",
+        "np",
+        "frombuffer",
+        "uint8",
+        "cv2",
+        "imdecode",
+        "IMREAD_GRAYSCALE",
+        "append",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_256",
+        "_var_var_257",
+        "_var_var_258",
+        "_var_var_1",
+        "_var_var_2",
+        "_var_var_259",
+        "_var_var_260",
+        "_var_var_261",
+        "_var_var_262",
+        "_var_var_263",
+        "_var_var_264",
+        "_var_var_37",
+        "_var_var_22",
+        "_var_var_265",
+        "_var_var_266",
+        "_var_var_267",
+        "_var_var_44",
+        "_var_var_253",
+        "_var_var_268",
+        "_var_var_269",
+        "_var_var_249",
+        "_var_var_270",
+        "_var_var_51",
+        "_var_var_3"
+      ],
+      "argcount": 1,
+      "strings": [
+        "从加密包读取推送图片配置",
+        "push_images.dat",
+        "_push_pack_cache",
+        "rb",
+        "⚠️ 推送图片包签名无效，请使用官方包",
+        "⚠️ 推送图片包格式无效",
+        "utf-8",
+        "images",
+        "name",
+        "",
+        "data",
+        "📦 已加载 ",
+        " 个推送图片",
+        "⚠️ 加载推送图片包失败: "
+      ]
+    },
+    {
+      "func": "AutomationEngine._smooth_move_to",
+      "names": [
+        "random",
+        "math",
+        "pyautogui",
+        "position",
+        "sqrt",
+        "moveTo",
+        "max",
+        "min",
+        "int",
+        "atan2",
+        "pi",
+        "uniform",
+        "cos",
+        "sin",
+        "range",
+        "time",
+        "sleep"
+      ],
+      "varnames": [
+        "self",
+        "target_x",
+        "target_y",
+        "duration",
+        "__assert_armored__",
+        "_var_var_4",
+        "_var_var_8",
+        "_var_var_9",
+        "_var_var_10",
+        "_var_var_11",
+        "_var_var_12",
+        "_var_var_13",
+        "_var_var_14",
+        "_var_var_15",
+        "_var_var_16",
+        "_var_var_17",
+        "_var_var_18",
+        "_var_var_19",
+        "_var_var_20",
+        "_var_var_21",
+        "_var_var_22",
+        "_var_var_23",
+        "_var_var_24",
+        "_var_var_25"
+      ],
+      "argcount": 4,
+      "strings": [
+        "丝滑贝塞尔曲线鼠标移动\n\n\n\n使用二次贝塞尔曲线实现自然的鼠标移动轨迹\n\n"
+      ]
+    },
+    {
+      "func": "AutomationEngine.activate_window",
+      "names": [
+        "win32gui",
+        "win32con",
+        "get_window_by_process",
+        "log",
+        "IsIconic",
+        "ShowWindow",
+        "SW_RESTORE",
+        "SetForegroundWindow",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "process_name",
+        "__assert_armored__",
+        "_var_var_190",
+        "_var_var_198",
+        "_var_var_200",
+        "_var_var_3"
+      ],
+      "argcount": 2,
+      "strings": [
+        "激活/切换到指定窗口",
+        "未找到程序窗口: ",
+        "切换到窗口: ",
+        "切换窗口失败: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.activate_window_v2",
+      "names": [
+        "win32gui",
+        "win32con",
+        "find_window",
+        "log",
+        "get",
+        "IsIconic",
+        "ShowWindow",
+        "SW_RESTORE",
+        "SetForegroundWindow",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "find_by",
+        "target",
+        "__assert_armored__",
+        "_var_var_190",
+        "_var_var_198",
+        "_var_var_214",
+        "_var_var_200",
+        "_var_var_3"
+      ],
+      "argcount": 3,
+      "strings": [
+        "激活/切换到指定窗口（支持多种查找方式）",
+        "进程名",
+        "窗口标题",
+        "PID",
+        "未找到窗口 [",
+        "=",
+        "]",
+        "切换到窗口: [",
+        "切换窗口失败: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.close_process",
+      "names": [
+        "close_process_v2"
+      ],
+      "varnames": [
+        "self",
+        "process_name",
+        "__assert_armored__"
+      ],
+      "argcount": 2,
+      "strings": [
+        "强制关闭程序",
+        "process_name"
+      ]
+    },
+    {
+      "func": "AutomationEngine.close_process_v2",
+      "names": [
+        "find_process",
+        "kill",
+        "log",
+        "get",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "find_by",
+        "target",
+        "__assert_armored__",
+        "_var_var_214",
+        "_var_var_197",
+        "_var_var_215",
+        "_var_var_194",
+        "_var_var_3"
+      ],
+      "argcount": 3,
+      "strings": [
+        "强制关闭程序（支持多种查找方式）",
+        "进程名",
+        "窗口标题",
+        "PID",
+        "已关闭 ",
+        " 个进程 [",
+        "=",
+        "]",
+        "未找到进程 [",
+        "关闭程序失败: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.execute_change_detection",
+      "names": [
+        "get",
+        "log",
+        "join",
+        "len",
+        "time",
+        "is_running",
+        "jump_to_group",
+        "is_paused",
+        "sleep",
+        "_find_image_in_region",
+        "append",
+        "Exception",
+        "sort",
+        "_execute_action"
+      ],
+      "varnames": [
+        "self",
+        "step",
+        "__assert_armored__",
+        "_var_var_126",
+        "_var_var_96",
+        "_var_var_127",
+        "_var_var_128",
+        "_var_var_129",
+        "_var_var_130",
+        "_var_var_131",
+        "_var_var_100",
+        "_var_var_132",
+        "_var_var_133",
+        "_var_var_134",
+        "_var_var_135",
+        "_var_var_44",
+        "_var_var_3",
+        "_var_var_136",
+        "_var_var_24",
+        "_var_var_25",
+        "_var_var_45",
+        "_var_var_137",
+        "_var_var_105",
+        "_var_var_104"
+      ],
+      "argcount": 2,
+      "strings": [
+        "执行变换识别（非常驻模式，在超时时间内检测多区域）\n\n\n\n按优先级检测多个区域，检测到就执行对应动作序列\n\n",
+        "regions",
+        "⚠️ 变换识别：未配置监控区域",
+        "timeout",
+        "scan_interval",
+        "batch_delay",
+        "id",
+        "未命名",
+        ", ",
+        "🎯 变换识别开始: 监控 ",
+        " 个区域 [",
+        "] (超时",
+        "秒)",
+        "🎯 变换识别被中断: 常驻任务触发跳转",
+        "",
+        "target_image",
+        "region",
+        "confidence",
+        "color_match",
+        "⚠️ 区域 ",
+        " 识别错误: ",
+        "region_id",
+        "position",
+        "✅ 区域 '",
+        "' 检测到 -> (",
+        ") 置信度:",
+        ".2f",
+        "actions",
+        "🎯 变换识别完成: 检测到 ",
+        " 个区域 (用时",
+        ".1f",
+        "⚠️ 变换识别超时: ",
+        "秒内未检测到任何区域"
+      ]
+    },
+    {
+      "func": "AutomationEngine.execute_color_check",
+      "names": [
+        "get",
+        "isinstance",
+        "str",
+        "startswith",
+        "int",
+        "PIL",
+        "ImageGrab",
+        "time",
+        "np",
+        "array",
+        "float32",
+        "log",
+        "is_running",
+        "jump_to_group",
+        "grab",
+        "mean",
+        "sqrt",
+        "sum",
+        "min",
+        "sleep",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "step",
+        "__assert_armored__",
+        "_var_var_24",
+        "_var_var_25",
+        "_var_var_93",
+        "_var_var_94",
+        "_var_var_95",
+        "_var_var_96",
+        "_var_var_36",
+        "_var_var_47",
+        "_var_var_97",
+        "_var_var_98",
+        "_var_var_99",
+        "_var_var_100",
+        "_var_var_101",
+        "_var_var_60",
+        "_var_var_48",
+        "_var_var_49",
+        "_var_var_102",
+        "_var_var_85",
+        "_var_var_103",
+        "_var_var_104",
+        "_var_var_105",
+        "_var_var_106",
+        "_var_var_107",
+        "_var_var_108",
+        "_var_var_3"
+      ],
+      "argcount": 2,
+      "strings": [
+        "执行颜色识别\n\n\n\n检测指定位置的颜色是否与目标颜色匹配（支持容差）\n\n支持循环检测模式：在超时时间内按间隔循环检测\n\n\n\nArgs:\n\n    step: 包含以下参数\n\n        - x, y: 检测坐标\n\n        - target_color: 目标颜色 [R, G, B]\n\n        - tolerance: 颜色容差（默认30）\n\n        - sample_size: 采样区域大小（默认3，取3x3像素平均值）\n\n        - timeout: 超时时间（秒），0表示只检测一次（默认0）\n\n        - interval: 检测间隔（秒），默认0.5\n\n        - on_match: 匹配时动作 (continue/stop/jump)\n\n        - on_mismatch: 不匹配时动作 (continue/stop/jump)\n\n        - on_timeout: 超时时动作 (continue/stop/jump)\n\n",
+        "x",
+        "y",
+        "target_color",
+        "tolerance",
+        "sample_size",
+        "timeout",
+        "interval",
+        "#",
+        "🎨 颜色识别开始: 位置(",
+        ",",
+        ") 目标RGB(",
+        ") 容差=",
+        " 超时=",
+        "秒 间隔=",
+        "秒",
+        "🎨 颜色识别中断: 检测到跳转信号",
+        "🎨 第",
+        "次检测: RGB(",
+        ".0f",
+        ") 差异=",
+        ".1f",
+        " -> ",
+        "✅匹配",
+        "❌不匹配",
+        " (已用时",
+        "秒)",
+        "🎨 颜色识别: 位置(",
+        ") 检测到RGB(",
+        " 容差=",
+        "on_match",
+        "continue",
+        "stop",
+        "颜色匹配，停止执行",
+        "jump",
+        "match_jump_group",
+        "颜色匹配，跳转到组合 ",
+        "on_mismatch",
+        "颜色不匹配，停止执行",
+        "mismatch_jump_group",
+        "颜色不匹配，跳转到组合 ",
+        "🎨 颜色识别超时: 共检测",
+        "次，耗时",
+        "on_timeout",
+        "超时，停止执行",
+        "timeout_jump_group",
+        "超时，跳转到组合 ",
+        "颜色识别失败: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.execute_group",
+      "names": [
+        "stop_continuous_tasks",
+        "get",
+        "humanize_enabled",
+        "humanize_position_range",
+        "humanize_delay_range",
+        "log",
+        "int",
+        "current_group",
+        "jump_to_group",
+        "start_continuous_task",
+        "append",
+        "time",
+        "is_running",
+        "sleep",
+        "stop_group_continuous_tasks",
+        "return_from_call",
+        "getattr",
+        "enumerate",
+        "is_paused",
+        "current_step",
+        "update_status",
+        "len",
+        "execute_step",
+        "call_stack",
+        "range"
+      ],
+      "varnames": [
+        "self",
+        "group",
+        "group_index",
+        "__assert_armored__",
+        "_var_var_268",
+        "_var_var_12",
+        "_var_var_288",
+        "_var_var_289",
+        "_var_var_290",
+        "_var_var_291",
+        "_var_var_292",
+        "_var_var_293",
+        "_var_var_294",
+        "_var_var_284",
+        "_var_var_295",
+        "_var_var_100",
+        "_var_var_296",
+        "_var_var_22",
+        "_var_var_285",
+        "_var_var_243",
+        "_var_var_277",
+        "_var_var_297",
+        "_var_var_298",
+        "_var_var_227",
+        "_var_var_286",
+        "_var_var_287",
+        "_var_var_299"
+      ],
+      "argcount": 3,
+      "strings": [
+        "执行单个组合\n\n\n\nArgs:\n\n    group: 组合配置\n\n    group_index: 组合索引\n\n    \n\nReturns:\n\n    bool: 是否正常完成（非跳转）\n\n",
+        "name",
+        "组合 ",
+        "steps",
+        "humanize",
+        "enabled",
+        "position_range",
+        "delay_min",
+        "delay_max",
+        "🎭 人类化: ±",
+        "px, ",
+        "~",
+        "ms",
+        "loop_mode",
+        "once",
+        "loop_enabled",
+        "infinite",
+        "loop_duration",
+        "duration",
+        "loop_count",
+        "count",
+        "▶ 开始执行组合 ",
+        ": ",
+        "type",
+        "continuous_click",
+        " 已达到执行时间限制 ",
+        "秒",
+        " 第 ",
+        " 次循环",
+        " 触发跳转，中断当前执行",
+        "return_step_index",
+        "📞 从步骤 ",
+        " 继续执行",
+        "步骤 ",
+        "执行: ",
+        "  [",
+        "/",
+        "] ",
+        "call_group",
+        "_call_return_mode",
+        "current",
+        "custom",
+        "_call_return_group",
+        "_call_return_step",
+        "📞 调用栈压入: 组合",
+        " 步骤",
+        " 触发跳转",
+        "on_fail",
+        "continue",
+        "stop",
+        "步骤失败，停止执行",
+        "retry",
+        "retry_count",
+        "  重试 ",
+        "  重试",
+        "次仍失败",
+        "fail_jump_group",
+        "✓ 组合 ",
+        " 执行完成: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.execute_groups",
+      "names": [
+        "is_running",
+        "is_paused",
+        "jump_to_group",
+        "call_stack",
+        "return_from_call",
+        "get",
+        "log",
+        "len",
+        "execute_group",
+        "pop",
+        "return_step_index"
+      ],
+      "varnames": [
+        "self",
+        "workflow",
+        "start_group",
+        "__assert_armored__",
+        "_var_var_300",
+        "_var_var_301",
+        "_var_var_302",
+        "_var_var_303",
+        "_var_var_304",
+        "_var_var_297",
+        "_var_var_298",
+        "_var_var_305"
+      ],
+      "argcount": 3,
+      "strings": [
+        "执行多组合工作流\n\n\n\nArgs:\n\n    workflow: 包含groups数组的工作流配置\n\n    start_group: 起始组合索引（默认使用配置中的default_group）\n\n\n\n执行逻辑：\n\n    - 从默认组合开始执行\n\n    - 组合执行完后，如果有跳转配置则跳转，否则停止\n\n    - 不会自动执行下一个组合\n\n",
+        "groups",
+        "steps",
+        "name",
+        "默认组合",
+        "没有可执行的组合",
+        "未命名流程",
+        "default_group",
+        "═══ 开始执行流程: ",
+        " ═══",
+        "从组合 ",
+        " 开始执行",
+        "组合索引 ",
+        " 无效，停止执行",
+        "DEBUG: execute_group返回 completed_normally=",
+        ", is_running=",
+        ", jump_to_group=",
+        "DEBUG: is_running=False，退出主循环",
+        "DEBUG: 检测到跳转，jump_to_group=",
+        "→ 跳转: 组合 ",
+        " → 组合 ",
+        "DEBUG: 准备continue到下一次循环，current_index=",
+        "跳转目标组合 ",
+        " 不存在，停止执行",
+        "📞 从调用返回: 组合",
+        " 步骤",
+        "组合 ",
+        " 执行完成，调用栈为空，停止执行",
+        " 执行完成，无跳转配置，停止执行",
+        "═══ 流程执行完成: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.execute_pixel_position",
+      "names": [
+        "keyboard",
+        "get",
+        "log",
+        "is_running",
+        "find_image",
+        "time",
+        "sleep",
+        "abs",
+        "press",
+        "release"
+      ],
+      "varnames": [
+        "self",
+        "step",
+        "__assert_armored__",
+        "_var_var_110",
+        "_var_var_35",
+        "_var_var_111",
+        "_var_var_112",
+        "_var_var_94",
+        "_var_var_34",
+        "_var_var_113",
+        "_var_var_114",
+        "_var_var_115",
+        "_var_var_116",
+        "_var_var_117",
+        "_var_var_118",
+        "_var_var_119",
+        "_var_var_44",
+        "_var_var_120",
+        "_var_var_121",
+        "_var_var_45",
+        "_var_var_122",
+        "_var_var_123",
+        "_var_var_37",
+        "_var_var_124",
+        "_var_var_125"
+      ],
+      "argcount": 2,
+      "strings": [
+        "像素级定位 - 通过图片识别和WASD按键调整位置\n\nArgs:\n    step: 包含以下参数\n        - image: 参考图片名\n        - target_x, target_y: 目标坐标\n        - tolerance: 误差范围（像素）\n        - ms_per_pixel: 每像素对应的按键时长（毫秒）\n        - confidence: 图片识别置信度\n        - max_attempts: 最大调整次数\n        - key_up, key_down, key_left, key_right: WASD按键\n",
+        "image",
+        "",
+        "target_x",
+        "target_y",
+        "tolerance",
+        "ms_per_pixel",
+        "confidence",
+        "max_attempts",
+        "key_up",
+        "w",
+        "key_down",
+        "s",
+        "key_left",
+        "a",
+        "key_right",
+        "d",
+        "🎯 像素级定位: 图片=",
+        " 目标(",
+        ", ",
+        ") 误差±",
+        "px",
+        "❌ 未指定参考图片",
+        "  第",
+        "次: 未找到参考图片",
+        "次: 当前(",
+        ") 偏移(",
+        ")",
+        "✅ 定位成功! 偏移(",
+        ")在误差范围内",
+        "下",
+        "上",
+        "    按 ",
+        "(",
+        ") ",
+        "ms",
+        "右",
+        "左",
+        "⚠️ 像素级定位: 达到最大调整次数("
+      ]
+    },
+    {
+      "func": "AutomationEngine.execute_step",
+      "names": [
+        "wait_if_paused",
+        "get",
+        "is_running",
+        "is_paused",
+        "min",
+        "time",
+        "sleep",
+        "mouse_click_current",
+        "mouse_double_click_current",
+        "mouse_right_click_current",
+        "mouse_move",
+        "mouse_drag",
+        "mouse_scroll",
+        "fps_move",
+        "keyboard_type",
+        "keyboard_press",
+        "keyboard_hotkey",
+        "image_find_and_move",
+        "_handle_image_result",
+        "image_click",
+        "image_click_ocr",
+        "wait_for_image",
+        "wait_for_image_disappear",
+        "start_continuous_task",
+        "current_group",
+        "execute_change_detection",
+        "execute_number_check",
+        "execute_color_check",
+        "execute_pixel_position",
+        "jump_to_group",
+        "log",
+        "_call_return_mode",
+        "_call_return_group",
+        "_call_return_step",
+        "perf_counter",
+        "multi_hold",
+        "resize_window_v2",
+        "move_window_v2",
+        "activate_window_v2",
+        "close_process_v2",
+        "set_windowed_mode_v2",
+        "window_exists_v2",
+        "take_screenshot"
+      ],
+      "varnames": [
+        "self",
+        "step",
+        "__assert_armored__",
+        "_var_var_273",
+        "_var_var_5",
+        "_var_var_274",
+        "_var_var_108",
+        "_var_var_275",
+        "_var_var_243",
+        "_var_var_44",
+        "_var_var_276",
+        "_var_var_277",
+        "_var_var_278",
+        "_var_var_100",
+        "_var_var_140",
+        "_var_var_279",
+        "_var_var_139",
+        "_var_var_280",
+        "_var_var_281",
+        "_var_var_106",
+        "_var_var_282"
+      ],
+      "argcount": 2,
+      "strings": [
+        "执行单个步骤",
+        "type",
+        "",
+        "delay",
+        "click",
+        "button",
+        "left",
+        "clicks",
+        "hold_time",
+        "double_click",
+        "right_click",
+        "move",
+        "x",
+        "y",
+        "duration",
+        "drag",
+        "start_x",
+        "start_y",
+        "end_x",
+        "end_y",
+        "scroll",
+        "fps_move",
+        "dx",
+        "dy",
+        "steps",
+        "text",
+        "interval",
+        "press",
+        "key",
+        "hotkey",
+        "keys",
+        "image_find",
+        "image",
+        "confidence",
+        "offset_x",
+        "offset_y",
+        "max_wait",
+        "move_duration",
+        "图片识别",
+        "image_click",
+        "wait_time",
+        "click_delay",
+        "图片点击",
+        "image_click_ocr",
+        "ocr_text",
+        "ocr_expand",
+        "OCR点击",
+        "wait_image",
+        "timeout",
+        "等待图片",
+        "wait_image_disappear",
+        "等待图片消失",
+        "continuous_click",
+        "change_detection",
+        "变换识别",
+        "number_check",
+        "color_check",
+        "pixel_position",
+        "jump_group",
+        "target_group",
+        "跳转到组合 ",
+        "call_group",
+        "return_mode",
+        "current",
+        "custom",
+        "return_group",
+        "return_step",
+        "📞 调用组合 ",
+        "，完成后返回组合",
+        " 步骤",
+        "，完成后返回当前位置",
+        "ms",
+        "延迟: (指定",
+        "ms-实际",
+        ".1f",
+        "ms)",
+        "延迟被中断: 常驻任务触发跳转 (已等待",
+        "log",
+        "message",
+        "multi_hold",
+        "resize_window",
+        "find_by",
+        "process_name",
+        "target",
+        "width",
+        "height",
+        "preset_size",
+        "自定义",
+        "move_window",
+        "preset_pos",
+        "activate_window",
+        "close_window",
+        "set_windowed",
+        "window_exists",
+        "window_title",
+        "on_exists",
+        "continue",
+        "stop",
+        "窗口存在，停止执行",
+        "jump",
+        "exists_jump_group",
+        "窗口存在，跳转到组合 ",
+        "on_not_exists",
+        "窗口不存在，停止执行",
+        "not_exists_jump_group",
+        "窗口不存在，跳转到组合 ",
+        "screenshot",
+        "未知步骤类型: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.execute_workflow",
+      "names": [
+        "is_running",
+        "is_paused",
+        "get",
+        "log",
+        "range",
+        "enumerate",
+        "time",
+        "sleep",
+        "current_step",
+        "execute_step"
+      ],
+      "varnames": [
+        "self",
+        "workflow",
+        "loop_count",
+        "__assert_armored__",
+        "_var_var_268",
+        "_var_var_12",
+        "_var_var_283",
+        "_var_var_22",
+        "_var_var_284",
+        "_var_var_285",
+        "_var_var_243",
+        "_var_var_227",
+        "_var_var_286",
+        "_var_var_287"
+      ],
+      "argcount": 3,
+      "strings": [
+        "执行工作流",
+        "name",
+        "未命名流程",
+        "steps",
+        "开始执行流程: ",
+        "第 ",
+        "/",
+        " 次循环",
+        "步骤 ",
+        "执行: ",
+        "on_fail",
+        "continue",
+        "stop",
+        "步骤失败，停止执行",
+        "retry",
+        "retry_count",
+        "重试 ",
+        "重试",
+        "次仍失败",
+        "流程执行完成: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.find_all_images",
+      "names": [
+        "get_image_path",
+        "os",
+        "path",
+        "exists",
+        "log",
+        "pyautogui",
+        "screenshot",
+        "np",
+        "array",
+        "cv2",
+        "cvtColor",
+        "COLOR_RGB2GRAY",
+        "_template_cache",
+        "load_image_cv2",
+        "IMREAD_GRAYSCALE",
+        "matchTemplate",
+        "TM_CCOEFF_NORMED",
+        "where",
+        "shape",
+        "zip",
+        "append",
+        "abs",
+        "len",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "image_name",
+        "confidence",
+        "region",
+        "__assert_armored__",
+        "_var_var_46",
+        "_var_var_48",
+        "_var_var_49",
+        "_var_var_50",
+        "_var_var_51",
+        "_var_var_24",
+        "_var_var_25",
+        "_var_var_57",
+        "_var_var_56",
+        "_var_var_44",
+        "_var_var_169",
+        "_var_var_133",
+        "_var_var_170",
+        "_var_var_58",
+        "_var_var_59",
+        "_var_var_171",
+        "_var_var_136",
+        "_var_var_172",
+        "_var_var_173",
+        "_var_var_3"
+      ],
+      "argcount": 4,
+      "strings": [
+        "查找所有匹配的图片位置",
+        "图片不存在: ",
+        "找到 ",
+        " 个匹配: ",
+        "图像识别失败: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.find_image",
+      "names": [
+        "get_image_path",
+        "os",
+        "path",
+        "exists",
+        "log",
+        "pyautogui",
+        "screenshot",
+        "np",
+        "array",
+        "cv2",
+        "cvtColor",
+        "COLOR_RGB2GRAY",
+        "_template_cache",
+        "load_image_cv2",
+        "IMREAD_GRAYSCALE",
+        "matchTemplate",
+        "TM_CCOEFF_NORMED",
+        "minMaxLoc",
+        "shape",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "image_name",
+        "confidence",
+        "region",
+        "__assert_armored__",
+        "_var_var_46",
+        "_var_var_48",
+        "_var_var_49",
+        "_var_var_50",
+        "_var_var_51",
+        "_var_var_24",
+        "_var_var_25",
+        "_var_var_57",
+        "_var_var_56",
+        "_var_var_44",
+        "_var_var_52",
+        "_var_var_53",
+        "_var_var_54",
+        "_var_var_55",
+        "_var_var_58",
+        "_var_var_59",
+        "_var_var_3"
+      ],
+      "argcount": 4,
+      "strings": [
+        "查找图片位置",
+        "图片不存在: ",
+        "无法加载图片: ",
+        "找到图片 ",
+        ": (",
+        ", ",
+        ") 置信度: ",
+        ".2f",
+        "未找到图片 ",
+        " (最高置信度: ",
+        ")",
+        "图像识别失败: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.find_process",
+      "names": [
+        "psutil",
+        "win32gui",
+        "win32process",
+        "Process",
+        "int",
+        "append",
+        "process_iter",
+        "info",
+        "lower",
+        "set",
+        "EnumWindows",
+        "Exception",
+        "log"
+      ],
+      "varnames": [
+        "self",
+        "find_by",
+        "target",
+        "__assert_armored__",
+        "_var_var_189",
+        "_var_var_197",
+        "_var_var_194",
+        "_var_var_192",
+        "_var_var_193",
+        "_var_var_3"
+      ],
+      "argcount": 3,
+      "strings": [
+        "通用进程查找函数（用于关闭进程等）\n\n\n\nArgs:\n\n    find_by: 查找方式 - 'process_name'(进程名), 'window_title'(窗口标题), 'pid'(进程ID)\n\n    target: 查找目标\n\n    \n\nReturns:\n\n    list: 匹配的进程列表\n\n",
+        "pid",
+        "process_name",
+        "name",
+        "window_title",
+        "查找进程失败: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.find_window",
+      "names": [
+        "win32gui",
+        "win32process",
+        "psutil",
+        "EnumWindows",
+        "Exception",
+        "log"
+      ],
+      "varnames": [
+        "self",
+        "find_by",
+        "target",
+        "__assert_armored__",
+        "_var_var_192",
+        "_var_var_3"
+      ],
+      "argcount": 3,
+      "strings": [
+        "通用窗口查找函数\n\n\n\nArgs:\n\n    find_by: 查找方式 - 'process_name'(进程名), 'window_title'(窗口标题), 'pid'(进程ID)\n\n    target: 查找目标\n\n    \n\nReturns:\n\n    hwnd: 窗口句柄，未找到返回 None\n\n",
+        "查找窗口失败: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.fps_move",
+      "names": [
+        "ctypes",
+        "time",
+        "get_fps_dpi_multiplier",
+        "windll",
+        "user32",
+        "mouse_event",
+        "int",
+        "range",
+        "sleep",
+        "log",
+        "abs",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "dx",
+        "dy",
+        "duration",
+        "steps",
+        "__assert_armored__",
+        "_var_var_141",
+        "_var_var_142",
+        "_var_var_143",
+        "_var_var_144",
+        "_var_var_145",
+        "_var_var_146",
+        "_var_var_147",
+        "_var_var_148",
+        "_var_var_21",
+        "_var_var_22",
+        "_var_var_149",
+        "_var_var_150",
+        "_var_var_151",
+        "_var_var_152",
+        "_var_var_3"
+      ],
+      "argcount": 5,
+      "strings": [
+        "FPS视角移动 - 相对鼠标移动\n\n\n\n用于FPS游戏视角控制，通过相对移动实现视角转动\n\n配置值基于标准DPI(1000)编写，自动根据用户DPI换算\n\n\n\nArgs:\n\n    dx: 水平移动距离（像素），正值向右转，负值向左转\n\n    dy: 垂直移动距离（像素），正值向下看，负值向上看\n\n    duration: 移动持续时间（秒）\n\n    steps: 移动分段数（越多越平滑）\n\n",
+        "右",
+        "左",
+        "",
+        "下",
+        "上",
+        "FPS视角移动: 水平",
+        "px 垂直",
+        "px (DPI倍率:",
+        ".2f",
+        ")",
+        "FPS视角移动失败: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.get_fps_dpi_multiplier",
+      "names": [
+        "fps_standard_dpi",
+        "fps_user_dpi"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": [
+        "获取FPS DPI倍率（标准DPI / 用户DPI）"
+      ]
+    },
+    {
+      "func": "AutomationEngine.get_image_path",
+      "names": [
+        "os",
+        "path",
+        "isabs",
+        "join",
+        "images_folder"
+      ],
+      "varnames": [
+        "self",
+        "image_name",
+        "__assert_armored__"
+      ],
+      "argcount": 2,
+      "strings": [
+        "获取图片完整路径"
+      ]
+    },
+    {
+      "func": "AutomationEngine.get_window_by_process",
+      "names": [
+        "find_window"
+      ],
+      "varnames": [
+        "self",
+        "process_name",
+        "__assert_armored__"
+      ],
+      "argcount": 2,
+      "strings": [
+        "根据进程名获取窗口句柄（兼容旧代码）",
+        "process_name"
+      ]
+    },
+    {
+      "func": "AutomationEngine.image_click",
+      "names": [
+        "time",
+        "is_running",
+        "jump_to_group",
+        "find_image",
+        "mouse_move",
+        "log",
+        "sleep",
+        "mouse_click_current"
+      ],
+      "varnames": [
+        "self",
+        "image_name",
+        "confidence",
+        "offset_x",
+        "offset_y",
+        "wait_time",
+        "max_wait",
+        "button",
+        "click_delay",
+        "__assert_armored__",
+        "_var_var_100",
+        "_var_var_44",
+        "_var_var_24",
+        "_var_var_25",
+        "_var_var_45",
+        "_var_var_108"
+      ],
+      "argcount": 9,
+      "strings": [
+        "图像识别并点击\n\n\n\nArgs:\n\n    click_delay: 鼠标移动到目标后等待多少秒再点击（默认1秒）\n\n",
+        "移动到目标位置 (",
+        ", ",
+        ")，等待 ",
+        " 秒后点击",
+        "等待图片超时: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.image_click_ocr",
+      "names": [
+        "time",
+        "os",
+        "path",
+        "join",
+        "images_folder",
+        "exists",
+        "log",
+        "load_image_cv2",
+        "cv2",
+        "IMREAD_COLOR",
+        "shape",
+        "is_running",
+        "jump_to_group",
+        "find_image",
+        "max",
+        "ocr_read_region",
+        "replace",
+        "lower",
+        "mouse_move",
+        "sleep",
+        "mouse_click_current"
+      ],
+      "varnames": [
+        "self",
+        "image_name",
+        "ocr_text",
+        "confidence",
+        "offset_x",
+        "offset_y",
+        "max_wait",
+        "button",
+        "click_delay",
+        "ocr_expand",
+        "__assert_armored__",
+        "_var_var_100",
+        "_var_var_178",
+        "_var_var_51",
+        "_var_var_56",
+        "_var_var_57",
+        "_var_var_44",
+        "_var_var_24",
+        "_var_var_25",
+        "_var_var_45",
+        "_var_var_179",
+        "_var_var_180",
+        "_var_var_181",
+        "_var_var_182",
+        "_var_var_183",
+        "_var_var_184",
+        "_var_var_185",
+        "_var_var_186",
+        "_var_var_187"
+      ],
+      "argcount": 10,
+      "strings": [
+        "图像识别 + OCR 验证后点击\n\n\n\nArgs:\n\n    image_name: 图片文件名\n\n    ocr_text: 需要验证的文字（支持部分匹配）\n\n    confidence: 图片匹配置信度\n\n    offset_x, offset_y: 点击偏移\n\n    max_wait: 最大等待时间\n\n    button: 鼠标按键\n\n    click_delay: 点击前延迟\n\n    ocr_expand: OCR 识别区域扩展像素（向四周扩展）\n\n",
+        "[OCR] 图片不存在: ",
+        "[OCR] 无法读取图片: ",
+        "[OCR] 识别区域: (",
+        ", ",
+        ")",
+        " ",
+        "",
+        "[OCR] 文字验证成功: '",
+        "' 在 '",
+        "' 中",
+        "[OCR] 移动到 (",
+        ")，等待 ",
+        " 秒",
+        "[OCR] 文字不匹配: 期望 '",
+        "'，实际 '",
+        "'",
+        "[OCR] 等待超时: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.image_find_and_move",
+      "names": [
+        "time",
+        "is_running",
+        "jump_to_group",
+        "find_image",
+        "log",
+        "mouse_move",
+        "sleep"
+      ],
+      "varnames": [
+        "self",
+        "image_name",
+        "confidence",
+        "offset_x",
+        "offset_y",
+        "max_wait",
+        "move_duration",
+        "__assert_armored__",
+        "_var_var_100",
+        "_var_var_44",
+        "_var_var_24",
+        "_var_var_25",
+        "_var_var_45"
+      ],
+      "argcount": 7,
+      "strings": [
+        "图像识别并移动鼠标（不点击）",
+        "图片识别成功，移动鼠标到: (",
+        ", ",
+        ")",
+        "图片识别超时: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.keyboard_hold",
+      "names": [
+        "time",
+        "perf_counter",
+        "pyautogui",
+        "keyDown",
+        "precise_sleep",
+        "keyUp",
+        "log",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "key",
+        "duration",
+        "__assert_armored__",
+        "_var_var_100",
+        "_var_var_140",
+        "_var_var_3"
+      ],
+      "argcount": 3,
+      "strings": [
+        "按住键",
+        "按住键: ",
+        " (指定",
+        "秒-实际",
+        ".3f",
+        "秒)",
+        "按住键失败: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.keyboard_hotkey",
+      "names": [
+        "time",
+        "perf_counter",
+        "pyautogui",
+        "keyDown",
+        "precise_sleep",
+        "reversed",
+        "keyUp",
+        "log",
+        "join",
+        "hotkey",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "hold_time",
+        "keys",
+        "__assert_armored__",
+        "_var_var_100",
+        "_var_var_37",
+        "_var_var_140",
+        "_var_var_3"
+      ],
+      "argcount": 1,
+      "strings": [
+        "组合键",
+        "组合键: ",
+        "+",
+        " (指定",
+        "秒-实际",
+        ".3f",
+        "秒)",
+        "组合键失败: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.keyboard_press",
+      "names": [
+        "time",
+        "perf_counter",
+        "pyautogui",
+        "keyDown",
+        "precise_sleep",
+        "keyUp",
+        "log",
+        "press",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "key",
+        "hold_time",
+        "__assert_armored__",
+        "_var_var_100",
+        "_var_var_140",
+        "_var_var_3"
+      ],
+      "argcount": 3,
+      "strings": [
+        "按下单个键",
+        "按键: ",
+        " (指定",
+        "秒-实际",
+        ".3f",
+        "秒)",
+        "按键失败: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.keyboard_type",
+      "names": [
+        "pyperclip",
+        "paste",
+        "copy",
+        "time",
+        "sleep",
+        "keyboard",
+        "press",
+        "release",
+        "len",
+        "log",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "text",
+        "interval",
+        "__assert_armored__",
+        "_var_var_153",
+        "_var_var_154",
+        "_var_var_155",
+        "_var_var_3"
+      ],
+      "argcount": 3,
+      "strings": [
+        "键盘输入文本 - 使用剪贴板粘贴方式",
+        "ctrl",
+        "v",
+        "...",
+        "粘贴文本: ",
+        "粘贴文本失败: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.load_image_cv2",
+      "names": [
+        "np",
+        "fromfile",
+        "uint8",
+        "cv2",
+        "imdecode",
+        "Exception",
+        "log"
+      ],
+      "varnames": [
+        "self",
+        "image_path",
+        "flags",
+        "__assert_armored__",
+        "_var_var_167",
+        "_var_var_168",
+        "_var_var_3"
+      ],
+      "argcount": 3,
+      "strings": [
+        "加载图片（支持中文路径）",
+        "加载图片失败: ",
+        ", 错误: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.load_workflow",
+      "names": [
+        "open",
+        "json",
+        "load",
+        "Exception",
+        "log"
+      ],
+      "varnames": [
+        "self",
+        "filepath",
+        "__assert_armored__",
+        "_var_var_1",
+        "_var_var_3"
+      ],
+      "argcount": 2,
+      "strings": [
+        "加载工作流配置",
+        "r",
+        "utf-8",
+        "加载工作流失败: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.log",
+      "names": [
+        "datetime",
+        "now",
+        "strftime",
+        "print",
+        "log_callback"
+      ],
+      "varnames": [
+        "self",
+        "message",
+        "__assert_armored__",
+        "_var_var_26",
+        "_var_var_27"
+      ],
+      "argcount": 2,
+      "strings": [
+        "记录日志",
+        "%H:%M:%S",
+        "[",
+        "] "
+      ]
+    },
+    {
+      "func": "AutomationEngine.mouse_click_current",
+      "names": [
+        "_humanize_delay",
+        "time",
+        "perf_counter",
+        "pyautogui",
+        "mouseDown",
+        "precise_sleep",
+        "mouseUp",
+        "log",
+        "click",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "button",
+        "clicks",
+        "hold_time",
+        "__assert_armored__",
+        "_var_var_100",
+        "_var_var_140",
+        "_var_var_3"
+      ],
+      "argcount": 4,
+      "strings": [
+        "在当前鼠标位置点击",
+        "鼠标按住: 当前位置 ",
+        "键 (指定",
+        "秒-实际",
+        ".3f",
+        "秒)",
+        "鼠标点击: 当前位置 ",
+        "键 ",
+        "次",
+        "鼠标点击失败: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.mouse_click",
+      "names": [
+        "_humanize_position",
+        "_smooth_move_to",
+        "_humanize_delay",
+        "pyautogui",
+        "click",
+        "log",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "x",
+        "y",
+        "button",
+        "clicks",
+        "__assert_armored__",
+        "_var_var_3"
+      ],
+      "argcount": 5,
+      "strings": [
+        "鼠标点击（先丝滑移动再点击）",
+        "鼠标点击: (",
+        ", ",
+        ") ",
+        "键 ",
+        "次",
+        "鼠标点击失败: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.mouse_double_click_current",
+      "names": [
+        "mouse_click_current"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": [
+        "在当前鼠标位置双击"
+      ]
+    },
+    {
+      "func": "AutomationEngine.mouse_double_click",
+      "names": [
+        "mouse_click"
+      ],
+      "varnames": [
+        "self",
+        "x",
+        "y",
+        "__assert_armored__"
+      ],
+      "argcount": 3,
+      "strings": [
+        "鼠标双击"
+      ]
+    },
+    {
+      "func": "AutomationEngine.mouse_drag",
+      "names": [
+        "pyautogui",
+        "moveTo",
+        "time",
+        "sleep",
+        "drag",
+        "log",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "start_x",
+        "start_y",
+        "end_x",
+        "end_y",
+        "duration",
+        "__assert_armored__",
+        "_var_var_3"
+      ],
+      "argcount": 6,
+      "strings": [
+        "鼠标拖拽",
+        "鼠标拖拽: (",
+        ", ",
+        ") -> (",
+        ") ",
+        "秒",
+        "鼠标拖拽失败: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.mouse_move",
+      "names": [
+        "_humanize_position",
+        "humanize_enabled",
+        "random",
+        "uniform",
+        "_smooth_move_to",
+        "log",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "x",
+        "y",
+        "duration",
+        "__assert_armored__",
+        "_var_var_4",
+        "_var_var_3"
+      ],
+      "argcount": 4,
+      "strings": [
+        "移动鼠标（丝滑贝塞尔曲线移动）",
+        "鼠标移动到: (",
+        ", ",
+        ")",
+        "鼠标移动失败: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.mouse_right_click_current",
+      "names": [
+        "mouse_click_current"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": [
+        "在当前鼠标位置右键点击",
+        "right"
+      ]
+    },
+    {
+      "func": "AutomationEngine.mouse_right_click",
+      "names": [
+        "mouse_click"
+      ],
+      "varnames": [
+        "self",
+        "x",
+        "y",
+        "__assert_armored__"
+      ],
+      "argcount": 3,
+      "strings": [
+        "鼠标右键点击",
+        "right"
+      ]
+    },
+    {
+      "func": "AutomationEngine.mouse_scroll",
+      "names": [
+        "pyautogui",
+        "scroll",
+        "log",
+        "abs",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "clicks",
+        "x",
+        "y",
+        "__assert_armored__",
+        "_var_var_124",
+        "_var_var_3"
+      ],
+      "argcount": 4,
+      "strings": [
+        "鼠标滚轮",
+        "上",
+        "下",
+        "鼠标滚轮: 向",
+        "滚动 ",
+        " 格",
+        "鼠标滚轮失败: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.move_window",
+      "names": [
+        "win32gui",
+        "win32api",
+        "win32con",
+        "get_window_by_process",
+        "log",
+        "GetWindowRect",
+        "GetSystemMetrics",
+        "SM_CXSCREEN",
+        "SM_CYSCREEN",
+        "MoveWindow",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "process_name",
+        "x",
+        "y",
+        "preset_pos",
+        "__assert_armored__",
+        "_var_var_190",
+        "_var_var_208",
+        "_var_var_198",
+        "_var_var_200",
+        "_var_var_201",
+        "_var_var_209",
+        "_var_var_210",
+        "_var_var_211",
+        "_var_var_212",
+        "_var_var_213",
+        "_var_var_3"
+      ],
+      "argcount": 5,
+      "strings": [
+        "移动窗口位置",
+        "未找到程序窗口: ",
+        "自定义",
+        "移动窗口: ",
+        " -> (",
+        ", ",
+        ")",
+        "移动窗口失败: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.move_window_v2",
+      "names": [
+        "win32gui",
+        "win32con",
+        "win32api",
+        "find_window",
+        "log",
+        "get",
+        "GetWindowRect",
+        "GetSystemMetrics",
+        "SM_CXSCREEN",
+        "SM_CYSCREEN",
+        "MoveWindow",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "find_by",
+        "target",
+        "x",
+        "y",
+        "preset_pos",
+        "__assert_armored__",
+        "_var_var_190",
+        "_var_var_198",
+        "_var_var_208",
+        "_var_var_214",
+        "_var_var_200",
+        "_var_var_201",
+        "_var_var_209",
+        "_var_var_210",
+        "_var_var_211",
+        "_var_var_212",
+        "_var_var_213",
+        "_var_var_3"
+      ],
+      "argcount": 6,
+      "strings": [
+        "移动窗口位置（支持多种查找方式）",
+        "进程名",
+        "窗口标题",
+        "PID",
+        "未找到窗口 [",
+        "=",
+        "]",
+        "自定义",
+        "移动窗口: [",
+        "] -> (",
+        ", ",
+        ")",
+        "移动窗口失败: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.multi_hold",
+      "names": [
+        "len",
+        "log",
+        "get",
+        "max",
+        "pyautogui",
+        "keyDown",
+        "append",
+        "mouseDown",
+        "time",
+        "perf_counter",
+        "set",
+        "keyUp",
+        "add",
+        "mouseUp",
+        "sleep",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "keys",
+        "__assert_armored__",
+        "_var_var_156",
+        "_var_var_157",
+        "_var_var_158",
+        "_var_var_159",
+        "_var_var_160",
+        "_var_var_161",
+        "_var_var_162",
+        "_var_var_100",
+        "_var_var_163",
+        "_var_var_164",
+        "_var_var_104",
+        "_var_var_165",
+        "_var_var_166",
+        "_var_var_3"
+      ],
+      "argcount": 2,
+      "strings": [
+        "同时按住多个按键（键盘或鼠标）",
+        "没有配置按键",
+        "type",
+        "keyboard",
+        "key",
+        "",
+        "hold_time",
+        "按下键盘: ",
+        "mouse",
+        "按下鼠标: ",
+        "释放键盘: ",
+        "释放鼠标: ",
+        "同时按住完成: ",
+        "个按键",
+        "同时按住失败: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.ocr_read_region",
+      "names": [
+        "get_ocr_reader",
+        "log",
+        "pyautogui",
+        "screenshot",
+        "np",
+        "array",
+        "readtext",
+        "join",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "x",
+        "y",
+        "width",
+        "height",
+        "__assert_armored__",
+        "_var_var_174",
+        "_var_var_48",
+        "_var_var_167",
+        "_var_var_175",
+        "_var_var_44",
+        "_var_var_176",
+        "_var_var_177",
+        "_var_var_3"
+      ],
+      "argcount": 5,
+      "strings": [
+        "OCR 识别指定区域的文字",
+        "[OCR] OCR 未初始化",
+        "",
+        " ",
+        "[OCR] 识别结果: ",
+        "[OCR] 识别失败: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.pause",
+      "names": [
+        "is_paused",
+        "log"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": [
+        "暂停执行",
+        "执行已暂停"
+      ]
+    },
+    {
+      "func": "AutomationEngine.push_message",
+      "names": [
+        "requests",
+        "os",
+        "path",
+        "join",
+        "get_app_path",
+        "exists",
+        "log",
+        "open",
+        "json",
+        "load",
+        "get",
+        "post",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "content",
+        "title",
+        "__assert_armored__",
+        "_var_var_247",
+        "_var_var_231",
+        "_var_var_228",
+        "_var_var_1",
+        "_var_var_239",
+        "_var_var_232",
+        "_var_var_250",
+        "_var_var_44",
+        "_var_var_3"
+      ],
+      "argcount": 3,
+      "strings": [
+        "推送消息到微信\n\nArgs:\n    content: 消息内容（物料名称，支持多个用顿号分隔）\n    title: 消息标题（可选）\n    \nReturns:\n    bool: 是否推送成功\n",
+        "http://6hzs.nzwl.top",
+        "screenshot_settings.json",
+        "❌ 未配置API密钥",
+        "r",
+        "utf-8",
+        "push_api_key",
+        "",
+        "/api/push",
+        "X-API-Key",
+        "success",
+        "📱 消息已推送: ",
+        "❌ 推送失败: ",
+        "error",
+        "未知错误"
+      ]
+    },
+    {
+      "func": "AutomationEngine.resize_window",
+      "names": [
+        "win32gui",
+        "win32con",
+        "ctypes",
+        "get_window_by_process",
+        "log",
+        "GetWindowRect",
+        "GetWindowLong",
+        "GWL_STYLE",
+        "GWL_EXSTYLE",
+        "Structure",
+        "windll",
+        "user32",
+        "AdjustWindowRectEx",
+        "byref",
+        "right",
+        "left",
+        "bottom",
+        "top",
+        "MoveWindow",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "process_name",
+        "width",
+        "height",
+        "preset_size",
+        "__assert_armored__",
+        "_var_var_190",
+        "_var_var_198",
+        "_var_var_199",
+        "_var_var_200",
+        "_var_var_201",
+        "_var_var_24",
+        "_var_var_25",
+        "_var_var_202",
+        "_var_var_203",
+        "_var_var_204",
+        "_var_var_205",
+        "_var_var_206",
+        "_var_var_207",
+        "_var_var_3"
+      ],
+      "argcount": 5,
+      "strings": [
+        "调整窗口大小（客户区域大小）",
+        "自定义",
+        "未找到程序窗口: ",
+        "RECT",
+        "调整窗口大小: ",
+        " -> ",
+        "x",
+        "调整窗口大小失败: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.resize_window_v2",
+      "names": [
+        "win32gui",
+        "win32con",
+        "ctypes",
+        "find_window",
+        "log",
+        "get",
+        "GetWindowRect",
+        "GetWindowLong",
+        "GWL_STYLE",
+        "GWL_EXSTYLE",
+        "wintypes",
+        "RECT",
+        "windll",
+        "user32",
+        "AdjustWindowRectEx",
+        "byref",
+        "right",
+        "left",
+        "bottom",
+        "top",
+        "MoveWindow",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "find_by",
+        "target",
+        "width",
+        "height",
+        "preset_size",
+        "__assert_armored__",
+        "_var_var_190",
+        "_var_var_198",
+        "_var_var_141",
+        "_var_var_214",
+        "_var_var_199",
+        "_var_var_200",
+        "_var_var_201",
+        "_var_var_24",
+        "_var_var_25",
+        "_var_var_202",
+        "_var_var_203",
+        "_var_var_205",
+        "_var_var_216",
+        "_var_var_217",
+        "_var_var_3"
+      ],
+      "argcount": 6,
+      "strings": [
+        "调整窗口大小（支持多种查找方式）",
+        "进程名",
+        "窗口标题",
+        "PID",
+        "自定义",
+        "未找到窗口 [",
+        "=",
+        "]",
+        "调整窗口大小: [",
+        "] -> ",
+        "x",
+        "调整窗口大小失败: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.resume",
+      "names": [
+        "is_paused",
+        "log"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": [
+        "继续执行",
+        "执行继续"
+      ]
+    },
+    {
+      "func": "AutomationEngine.save_fps_dpi_config",
+      "names": [
+        "open",
+        "fps_config_file",
+        "json",
+        "dump",
+        "fps_standard_dpi",
+        "fps_user_dpi",
+        "log",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "user_dpi",
+        "__assert_armored__",
+        "_var_var_1",
+        "_var_var_3"
+      ],
+      "argcount": 2,
+      "strings": [
+        "保存FPS DPI配置",
+        "w",
+        "utf-8",
+        "FPS DPI已保存: ",
+        "保存FPS DPI失败: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.save_workflow",
+      "names": [
+        "open",
+        "json",
+        "dump",
+        "log",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "workflow",
+        "filepath",
+        "__assert_armored__",
+        "_var_var_1",
+        "_var_var_3"
+      ],
+      "argcount": 3,
+      "strings": [
+        "保存工作流配置",
+        "w",
+        "utf-8",
+        "工作流已保存: ",
+        "保存工作流失败: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.set_log_callback",
+      "names": [
+        "log_callback"
+      ],
+      "varnames": [
+        "self",
+        "callback",
+        "__assert_armored__"
+      ],
+      "argcount": 2,
+      "strings": [
+        "设置日志回调函数"
+      ]
+    },
+    {
+      "func": "AutomationEngine.set_status_callback",
+      "names": [
+        "status_callback"
+      ],
+      "varnames": [
+        "self",
+        "callback",
+        "__assert_armored__"
+      ],
+      "argcount": 2,
+      "strings": [
+        "设置状态回调函数"
+      ]
+    },
+    {
+      "func": "AutomationEngine.set_windowed_mode",
+      "names": [
+        "win32gui",
+        "win32con",
+        "win32api",
+        "ctypes",
+        "get_window_by_process",
+        "log",
+        "GetSystemMetrics",
+        "SM_CXSCREEN",
+        "SM_CYSCREEN",
+        "GetWindowLong",
+        "GWL_STYLE",
+        "WS_POPUP",
+        "WS_OVERLAPPEDWINDOW",
+        "SetWindowLong",
+        "GWL_EXSTYLE",
+        "Structure",
+        "windll",
+        "user32",
+        "AdjustWindowRectEx",
+        "byref",
+        "right",
+        "left",
+        "bottom",
+        "top",
+        "SetWindowPos",
+        "HWND_TOP",
+        "SWP_FRAMECHANGED",
+        "SWP_SHOWWINDOW",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "process_name",
+        "width",
+        "height",
+        "preset_size",
+        "__assert_armored__",
+        "_var_var_190",
+        "_var_var_198",
+        "_var_var_208",
+        "_var_var_199",
+        "_var_var_200",
+        "_var_var_211",
+        "_var_var_212",
+        "_var_var_202",
+        "_var_var_203",
+        "_var_var_204",
+        "_var_var_205",
+        "_var_var_206",
+        "_var_var_207",
+        "_var_var_24",
+        "_var_var_25",
+        "_var_var_3"
+      ],
+      "argcount": 5,
+      "strings": [
+        "将全屏/全屏窗口调整为窗口模式",
+        "自定义",
+        "未找到程序窗口: ",
+        "RECT",
+        "已调整为窗口模式: ",
+        " -> ",
+        "x",
+        "调整窗口模式失败: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.set_windowed_mode_v2",
+      "names": [
+        "win32gui",
+        "win32con",
+        "win32api",
+        "ctypes",
+        "find_window",
+        "log",
+        "get",
+        "GetWindowLong",
+        "GWL_STYLE",
+        "WS_OVERLAPPEDWINDOW",
+        "WS_POPUP",
+        "SetWindowLong",
+        "GWL_EXSTYLE",
+        "wintypes",
+        "RECT",
+        "windll",
+        "user32",
+        "AdjustWindowRectEx",
+        "byref",
+        "right",
+        "left",
+        "bottom",
+        "top",
+        "GetSystemMetrics",
+        "SM_CXSCREEN",
+        "SM_CYSCREEN",
+        "SetWindowPos",
+        "HWND_TOP",
+        "SWP_FRAMECHANGED",
+        "SWP_SHOWWINDOW",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "find_by",
+        "target",
+        "width",
+        "height",
+        "preset_size",
+        "__assert_armored__",
+        "_var_var_190",
+        "_var_var_198",
+        "_var_var_208",
+        "_var_var_141",
+        "_var_var_214",
+        "_var_var_199",
+        "_var_var_200",
+        "_var_var_202",
+        "_var_var_218",
+        "_var_var_203",
+        "_var_var_205",
+        "_var_var_216",
+        "_var_var_217",
+        "_var_var_211",
+        "_var_var_212",
+        "_var_var_24",
+        "_var_var_25",
+        "_var_var_3"
+      ],
+      "argcount": 6,
+      "strings": [
+        "调整为窗口模式（支持多种查找方式）",
+        "进程名",
+        "窗口标题",
+        "PID",
+        "自定义",
+        "未找到窗口 [",
+        "=",
+        "]",
+        "调整为窗口模式: [",
+        "] -> ",
+        "x",
+        "调整窗口模式失败: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.start_continuous_task",
+      "names": [
+        "get",
+        "max",
+        "continuous_lock",
+        "continuous_tasks",
+        "append",
+        "threading",
+        "Thread",
+        "start",
+        "log"
+      ],
+      "varnames": [
+        "self",
+        "step",
+        "group_id",
+        "__assert_armored__",
+        "_var_var_41",
+        "_var_var_42",
+        "_var_var_43"
+      ],
+      "argcount": 3,
+      "strings": [
+        "启动常驻点击/按键任务（仅在当前组合执行时运行）",
+        "image",
+        "",
+        "confidence",
+        "offset_x",
+        "offset_y",
+        "interval",
+        "click_interval",
+        "click_delay",
+        "button",
+        "left",
+        "action_type",
+        "click",
+        "key",
+        "on_success",
+        "continue",
+        "success_jump_group",
+        "按键(",
+        ")",
+        "点击(",
+        "🔄 常驻任务已启动: ",
+        " - ",
+        " (组合",
+        ", 间隔",
+        "秒)"
+      ]
+    },
+    {
+      "func": "AutomationEngine.stop_continuous_tasks",
+      "names": [
+        "continuous_lock",
+        "continuous_tasks",
+        "clear"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_28"
+      ],
+      "argcount": 1,
+      "strings": [
+        "停止所有常驻任务",
+        "should_stop"
+      ]
+    },
+    {
+      "func": "AutomationEngine.stop_group_continuous_tasks",
+      "names": [
+        "continuous_lock",
+        "continuous_tasks",
+        "get"
+      ],
+      "varnames": [
+        "self",
+        "group_id",
+        "__assert_armored__",
+        "_var_var_23",
+        "_var_var_29",
+        "_var_var_28"
+      ],
+      "argcount": 2,
+      "strings": [
+        "停止指定组合的常驻任务",
+        "group_id",
+        "should_stop"
+      ]
+    },
+    {
+      "func": "AutomationEngine.stop",
+      "names": [
+        "is_running",
+        "is_paused",
+        "stop_continuous_tasks",
+        "log"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": [
+        "停止执行",
+        "执行已停止"
+      ]
+    },
+    {
+      "func": "AutomationEngine.take_screenshot",
+      "names": [
+        "os",
+        "path",
+        "join",
+        "get_app_path",
+        "exists",
+        "open",
+        "json",
+        "load",
+        "get",
+        "rstrip",
+        "log",
+        "Exception",
+        "pyautogui",
+        "size",
+        "max",
+        "screenshot",
+        "resize",
+        "Image",
+        "LANCZOS",
+        "width",
+        "height",
+        "mode",
+        "convert",
+        "datetime",
+        "now",
+        "strftime",
+        "makedirs",
+        "save",
+        "_cleanup_old_screenshots",
+        "io",
+        "requests",
+        "BytesIO",
+        "base64",
+        "b64encode",
+        "getvalue",
+        "decode",
+        "post",
+        "np",
+        "array",
+        "cv2",
+        "cvtColor",
+        "COLOR_RGB2GRAY",
+        "_load_push_pack",
+        "matchTemplate",
+        "TM_CCOEFF_NORMED",
+        "minMaxLoc",
+        "append",
+        "push_message"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_228",
+        "_var_var_229",
+        "_var_var_230",
+        "_var_var_231",
+        "_var_var_232",
+        "_var_var_233",
+        "_var_var_234",
+        "_var_var_235",
+        "_var_var_236",
+        "_var_var_237",
+        "_var_var_238",
+        "_var_var_1",
+        "_var_var_239",
+        "_var_var_3",
+        "_var_var_211",
+        "_var_var_212",
+        "_var_var_240",
+        "_var_var_241",
+        "_var_var_24",
+        "_var_var_25",
+        "_var_var_134",
+        "_var_var_48",
+        "_var_var_26",
+        "_var_var_242",
+        "_var_var_243",
+        "_var_var_244",
+        "_var_var_245",
+        "_var_var_246",
+        "_var_var_247",
+        "_var_var_248",
+        "_var_var_249",
+        "_var_var_250",
+        "_var_var_44",
+        "_var_var_251",
+        "_var_var_49",
+        "_var_var_50",
+        "_var_var_252",
+        "_var_var_253",
+        "_var_var_254",
+        "_var_var_51",
+        "_var_var_166",
+        "_var_var_53",
+        "_var_var_255"
+      ],
+      "argcount": 1,
+      "strings": [
+        "截图保存功能 - 从全局设置文件读取配置\n    \nReturns:\n    bool: 是否成功\n",
+        "screenshot_settings.json",
+        "",
+        "center",
+        "1080p",
+        "screenshot",
+        "r",
+        "utf-8",
+        "local_mode",
+        "cloud_mode",
+        "server_url",
+        "/",
+        "api_key",
+        "position",
+        "resolution",
+        "max_count",
+        "prefix",
+        "quality",
+        "push_enabled",
+        "📷 使用设置: 位置=",
+        ", 分辨率=",
+        "⚠️ 读取截图设置失败: ",
+        "📷 未找到设置文件，使用默认值",
+        "720p",
+        "900p",
+        "top_left",
+        "top_right",
+        "bottom_left",
+        "bottom_right",
+        "RGBA",
+        "RGB",
+        "%Y%m%d_%H%M%S_%f",
+        "_",
+        ".jpg",
+        "jt",
+        "JPEG",
+        "📷 截图已保存: ",
+        "❌ 本地保存失败: ",
+        "⚠️ 未配置云端设置，请在截图设置中配置服务器地址和API密钥",
+        "/api/upload",
+        "application/json",
+        "success",
+        "☁️ 截图已上传云端: ",
+        "❌ 云端上传失败: ",
+        "error",
+        "未知错误",
+        "name",
+        "template",
+        "🔍 识别到: ",
+        " (置信度: ",
+        ".2f",
+        ")",
+        "、",
+        "⚠️ 识别推送失败: ",
+        "❌ 截图失败: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.toggle_pause",
+      "names": [
+        "is_paused",
+        "resume",
+        "pause"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": [
+        "切换暂停状态"
+      ]
+    },
+    {
+      "func": "AutomationEngine.update_status",
+      "names": [
+        "status_callback"
+      ],
+      "varnames": [
+        "self",
+        "group_index",
+        "step_index",
+        "message",
+        "__assert_armored__"
+      ],
+      "argcount": 4,
+      "strings": [
+        "更新执行状态"
+      ]
+    },
+    {
+      "func": "AutomationEngine.wait_for_image_disappear",
+      "names": [
+        "time",
+        "is_running",
+        "jump_to_group",
+        "find_image",
+        "log",
+        "sleep"
+      ],
+      "varnames": [
+        "self",
+        "image_name",
+        "confidence",
+        "timeout",
+        "__assert_armored__",
+        "_var_var_100",
+        "_var_var_44"
+      ],
+      "argcount": 4,
+      "strings": [
+        "等待图片消失",
+        "图片已消失: ",
+        "等待图片消失超时: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.wait_for_image",
+      "names": [
+        "time",
+        "is_running",
+        "jump_to_group",
+        "find_image",
+        "sleep",
+        "log"
+      ],
+      "varnames": [
+        "self",
+        "image_name",
+        "confidence",
+        "timeout",
+        "__assert_armored__",
+        "_var_var_100",
+        "_var_var_44"
+      ],
+      "argcount": 4,
+      "strings": [
+        "等待图片出现",
+        "等待图片超时: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.wait_if_paused",
+      "names": [
+        "is_paused",
+        "is_running",
+        "time",
+        "sleep"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": [
+        "如果暂停则等待，返回False表示已停止"
+      ]
+    },
+    {
+      "func": "AutomationEngine.window_exists",
+      "names": [
+        "win32gui",
+        "win32process",
+        "psutil",
+        "lower",
+        "endswith",
+        "EnumWindows",
+        "log",
+        "len",
+        "join",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "window_title",
+        "__assert_armored__",
+        "_var_var_224",
+        "_var_var_57",
+        "_var_var_225",
+        "_var_var_3"
+      ],
+      "argcount": 2,
+      "strings": [
+        "检测窗口是否存在（通过标题或进程名匹配）",
+        "",
+        ".exe",
+        "✓ 检测到窗口: ",
+        "✗ 未检测到窗口: ",
+        "  当前窗口示例: ",
+        ", ",
+        "检测窗口失败: "
+      ]
+    },
+    {
+      "func": "AutomationEngine.window_exists_v2",
+      "names": [
+        "find_window",
+        "win32gui",
+        "GetWindowText",
+        "log",
+        "get",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "find_by",
+        "target",
+        "__assert_armored__",
+        "_var_var_214",
+        "_var_var_200",
+        "_var_var_190",
+        "_var_var_195",
+        "_var_var_3"
+      ],
+      "argcount": 3,
+      "strings": [
+        "检测窗口是否存在（支持多种查找方式）",
+        "进程名",
+        "窗口标题",
+        "PID",
+        "✓ 检测到窗口: ",
+        " [",
+        "=",
+        "]",
+        "✗ 未检测到窗口 [",
+        "检测窗口失败: "
+      ]
+    },
+    {
+      "func": "get_app_path",
+      "names": [
+        "getattr",
+        "sys",
+        "os",
+        "path",
+        "dirname",
+        "executable",
+        "abspath",
+        "__file__"
+      ],
+      "varnames": [
+        "__assert_armored__"
+      ],
+      "argcount": 0,
+      "strings": [
+        "获取应用程序所在目录（兼容exe打包）",
+        "frozen"
+      ]
+    },
+    {
+      "func": "precise_sleep",
+      "names": [
+        "time",
+        "perf_counter",
+        "sleep"
+      ],
+      "varnames": [
+        "duration",
+        "__assert_armored__",
+        "_var_var_0"
+      ],
+      "argcount": 1,
+      "strings": [
+        "精确延时函数 - 使用忙等待实现高精度计时\n\n\n\nWindows 的 time.sleep() 精度通常只有 10-15ms，\n\n此函数通过忙等待实现更高精度的延时。\n\n\n\nArgs:\n\n    duration: 延时时间（秒）\n\n"
+      ]
+    }
+  ],
+  "main_pyqt_v3": [
+    {
+      "func": "CoordOverlay.closeEvent",
+      "names": [
+        "timer",
+        "stop",
+        "super",
+        "closeEvent"
+      ],
+      "varnames": [
+        "self",
+        "event",
+        "__assert_armored__"
+      ],
+      "argcount": 2,
+      "strings": []
+    },
+    {
+      "func": "CoordOverlay.update_position",
+      "names": [
+        "CoordOverlay",
+        "_pyautogui",
+        "pyautogui",
+        "position",
+        "label",
+        "setText",
+        "move"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_5",
+        "_var_var_6",
+        "_var_var_7"
+      ],
+      "argcount": 1,
+      "strings": [
+        ", "
+      ]
+    },
+    {
+      "func": "MainWindow._append_log",
+      "names": [
+        "log_text",
+        "append",
+        "verticalScrollBar",
+        "setValue",
+        "maximum"
+      ],
+      "varnames": [
+        "self",
+        "text",
+        "__assert_armored__"
+      ],
+      "argcount": 2,
+      "strings": []
+    },
+    {
+      "func": "MainWindow._apply_countdown_style",
+      "names": [
+        "activation_label",
+        "setStyleSheet"
+      ],
+      "varnames": [
+        "self",
+        "remaining_secs",
+        "__assert_armored__",
+        "_var_var_214",
+        "_var_var_215"
+      ],
+      "argcount": 2,
+      "strings": [
+        "根据剩余秒数设置倒计时样式颜色",
+        "rgba(34, 197, 94, 0.3)",
+        "#86efac",
+        "rgba(245, 158, 11, 0.3)",
+        "#fcd34d",
+        "rgba(239, 68, 68, 0.3)",
+        "#fca5a5",
+        "\n            #activationStatus {\n                background: ",
+        ";\n                border-radius: 8px;\n                padding: 10px 12px;\n                margin: 8px 10px;\n                font-size: 11px;\n                color: ",
+        ";\n            }\n        "
+      ]
+    },
+    {
+      "func": "MainWindow._check_editable_updates",
+      "names": [
+        "web_server",
+        "get_updated_workflow",
+        "_editable_idle_count",
+        "current_workflow",
+        "_save_current_workflow",
+        "add_log",
+        "_update_workflow_display",
+        "_editable_check_timer",
+        "stop"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_196"
+      ],
+      "argcount": 1,
+      "strings": [
+        "检查可编辑配置是否有更新",
+        "✅ 自定义配置已同步更新并保存"
+      ]
+    },
+    {
+      "func": "MainWindow._check_force_offline",
+      "names": [
+        "hasattr",
+        "activation",
+        "is_activated",
+        "get_force_offline_reason",
+        "clear_force_offline_reason",
+        "add_log",
+        "engine",
+        "is_running",
+        "stop_execution",
+        "update_activation_display",
+        "show_activation_dialog"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_206"
+      ],
+      "argcount": 1,
+      "strings": [
+        "快速检查服务端强制下线通知（每5秒，配合10秒心跳实现近实时下线）",
+        "activation",
+        "⚠️ "
+      ]
+    },
+    {
+      "func": "MainWindow._copy_images_from_folder",
+      "names": [
+        "shutil",
+        "os",
+        "listdir",
+        "_is_image_file",
+        "path",
+        "join",
+        "isfile",
+        "copy2",
+        "images_folder"
+      ],
+      "varnames": [
+        "self",
+        "folder",
+        "__assert_armored__",
+        "_var_var_302",
+        "_var_var_155",
+        "_var_var_310",
+        "_var_var_330"
+      ],
+      "argcount": 2,
+      "strings": [
+        "从文件夹复制所有图片"
+      ]
+    },
+    {
+      "func": "MainWindow._copy_workflows_from_folder",
+      "names": [
+        "shutil",
+        "os",
+        "listdir",
+        "lower",
+        "endswith",
+        "path",
+        "join",
+        "isfile",
+        "copy2",
+        "workflows_folder"
+      ],
+      "varnames": [
+        "self",
+        "folder",
+        "__assert_armored__",
+        "_var_var_302",
+        "_var_var_155",
+        "_var_var_310",
+        "_var_var_330"
+      ],
+      "argcount": 2,
+      "strings": [
+        "从文件夹复制所有配置文件（JSON 和加密 ENC）"
+      ]
+    },
+    {
+      "func": "MainWindow._decrypt_config_file",
+      "names": [
+        "base64",
+        "hashlib",
+        "cryptography.hazmat.primitives.ciphers",
+        "Cipher",
+        "algorithms",
+        "modes",
+        "cryptography.hazmat.backends",
+        "default_backend",
+        "bytes",
+        "sha256",
+        "digest",
+        "open",
+        "read",
+        "startswith",
+        "len",
+        "ValueError",
+        "b64decode",
+        "AES",
+        "CBC",
+        "decryptor",
+        "update",
+        "finalize",
+        "all",
+        "json",
+        "loads",
+        "decode"
+      ],
+      "varnames": [
+        "self",
+        "filepath",
+        "__assert_armored__",
+        "_var_var_116",
+        "_var_var_118",
+        "_var_var_106",
+        "_var_var_115",
+        "_var_var_119",
+        "_var_var_117",
+        "_var_var_134",
+        "_var_var_135",
+        "_var_var_136",
+        "_var_var_148",
+        "_var_var_52",
+        "_var_var_180",
+        "_var_var_181",
+        "_var_var_137",
+        "_var_var_138",
+        "_var_var_144",
+        "_var_var_139",
+        "_var_var_182",
+        "_var_var_183"
+      ],
+      "argcount": 2,
+      "strings": [
+        "解密加密配置文件，返回 (配置数据, 是否可编辑)",
+        "rb",
+        "无效的加密文件格式",
+        "解密数据为空",
+        "无效的填充长度",
+        "PKCS7填充验证失败，文件可能已损坏",
+        "utf-8"
+      ]
+    },
+    {
+      "func": "MainWindow._do_detect_window",
+      "names": [
+        "ctypes",
+        "ctypes.wintypes",
+        "win32gui",
+        "win32process",
+        "psutil",
+        "wintypes",
+        "POINT",
+        "windll",
+        "user32",
+        "GetCursorPos",
+        "byref",
+        "WindowFromPoint",
+        "x",
+        "y",
+        "GetParent",
+        "GetWindowText",
+        "GetWindowThreadProcessId",
+        "Process",
+        "name",
+        "window_info_frame",
+        "setVisible",
+        "proc_name_label",
+        "setText",
+        "win_title_label",
+        "pid_label",
+        "str",
+        "detect_status_label",
+        "setStyleSheet",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_30",
+        "_var_var_159",
+        "_var_var_160",
+        "_var_var_161",
+        "_var_var_162",
+        "_var_var_163",
+        "_var_var_164",
+        "_var_var_165",
+        "_var_var_43",
+        "_var_var_147",
+        "_var_var_166",
+        "_var_var_167",
+        "_var_var_168",
+        "_var_var_28"
+      ],
+      "argcount": 1,
+      "strings": [
+        "实际执行窗口检测",
+        "(无标题)",
+        "✅ 检测成功！点击复制按钮可复制对应内容",
+        "color: #10b981; font-size: 13px;",
+        "❌ 未检测到窗口",
+        "color: #ef4444; font-size: 13px;",
+        "❌ 检测失败: "
+      ]
+    },
+    {
+      "func": "MainWindow._encrypt_and_save_config",
+      "names": [
+        "base64",
+        "hashlib",
+        "cryptography.hazmat.primitives.ciphers",
+        "Cipher",
+        "algorithms",
+        "modes",
+        "cryptography.hazmat.backends",
+        "default_backend",
+        "current_workflow",
+        "get",
+        "bytes",
+        "sha256",
+        "digest",
+        "json",
+        "dumps",
+        "encode",
+        "len",
+        "os",
+        "urandom",
+        "AES",
+        "CBC",
+        "encryptor",
+        "update",
+        "finalize",
+        "b64encode",
+        "open",
+        "write"
+      ],
+      "varnames": [
+        "self",
+        "data",
+        "filepath",
+        "is_editable",
+        "__assert_armored__",
+        "_var_var_116",
+        "_var_var_118",
+        "_var_var_106",
+        "_var_var_115",
+        "_var_var_119",
+        "_var_var_117",
+        "_var_var_134",
+        "_var_var_135",
+        "_var_var_136",
+        "_var_var_149",
+        "_var_var_141",
+        "_var_var_142",
+        "_var_var_138",
+        "_var_var_139",
+        "_var_var_140",
+        "_var_var_144",
+        "_var_var_184",
+        "_var_var_185",
+        "_var_var_148"
+      ],
+      "argcount": 4,
+      "strings": [
+        "加密并保存配置文件",
+        "_enc_editable",
+        "utf-8",
+        "wb"
+      ]
+    },
+    {
+      "func": "MainWindow._extract_archive",
+      "names": [
+        "tempfile",
+        "os",
+        "path",
+        "basename",
+        "lower",
+        "endswith",
+        "zipfile",
+        "ZipFile",
+        "namelist",
+        "realpath",
+        "join",
+        "startswith",
+        "sep",
+        "add_log",
+        "extractall",
+        "rarfile",
+        "RarFile",
+        "ImportError",
+        "py7zr",
+        "SevenZipFile",
+        "getnames",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "archive_path",
+        "extract_to",
+        "__assert_armored__",
+        "_var_var_312",
+        "_var_var_23",
+        "_var_var_318",
+        "_var_var_319",
+        "_var_var_320",
+        "_var_var_321",
+        "_var_var_322",
+        "_var_var_323",
+        "_var_var_324",
+        "_var_var_325",
+        "_var_var_28"
+      ],
+      "argcount": 3,
+      "strings": [
+        "解压压缩包到指定目录",
+        ".zip",
+        "r",
+        "⚠️ 检测到不安全的压缩包路径: ",
+        ".rar",
+        "⚠️ 需要安装 rarfile 库来解压 RAR 文件: pip install rarfile",
+        ".7z",
+        "⚠️ 需要安装 py7zr 库来解压 7z 文件: pip install py7zr",
+        "⚠️ 解压失败: "
+      ]
+    },
+    {
+      "func": "MainWindow._is_archive_file",
+      "names": [
+        "lower",
+        "endswith"
+      ],
+      "varnames": [
+        "self",
+        "filename",
+        "__assert_armored__",
+        "_var_var_317"
+      ],
+      "argcount": 2,
+      "strings": [
+        "判断是否是压缩包文件"
+      ]
+    },
+    {
+      "func": "MainWindow._is_image_file",
+      "names": [
+        "lower",
+        "endswith"
+      ],
+      "varnames": [
+        "self",
+        "filename",
+        "__assert_armored__",
+        "_var_var_316"
+      ],
+      "argcount": 2,
+      "strings": [
+        "判断是否是图片文件"
+      ]
+    },
+    {
+      "func": "MainWindow._on_screenshot_cancelled",
+      "names": [
+        "show",
+        "screenshot_window"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": [
+        "截图取消"
+      ]
+    },
+    {
+      "func": "MainWindow._on_screenshot_done",
+      "names": [
+        "show",
+        "add_log",
+        "os",
+        "path",
+        "basename",
+        "screenshot_window"
+      ],
+      "varnames": [
+        "self",
+        "filepath",
+        "__assert_armored__"
+      ],
+      "argcount": 2,
+      "strings": [
+        "截图完成",
+        "截图已保存: "
+      ]
+    },
+    {
+      "func": "MainWindow._periodic_security_check",
+      "names": [
+        "_security_module_loaded",
+        "_orig_func_ids",
+        "id",
+        "perform_full_security_check",
+        "add_log",
+        "engine",
+        "is_running",
+        "stop_execution",
+        "is_heartbeat_valid",
+        "_orig_code_ids",
+        "getattr",
+        "start_heartbeat",
+        "_security_ref",
+        "_orig_activation_ids",
+        "_activation_module",
+        "_orig_activation_code_ids",
+        "_orig_requests_ids",
+        "requests",
+        "post",
+        "Session",
+        "hasattr",
+        "activation",
+        "activation_expiry",
+        "datetime",
+        "now",
+        "is_activated",
+        "update_activation_display",
+        "_verify_activation_integrity",
+        "get_force_offline_reason",
+        "clear_force_offline_reason",
+        "show_activation_dialog",
+        "_security_fail_count",
+        "_sfc_shadow",
+        "is_alive",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_207",
+        "_var_var_208",
+        "_var_var_206",
+        "_var_var_209",
+        "_var_var_210",
+        "_var_var_211",
+        "_var_var_212"
+      ],
+      "argcount": 1,
+      "strings": [
+        "定期安全检查（带容错+反Hook检测）",
+        "⚠️ 检测到安全模块异常",
+        "__code__",
+        "verify_signature",
+        "_verify_local_hmac",
+        "⚠️ 检测到验证模块异常",
+        "⚠️ 检测到网络模块异常",
+        "activation",
+        "⚠️ 激活已过期，请重新激活",
+        "⚠️ 激活完整性校验失败",
+        "⚠️ ",
+        "_sfc_shadow",
+        "⚠️ 安全计数异常",
+        "_heartbeat_thread",
+        "⚠️ 心跳线程异常",
+        "⚠️ 网络验证连续失败，请检查网络连接",
+        "网络",
+        "⚠️ 安全检查失败: ",
+        "⚠️ 安全检查过程异常"
+      ]
+    },
+    {
+      "func": "MainWindow._process_extracted_folder",
+      "names": [
+        "shutil",
+        "os",
+        "walk",
+        "path",
+        "basename",
+        "lower",
+        "join",
+        "_is_image_file",
+        "copy2",
+        "images_folder",
+        "endswith",
+        "workflows_folder"
+      ],
+      "varnames": [
+        "self",
+        "folder",
+        "__assert_armored__",
+        "_var_var_302",
+        "_var_var_326",
+        "_var_var_327",
+        "_var_var_164",
+        "_var_var_328",
+        "_var_var_329",
+        "_var_var_307",
+        "_var_var_156",
+        "_var_var_146"
+      ],
+      "argcount": 2,
+      "strings": [
+        "处理解压后的文件夹，返回 (图片数, 配置数)",
+        "images",
+        "workflows",
+        ".json",
+        ".enc"
+      ]
+    },
+    {
+      "func": "MainWindow._refresh_hotkeys",
+      "names": [
+        "register_hotkeys",
+        "Exception",
+        "print"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_28"
+      ],
+      "argcount": 1,
+      "strings": [
+        "定时刷新快捷键，防止失效",
+        "刷新快捷键失败: "
+      ]
+    },
+    {
+      "func": "MainWindow._save_current_workflow",
+      "names": [
+        "current_workflow",
+        "hasattr",
+        "current_workflow_path",
+        "items",
+        "startswith",
+        "endswith",
+        "_encrypt_and_save_config",
+        "open",
+        "json",
+        "dump",
+        "Exception",
+        "add_log"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_24",
+        "_var_var_197",
+        "_var_var_198",
+        "_var_var_199",
+        "_var_var_148",
+        "_var_var_28"
+      ],
+      "argcount": 1,
+      "strings": [
+        "保存当前workflow到文件",
+        "current_workflow_path",
+        "_",
+        ".enc",
+        "w",
+        "utf-8",
+        "⚠️ 保存配置失败: "
+      ]
+    },
+    {
+      "func": "MainWindow._show_import_result",
+      "names": [
+        "show_message",
+        "len",
+        "refresh_workflow_list"
+      ],
+      "varnames": [
+        "self",
+        "images",
+        "workflows",
+        "errors",
+        "__assert_armored__",
+        "_var_var_3"
+      ],
+      "argcount": 4,
+      "strings": [
+        "显示导入结果",
+        "导入失败",
+        "未找到可导入的文件\n\n支持的格式：\n• 图片：png, jpg, jpeg, bmp\n• 配置：json",
+        "warning",
+        "✅ 导入完成！\n\n",
+        "📷 图片: ",
+        " 个\n",
+        "📄 配置: ",
+        "\n⚠️ ",
+        " 个文件导入失败",
+        "导入结果",
+        "info"
+      ]
+    },
+    {
+      "func": "MainWindow._start_editable_update_checker",
+      "names": [
+        "_editable_idle_count",
+        "hasattr",
+        "PyQt5.QtCore",
+        "QTimer",
+        "_editable_check_timer",
+        "timeout",
+        "connect",
+        "_check_editable_updates",
+        "start"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_158"
+      ],
+      "argcount": 1,
+      "strings": [
+        "启动定时检查可编辑配置更新",
+        "_editable_check_timer"
+      ]
+    },
+    {
+      "func": "MainWindow._start_screenshot",
+      "names": [
+        "ScreenshotWindow",
+        "images_folder",
+        "screenshot_window",
+        "screenshot_taken",
+        "connect",
+        "_on_screenshot_done",
+        "screenshot_cancelled",
+        "_on_screenshot_cancelled"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": [
+        "启动截图窗口"
+      ]
+    },
+    {
+      "func": "MainWindow._update_countdown",
+      "names": [
+        "detect_countdown",
+        "detect_status_label",
+        "setText",
+        "countdown_timer",
+        "stop",
+        "_do_detect_window"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": [
+        "更新倒计时",
+        "⏱️ ",
+        " 秒后检测，请将鼠标移到目标窗口...",
+        "🔍 正在检测..."
+      ]
+    },
+    {
+      "func": "MainWindow._update_expiry_countdown",
+      "names": [
+        "hasattr",
+        "activation",
+        "is_activated",
+        "_expiry_countdown_timer",
+        "stop",
+        "get_remaining_seconds",
+        "activation_label",
+        "setText",
+        "setStyleSheet",
+        "add_log",
+        "engine",
+        "is_running",
+        "stop_execution",
+        "start_btn",
+        "setEnabled",
+        "get_remaining_time",
+        "_apply_countdown_style",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_216",
+        "_var_var_217"
+      ],
+      "argcount": 1,
+      "strings": [
+        "每秒更新到期倒计时显示",
+        "activation",
+        "❌ 已过期",
+        "\n                    #activationStatus {\n                        background: rgba(239, 68, 68, 0.3);\n                        border-radius: 8px;\n                        padding: 10px 12px;\n                        margin: 8px 10px;\n                        font-size: 11px;\n                        color: #fca5a5;\n                    }\n                ",
+        "⏰ 激活码已到期，自动停止运行",
+        "engine",
+        "⏹️ 自动化已停止",
+        "✅ 已激活\n⏳ "
+      ]
+    },
+    {
+      "func": "MainWindow._update_workflow_display",
+      "names": [
+        "current_workflow",
+        "get",
+        "sum",
+        "hasattr",
+        "len",
+        "config_stats_label",
+        "setText"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_186",
+        "_var_var_200",
+        "_var_var_201",
+        "_var_var_202",
+        "_var_var_190"
+      ],
+      "argcount": 1,
+      "strings": [
+        "更新工作流显示",
+        "groups",
+        "config_stats_label",
+        "default_group",
+        "name",
+        "组合 1",
+        "📦 ",
+        " 个组合 · ",
+        " 个步骤 · ⭐ 启动: "
+      ]
+    },
+    {
+      "func": "MainWindow._verify_activation_integrity",
+      "names": [
+        "json",
+        "hmac",
+        "hashlib",
+        "os",
+        "path",
+        "exists",
+        "activation",
+        "activation_file",
+        "open",
+        "load",
+        "get",
+        "bytes",
+        "items",
+        "dumps",
+        "encode",
+        "new",
+        "sha256",
+        "hexdigest",
+        "compare_digest",
+        "machine_id",
+        "cryptography.hazmat.primitives",
+        "hashes",
+        "serialization",
+        "cryptography.hazmat.primitives.asymmetric",
+        "padding",
+        "cryptography.hazmat.backends",
+        "default_backend",
+        "base64",
+        "load_pem_public_key",
+        "verify",
+        "b64decode",
+        "PKCS1v15",
+        "SHA256",
+        "Exception",
+        "datetime",
+        "fromisoformat",
+        "now"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_218",
+        "_var_var_219",
+        "_var_var_220",
+        "_var_var_148",
+        "_var_var_137",
+        "_var_var_221",
+        "_var_var_222",
+        "_var_var_223",
+        "_var_var_197",
+        "_var_var_198",
+        "_var_var_224",
+        "_var_var_225",
+        "_var_var_226",
+        "_var_var_227",
+        "_var_var_228",
+        "_var_var_229",
+        "_var_var_230",
+        "_var_var_231",
+        "_var_var_232",
+        "_var_var_233",
+        "_var_var_234",
+        "_var_var_235",
+        "_var_var_236",
+        "_var_var_237",
+        "_var_var_238",
+        "_var_var_239"
+      ],
+      "argcount": 1,
+      "strings": [
+        "验证激活完整性（内联HMAC验证，防止函数Hook和属性篡改）",
+        "r",
+        "utf-8",
+        "hmac",
+        "machine_id",
+        "signed_data",
+        "expiry",
+        "2000-01-01",
+        "signature"
+      ]
+    },
+    {
+      "func": "MainWindow.add_log",
+      "names": [
+        "hasattr",
+        "log_enabled",
+        "datetime",
+        "now",
+        "strftime",
+        "log_signal",
+        "emit"
+      ],
+      "varnames": [
+        "self",
+        "message",
+        "__assert_armored__",
+        "_var_var_22"
+      ],
+      "argcount": 2,
+      "strings": [
+        "log_enabled",
+        "%H:%M:%S",
+        "[",
+        "] "
+      ]
+    },
+    {
+      "func": "MainWindow.auto_clear_log",
+      "names": [
+        "log_text",
+        "clear",
+        "add_log"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": [
+        "自动清理日志",
+        "日志已自动清理（每6小时）"
+      ]
+    },
+    {
+      "func": "MainWindow.check_activation",
+      "names": [
+        "activation",
+        "check_activation_status",
+        "update_activation_display",
+        "show_activation_dialog"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": []
+    },
+    {
+      "func": "MainWindow.check_activation_required",
+      "names": [
+        "activation",
+        "is_activated",
+        "show_activation_dialog",
+        "perform_full_security_check",
+        "is_heartbeat_valid",
+        "_activation_fail_count",
+        "add_log"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_211",
+        "_var_var_147"
+      ],
+      "argcount": 1,
+      "strings": [
+        "检查激活状态（增强版：多重验证）",
+        "⚠️ 网络验证失败"
+      ]
+    },
+    {
+      "func": "MainWindow.check_version",
+      "names": [
+        "threading",
+        "Thread",
+        "start"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_32"
+      ],
+      "argcount": 1,
+      "strings": [
+        "检测软件版本更新"
+      ]
+    },
+    {
+      "func": "MainWindow.clear_log",
+      "names": [
+        "log_text",
+        "clear"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": []
+    },
+    {
+      "func": "MainWindow.closeEvent",
+      "names": [
+        "getattr",
+        "stop",
+        "hasattr",
+        "coord_overlay",
+        "close",
+        "mini_window",
+        "engine",
+        "web_server",
+        "hotkey_hooks",
+        "keyboard",
+        "remove_hotkey",
+        "accept"
+      ],
+      "varnames": [
+        "self",
+        "event",
+        "__assert_armored__",
+        "_var_var_333",
+        "_var_var_334",
+        "_var_var_331"
+      ],
+      "argcount": 2,
+      "strings": [
+        "coord_overlay",
+        "mini_window"
+      ]
+    },
+    {
+      "func": "MainWindow.copy_to_clipboard",
+      "names": [
+        "PyQt5.QtWidgets",
+        "QApplication",
+        "clipboard",
+        "setText",
+        "detect_status_label",
+        "setStyleSheet"
+      ],
+      "varnames": [
+        "self",
+        "text",
+        "__assert_armored__",
+        "_var_var_169",
+        "_var_var_27"
+      ],
+      "argcount": 2,
+      "strings": [
+        "复制到剪贴板",
+        "📋 已复制: ",
+        "color: #6366f1; font-size: 13px;"
+      ]
+    },
+    {
+      "func": "MainWindow.delete_selected_workflow",
+      "names": [
+        "config_combo",
+        "currentData",
+        "show_message",
+        "os",
+        "path",
+        "basename",
+        "PyQt5.QtWidgets",
+        "QMessageBox",
+        "setWindowTitle",
+        "setText",
+        "setInformativeText",
+        "setIcon",
+        "Warning",
+        "setStandardButtons",
+        "Yes",
+        "No",
+        "setDefaultButton",
+        "button",
+        "setStyleSheet",
+        "exec_",
+        "remove",
+        "add_log",
+        "hasattr",
+        "current_workflow_path",
+        "current_workflow",
+        "config_name_label",
+        "config_stats_label",
+        "refresh_workflow_list",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_24",
+        "_var_var_23",
+        "_var_var_179",
+        "_var_var_3",
+        "_var_var_28"
+      ],
+      "argcount": 1,
+      "strings": [
+        "删除选中的配置文件",
+        "提示",
+        "请先选择要删除的配置文件",
+        "warning",
+        "确认删除",
+        "确定要删除配置文件吗？\n\n📄 ",
+        "此操作不可恢复！",
+        "删除",
+        "取消",
+        "\n            QMessageBox {\n                background: #1e1e2e;\n                color: #e0e0e0;\n            }\n            QMessageBox QLabel {\n                color: #e0e0e0;\n                font-size: 14px;\n            }\n            QPushButton {\n                background: #4a4a5a;\n                border: none;\n                border-radius: 6px;\n                padding: 8px 20px;\n                color: white;\n                min-width: 80px;\n            }\n            QPushButton:hover {\n                background: #5a5a6a;\n            }\n        ",
+        "🗑️ 已删除配置: ",
+        "current_workflow_path",
+        "未加载配置",
+        "",
+        "成功",
+        "已删除配置: ",
+        "info",
+        "错误",
+        "删除失败: ",
+        "error"
+      ]
+    },
+    {
+      "func": "MainWindow.detect_window_info",
+      "names": [
+        "detect_countdown",
+        "detect_status_label",
+        "setText",
+        "setStyleSheet",
+        "window_info_frame",
+        "setVisible",
+        "PyQt5.QtCore",
+        "QTimer",
+        "countdown_timer",
+        "timeout",
+        "connect",
+        "_update_countdown",
+        "start"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_158"
+      ],
+      "argcount": 1,
+      "strings": [
+        "检测窗口信息",
+        "⏱️ 3 秒后检测，请将鼠标移到目标窗口...",
+        "color: #f59e0b; font-size: 13px;"
+      ]
+    },
+    {
+      "func": "MainWindow.import_drag_enter",
+      "names": [
+        "mimeData",
+        "hasUrls",
+        "acceptProposedAction"
+      ],
+      "varnames": [
+        "self",
+        "event",
+        "__assert_armored__"
+      ],
+      "argcount": 2,
+      "strings": [
+        "拖拽进入事件"
+      ]
+    },
+    {
+      "func": "MainWindow.import_drop",
+      "names": [
+        "mimeData",
+        "urls",
+        "toLocalFile",
+        "process_import_paths"
+      ],
+      "varnames": [
+        "self",
+        "event",
+        "__assert_armored__",
+        "_var_var_300",
+        "_var_var_195",
+        "_var_var_301"
+      ],
+      "argcount": 2,
+      "strings": [
+        "拖拽放下事件"
+      ]
+    },
+    {
+      "func": "MainWindow.load_hotkey_settings",
+      "names": [
+        "os",
+        "path",
+        "exists",
+        "settings_file",
+        "open",
+        "json",
+        "load",
+        "hotkeys",
+        "update",
+        "Exception",
+        "print"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_148",
+        "_var_var_203",
+        "_var_var_28"
+      ],
+      "argcount": 1,
+      "strings": [
+        "r",
+        "utf-8",
+        "hotkeys",
+        "加载快捷键设置失败: "
+      ]
+    },
+    {
+      "func": "MainWindow.load_last_workflow",
+      "names": [
+        "os",
+        "path",
+        "exists",
+        "settings_file",
+        "open",
+        "json",
+        "load",
+        "get",
+        "load_workflow_file",
+        "Exception",
+        "print"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_148",
+        "_var_var_203",
+        "_var_var_204",
+        "_var_var_28"
+      ],
+      "argcount": 1,
+      "strings": [
+        "加载上次的配置",
+        "r",
+        "utf-8",
+        "last_workflow",
+        "加载上次配置失败: "
+      ]
+    },
+    {
+      "func": "MainWindow.load_screenshot_settings",
+      "names": [
+        "os",
+        "path",
+        "join",
+        "get_app_path",
+        "exists",
+        "open",
+        "json",
+        "load",
+        "screenshot_local_mode",
+        "setChecked",
+        "get",
+        "screenshot_position",
+        "setCurrentIndex",
+        "screenshot_resolution",
+        "screenshot_max_count",
+        "setValue",
+        "screenshot_prefix",
+        "setText",
+        "screenshot_quality",
+        "screenshot_push_enabled",
+        "base64",
+        "push_api_key",
+        "b64decode",
+        "decode",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_281",
+        "_var_var_148",
+        "_var_var_203",
+        "_var_var_282",
+        "_var_var_283",
+        "_var_var_284",
+        "_var_var_116"
+      ],
+      "argcount": 1,
+      "strings": [
+        "加载截图设置",
+        "screenshot_settings.json",
+        "r",
+        "utf-8",
+        "local_mode",
+        "position",
+        "center",
+        "resolution",
+        "1080p",
+        "max_count",
+        "prefix",
+        "screenshot",
+        "quality",
+        "push_enabled",
+        "push_api_key_b64",
+        "",
+        "push_api_key"
+      ]
+    },
+    {
+      "func": "MainWindow.load_selected_workflow",
+      "names": [
+        "check_activation_required",
+        "_verify_activation_integrity",
+        "config_combo",
+        "currentData",
+        "show_message",
+        "load_workflow_file"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_24"
+      ],
+      "argcount": 1,
+      "strings": [
+        "加载选中的配置",
+        "提示",
+        "请先选择配置文件",
+        "warning"
+      ]
+    },
+    {
+      "func": "MainWindow.load_workflow_file",
+      "names": [
+        "endswith",
+        "_decrypt_config_file",
+        "Exception",
+        "show_message",
+        "engine",
+        "load_workflow",
+        "current_workflow",
+        "current_workflow_path",
+        "get",
+        "os",
+        "path",
+        "basename",
+        "config_name_label",
+        "setText",
+        "len",
+        "sum",
+        "config_stats_label",
+        "config_desc_text",
+        "setPlainText",
+        "detail_btn",
+        "setEnabled",
+        "bool",
+        "btn_editor",
+        "custom_config_btn",
+        "setVisible",
+        "add_log",
+        "save_settings",
+        "range",
+        "config_combo",
+        "count",
+        "itemData",
+        "setCurrentIndex"
+      ],
+      "varnames": [
+        "self",
+        "filepath",
+        "__assert_armored__",
+        "_var_var_186",
+        "_var_var_176",
+        "_var_var_28",
+        "_var_var_177",
+        "_var_var_187",
+        "_var_var_188",
+        "_var_var_189",
+        "_var_var_190",
+        "_var_var_124",
+        "_var_var_175",
+        "_var_var_191",
+        "_var_var_192",
+        "_var_var_193",
+        "_var_var_170"
+      ],
+      "argcount": 2,
+      "strings": [
+        "加载配置文件（支持加密 .enc 文件）",
+        ".enc",
+        "_encrypted",
+        "_enc_editable",
+        "错误",
+        "解密配置文件失败: ",
+        "error",
+        "name",
+        "groups",
+        "default_group",
+        "组合 ",
+        "组合 1",
+        "📦 ",
+        " 个组合 · ",
+        " 个步骤 · ⭐ 启动: ",
+        "steps",
+        " 个步骤",
+        "description",
+        "",
+        "detail_url",
+        "editable_config",
+        "enabled",
+        "items",
+        "已加载配置: ",
+        "last_workflow",
+        "无法加载配置文件"
+      ]
+    },
+    {
+      "func": "MainWindow.mouseMoveEvent",
+      "names": [
+        "buttons",
+        "Qt",
+        "LeftButton",
+        "_drag_pos",
+        "move",
+        "globalPos"
+      ],
+      "varnames": [
+        "self",
+        "event",
+        "__assert_armored__"
+      ],
+      "argcount": 2,
+      "strings": []
+    },
+    {
+      "func": "MainWindow.mousePressEvent",
+      "names": [
+        "button",
+        "Qt",
+        "LeftButton",
+        "globalPos",
+        "frameGeometry",
+        "topLeft",
+        "_drag_pos"
+      ],
+      "varnames": [
+        "self",
+        "event",
+        "__assert_armored__"
+      ],
+      "argcount": 2,
+      "strings": []
+    },
+    {
+      "func": "MainWindow.mouseReleaseEvent",
+      "names": [
+        "_drag_pos"
+      ],
+      "varnames": [
+        "self",
+        "event",
+        "__assert_armored__"
+      ],
+      "argcount": 2,
+      "strings": []
+    },
+    {
+      "func": "MainWindow.on_execution_complete",
+      "names": [
+        "start_btn",
+        "setEnabled",
+        "stop_btn",
+        "pause_btn",
+        "setText",
+        "setToolTip"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": [
+        "⏸",
+        "暂停 (F11)"
+      ]
+    },
+    {
+      "func": "MainWindow.open_config_encryptor",
+      "names": [
+        "PyQt5.QtWidgets",
+        "QDialog",
+        "QVBoxLayout",
+        "QHBoxLayout",
+        "QPushButton",
+        "QLabel",
+        "QFileDialog",
+        "QTextEdit",
+        "QGroupBox",
+        "PyQt5.QtCore",
+        "Qt",
+        "PyQt5.QtGui",
+        "QFont",
+        "base64",
+        "hashlib",
+        "cryptography.hazmat.primitives.ciphers",
+        "Cipher",
+        "algorithms",
+        "modes",
+        "cryptography.hazmat.backends",
+        "default_backend",
+        "workflows_folder",
+        "exec_"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_120",
+        "_var_var_121",
+        "_var_var_122",
+        "_var_var_123"
+      ],
+      "argcount": 1,
+      "strings": [
+        "打开配置文件加密工具",
+        "EncryptorDialog"
+      ]
+    },
+    {
+      "func": "MainWindow.open_custom_config_editor",
+      "names": [
+        "check_activation_required",
+        "_verify_activation_integrity",
+        "current_workflow",
+        "show_message",
+        "get",
+        "web_server",
+        "set_editable_config",
+        "_start_editable_update_checker",
+        "get_url",
+        "webbrowser",
+        "open",
+        "add_log"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_191",
+        "_var_var_195"
+      ],
+      "argcount": 1,
+      "strings": [
+        "打开自定义配置编辑器（仅用于enc加密配置）",
+        "提示",
+        "请先加载配置文件",
+        "warning",
+        "editable_config",
+        "enabled",
+        "items",
+        "此配置没有可编辑的项目",
+        "/?editable=true",
+        "已打开自定义配置编辑器"
+      ]
+    },
+    {
+      "func": "MainWindow.open_editor",
+      "names": [
+        "check_activation_required",
+        "_verify_activation_integrity",
+        "web_server",
+        "get_url",
+        "current_workflow_path",
+        "os",
+        "path",
+        "basename",
+        "current_workflow",
+        "get",
+        "set_current_workflow",
+        "show_message",
+        "webbrowser",
+        "open",
+        "add_log"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_195",
+        "_var_var_23"
+      ],
+      "argcount": 1,
+      "strings": [
+        "_encrypted",
+        "_enc_editable",
+        "提示",
+        "正式版加密配置不能在编辑器中打开",
+        "warning",
+        "?open=",
+        "已打开编辑器: "
+      ]
+    },
+    {
+      "func": "MainWindow.open_screenshot_folder",
+      "names": [
+        "os",
+        "path",
+        "join",
+        "get_app_path",
+        "exists",
+        "makedirs",
+        "startfile"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_285"
+      ],
+      "argcount": 1,
+      "strings": [
+        "打开截图文件夹",
+        "jt"
+      ]
+    },
+    {
+      "func": "MainWindow.process_import_paths",
+      "names": [
+        "shutil",
+        "os",
+        "path",
+        "exists",
+        "isdir",
+        "basename",
+        "lower",
+        "_copy_images_from_folder",
+        "_copy_workflows_from_folder",
+        "join",
+        "listdir",
+        "isfile",
+        "_is_image_file",
+        "copy2",
+        "images_folder",
+        "Exception",
+        "append",
+        "endswith",
+        "workflows_folder",
+        "_is_archive_file",
+        "tempfile",
+        "mkdtemp",
+        "add_log",
+        "_extract_archive",
+        "_process_extracted_folder",
+        "rmtree",
+        "_show_import_result"
+      ],
+      "varnames": [
+        "self",
+        "paths",
+        "__assert_armored__",
+        "_var_var_302",
+        "_var_var_303",
+        "_var_var_304",
+        "_var_var_305",
+        "_var_var_306",
+        "_var_var_307",
+        "_var_var_155",
+        "_var_var_308",
+        "_var_var_309",
+        "_var_var_310",
+        "_var_var_311",
+        "_var_var_28",
+        "_var_var_23",
+        "_var_var_312",
+        "_var_var_313",
+        "_var_var_314",
+        "_var_var_315"
+      ],
+      "argcount": 2,
+      "strings": [
+        "处理导入的路径列表",
+        "images",
+        "workflows",
+        ": ",
+        "📦 正在解压: ",
+        "✅ 解压完成: ",
+        " 张图片, ",
+        " 个配置",
+        ": 解压失败"
+      ]
+    },
+    {
+      "func": "MainWindow.refresh_workflow_list",
+      "names": [
+        "config_combo",
+        "clear",
+        "addItem",
+        "glob",
+        "os",
+        "path",
+        "join",
+        "workflows_folder",
+        "sorted",
+        "basename",
+        "endswith",
+        "_decrypt_config_file",
+        "get",
+        "replace",
+        "open",
+        "json",
+        "load"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_172",
+        "_var_var_173",
+        "_var_var_174",
+        "_var_var_24",
+        "_var_var_23",
+        "_var_var_175",
+        "_var_var_137",
+        "_var_var_176",
+        "_var_var_2",
+        "_var_var_177",
+        "_var_var_148",
+        "_var_var_178"
+      ],
+      "argcount": 1,
+      "strings": [
+        "刷新配置文件列表",
+        "-- 请选择配置文件 --",
+        "",
+        "*.json",
+        "*.enc",
+        ".enc",
+        " 🔒",
+        " 🔐",
+        "name",
+        "r",
+        "utf-8",
+        ".json"
+      ]
+    },
+    {
+      "func": "MainWindow.register_hotkeys",
+      "names": [
+        "hotkey_hooks",
+        "keyboard",
+        "remove_hotkey",
+        "clear",
+        "hotkeys",
+        "get",
+        "add_hotkey",
+        "append",
+        "add_log",
+        "join",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "silent",
+        "__assert_armored__",
+        "_var_var_331",
+        "_var_var_332",
+        "_var_var_28"
+      ],
+      "argcount": 2,
+      "strings": [
+        "screenshot",
+        "截图=",
+        "start",
+        "开始=",
+        "pause",
+        "暂停=",
+        "stop",
+        "停止=",
+        "⌨️ 快捷键已注册: ",
+        ", ",
+        "⚠️ 注册快捷键失败: "
+      ]
+    },
+    {
+      "func": "MainWindow.save_log",
+      "names": [
+        "QFileDialog",
+        "getSaveFileName",
+        "open",
+        "write",
+        "log_text",
+        "toPlainText",
+        "add_log"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_24",
+        "_var_var_147",
+        "_var_var_148"
+      ],
+      "argcount": 1,
+      "strings": [
+        "保存日志",
+        "",
+        "文本文件 (*.txt)",
+        "w",
+        "utf-8",
+        "日志已保存: "
+      ]
+    },
+    {
+      "func": "MainWindow.save_screenshot_settings",
+      "names": [
+        "screenshot_local_mode",
+        "isChecked",
+        "get",
+        "screenshot_position",
+        "currentIndex",
+        "screenshot_resolution",
+        "screenshot_max_count",
+        "value",
+        "screenshot_prefix",
+        "text",
+        "screenshot_quality",
+        "screenshot_push_enabled",
+        "push_api_key",
+        "strip",
+        "__import__",
+        "b64encode",
+        "encode",
+        "decode",
+        "os",
+        "path",
+        "join",
+        "get_app_path",
+        "open",
+        "json",
+        "dump",
+        "add_log",
+        "accept",
+        "Exception"
+      ],
+      "varnames": [
+        "self",
+        "dialog",
+        "__assert_armored__",
+        "_var_var_282",
+        "_var_var_203",
+        "_var_var_281",
+        "_var_var_148",
+        "_var_var_28"
+      ],
+      "argcount": 2,
+      "strings": [
+        "保存截图设置",
+        "center",
+        "top_left",
+        "top_right",
+        "bottom_left",
+        "bottom_right",
+        "1080p",
+        "900p",
+        "720p",
+        "screenshot",
+        "base64",
+        "utf-8",
+        "ascii",
+        "",
+        "screenshot_settings.json",
+        "w",
+        "📷 截图设置已保存",
+        "❌ 保存设置失败: "
+      ]
+    },
+    {
+      "func": "MainWindow.save_settings",
+      "names": [
+        "os",
+        "path",
+        "exists",
+        "settings_file",
+        "open",
+        "json",
+        "load",
+        "update",
+        "dump",
+        "Exception",
+        "print"
+      ],
+      "varnames": [
+        "self",
+        "settings",
+        "__assert_armored__",
+        "_var_var_205",
+        "_var_var_148",
+        "_var_var_28"
+      ],
+      "argcount": 2,
+      "strings": [
+        "r",
+        "utf-8",
+        "w",
+        "保存设置失败: "
+      ]
+    },
+    {
+      "func": "MainWindow.select_import_files",
+      "names": [
+        "QFileDialog",
+        "setFileMode",
+        "ExistingFiles",
+        "setNameFilter",
+        "setWindowTitle",
+        "exec_",
+        "selectedFiles",
+        "process_import_paths"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_123",
+        "_var_var_301"
+      ],
+      "argcount": 1,
+      "strings": [
+        "点击选择文件导入",
+        "支持的文件 (*.json *.enc *.png *.jpg *.jpeg *.bmp *.zip *.rar *.7z);;压缩包 (*.zip *.rar *.7z);;图片 (*.png *.jpg *.jpeg *.bmp);;配置 (*.json *.enc);;所有文件 (*)",
+        "选择要导入的文件或压缩包"
+      ]
+    },
+    {
+      "func": "MainWindow.setup_home_page",
+      "names": [
+        "QWidget",
+        "QVBoxLayout",
+        "setContentsMargins",
+        "setSpacing",
+        "QLabel",
+        "setObjectName",
+        "addWidget",
+        "QFrame",
+        "QHBoxLayout",
+        "QComboBox",
+        "config_combo",
+        "setMinimumWidth",
+        "view",
+        "setStyleSheet",
+        "QPushButton",
+        "setToolTip",
+        "clicked",
+        "connect",
+        "refresh_workflow_list",
+        "load_selected_workflow",
+        "delete_selected_workflow",
+        "config_name_label",
+        "addStretch",
+        "config_stats_label",
+        "addLayout",
+        "setFixedHeight",
+        "detail_btn",
+        "show_workflow_detail",
+        "setEnabled",
+        "custom_config_btn",
+        "open_custom_config_editor",
+        "setVisible",
+        "QTextEdit",
+        "config_desc_text",
+        "setReadOnly",
+        "setPlaceholderText",
+        "setMinimumHeight",
+        "select_import_files",
+        "setAcceptDrops",
+        "import_drag_enter",
+        "dragEnterEvent",
+        "import_drop",
+        "dropEvent",
+        "pages"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_58",
+        "_var_var_59",
+        "_var_var_43",
+        "_var_var_60",
+        "_var_var_61",
+        "_var_var_62",
+        "_var_var_63",
+        "_var_var_64",
+        "_var_var_65",
+        "_var_var_66",
+        "_var_var_67",
+        "_var_var_68",
+        "_var_var_69",
+        "_var_var_70",
+        "_var_var_71",
+        "_var_var_72",
+        "_var_var_73",
+        "_var_var_74",
+        "_var_var_75",
+        "_var_var_76",
+        "_var_var_77"
+      ],
+      "argcount": 1,
+      "strings": [
+        "主页 - 配置选择和信息",
+        "主页",
+        "pageTitle",
+        "configSelector",
+        "📄 配置文件:",
+        "configCombo",
+        "\n\n            QListView {\n\n                background: #1e1e2e;\n\n                border: 1px solid #4a4a5a;\n\n                border-radius: 8px;\n\n                color: #e0e0e0;\n\n                padding: 5px;\n\n                outline: none;\n\n            }\n\n            QListView::item {\n\n                padding: 10px 15px;\n\n                border-radius: 6px;\n\n                margin: 2px 4px;\n\n                min-height: 22px;\n\n            }\n\n            QListView::item:hover {\n\n                background: #3a3a4a;\n\n            }\n\n            QListView::item:selected {\n\n                background: #6366f1;\n\n                color: white;\n\n            }\n\n        ",
+        "🔄",
+        "刷新列表",
+        "加载配置",
+        "loadBtn",
+        "🗑️",
+        "deleteConfigBtn",
+        "删除选中的配置",
+        "\n            QPushButton {\n                background: #dc3545;\n                border: none;\n                border-radius: 8px;\n                padding: 8px 12px;\n                color: white;\n                font-size: 14px;\n            }\n            QPushButton:hover {\n                background: #c82333;\n            }\n            QPushButton:pressed {\n                background: #bd2130;\n            }\n        ",
+        "configInfo",
+        "未加载配置",
+        "configName",
+        "请选择并加载配置文件",
+        "color: #888; font-size: 12px;",
+        "background: #2a2a3a;",
+        "📝 配置说明",
+        "font-weight: bold; font-size: 13px;",
+        "🔗 查看详情",
+        "detailBtn",
+        "⚙️ 自定义配置",
+        "customConfigBtn",
+        "configDescText",
+        "暂无说明",
+        "\n\n            QTextEdit {\n\n                background: #12121c;\n\n                border: 1px solid #2a2a3a;\n\n                border-radius: 8px;\n\n                padding: 10px;\n\n                color: #ccc;\n\n                font-size: 12px;\n\n                line-height: 1.6;\n\n            }\n\n            QTextEdit:focus {\n\n                border-color: #667eea;\n\n            }\n\n        ",
+        "importFrame",
+        "\n\n            #importFrame {\n\n                background: #1a1a2e;\n\n                border: 2px dashed #3a3a5a;\n\n                border-radius: 10px;\n\n                margin: 10px 15px;\n\n            }\n\n            #importFrame:hover {\n\n                border-color: #667eea;\n\n                background: #1e1e32;\n\n            }\n\n        ",
+        "📥",
+        "font-size: 24px;",
+        "拖拽导入配置",
+        "font-size: 13px; font-weight: bold; color: #fff;",
+        "支持图片、JSON配置、压缩包(zip/rar/7z)、文件夹",
+        "font-size: 11px; color: #888;",
+        "📂 选择文件",
+        "\n\n            QPushButton {\n\n                background: #667eea;\n\n                color: white;\n\n                border: none;\n\n                padding: 8px 16px;\n\n                border-radius: 6px;\n\n                font-size: 12px;\n\n            }\n\n            QPushButton:hover {\n\n                background: #5a6fd6;\n\n            }\n\n        "
+      ]
+    },
+    {
+      "func": "MainWindow.setup_log_page",
+      "names": [
+        "QWidget",
+        "QVBoxLayout",
+        "setContentsMargins",
+        "setSpacing",
+        "QLabel",
+        "setObjectName",
+        "addWidget",
+        "QFrame",
+        "QHBoxLayout",
+        "addStretch",
+        "QPushButton",
+        "clicked",
+        "connect",
+        "clear_log",
+        "save_log",
+        "log_enabled",
+        "toggle_log_btn",
+        "toggle_log_enabled",
+        "QTextEdit",
+        "log_text",
+        "setReadOnly",
+        "pages"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_78",
+        "_var_var_79",
+        "_var_var_43",
+        "_var_var_80",
+        "_var_var_81",
+        "_var_var_82",
+        "_var_var_67",
+        "_var_var_83",
+        "_var_var_84",
+        "_var_var_11"
+      ],
+      "argcount": 1,
+      "strings": [
+        "日志页面",
+        "执行日志",
+        "pageTitle",
+        "logPanel",
+        "logHeader",
+        "📋 完整日志记录",
+        "logTitle",
+        "清空",
+        "smallBtn",
+        "保存",
+        "🔔 开启",
+        "logText"
+      ]
+    },
+    {
+      "func": "MainWindow.setup_main_content",
+      "names": [
+        "QFrame",
+        "setObjectName",
+        "QVBoxLayout",
+        "setContentsMargins",
+        "setSpacing",
+        "setup_window_controls",
+        "QStackedWidget",
+        "pages",
+        "setup_home_page",
+        "setup_log_page",
+        "setup_tools_page",
+        "addWidget"
+      ],
+      "varnames": [
+        "self",
+        "parent_layout",
+        "__assert_armored__",
+        "_var_var_52",
+        "_var_var_53"
+      ],
+      "argcount": 2,
+      "strings": [
+        "mainContent"
+      ]
+    },
+    {
+      "func": "MainWindow.setup_sidebar",
+      "names": [
+        "QFrame",
+        "setObjectName",
+        "QVBoxLayout",
+        "setContentsMargins",
+        "setSpacing",
+        "QWidget",
+        "QHBoxLayout",
+        "QLabel",
+        "os",
+        "path",
+        "join",
+        "bundle_folder",
+        "exists",
+        "QPixmap",
+        "scaled",
+        "Qt",
+        "KeepAspectRatio",
+        "SmoothTransformation",
+        "setPixmap",
+        "setText",
+        "addWidget",
+        "addStretch",
+        "setStyleSheet",
+        "setAlignment",
+        "AlignCenter",
+        "setTextInteractionFlags",
+        "TextSelectableByMouse",
+        "QPushButton",
+        "start_btn",
+        "setToolTip",
+        "clicked",
+        "connect",
+        "start_execution",
+        "stop_btn",
+        "setEnabled",
+        "stop_execution",
+        "pause_btn",
+        "toggle_pause",
+        "addLayout",
+        "screenshot_btn",
+        "take_screenshot",
+        "topmost_btn",
+        "setCheckable",
+        "toggle_topmost",
+        "nav_buttons",
+        "btn_home",
+        "setProperty",
+        "append",
+        "btn_log",
+        "btn_editor",
+        "open_editor",
+        "btn_tools",
+        "btn_hotkey",
+        "show_hotkey_settings",
+        "btn_activate",
+        "show_activation_dialog",
+        "btn_mini",
+        "switch_to_mini_mode",
+        "activation_label",
+        "CURRENT_VERSION"
+      ],
+      "varnames": [
+        "self",
+        "parent_layout",
+        "__assert_armored__",
+        "_var_var_37",
+        "_var_var_38",
+        "_var_var_39",
+        "_var_var_40",
+        "_var_var_41",
+        "_var_var_29",
+        "_var_var_42",
+        "_var_var_43",
+        "_var_var_44",
+        "_var_var_45",
+        "_var_var_46",
+        "_var_var_47",
+        "_var_var_48",
+        "_var_var_49",
+        "_var_var_50",
+        "_var_var_51"
+      ],
+      "argcount": 2,
+      "strings": [
+        "sidebar",
+        "006.ico",
+        "🤖",
+        "6号助手",
+        "sidebarTitle",
+        "📢 正版QQ群: 1082696738",
+        "\n            QLabel {\n                background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #6366f1, stop:1 #8b5cf6);\n                color: #ffffff;\n                font-size: 11px;\n                font-weight: bold;\n                padding: 6px 10px;\n                border-radius: 5px;\n                margin: 0px 12px 8px 12px;\n            }\n        ",
+        "controlBar",
+        "▶",
+        "startBtn",
+        "开始 (F10)",
+        "⏹",
+        "stopBtn",
+        "停止 (F12)",
+        "⏸",
+        "pauseBtn",
+        "暂停/恢复 (F11)",
+        "📷",
+        "screenshotBtn",
+        "截图 (F9)",
+        "📌",
+        "topmostBtn",
+        "窗口置顶",
+        "页面",
+        "sidebarSection",
+        "🏠  主页",
+        "class",
+        "navBtn",
+        "active",
+        "📋  日志",
+        "📝  编辑器",
+        "🔧  工具",
+        "设置",
+        "⌨️  快捷键",
+        "🔑  激活管理",
+        "🔽  迷你模式",
+        "❌ 未激活",
+        "activationStatus",
+        "© 6hzs.cn | ",
+        " ",
+        "color: rgba(255,255,255,0.4); padding: 12px; font-size: 10px;"
+      ]
+    },
+    {
+      "func": "MainWindow.setup_tools_page",
+      "names": [
+        "QWidget",
+        "QVBoxLayout",
+        "setContentsMargins",
+        "setSpacing",
+        "QLabel",
+        "setObjectName",
+        "addWidget",
+        "QHBoxLayout",
+        "QPushButton",
+        "setFixedSize",
+        "clicked",
+        "connect",
+        "take_screenshot",
+        "detect_window_info",
+        "show_dpi_setting",
+        "open_config_encryptor",
+        "coord_btn",
+        "toggle_coord_display",
+        "show_screenshot_settings",
+        "addStretch",
+        "addLayout",
+        "detect_status_label",
+        "setStyleSheet",
+        "QFrame",
+        "window_info_frame",
+        "setVisible",
+        "setFixedWidth",
+        "proc_name_label",
+        "setTextInteractionFlags",
+        "Qt",
+        "TextSelectableByMouse",
+        "proc_copy_btn",
+        "win_title_label",
+        "title_copy_btn",
+        "pid_label",
+        "pid_copy_btn",
+        "pages"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_85",
+        "_var_var_86",
+        "_var_var_43",
+        "_var_var_87",
+        "_var_var_88",
+        "_var_var_89",
+        "_var_var_90",
+        "_var_var_91",
+        "_var_var_92",
+        "_var_var_66",
+        "_var_var_93",
+        "_var_var_94",
+        "_var_var_95",
+        "_var_var_96",
+        "_var_var_97",
+        "_var_var_98"
+      ],
+      "argcount": 1,
+      "strings": [
+        "工具页面",
+        "工具箱",
+        "pageTitle",
+        "📷 截图",
+        "🔍 检测窗口",
+        "🎮 设置DPI",
+        "🔐 配置加密",
+        "📍 显示坐标",
+        "⚙️ 截图设置",
+        "",
+        "color: #f59e0b; font-size: 13px;",
+        "background: #1e1e2e; border-radius: 6px; padding: 10px;",
+        "进程名:",
+        "-",
+        "color: #10b981;",
+        "复制",
+        "padding: 3px 8px;",
+        "标题:",
+        "color: #6366f1;",
+        "PID:",
+        "color: #f59e0b;"
+      ]
+    },
+    {
+      "func": "MainWindow.setup_ui",
+      "names": [
+        "QWidget",
+        "setCentralWidget",
+        "QHBoxLayout",
+        "setContentsMargins",
+        "setSpacing",
+        "setup_sidebar",
+        "setup_main_content"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_35",
+        "_var_var_36"
+      ],
+      "argcount": 1,
+      "strings": []
+    },
+    {
+      "func": "MainWindow.setup_window_controls",
+      "names": [
+        "QFrame",
+        "setObjectName",
+        "setFixedHeight",
+        "QHBoxLayout",
+        "setContentsMargins",
+        "addStretch",
+        "QPushButton",
+        "clicked",
+        "connect",
+        "showMinimized",
+        "addWidget",
+        "max_btn",
+        "toggle_maximize",
+        "close"
+      ],
+      "varnames": [
+        "self",
+        "parent_layout",
+        "__assert_armored__",
+        "_var_var_54",
+        "_var_var_55",
+        "_var_var_56",
+        "_var_var_57"
+      ],
+      "argcount": 2,
+      "strings": [
+        "windowControls",
+        "─",
+        "□",
+        "✕",
+        "closeBtn"
+      ]
+    },
+    {
+      "func": "MainWindow.show_activation_dialog",
+      "names": [
+        "QDialog",
+        "setWindowTitle",
+        "setWindowFlags",
+        "windowFlags",
+        "Qt",
+        "FramelessWindowHint",
+        "setFixedSize",
+        "setStyleSheet",
+        "QVBoxLayout",
+        "setContentsMargins",
+        "setSpacing",
+        "QHBoxLayout",
+        "addStretch",
+        "QPushButton",
+        "clicked",
+        "connect",
+        "reject",
+        "addWidget",
+        "addLayout",
+        "QLabel",
+        "setFont",
+        "QFont",
+        "Bold",
+        "setAlignment",
+        "AlignCenter",
+        "activation",
+        "is_activated",
+        "get_remaining_time",
+        "addSpacing",
+        "QLineEdit",
+        "setPlaceholderText",
+        "QFrame",
+        "setFixedHeight",
+        "get_unbind_status",
+        "get",
+        "setEnabled",
+        "move",
+        "x",
+        "width",
+        "y",
+        "height",
+        "exec_"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_4",
+        "_var_var_242",
+        "_var_var_57",
+        "_var_var_43",
+        "_var_var_243",
+        "_var_var_9",
+        "_var_var_244",
+        "_var_var_245",
+        "_var_var_13",
+        "_var_var_68",
+        "_var_var_246",
+        "_var_var_247",
+        "_var_var_248",
+        "_var_var_249",
+        "_var_var_250",
+        "_var_var_251",
+        "_var_var_252",
+        "_var_var_253",
+        "_var_var_254"
+      ],
+      "argcount": 1,
+      "strings": [
+        "软件激活",
+        "\n\n            QDialog { background: #1a1a2e; border: 1px solid #3a3a4a; border-radius: 12px; }\n\n            QLabel { color: #e0e0e0; }\n\n            QLineEdit { background: #2a2a3a; border: 1px solid #3a3a4a; border-radius: 6px; padding: 10px; color: #e0e0e0; }\n\n            QLineEdit:focus { border-color: #6366f1; }\n\n        ",
+        "✕",
+        "background: transparent; font-size: 14px;",
+        "🔐 软件激活",
+        "Microsoft YaHei UI",
+        "✅ 已激活，剩余: ",
+        "color: #22c55e; font-size: 13px;",
+        "❌ 未激活",
+        "color: #ef4444; font-size: 13px;",
+        "请输入激活码...",
+        "🔑 激活",
+        "\n\n            background: qlineargradient(x1:0, y1:0, x2:1, y2:0, stop:0 #6366f1, stop:1 #8b5cf6);\n\n            color: white; font-weight: bold; border-radius: 6px; padding: 10px;\n\n        ",
+        "取消",
+        "background: #3a3a4a; margin: 10px 0;",
+        "🔓 设备解绑",
+        "unbind_count",
+        "can_unbind",
+        "remaining_days",
+        "cooldown_days",
+        "已解绑次数: ",
+        " 次 | 冷却期: ",
+        " 天",
+        "\n⏳ 冷却中，还需等待 ",
+        "color: #888; font-size: 11px;",
+        "🔓 手动解绑",
+        "\n\n                    background: #ef4444; color: white; font-weight: bold; \n\n                    border-radius: 6px; padding: 10px;\n\n                ",
+        "\n\n                        background: #666; color: #999; font-weight: bold; \n\n                        border-radius: 6px; padding: 10px;\n\n                    ",
+        "无法获取解绑状态，请检查网络"
+      ]
+    },
+    {
+      "func": "MainWindow.show_dpi_setting",
+      "names": [
+        "PyQt5.QtWidgets",
+        "QInputDialog",
+        "engine",
+        "fps_user_dpi",
+        "fps_standard_dpi",
+        "getInt",
+        "save_fps_dpi_config",
+        "QMessageBox",
+        "information",
+        "int"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_99",
+        "_var_var_100",
+        "_var_var_101",
+        "_var_var_102",
+        "_var_var_103",
+        "_var_var_104",
+        "_var_var_105"
+      ],
+      "argcount": 1,
+      "strings": [
+        "显示DPI设置对话框",
+        "设置鼠标DPI",
+        "请输入你的鼠标DPI值:\n\n当前DPI: ",
+        "\n标准DPI: ",
+        "\n当前倍率: ",
+        ".2f",
+        "\n\n说明: 配置文件基于DPI ",
+        " 编写\n软件会自动根据你的DPI换算FPS视角移动距离",
+        "DPI已保存",
+        "鼠标DPI已设置为: ",
+        "\nFPS视角移动倍率: ",
+        "\n\n例如: 配置中设置移动100像素\n实际移动: 100 × ",
+        " = ",
+        "像素"
+      ]
+    },
+    {
+      "func": "MainWindow.show_hotkey_settings",
+      "names": [
+        "QDialog",
+        "setWindowTitle",
+        "setWindowFlags",
+        "windowFlags",
+        "Qt",
+        "FramelessWindowHint",
+        "setFixedSize",
+        "setStyleSheet",
+        "QVBoxLayout",
+        "setContentsMargins",
+        "setSpacing",
+        "QHBoxLayout",
+        "addStretch",
+        "QPushButton",
+        "clicked",
+        "connect",
+        "reject",
+        "addWidget",
+        "addLayout",
+        "QLabel",
+        "setFont",
+        "QFont",
+        "Bold",
+        "QLineEdit",
+        "setFixedWidth",
+        "hotkeys",
+        "get",
+        "move",
+        "x",
+        "width",
+        "y",
+        "height",
+        "exec_"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_4",
+        "_var_var_242",
+        "_var_var_57",
+        "_var_var_43",
+        "_var_var_290",
+        "_var_var_136",
+        "_var_var_291",
+        "_var_var_292",
+        "_var_var_293",
+        "_var_var_294",
+        "_var_var_295",
+        "_var_var_9",
+        "_var_var_11",
+        "_var_var_296",
+        "_var_var_13"
+      ],
+      "argcount": 1,
+      "strings": [
+        "快捷键设置",
+        "\n\n            QDialog { background: #1a1a2e; border: 1px solid #3a3a4a; border-radius: 10px; }\n\n            QLabel { color: #e0e0e0; font-size: 12px; }\n\n            QLineEdit { background: #2a2a3a; border: 1px solid #3a3a4a; border-radius: 5px; padding: 7px 10px; color: #e0e0e0; }\n\n        ",
+        "✕",
+        "background: transparent; font-size: 12px;",
+        "⌨️ 快捷键设置",
+        "Microsoft YaHei UI",
+        "HotkeyLineEdit",
+        ":",
+        "",
+        "💡 点击输入框后按下想要的快捷键",
+        "color: #888; font-size: 11px;",
+        "保存",
+        "background: #6366f1; color: white; font-weight: bold;",
+        "取消"
+      ]
+    },
+    {
+      "func": "MainWindow.show_screenshot_settings",
+      "names": [
+        "PyQt5.QtWidgets",
+        "QGroupBox",
+        "QFormLayout",
+        "QSpinBox",
+        "QDialog",
+        "QCheckBox",
+        "setWindowTitle",
+        "setFixedSize",
+        "setStyleSheet",
+        "QVBoxLayout",
+        "setSpacing",
+        "setContentsMargins",
+        "screenshot_local_mode",
+        "setChecked",
+        "addWidget",
+        "addSpacing",
+        "QHBoxLayout",
+        "QLabel",
+        "setFixedWidth",
+        "QComboBox",
+        "screenshot_position",
+        "addItems",
+        "addLayout",
+        "screenshot_resolution",
+        "screenshot_max_count",
+        "setRange",
+        "setValue",
+        "setSpecialValueText",
+        "QLineEdit",
+        "screenshot_prefix",
+        "setText",
+        "setPlaceholderText",
+        "screenshot_quality",
+        "setSuffix",
+        "screenshot_push_enabled",
+        "os",
+        "path",
+        "join",
+        "get_app_path",
+        "exists",
+        "push_api_key",
+        "setWordWrap",
+        "addStretch",
+        "QPushButton",
+        "clicked",
+        "connect",
+        "load_screenshot_settings",
+        "exec_"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_109",
+        "_var_var_258",
+        "_var_var_259",
+        "_var_var_120",
+        "_var_var_260",
+        "_var_var_4",
+        "_var_var_261",
+        "_var_var_262",
+        "_var_var_263",
+        "_var_var_264",
+        "_var_var_265",
+        "_var_var_266",
+        "_var_var_267",
+        "_var_var_268",
+        "_var_var_269",
+        "_var_var_270",
+        "_var_var_271",
+        "_var_var_272",
+        "_var_var_273",
+        "_var_var_274",
+        "_var_var_275",
+        "_var_var_276",
+        "_var_var_277",
+        "_var_var_278",
+        "_var_var_279",
+        "_var_var_9",
+        "_var_var_280",
+        "_var_var_11"
+      ],
+      "argcount": 1,
+      "strings": [
+        "显示截图设置对话框",
+        "截图设置",
+        "\n            QDialog { background: #1a1a2e; }\n            QLabel { color: #e0e0e0; font-size: 13px; }\n            QComboBox, QSpinBox, QLineEdit {\n                background: #2d2d44; color: #e0e0e0; border: 1px solid #3d3d5c;\n                border-radius: 4px; padding: 8px 10px; min-height: 32px;\n            }\n            QComboBox:hover, QSpinBox:hover, QLineEdit:hover { border-color: #6366f1; }\n            QPushButton {\n                background: #6366f1; color: white; border: none;\n                border-radius: 4px; padding: 10px 20px; font-weight: bold;\n            }\n            QPushButton:hover { background: #818cf8; }\n            QCheckBox { color: #e0e0e0; }\n            QCheckBox::indicator { width: 18px; height: 18px; }\n            QCheckBox::indicator:unchecked { background: #2d2d44; border: 1px solid #3d3d5c; border-radius: 3px; }\n            QCheckBox::indicator:checked { background: #6366f1; border: 1px solid #6366f1; border-radius: 3px; }\n        ",
+        "📁 本地保存截图",
+        "截图位置:",
+        "分辨率:",
+        "本地最大数量:",
+        "无限制",
+        "文件名前缀:",
+        "screenshot",
+        "文件名前缀",
+        "压缩质量:",
+        "%",
+        "(越高质量越好)",
+        "color: #888; font-size: 11px;",
+        "📱 识别推送:",
+        "font-weight: bold; color: #6366f1;",
+        "截图后识别指定图片并推送消息",
+        "push_images.dat",
+        "✅ 已检测到推送图片包 (push_images.dat)",
+        "color: #34d399; font-size: 11px;",
+        "⚠️ 未找到推送图片包，请联系管理员获取",
+        "color: #f59e0b; font-size: 11px;",
+        "💡 识别到图片会自动推送到您的微信",
+        "API密钥:",
+        "在 6hzs.nzwl.top 网站登录后获取",
+        "💡 访问 http://6hzs.nzwl.top 微信扫码登录获取API密钥",
+        "💡 本地保存路径: ",
+        "jt",
+        "📂 打开文件夹",
+        "💾 保存设置"
+      ]
+    },
+    {
+      "func": "MainWindow.show_update_notice",
+      "names": [
+        "show_message",
+        "CURRENT_VERSION"
+      ],
+      "varnames": [
+        "self",
+        "latest_version",
+        "__assert_armored__"
+      ],
+      "argcount": 2,
+      "strings": [
+        "显示更新提示",
+        "🆕 版本更新提示",
+        "发现新版本！\n\n当前版本: ",
+        "\n最新版本: ",
+        "\n\n请前往官网下载最新版本。",
+        "info"
+      ]
+    },
+    {
+      "func": "MainWindow.show_workflow_detail",
+      "names": [
+        "current_workflow",
+        "get",
+        "webbrowser",
+        "open"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_195"
+      ],
+      "argcount": 1,
+      "strings": [
+        "查看配置详情",
+        "detail_url"
+      ]
+    },
+    {
+      "func": "MainWindow.start_execution",
+      "names": [
+        "engine",
+        "is_running",
+        "check_activation_required",
+        "_verify_activation_integrity",
+        "add_log",
+        "_security_module_loaded",
+        "hasattr",
+        "security_timer",
+        "isActive",
+        "_orig_func_ids",
+        "id",
+        "perform_full_security_check",
+        "_orig_requests_ids",
+        "requests",
+        "post",
+        "current_workflow",
+        "show_message",
+        "start_btn",
+        "setEnabled",
+        "stop_btn",
+        "pause_btn",
+        "setText",
+        "setToolTip",
+        "threading",
+        "Thread",
+        "execution_thread",
+        "start"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_286"
+      ],
+      "argcount": 1,
+      "strings": [
+        "⚠️ 激活验证失败",
+        "security_timer",
+        "⚠️ 安全检查异常",
+        "⚠️ 安全模块异常",
+        "⚠️ 网络模块异常",
+        "提示",
+        "请先加载配置",
+        "warning",
+        "⏸",
+        "暂停 (F11)"
+      ]
+    },
+    {
+      "func": "MainWindow.start_log_cleanup_timer",
+      "names": [
+        "QTimer",
+        "log_cleanup_timer",
+        "timeout",
+        "connect",
+        "auto_clear_log",
+        "start"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": [
+        "启动日志定时清理（每6小时）"
+      ]
+    },
+    {
+      "func": "MainWindow.stop_execution",
+      "names": [
+        "engine",
+        "stop",
+        "add_log",
+        "on_execution_complete"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": [
+        "已停止执行"
+      ]
+    },
+    {
+      "func": "MainWindow.switch_page",
+      "names": [
+        "pages",
+        "setCurrentIndex",
+        "enumerate",
+        "nav_buttons",
+        "setProperty",
+        "setStyle",
+        "style"
+      ],
+      "varnames": [
+        "self",
+        "index",
+        "__assert_armored__",
+        "_var_var_170",
+        "_var_var_171"
+      ],
+      "argcount": 2,
+      "strings": [
+        "active"
+      ]
+    },
+    {
+      "func": "MainWindow.switch_to_mini_mode",
+      "names": [
+        "geometry",
+        "main_geometry",
+        "hide",
+        "MiniWindow",
+        "mini_window",
+        "show"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": [
+        "切换到迷你模式"
+      ]
+    },
+    {
+      "func": "MainWindow.switch_to_normal_mode",
+      "names": [
+        "hasattr",
+        "mini_window",
+        "close",
+        "setGeometry",
+        "main_geometry",
+        "show"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": [
+        "从迷你模式切换回正常模式",
+        "mini_window",
+        "main_geometry"
+      ]
+    },
+    {
+      "func": "MainWindow.take_screenshot",
+      "names": [
+        "check_activation_required",
+        "_verify_activation_integrity",
+        "hide",
+        "QTimer",
+        "singleShot",
+        "_start_screenshot"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": [
+        "截图 - 使用PyQt5实现"
+      ]
+    },
+    {
+      "func": "MainWindow.toggle_coord_display",
+      "names": [
+        "hasattr",
+        "coord_overlay",
+        "CoordOverlay",
+        "show",
+        "coord_btn",
+        "setText",
+        "setStyleSheet",
+        "close"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": [
+        "切换实时坐标显示",
+        "coord_overlay",
+        "📍 关闭坐标",
+        "background-color: #ef4444; color: white;",
+        "📍 显示坐标",
+        ""
+      ]
+    },
+    {
+      "func": "MainWindow.toggle_log_enabled",
+      "names": [
+        "log_enabled",
+        "toggle_log_btn",
+        "setText",
+        "setStyleSheet"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": [
+        "切换日志开关",
+        "🔔 开启",
+        "",
+        "🔕 关闭",
+        "background: #dc2626;"
+      ]
+    },
+    {
+      "func": "MainWindow.toggle_maximize",
+      "names": [
+        "isMaximized",
+        "showNormal",
+        "max_btn",
+        "setText",
+        "showMaximized"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": [
+        "□",
+        "❐"
+      ]
+    },
+    {
+      "func": "MainWindow.toggle_pause",
+      "names": [
+        "engine",
+        "is_running",
+        "toggle_pause",
+        "pause_btn",
+        "setText",
+        "setToolTip"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_287"
+      ],
+      "argcount": 1,
+      "strings": [
+        "切换暂停状态",
+        "▶",
+        "继续 (F11)",
+        "⏸",
+        "暂停 (F11)"
+      ]
+    },
+    {
+      "func": "MainWindow.toggle_topmost",
+      "names": [
+        "topmost_btn",
+        "isChecked",
+        "setWindowFlags",
+        "windowFlags",
+        "Qt",
+        "WindowStaysOnTopHint",
+        "add_log",
+        "show"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_288"
+      ],
+      "argcount": 1,
+      "strings": [
+        "切换窗口置顶",
+        "窗口已置顶",
+        "已取消置顶"
+      ]
+    },
+    {
+      "func": "MainWindow.update_activation_display",
+      "names": [
+        "activation",
+        "is_activated",
+        "get_remaining_time",
+        "activation_label",
+        "setText",
+        "_apply_countdown_style",
+        "get_remaining_seconds",
+        "_expiry_countdown_timer",
+        "isActive",
+        "start",
+        "stop",
+        "setStyleSheet"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_213"
+      ],
+      "argcount": 1,
+      "strings": [
+        "✅ 已激活\n⏳ ",
+        "❌ 未激活",
+        "\n\n                #activationStatus {\n\n                    background: rgba(239, 68, 68, 0.3);\n\n                    border-radius: 8px;\n\n                    padding: 10px 12px;\n\n                    margin: 8px 10px;\n\n                    font-size: 11px;\n\n                    color: #fca5a5;\n\n                }\n\n            "
+      ]
+    },
+    {
+      "func": "MiniWindow.closeEvent",
+      "names": [
+        "status_timer",
+        "stop",
+        "accept"
+      ],
+      "varnames": [
+        "self",
+        "event",
+        "__assert_armored__"
+      ],
+      "argcount": 2,
+      "strings": []
+    },
+    {
+      "func": "MiniWindow.eventFilter",
+      "names": [
+        "resize_handle",
+        "type",
+        "MouseButtonPress",
+        "button",
+        "Qt",
+        "LeftButton",
+        "resizing",
+        "globalPos",
+        "y",
+        "resize_start_y",
+        "log_panel_height",
+        "resize_start_height",
+        "MouseMove",
+        "max",
+        "min",
+        "log_panel",
+        "setFixedHeight",
+        "setFixedSize",
+        "MouseButtonRelease",
+        "super",
+        "eventFilter"
+      ],
+      "varnames": [
+        "self",
+        "obj",
+        "event",
+        "__assert_armored__",
+        "_var_var_345",
+        "_var_var_346"
+      ],
+      "argcount": 3,
+      "strings": [
+        "事件过滤器 - 处理拖拽调整大小"
+      ]
+    },
+    {
+      "func": "MiniWindow.mouseMoveEvent",
+      "names": [
+        "drag_position",
+        "buttons",
+        "Qt",
+        "LeftButton",
+        "resizing",
+        "move",
+        "globalPos",
+        "accept"
+      ],
+      "varnames": [
+        "self",
+        "event",
+        "__assert_armored__"
+      ],
+      "argcount": 2,
+      "strings": [
+        "鼠标移动事件 - 拖动窗口"
+      ]
+    },
+    {
+      "func": "MiniWindow.mousePressEvent",
+      "names": [
+        "button",
+        "Qt",
+        "LeftButton",
+        "resizing",
+        "globalPos",
+        "frameGeometry",
+        "topLeft",
+        "drag_position",
+        "accept"
+      ],
+      "varnames": [
+        "self",
+        "event",
+        "__assert_armored__"
+      ],
+      "argcount": 2,
+      "strings": [
+        "鼠标按下事件 - 拖动窗口"
+      ]
+    },
+    {
+      "func": "MiniWindow.mouseReleaseEvent",
+      "names": [
+        "drag_position",
+        "accept"
+      ],
+      "varnames": [
+        "self",
+        "event",
+        "__assert_armored__"
+      ],
+      "argcount": 2,
+      "strings": [
+        "鼠标释放事件"
+      ]
+    },
+    {
+      "func": "MiniWindow.on_expand",
+      "names": [
+        "status_timer",
+        "stop",
+        "main_window",
+        "switch_to_normal_mode"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": [
+        "展开到正常模式"
+      ]
+    },
+    {
+      "func": "MiniWindow.on_pause",
+      "names": [
+        "main_window",
+        "toggle_pause",
+        "sync_status"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": [
+        "暂停/恢复执行"
+      ]
+    },
+    {
+      "func": "MiniWindow.on_start",
+      "names": [
+        "main_window",
+        "start_execution",
+        "sync_status"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": [
+        "开始执行"
+      ]
+    },
+    {
+      "func": "MiniWindow.on_stop",
+      "names": [
+        "main_window",
+        "stop_execution",
+        "sync_status"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": [
+        "停止执行"
+      ]
+    },
+    {
+      "func": "MiniWindow.setup_ui",
+      "names": [
+        "QVBoxLayout",
+        "setContentsMargins",
+        "setSpacing",
+        "QFrame",
+        "main_container",
+        "setStyleSheet",
+        "setObjectName",
+        "QHBoxLayout",
+        "QLabel",
+        "setCursor",
+        "QCursor",
+        "Qt",
+        "SizeAllCursor",
+        "addWidget",
+        "status_indicator",
+        "QPushButton",
+        "start_btn",
+        "setFixedSize",
+        "clicked",
+        "connect",
+        "on_start",
+        "stop_btn",
+        "setEnabled",
+        "on_stop",
+        "pause_btn",
+        "on_pause",
+        "topmost_btn",
+        "toggle_topmost",
+        "log_btn",
+        "setCheckable",
+        "toggle_log_panel",
+        "on_expand",
+        "log_panel",
+        "setMinimumHeight",
+        "log_panel_height",
+        "setVisible",
+        "QTextEdit",
+        "mini_log_text",
+        "setReadOnly",
+        "resize_handle",
+        "setFixedHeight",
+        "setAlignment",
+        "AlignCenter",
+        "SizeVerCursor",
+        "installEventFilter",
+        "resizing",
+        "resize_start_y",
+        "resize_start_height",
+        "sync_status",
+        "QTimer",
+        "status_timer",
+        "timeout",
+        "start"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_36",
+        "_var_var_335",
+        "_var_var_336",
+        "_var_var_337",
+        "_var_var_338",
+        "_var_var_339",
+        "_var_var_79"
+      ],
+      "argcount": 1,
+      "strings": [
+        "\n\n            QFrame#mainContainer {\n\n                background: qlineargradient(x1:0, y1:0, x2:1, y2:0,\n\n                    stop:0 #1a1a2e, stop:1 #2a2a4e);\n\n                border-radius: 12px;\n\n                border: 1px solid #3a3a5a;\n\n            }\n\n        ",
+        "mainContainer",
+        "≡",
+        "\n\n            color: #888; font-size: 16px; font-weight: bold;\n\n            padding: 0 4px; cursor: move;\n\n        ",
+        "●",
+        "color: #ef4444; font-size: 14px;",
+        "▶",
+        "\n\n            QPushButton {\n\n                background: #22c55e; color: white; border: none;\n\n                border-radius: 8px; font-size: 14px; font-weight: bold;\n\n            }\n\n            QPushButton:hover { background: #16a34a; }\n\n            QPushButton:disabled { background: #166534; color: #888; }\n\n        ",
+        "⏹",
+        "\n\n            QPushButton {\n\n                background: #ef4444; color: white; border: none;\n\n                border-radius: 8px; font-size: 14px; font-weight: bold;\n\n            }\n\n            QPushButton:hover { background: #dc2626; }\n\n            QPushButton:disabled { background: #7f1d1d; color: #888; }\n\n        ",
+        "⏸",
+        "\n\n            QPushButton {\n\n                background: #f59e0b; color: white; border: none;\n\n                border-radius: 8px; font-size: 14px; font-weight: bold;\n\n            }\n\n            QPushButton:hover { background: #d97706; }\n\n            QPushButton:disabled { background: #78350f; color: #888; }\n\n        ",
+        "📌",
+        "\n\n            QPushButton {\n\n                background: #6366f1; color: white; border: none;\n\n                border-radius: 8px; font-size: 14px;\n\n            }\n\n            QPushButton:hover { background: #4f46e5; }\n\n        ",
+        "📋",
+        "\n\n            QPushButton {\n\n                background: #64748b; color: white; border: none;\n\n                border-radius: 8px; font-size: 14px;\n\n            }\n\n            QPushButton:hover { background: #475569; }\n\n        ",
+        "🔼",
+        "\n\n            QPushButton {\n\n                background: #8b5cf6; color: white; border: none;\n\n                border-radius: 8px; font-size: 14px;\n\n            }\n\n            QPushButton:hover { background: #7c3aed; }\n\n        ",
+        "\n\n            QFrame {\n\n                background: rgba(0, 0, 0, 0.9);\n\n                border-bottom-left-radius: 12px;\n\n                border-bottom-right-radius: 12px;\n\n            }\n\n        ",
+        "\n\n            QTextEdit {\n\n                background: transparent;\n\n                color: #e0e0e0;\n\n                border: none;\n\n                font-size: 13px;\n\n                line-height: 1.4;\n\n                font-family: 'Microsoft YaHei UI', Consolas, monospace;\n\n            }\n\n        ",
+        "━━━",
+        "\n\n            QLabel {\n\n                color: rgba(255, 255, 255, 0.3);\n\n                font-size: 10px;\n\n                letter-spacing: 2px;\n\n            }\n\n            QLabel:hover {\n\n                color: rgba(255, 255, 255, 0.6);\n\n            }\n\n        "
+      ]
+    },
+    {
+      "func": "MiniWindow.sync_log",
+      "names": [
+        "hasattr",
+        "main_window",
+        "log_text",
+        "toPlainText",
+        "split",
+        "len",
+        "mini_log_text",
+        "setText",
+        "join",
+        "verticalScrollBar",
+        "setValue",
+        "maximum"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_341",
+        "_var_var_342",
+        "_var_var_343"
+      ],
+      "argcount": 1,
+      "strings": [
+        "同步主窗口日志",
+        "log_text",
+        "\n"
+      ]
+    },
+    {
+      "func": "MiniWindow.sync_status",
+      "names": [
+        "main_window",
+        "engine",
+        "is_running",
+        "is_paused",
+        "status_indicator",
+        "setStyleSheet",
+        "start_btn",
+        "setEnabled",
+        "stop_btn",
+        "pause_btn",
+        "setText",
+        "log_panel",
+        "isVisible",
+        "sync_log"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_340",
+        "_var_var_287"
+      ],
+      "argcount": 1,
+      "strings": [
+        "同步主窗口状态",
+        "color: #f59e0b; font-size: 14px;",
+        "color: #22c55e; font-size: 14px;",
+        "color: #ef4444; font-size: 14px;",
+        "▶",
+        "⏸"
+      ]
+    },
+    {
+      "func": "MiniWindow.toggle_log_panel",
+      "names": [
+        "log_panel",
+        "isVisible",
+        "setVisible",
+        "setFixedHeight",
+        "log_panel_height",
+        "setFixedSize",
+        "sync_log"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_344"
+      ],
+      "argcount": 1,
+      "strings": [
+        "切换日志面板显示"
+      ]
+    },
+    {
+      "func": "MiniWindow.toggle_topmost",
+      "names": [
+        "is_topmost",
+        "setWindowFlags",
+        "windowFlags",
+        "Qt",
+        "WindowStaysOnTopHint",
+        "topmost_btn",
+        "setStyleSheet",
+        "show"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": [
+        "切换置顶",
+        "\n\n                QPushButton {\n\n                    background: #6366f1; color: white; border: none;\n\n                    border-radius: 6px; font-size: 12px;\n\n                }\n\n                QPushButton:hover { background: #4f46e5; }\n\n            ",
+        "\n\n                QPushButton {\n\n                    background: #4b5563; color: white; border: none;\n\n                    border-radius: 6px; font-size: 12px;\n\n                }\n\n                QPushButton:hover { background: #374151; }\n\n            "
+      ]
+    },
+    {
+      "func": "ScreenshotWindow.cancel",
+      "names": [
+        "close",
+        "screenshot_cancelled",
+        "emit"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": []
+    },
+    {
+      "func": "ScreenshotWindow.do_save_and_copy",
+      "names": [
+        "do_save"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": [
+        "保存截图并复制图片名和坐标到剪贴板"
+      ]
+    },
+    {
+      "func": "ScreenshotWindow.do_save",
+      "names": [
+        "selected_rect",
+        "cancel",
+        "screenshot",
+        "copy",
+        "datetime",
+        "now",
+        "strftime",
+        "os",
+        "path",
+        "join",
+        "save_folder",
+        "makedirs",
+        "save",
+        "toImage",
+        "x",
+        "y",
+        "width",
+        "height",
+        "QApplication",
+        "clipboard",
+        "setText",
+        "Exception",
+        "print",
+        "close",
+        "screenshot_taken",
+        "emit",
+        "screenshot_cancelled"
+      ],
+      "varnames": [
+        "self",
+        "copy_to_clipboard",
+        "__assert_armored__",
+        "_var_var_20",
+        "_var_var_21",
+        "_var_var_22",
+        "_var_var_23",
+        "_var_var_24",
+        "_var_var_25",
+        "_var_var_16",
+        "_var_var_26",
+        "_var_var_27",
+        "_var_var_28"
+      ],
+      "argcount": 2,
+      "strings": [
+        "保存截图\n\n\n\nArgs:\n\n    copy_to_clipboard: 是否同时复制图片名和坐标到剪贴板\n\n",
+        "%Y%m%d_%H%M%S",
+        "screenshot_",
+        ".png",
+        "PNG",
+        "|",
+        ",",
+        "截图保存失败: "
+      ]
+    },
+    {
+      "func": "ScreenshotWindow.keyPressEvent",
+      "names": [
+        "key",
+        "Qt",
+        "Key_Escape",
+        "cancel",
+        "Key_Return",
+        "Key_Enter",
+        "selection_done",
+        "do_save"
+      ],
+      "varnames": [
+        "self",
+        "event",
+        "__assert_armored__"
+      ],
+      "argcount": 2,
+      "strings": []
+    },
+    {
+      "func": "ScreenshotWindow.mouseMoveEvent",
+      "names": [
+        "is_selecting",
+        "start_pos",
+        "rubber_band",
+        "setGeometry",
+        "QRect",
+        "pos",
+        "normalized"
+      ],
+      "varnames": [
+        "self",
+        "event",
+        "__assert_armored__"
+      ],
+      "argcount": 2,
+      "strings": []
+    },
+    {
+      "func": "ScreenshotWindow.mousePressEvent",
+      "names": [
+        "selection_done",
+        "button",
+        "Qt",
+        "LeftButton",
+        "pos",
+        "start_pos",
+        "rubber_band",
+        "setGeometry",
+        "QRect",
+        "QSize",
+        "show",
+        "is_selecting",
+        "RightButton",
+        "cancel"
+      ],
+      "varnames": [
+        "self",
+        "event",
+        "__assert_armored__"
+      ],
+      "argcount": 2,
+      "strings": []
+    },
+    {
+      "func": "ScreenshotWindow.mouseReleaseEvent",
+      "names": [
+        "button",
+        "Qt",
+        "LeftButton",
+        "is_selecting",
+        "pos",
+        "end_pos",
+        "show_confirm"
+      ],
+      "varnames": [
+        "self",
+        "event",
+        "__assert_armored__"
+      ],
+      "argcount": 2,
+      "strings": []
+    },
+    {
+      "func": "ScreenshotWindow.paintEvent",
+      "names": [
+        "QPainter",
+        "drawPixmap",
+        "screenshot",
+        "fillRect",
+        "rect",
+        "QColor",
+        "selection_done",
+        "selected_rect",
+        "setPen",
+        "drawRect",
+        "setFont",
+        "QFont",
+        "drawText",
+        "x",
+        "width",
+        "Qt",
+        "AlignHCenter"
+      ],
+      "varnames": [
+        "self",
+        "event",
+        "__assert_armored__",
+        "_var_var_14",
+        "_var_var_15",
+        "_var_var_16"
+      ],
+      "argcount": 2,
+      "strings": [
+        "Microsoft YaHei UI",
+        "🖱️ 按住拖动选择区域 | ESC 取消 | 右键 取消"
+      ]
+    },
+    {
+      "func": "ScreenshotWindow.show_confirm",
+      "names": [
+        "start_pos",
+        "end_pos",
+        "cancel",
+        "QRect",
+        "normalized",
+        "width",
+        "height",
+        "selected_rect",
+        "selection_done",
+        "rubber_band",
+        "hide",
+        "setCursor",
+        "Qt",
+        "ArrowCursor",
+        "size_label",
+        "setText",
+        "center",
+        "x",
+        "btn_container",
+        "bottom",
+        "rect",
+        "top",
+        "move",
+        "show",
+        "update"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_16",
+        "_var_var_17",
+        "_var_var_18",
+        "_var_var_19"
+      ],
+      "argcount": 1,
+      "strings": [
+        "显示确认按钮",
+        "选区尺寸: ",
+        " x ",
+        " 像素"
+      ]
+    },
+    {
+      "func": "generate_random_title",
+      "names": [
+        "random",
+        "choice",
+        "join",
+        "choices",
+        "string",
+        "digits",
+        "randint"
+      ],
+      "varnames": [
+        "__assert_armored__",
+        "_var_var_0",
+        "_var_var_1",
+        "_var_var_2"
+      ],
+      "argcount": 0,
+      "strings": [
+        "每次启动生成随机窗口标题",
+        "",
+        " "
+      ]
+    },
+    {
+      "func": "get_app_path",
+      "names": [
+        "getattr",
+        "sys",
+        "os",
+        "path",
+        "dirname",
+        "executable",
+        "abspath",
+        "__file__"
+      ],
+      "varnames": [
+        "__assert_armored__"
+      ],
+      "argcount": 0,
+      "strings": [
+        "获取应用程序所在目录（兼容exe打包）",
+        "frozen"
+      ]
+    },
+    {
+      "func": "get_crash_log_path",
+      "names": [
+        "getattr",
+        "sys",
+        "os",
+        "path",
+        "join",
+        "dirname",
+        "executable",
+        "abspath",
+        "__file__"
+      ],
+      "varnames": [
+        "__assert_armored__"
+      ],
+      "argcount": 0,
+      "strings": [
+        "获取崩溃日志路径",
+        "frozen",
+        "crash_log.txt"
+      ]
+    },
+    {
+      "func": "main",
+      "names": [
+        "security",
+        "init_security",
+        "ImportError",
+        "getattr",
+        "sys",
+        "RuntimeError",
+        "QApplication",
+        "setAttribute",
+        "Qt",
+        "AA_EnableHighDpiScaling",
+        "AA_UseHighDpiPixmaps",
+        "argv",
+        "setStyle",
+        "MainWindow",
+        "show",
+        "exit",
+        "exec_",
+        "Exception",
+        "traceback",
+        "format_exc",
+        "write_crash_log",
+        "show_error_msgbox",
+        "str"
+      ],
+      "varnames": [
+        "__assert_armored__",
+        "_var_var_348",
+        "_var_var_349",
+        "_var_var_350",
+        "_var_var_28",
+        "_var_var_351",
+        "_var_var_352"
+      ],
+      "argcount": 0,
+      "strings": [
+        "frozen",
+        "安全模块加载失败",
+        "Fusion",
+        "启动错误",
+        "程序启动失败，请联系技术支持。\n\n错误信息已保存到 crash_log.txt\n\n简要错误: "
+      ]
+    },
+    {
+      "func": "show_error_msgbox",
+      "names": [
+        "ctypes",
+        "windll",
+        "user32",
+        "MessageBoxW"
+      ],
+      "varnames": [
+        "title",
+        "message",
+        "__assert_armored__",
+        "_var_var_30"
+      ],
+      "argcount": 2,
+      "strings": [
+        "显示错误消息框（不依赖PyQt）"
+      ]
+    },
+    {
+      "func": "show_message",
+      "names": [
+        "QMessageBox",
+        "setWindowTitle",
+        "setText",
+        "setStyleSheet",
+        "MSG_BOX_STYLE",
+        "setIcon",
+        "Information",
+        "Warning",
+        "Critical",
+        "Question",
+        "setStandardButtons",
+        "Yes",
+        "No",
+        "setDefaultButton",
+        "exec_"
+      ],
+      "varnames": [
+        "parent",
+        "title",
+        "text",
+        "msg_type",
+        "__assert_armored__",
+        "_var_var_3"
+      ],
+      "argcount": 4,
+      "strings": [
+        "显示自定义样式的消息框",
+        "info",
+        "warning",
+        "error",
+        "question"
+      ]
+    },
+    {
+      "func": "write_crash_log",
+      "names": [
+        "get_crash_log_path",
+        "open",
+        "write",
+        "datetime",
+        "now",
+        "strftime"
+      ],
+      "varnames": [
+        "error_msg",
+        "__assert_armored__",
+        "_var_var_347",
+        "_var_var_148"
+      ],
+      "argcount": 1,
+      "strings": [
+        "写入崩溃日志",
+        "a",
+        "utf-8",
+        "\n",
+        "==================================================",
+        "时间: ",
+        "%Y-%m-%d %H:%M:%S",
+        "错误: "
+      ]
+    }
+  ],
+  "security": [
+    {
+      "func": "clear_force_offline_reason",
+      "names": [
+        "_force_offline_reason"
+      ],
+      "varnames": [
+        "__assert_armored__"
+      ],
+      "argcount": 0,
+      "strings": [
+        "清除强制下线原因（UI已显示后调用）"
+      ]
+    },
+    {
+      "func": "get_api_secret_key",
+      "names": [
+        "bytes",
+        "_ENC_PARTS",
+        "_get_decrypt_key",
+        "_xor_decrypt",
+        "decode"
+      ],
+      "varnames": [
+        "__assert_armored__",
+        "_var_var_2",
+        "_var_var_3",
+        "_var_var_4"
+      ],
+      "argcount": 0,
+      "strings": [
+        "运行时获取解密后的API密钥",
+        "utf-8",
+        "INVALID_KEY"
+      ]
+    },
+    {
+      "func": "get_force_offline_reason",
+      "names": [
+        "_force_offline_reason"
+      ],
+      "varnames": [
+        "__assert_armored__"
+      ],
+      "argcount": 0,
+      "strings": [
+        "获取强制下线原因（服务端解绑/删除激活码时推送），返回None表示无强制下线"
+      ]
+    },
+    {
+      "func": "init_integrity_check",
+      "names": [
+        "_calculate_exe_hash",
+        "_exe_hash"
+      ],
+      "varnames": [
+        "__assert_armored__"
+      ],
+      "argcount": 0,
+      "strings": [
+        "初始化完整性校验，返回hash供后续验证"
+      ]
+    },
+    {
+      "func": "init_security",
+      "names": [
+        "init_integrity_check",
+        "init_time_check",
+        "getattr",
+        "sys",
+        "security_check_with_warning",
+        "exit",
+        "start_heartbeat"
+      ],
+      "varnames": [
+        "server_url",
+        "machine_id",
+        "__assert_armored__"
+      ],
+      "argcount": 2,
+      "strings": [
+        "\n初始化安全模块\n在程序启动时调用\n\nArgs:\n    server_url: 服务器地址（用于心跳验证）\n    machine_id: 机器ID（用于心跳验证）\n",
+        "frozen"
+      ]
+    },
+    {
+      "func": "init_time_check",
+      "names": [
+        "time",
+        "_last_valid_time",
+        "_get_network_time",
+        "_network_time_offset",
+        "getattr",
+        "sys",
+        "os",
+        "path",
+        "join",
+        "dirname",
+        "executable",
+        "_time_file",
+        "open",
+        "write",
+        "str",
+        "int"
+      ],
+      "varnames": [
+        "__assert_armored__",
+        "_var_var_57",
+        "_var_var_79",
+        "_var_var_21"
+      ],
+      "argcount": 0,
+      "strings": [
+        "初始化时间检查",
+        "frozen",
+        ".timestamp",
+        "w"
+      ]
+    },
+    {
+      "func": "is_heartbeat_valid",
+      "names": [
+        "_last_heartbeat_success"
+      ],
+      "varnames": [
+        "__assert_armored__"
+      ],
+      "argcount": 0,
+      "strings": [
+        "检查心跳状态"
+      ]
+    },
+    {
+      "func": "perform_full_security_check",
+      "names": [
+        "perform_security_check",
+        "verify_integrity",
+        "verify_time",
+        "_heartbeat_thread",
+        "is_heartbeat_valid"
+      ],
+      "varnames": [
+        "__assert_armored__",
+        "_var_var_84",
+        "_var_var_85",
+        "_var_var_86",
+        "_var_var_87"
+      ],
+      "argcount": 0,
+      "strings": [
+        "执行完整的安全检查"
+      ]
+    },
+    {
+      "func": "perform_security_check",
+      "names": [
+        "_is_debugger_present",
+        "_check_suspicious_processes",
+        "_check_loaded_dlls"
+      ],
+      "varnames": [
+        "__assert_armored__",
+        "_var_var_41",
+        "_var_var_33",
+        "_var_var_42",
+        "_var_var_43"
+      ],
+      "argcount": 0,
+      "strings": [
+        "\n执行安全检查\n返回: (is_safe: bool, reason: str)\n",
+        "检测到可疑进程: ",
+        "检测到可疑模块: "
+      ]
+    },
+    {
+      "func": "security_check_with_warning",
+      "names": [
+        "perform_security_check",
+        "ctypes",
+        "windll",
+        "user32",
+        "MessageBoxW",
+        "print"
+      ],
+      "varnames": [
+        "__assert_armored__",
+        "_var_var_84",
+        "_var_var_85",
+        "_var_var_5"
+      ],
+      "argcount": 0,
+      "strings": [
+        "执行安全检查，如果不安全则显示警告",
+        "程序检测到异常环境，无法运行。\n原因: ",
+        "安全检查失败",
+        "安全检查失败: "
+      ]
+    },
+    {
+      "func": "start_heartbeat",
+      "names": [
+        "_heartbeat_thread",
+        "is_alive",
+        "_heartbeat_stop",
+        "threading",
+        "Thread",
+        "_heartbeat_worker",
+        "start"
+      ],
+      "varnames": [
+        "server_url",
+        "machine_id",
+        "interval",
+        "__assert_armored__",
+        "_var_var_73"
+      ],
+      "argcount": 3,
+      "strings": [
+        "启动心跳验证"
+      ]
+    },
+    {
+      "func": "stop_heartbeat",
+      "names": [
+        "_heartbeat_stop"
+      ],
+      "varnames": [
+        "__assert_armored__"
+      ],
+      "argcount": 0,
+      "strings": [
+        "停止心跳验证"
+      ]
+    },
+    {
+      "func": "verify_integrity",
+      "names": [
+        "_exe_hash",
+        "getattr",
+        "sys",
+        "_calculate_exe_hash"
+      ],
+      "varnames": [
+        "__assert_armored__",
+        "_var_var_75"
+      ],
+      "argcount": 0,
+      "strings": [
+        "验证代码完整性",
+        "frozen"
+      ]
+    },
+    {
+      "func": "verify_time",
+      "names": [
+        "time",
+        "_last_valid_time",
+        "_time_file",
+        "os",
+        "path",
+        "exists",
+        "open",
+        "int",
+        "read",
+        "strip",
+        "_network_time_offset",
+        "_get_network_time",
+        "abs",
+        "write",
+        "str"
+      ],
+      "varnames": [
+        "__assert_armored__",
+        "_var_var_57",
+        "_var_var_80",
+        "_var_var_21",
+        "_var_var_81",
+        "_var_var_82",
+        "_var_var_79",
+        "_var_var_83"
+      ],
+      "argcount": 0,
+      "strings": [
+        "验证时间是否被篡改（增强版）",
+        "r",
+        "w"
+      ]
+    }
+  ],
+  "web_server": [
+    {
+      "func": "WebServer._build_editable_groups",
+      "names": [
+        "_editable_config_data",
+        "get",
+        "enumerate",
+        "len",
+        "copy",
+        "append"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_52",
+        "_var_var_84",
+        "_var_var_53",
+        "_var_var_85",
+        "_var_var_86",
+        "_var_var_23",
+        "_var_var_87",
+        "_var_var_77",
+        "_var_var_56",
+        "_var_var_58",
+        "_var_var_88"
+      ],
+      "argcount": 1,
+      "strings": [
+        "构建只包含可编辑步骤的groups结构",
+        "workflow",
+        "items",
+        "groups",
+        "group_index",
+        "step_index",
+        "steps",
+        "name",
+        "组合 "
+      ]
+    },
+    {
+      "func": "WebServer.get_current_workflow",
+      "names": [
+        "getattr"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": [
+        "获取当前设置的workflow",
+        "_current_workflow"
+      ]
+    },
+    {
+      "func": "WebServer.get_updated_workflow",
+      "names": [
+        "_editable_config_data",
+        "get"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": [
+        "获取更新后的workflow",
+        "updated",
+        "workflow"
+      ]
+    },
+    {
+      "func": "WebServer.get_url",
+      "names": [
+        "port"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": [
+        "获取编辑器URL",
+        "http://127.0.0.1:"
+      ]
+    },
+    {
+      "func": "WebServer.set_current_workflow",
+      "names": [
+        "_current_workflow",
+        "_current_workflow_filename"
+      ],
+      "varnames": [
+        "self",
+        "workflow",
+        "filename",
+        "__assert_armored__"
+      ],
+      "argcount": 3,
+      "strings": [
+        "设置当前加载的workflow（用于加密配置的编辑）"
+      ]
+    },
+    {
+      "func": "WebServer.set_editable_config",
+      "names": [
+        "get",
+        "len",
+        "copy",
+        "append",
+        "_editable_config_data"
+      ],
+      "varnames": [
+        "self",
+        "workflow",
+        "editable_config",
+        "__assert_armored__",
+        "_var_var_76",
+        "_var_var_53",
+        "_var_var_77",
+        "_var_var_55",
+        "_var_var_56",
+        "_var_var_78",
+        "_var_var_79",
+        "_var_var_80",
+        "_var_var_81",
+        "_var_var_82",
+        "_var_var_58",
+        "_var_var_83"
+      ],
+      "argcount": 3,
+      "strings": [
+        "设置可编辑配置数据",
+        "groups",
+        "items",
+        "group_index",
+        "step_index",
+        "mode",
+        "single",
+        "label",
+        "",
+        "batch_id",
+        "batch_main",
+        "batch_targets",
+        "steps",
+        "name"
+      ]
+    },
+    {
+      "func": "WebServer.setup_routes",
+      "names": [
+        "app",
+        "route",
+        "_editable_config_data"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_1",
+        "_var_var_2",
+        "_var_var_3",
+        "_var_var_4",
+        "_var_var_5",
+        "_var_var_6",
+        "_var_var_7",
+        "_var_var_8",
+        "_var_var_9",
+        "_var_var_10",
+        "_var_var_11",
+        "_var_var_12",
+        "_var_var_13",
+        "_var_var_14",
+        "_var_var_15"
+      ],
+      "argcount": 1,
+      "strings": [
+        "设置路由",
+        "/",
+        "/<path:filename>",
+        "/api/workflows",
+        "GET",
+        "/api/workflow/<filename>",
+        "POST",
+        "PUT",
+        "DELETE",
+        "/api/images",
+        "/api/image/<filename>",
+        "/api/image",
+        "/api/status",
+        "/api/editable_config",
+        "/api/mouse_position",
+        "/api/pick_color",
+        "/api/pick_color_click"
+      ]
+    },
+    {
+      "func": "WebServer.start",
+      "names": [
+        "is_running",
+        "threading",
+        "Thread",
+        "server_thread",
+        "start",
+        "print",
+        "port"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__",
+        "_var_var_75"
+      ],
+      "argcount": 1,
+      "strings": [
+        "启动服务器",
+        "Web编辑器已启动: http://127.0.0.1:"
+      ]
+    },
+    {
+      "func": "WebServer.stop",
+      "names": [
+        "is_running"
+      ],
+      "varnames": [
+        "self",
+        "__assert_armored__"
+      ],
+      "argcount": 1,
+      "strings": [
+        "停止服务器（daemon 线程会在主程序退出时自动结束）"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,352 @@
+{
+  "module": "automation",
+  "func": "AutomationEngine.execute_color_check",
+  "kind": "method",
+  "name": "execute_color_check",
+  "filename": "<frozen automation>",
+  "argcount": 2,
+  "nlocals": 28,
+  "stacksize": 24,
+  "flags": 536870915,
+  "names": [
+    "get",
+    "isinstance",
+    "str",
+    "startswith",
+    "int",
+    "PIL",
+    "ImageGrab",
+    "time",
+    "np",
+    "array",
+    "float32",
+    "log",
+    "is_running",
+    "jump_to_group",
+    "grab",
+    "mean",
+    "sqrt",
+    "sum",
+    "min",
+    "sleep",
+    "Exception"
+  ],
+  "varnames": [
+    "self",
+    "step",
+    "__assert_armored__",
+    "_var_var_24",
+    "_var_var_25",
+    "_var_var_93",
+    "_var_var_94",
+    "_var_var_95",
+    "_var_var_96",
+    "_var_var_36",
+    "_var_var_47",
+    "_var_var_97",
+    "_var_var_98",
+    "_var_var_99",
+    "_var_var_100",
+    "_var_var_101",
+    "_var_var_60",
+    "_var_var_48",
+    "_var_var_49",
+    "_var_var_102",
+    "_var_var_85",
+    "_var_var_103",
+    "_var_var_104",
+    "_var_var_105",
+    "_var_var_106",
+    "_var_var_107",
+    "_var_var_108",
+    "_var_var_3"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "执行颜色识别\n\n\n\n检测指定位置的颜色是否与目标颜色匹配（支持容差）\n\n支持循环检测模式：在超时时间内按间隔循环检测\n\n\n\nArgs:\n\n    step: 包含以下参数\n\n        - x, y: 检测坐标\n\n        - target_color: 目标颜色 [R, G, B]\n\n        - tolerance: 颜色容差（默认30）\n\n        - sample_size: 采样区域大小（默认3，取3x3像素平均值）\n\n        - timeout: 超时时间（秒），0表示只检测一次（默认0）\n\n        - interval: 检测间隔（秒），默认0.5\n\n        - on_match: 匹配时动作 (continue/stop/jump)\n\n        - on_mismatch: 不匹配时动作 (continue/stop/jump)\n\n        - on_timeout: 超时时动作 (continue/stop/jump)\n\n"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "x"
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "str",
+      "value": "y"
+    },
+    {
+      "type": "str",
+      "value": "target_color"
+    },
+    {
+      "type": "tuple",
+      "len": 3
+    },
+    {
+      "type": "str",
+      "value": "tolerance"
+    },
+    {
+      "type": "int",
+      "value": 30
+    },
+    {
+      "type": "str",
+      "value": "sample_size"
+    },
+    {
+      "type": "int",
+      "value": 3
+    },
+    {
+      "type": "str",
+      "value": "timeout"
+    },
+    {
+      "type": "str",
+      "value": "interval"
+    },
+    {
+      "type": "float",
+      "value": 0.5
+    },
+    {
+      "type": "str",
+      "value": "#"
+    },
+    {
+      "type": "int",
+      "value": 1
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "int",
+      "value": 2
+    },
+    {
+      "type": "int",
+      "value": 16
+    },
+    {
+      "type": "int",
+      "value": 4
+    },
+    {
+      "type": "int",
+      "value": 6
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "str",
+      "value": "🎨 颜色识别开始: 位置("
+    },
+    {
+      "type": "str",
+      "value": ","
+    },
+    {
+      "type": "str",
+      "value": ") 目标RGB("
+    },
+    {
+      "type": "str",
+      "value": ") 容差="
+    },
+    {
+      "type": "str",
+      "value": " 超时="
+    },
+    {
+      "type": "str",
+      "value": "秒 间隔="
+    },
+    {
+      "type": "str",
+      "value": "秒"
+    },
+    {
+      "type": "bool",
+      "value": true
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "str",
+      "value": "🎨 颜色识别中断: 检测到跳转信号"
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "str",
+      "value": "🎨 第"
+    },
+    {
+      "type": "str",
+      "value": "次检测: RGB("
+    },
+    {
+      "type": "str",
+      "value": ".0f"
+    },
+    {
+      "type": "str",
+      "value": ") 差异="
+    },
+    {
+      "type": "str",
+      "value": ".1f"
+    },
+    {
+      "type": "str",
+      "value": " -> "
+    },
+    {
+      "type": "str",
+      "value": "✅匹配"
+    },
+    {
+      "type": "str",
+      "value": "❌不匹配"
+    },
+    {
+      "type": "str",
+      "value": " (已用时"
+    },
+    {
+      "type": "str",
+      "value": "秒)"
+    },
+    {
+      "type": "str",
+      "value": "🎨 颜色识别: 位置("
+    },
+    {
+      "type": "str",
+      "value": ") 检测到RGB("
+    },
+    {
+      "type": "str",
+      "value": " 容差="
+    },
+    {
+      "type": "str",
+      "value": "on_match"
+    },
+    {
+      "type": "str",
+      "value": "continue"
+    },
+    {
+      "type": "str",
+      "value": "stop"
+    },
+    {
+      "type": "str",
+      "value": "颜色匹配，停止执行"
+    },
+    {
+      "type": "str",
+      "value": "jump"
+    },
+    {
+      "type": "str",
+      "value": "match_jump_group"
+    },
+    {
+      "type": "int",
+      "value": -1
+    },
+    {
+      "type": "str",
+      "value": "颜色匹配，跳转到组合 "
+    },
+    {
+      "type": "str",
+      "value": "on_mismatch"
+    },
+    {
+      "type": "str",
+      "value": "颜色不匹配，停止执行"
+    },
+    {
+      "type": "str",
+      "value": "mismatch_jump_group"
+    },
+    {
+      "type": "str",
+      "value": "颜色不匹配，跳转到组合 "
+    },
+    {
+      "type": "str",
+      "value": "🎨 颜色识别超时: 共检测"
+    },
+    {
+      "type": "str",
+      "value": "次，耗时"
+    },
+    {
+      "type": "str",
+      "value": "on_timeout"
+    },
+    {
+      "type": "str",
+      "value": "超时，停止执行"
+    },
+    {
+      "type": "str",
+      "value": "timeout_jump_group"
+    },
+    {
+      "type": "str",
+      "value": "超时，跳转到组合 "
+    },
+    {
+      "type": "float",
+      "value": 0.1
+    },
+    {
+      "type": "str",
+      "value": "颜色识别失败: "
+    }
+  ]
+}

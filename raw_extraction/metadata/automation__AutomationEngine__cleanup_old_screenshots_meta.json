@@ -1,0 +1,92 @@
+{
+  "module": "automation",
+  "func": "AutomationEngine._cleanup_old_screenshots",
+  "kind": "method",
+  "name": "_cleanup_old_screenshots",
+  "filename": "<frozen automation>",
+  "argcount": 4,
+  "nlocals": 10,
+  "stacksize": 7,
+  "flags": 536870915,
+  "names": [
+    "os",
+    "listdir",
+    "startswith",
+    "endswith",
+    "path",
+    "join",
+    "append",
+    "getctime",
+    "sort",
+    "len",
+    "pop",
+    "remove",
+    "log",
+    "basename",
+    "Exception"
+  ],
+  "varnames": [
+    "self",
+    "folder",
+    "prefix",
+    "max_count",
+    "__assert_armored__",
+    "_var_var_271",
+    "_var_var_1",
+    "_var_var_245",
+    "_var_var_272",
+    "_var_var_3"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "清理旧截图，保留最新的max_count张"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": ".png"
+    },
+    {
+      "type": "str",
+      "value": ".jpg"
+    },
+    {
+      "type": "code",
+      "name": "<lambda>"
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "str",
+      "value": "🗑️ 已删除旧截图: "
+    },
+    {
+      "type": "str",
+      "value": "⚠️ 清理旧截图失败: "
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

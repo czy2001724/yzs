@@ -1,0 +1,41 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow.check_activation",
+  "kind": "method",
+  "name": "check_activation",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 1,
+  "nlocals": 2,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "activation",
+    "check_activation_status",
+    "update_activation_display",
+    "show_activation_dialog"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "None"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

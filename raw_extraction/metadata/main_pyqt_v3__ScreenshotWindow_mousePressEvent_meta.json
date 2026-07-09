@@ -1,0 +1,56 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "ScreenshotWindow.mousePressEvent",
+  "kind": "method",
+  "name": "mousePressEvent",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 2,
+  "nlocals": 3,
+  "stacksize": 7,
+  "flags": 536870915,
+  "names": [
+    "selection_done",
+    "button",
+    "Qt",
+    "LeftButton",
+    "pos",
+    "start_pos",
+    "rubber_band",
+    "setGeometry",
+    "QRect",
+    "QSize",
+    "show",
+    "is_selecting",
+    "RightButton",
+    "cancel"
+  ],
+  "varnames": [
+    "self",
+    "event",
+    "__assert_armored__"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "None"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bool",
+      "value": true
+    }
+  ]
+}

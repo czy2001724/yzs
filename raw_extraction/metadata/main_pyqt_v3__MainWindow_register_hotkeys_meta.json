@@ -1,0 +1,122 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow.register_hotkeys",
+  "kind": "method",
+  "name": "register_hotkeys",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 2,
+  "nlocals": 6,
+  "stacksize": 6,
+  "flags": 536870915,
+  "names": [
+    "hotkey_hooks",
+    "keyboard",
+    "remove_hotkey",
+    "clear",
+    "hotkeys",
+    "get",
+    "add_hotkey",
+    "append",
+    "add_log",
+    "join",
+    "Exception"
+  ],
+  "varnames": [
+    "self",
+    "silent",
+    "__assert_armored__",
+    "_var_var_331",
+    "_var_var_332",
+    "_var_var_28"
+  ],
+  "cellvars": [
+    "self"
+  ],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "None"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "screenshot"
+    },
+    {
+      "type": "code",
+      "name": "<lambda>"
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "str",
+      "value": "截图="
+    },
+    {
+      "type": "str",
+      "value": "start"
+    },
+    {
+      "type": "code",
+      "name": "<lambda>"
+    },
+    {
+      "type": "str",
+      "value": "开始="
+    },
+    {
+      "type": "str",
+      "value": "pause"
+    },
+    {
+      "type": "code",
+      "name": "<lambda>"
+    },
+    {
+      "type": "str",
+      "value": "暂停="
+    },
+    {
+      "type": "str",
+      "value": "stop"
+    },
+    {
+      "type": "code",
+      "name": "<lambda>"
+    },
+    {
+      "type": "str",
+      "value": "停止="
+    },
+    {
+      "type": "str",
+      "value": "⌨️ 快捷键已注册: "
+    },
+    {
+      "type": "str",
+      "value": ", "
+    },
+    {
+      "type": "str",
+      "value": "⚠️ 注册快捷键失败: "
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

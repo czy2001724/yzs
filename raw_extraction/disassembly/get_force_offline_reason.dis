@@ -1,0 +1,67 @@
+/*======================================================================*/
+/* Function: get_force_offline_reason */
+/* File: <frozen security> */
+/* Args: 0, Locals: 1, Stack: 5 */
+/*======================================================================*/
+
+    """获取强制下线原因（服务端解绑/删除激活码时推送），返回None表示无强制下线"""
+
+    # --- Names (global references) ---
+    #   _force_offline_reason
+
+    # --- Variable names ---
+    #   __assert_armored__
+
+    # --- String constants ---
+    #   '获取强制下线原因（服务端解绑/删除激活码时推送），返回None表示无强制下线'
+
+    # --- Bytecode Disassembly ---
+ 488           NOP
+               NOP
+               LOAD_CONST               2 (None)
+               PUSH_NULL
+
+ 489           LOAD_CONST               3 (b'\x008\x83\x04\xa3\x01\x00\x00\x01\x00\x00\x1a \x00\x00\x00\x01\x00\x00\x00')
+               BUILD_TUPLE              1
+               CALL_FUNCTION_EX         0
+               POP_TOP
+               RESUME                   0
+               LOAD_CONST               1 (None)
+               STORE_FAST               0 (__assert_armored__)
+               NOP
+               NOP
+
+ 488           NOP
+
+ 490   L1:     LOAD_GLOBAL              0 (_force_offline_reason)
+       L2:     NOP
+               NOP
+               NOP
+               JUMP_FORWARD            20 (to L5)
+               CALL                     1
+               POP_TOP
+               RETURN_VALUE
+
+  --   L3:     PUSH_EXC_INFO
+
+ 490           LOAD_CONST               4 (None)
+               NOP
+               PUSH_NULL
+               LOAD_CONST               3 (b'\x008\x83\x04\xa3\x01\x00\x00\x01\x00\x00\x1a \x00\x00\x00\x01\x00\x00\x00')
+               CALL                     1
+               POP_TOP
+               RERAISE                  0
+
+  --   L4:     COPY                     3
+               POP_EXCEPT
+               RERAISE                  1
+       L5:     LOAD_CONST               4 (None)
+               PUSH_NULL
+               LOAD_CONST               3 (b'\x008\x83\x04\xa3\x01\x00\x00\x01\x00\x00\x1a \x00\x00\x00\x01\x00\x00\x00')
+               BUILD_TUPLE              1
+               CALL_FUNCTION_EX         0
+               POP_TOP
+               RETURN_VALUE
+ExceptionTable:
+  L1 to L2 -> L3 [0]
+  L3 to L4 -> L4 [1] lasti

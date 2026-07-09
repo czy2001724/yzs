@@ -1,0 +1,50 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow.toggle_maximize",
+  "kind": "method",
+  "name": "toggle_maximize",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 1,
+  "nlocals": 2,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "isMaximized",
+    "showNormal",
+    "max_btn",
+    "setText",
+    "showMaximized"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "None"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "□"
+    },
+    {
+      "type": "str",
+      "value": "❐"
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

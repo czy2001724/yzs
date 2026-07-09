@@ -1,0 +1,60 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow.load_selected_workflow",
+  "kind": "method",
+  "name": "load_selected_workflow",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 1,
+  "nlocals": 3,
+  "stacksize": 6,
+  "flags": 536870915,
+  "names": [
+    "check_activation_required",
+    "_verify_activation_integrity",
+    "config_combo",
+    "currentData",
+    "show_message",
+    "load_workflow_file"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__",
+    "_var_var_24"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "加载选中的配置"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "str",
+      "value": "提示"
+    },
+    {
+      "type": "str",
+      "value": "请先选择配置文件"
+    },
+    {
+      "type": "str",
+      "value": "warning"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "module": "automation",
+  "func": "AutomationEngine.stop_group_continuous_tasks",
+  "kind": "method",
+  "name": "stop_group_continuous_tasks",
+  "filename": "<frozen automation>",
+  "argcount": 2,
+  "nlocals": 6,
+  "stacksize": 7,
+  "flags": 536870915,
+  "names": [
+    "continuous_lock",
+    "continuous_tasks",
+    "get"
+  ],
+  "varnames": [
+    "self",
+    "group_id",
+    "__assert_armored__",
+    "_var_var_23",
+    "_var_var_29",
+    "_var_var_28"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "停止指定组合的常驻任务"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "group_id"
+    },
+    {
+      "type": "bool",
+      "value": true
+    },
+    {
+      "type": "str",
+      "value": "should_stop"
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "builtin"
+    }
+  ]
+}

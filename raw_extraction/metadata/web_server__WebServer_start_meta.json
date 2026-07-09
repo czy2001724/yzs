@@ -1,0 +1,67 @@
+{
+  "module": "web_server",
+  "func": "WebServer.start",
+  "kind": "method",
+  "name": "start",
+  "filename": "<frozen web_server>",
+  "argcount": 1,
+  "nlocals": 3,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "is_running",
+    "threading",
+    "Thread",
+    "server_thread",
+    "start",
+    "print",
+    "port"
+  ],
+  "varnames": [
+    "self",
+    "__assert_armored__",
+    "_var_var_75"
+  ],
+  "cellvars": [
+    "self"
+  ],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "启动服务器"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "code",
+      "name": "run"
+    },
+    {
+      "type": "bool",
+      "value": true
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "str",
+      "value": "Web编辑器已启动: http://127.0.0.1:"
+    }
+  ]
+}

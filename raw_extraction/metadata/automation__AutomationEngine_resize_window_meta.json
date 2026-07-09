@@ -1,0 +1,153 @@
+{
+  "module": "automation",
+  "func": "AutomationEngine.resize_window",
+  "kind": "method",
+  "name": "resize_window",
+  "filename": "<frozen automation>",
+  "argcount": 5,
+  "nlocals": 20,
+  "stacksize": 8,
+  "flags": 536870915,
+  "names": [
+    "win32gui",
+    "win32con",
+    "ctypes",
+    "get_window_by_process",
+    "log",
+    "GetWindowRect",
+    "GetWindowLong",
+    "GWL_STYLE",
+    "GWL_EXSTYLE",
+    "Structure",
+    "windll",
+    "user32",
+    "AdjustWindowRectEx",
+    "byref",
+    "right",
+    "left",
+    "bottom",
+    "top",
+    "MoveWindow",
+    "Exception"
+  ],
+  "varnames": [
+    "self",
+    "process_name",
+    "width",
+    "height",
+    "preset_size",
+    "__assert_armored__",
+    "_var_var_190",
+    "_var_var_198",
+    "_var_var_199",
+    "_var_var_200",
+    "_var_var_201",
+    "_var_var_24",
+    "_var_var_25",
+    "_var_var_202",
+    "_var_var_203",
+    "_var_var_204",
+    "_var_var_205",
+    "_var_var_206",
+    "_var_var_207",
+    "_var_var_3"
+  ],
+  "cellvars": [
+    "_var_var_141"
+  ],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "调整窗口大小（客户区域大小）"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "str",
+      "value": "自定义"
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "tuple",
+      "len": 2
+    },
+    {
+      "type": "tuple",
+      "len": 5
+    },
+    {
+      "type": "str",
+      "value": "未找到程序窗口: "
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "int",
+      "value": 1
+    },
+    {
+      "type": "code",
+      "name": "RECT"
+    },
+    {
+      "type": "str",
+      "value": "RECT"
+    },
+    {
+      "type": "bool",
+      "value": true
+    },
+    {
+      "type": "str",
+      "value": "调整窗口大小: "
+    },
+    {
+      "type": "str",
+      "value": " -> "
+    },
+    {
+      "type": "str",
+      "value": "x"
+    },
+    {
+      "type": "str",
+      "value": "调整窗口大小失败: "
+    }
+  ]
+}

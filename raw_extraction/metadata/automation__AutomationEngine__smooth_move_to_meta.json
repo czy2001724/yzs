@@ -1,0 +1,124 @@
+{
+  "module": "automation",
+  "func": "AutomationEngine._smooth_move_to",
+  "kind": "method",
+  "name": "_smooth_move_to",
+  "filename": "<frozen automation>",
+  "argcount": 4,
+  "nlocals": 24,
+  "stacksize": 10,
+  "flags": 536870915,
+  "names": [
+    "random",
+    "math",
+    "pyautogui",
+    "position",
+    "sqrt",
+    "moveTo",
+    "max",
+    "min",
+    "int",
+    "atan2",
+    "pi",
+    "uniform",
+    "cos",
+    "sin",
+    "range",
+    "time",
+    "sleep"
+  ],
+  "varnames": [
+    "self",
+    "target_x",
+    "target_y",
+    "duration",
+    "__assert_armored__",
+    "_var_var_4",
+    "_var_var_8",
+    "_var_var_9",
+    "_var_var_10",
+    "_var_var_11",
+    "_var_var_12",
+    "_var_var_13",
+    "_var_var_14",
+    "_var_var_15",
+    "_var_var_16",
+    "_var_var_17",
+    "_var_var_18",
+    "_var_var_19",
+    "_var_var_20",
+    "_var_var_21",
+    "_var_var_22",
+    "_var_var_23",
+    "_var_var_24",
+    "_var_var_25"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "丝滑贝塞尔曲线鼠标移动\n\n\n\n使用二次贝塞尔曲线实现自然的鼠标移动轨迹\n\n"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "None"
+    },
+    {
+      "type": "int",
+      "value": 2
+    },
+    {
+      "type": "int",
+      "value": 10
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "int",
+      "value": 20
+    },
+    {
+      "type": "int",
+      "value": 80
+    },
+    {
+      "type": "int",
+      "value": 8
+    },
+    {
+      "type": "int",
+      "value": 50
+    },
+    {
+      "type": "int",
+      "value": 4
+    },
+    {
+      "type": "int",
+      "value": 1
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    }
+  ]
+}

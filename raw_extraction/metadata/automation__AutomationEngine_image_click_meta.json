@@ -1,0 +1,96 @@
+{
+  "module": "automation",
+  "func": "AutomationEngine.image_click",
+  "kind": "method",
+  "name": "image_click",
+  "filename": "<frozen automation>",
+  "argcount": 9,
+  "nlocals": 16,
+  "stacksize": 9,
+  "flags": 536870915,
+  "names": [
+    "time",
+    "is_running",
+    "jump_to_group",
+    "find_image",
+    "mouse_move",
+    "log",
+    "sleep",
+    "mouse_click_current"
+  ],
+  "varnames": [
+    "self",
+    "image_name",
+    "confidence",
+    "offset_x",
+    "offset_y",
+    "wait_time",
+    "max_wait",
+    "button",
+    "click_delay",
+    "__assert_armored__",
+    "_var_var_100",
+    "_var_var_44",
+    "_var_var_24",
+    "_var_var_25",
+    "_var_var_45",
+    "_var_var_108"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "图像识别并点击\n\n\n\nArgs:\n\n    click_delay: 鼠标移动到目标后等待多少秒再点击（默认1秒）\n\n"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "str",
+      "value": "移动到目标位置 ("
+    },
+    {
+      "type": "str",
+      "value": ", "
+    },
+    {
+      "type": "str",
+      "value": ")，等待 "
+    },
+    {
+      "type": "str",
+      "value": " 秒后点击"
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bool",
+      "value": false
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "str",
+      "value": "等待图片超时: "
+    },
+    {
+      "type": "float",
+      "value": 0.2
+    }
+  ]
+}

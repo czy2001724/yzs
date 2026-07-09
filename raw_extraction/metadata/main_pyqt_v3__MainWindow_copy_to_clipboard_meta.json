@@ -1,0 +1,66 @@
+{
+  "module": "main_pyqt_v3",
+  "func": "MainWindow.copy_to_clipboard",
+  "kind": "method",
+  "name": "copy_to_clipboard",
+  "filename": "<frozen main_pyqt_v3>",
+  "argcount": 2,
+  "nlocals": 5,
+  "stacksize": 5,
+  "flags": 536870915,
+  "names": [
+    "PyQt5.QtWidgets",
+    "QApplication",
+    "clipboard",
+    "setText",
+    "detect_status_label",
+    "setStyleSheet"
+  ],
+  "varnames": [
+    "self",
+    "text",
+    "__assert_armored__",
+    "_var_var_169",
+    "_var_var_27"
+  ],
+  "cellvars": [],
+  "freevars": [],
+  "consts": [
+    {
+      "type": "str",
+      "value": "复制到剪贴板"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "bytes",
+      "len": 20
+    },
+    {
+      "type": "int",
+      "value": 0
+    },
+    {
+      "type": "tuple",
+      "len": 1
+    },
+    {
+      "type": "str",
+      "value": "📋 已复制: "
+    },
+    {
+      "type": "str",
+      "value": "color: #6366f1; font-size: 13px;"
+    },
+    {
+      "type": "builtin"
+    },
+    {
+      "type": "None"
+    }
+  ]
+}
