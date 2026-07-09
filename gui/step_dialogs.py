@@ -1,69 +1,79 @@
-"""步骤编辑对话框：为每种动作类型提供参数录入界面。"""
+"""步骤编辑对话框：人话命名 + 去屏幕点一下取坐标。"""
 from __future__ import annotations
 
+import time
 from typing import Optional
 
+from PyQt5.QtCore import QTimer
 from PyQt5.QtWidgets import (
-    QComboBox, QDialog, QDialogButtonBox, QDoubleSpinBox, QFormLayout,
-    QHBoxLayout, QLineEdit, QPushButton, QSpinBox, QVBoxLayout, QWidget,
-    QFileDialog,
+    QApplication, QComboBox, QDialog, QDialogButtonBox, QDoubleSpinBox,
+    QFormLayout, QHBoxLayout, QLabel, QLineEdit, QPushButton, QSpinBox,
+    QVBoxLayout, QWidget, QFileDialog,
 )
 
-# 步骤类型 -> 中文名
+from automation import pointer
+
+# 人话显示名（type 键保持不变，兼容已有 JSON）
 STEP_TYPES = [
-    ("click", "鼠标点击"),
-    ("double_click", "鼠标双击"),
-    ("right_click", "鼠标右键"),
+    ("click", "点一下"),
+    ("double_click", "连点两下"),
+    ("right_click", "右键菜单"),
     ("move", "移动鼠标"),
-    ("drag", "拖拽"),
+    ("drag", "拖过去"),
     ("scroll", "滚轮"),
-    ("type", "输入文本"),
-    ("key", "单个按键"),
-    ("hotkey", "组合键"),
-    ("wait", "等待"),
-    ("screenshot", "截图"),
-    ("find_image", "图像识别定位"),
+    ("type", "输入文字"),
+    ("key", "按下按键"),
+    ("hotkey", "快捷键（如 Ctrl+C）"),
+    ("wait", "等一会儿"),
+    ("screenshot", "截图存起来"),
+    ("find_image", "找到图片再操作"),
 ]
 TYPE_LABELS = dict(STEP_TYPES)
 
 
 def describe_step(step: dict) -> str:
-    """把步骤转成一行可读描述，用于列表显示。"""
+    """把步骤转成一句话人话描述。"""
     t = step.get("type", "?")
-    label = TYPE_LABELS.get(t, t)
-    if t in ("click", "double_click", "right_click", "move"):
-        extra = f"({step.get('x')}, {step.get('y')})"
+    if t == "click":
+        return f"在 ({step.get('x')}, {step.get('y')}) 点{step.get('button', '左键')}"
+    elif t == "double_click":
+        return f"在 ({step.get('x')}, {step.get('y')}) 连点两下"
+    elif t == "right_click":
+        return f"在 ({step.get('x')}, {step.get('y')}) 按右键"
+    elif t == "move":
+        return f"鼠标移到 ({step.get('x')}, {step.get('y')})"
     elif t == "drag":
-        extra = f"({step.get('x1')},{step.get('y1')})→({step.get('x2')},{step.get('y2')})"
+        return f"从 ({step.get('x1')},{step.get('y1')}) 拖到 ({step.get('x2')},{step.get('y2')})"
     elif t == "scroll":
-        extra = f"{step.get('amount')}"
+        return f"滚轮 {step.get('amount')}"
     elif t == "type":
-        extra = repr(step.get("text", ""))
+        return f"输入文字 {repr(step.get('text', ''))}"
     elif t == "key":
-        extra = step.get("key", "")
+        return f"按下 {step.get('key', '')}"
     elif t == "hotkey":
-        extra = "+".join(step.get("keys", []))
+        return f"快捷键 {'+'.join(step.get('keys', []))}"
     elif t == "wait":
-        extra = f"{step.get('seconds')}s"
+        return f"等 {step.get('seconds')} 秒"
     elif t == "screenshot":
-        extra = step.get("path", "")
+        return f"截图存到 {step.get('path', '')}"
     elif t == "find_image":
-        extra = f"{step.get('template', '')} · 相似度≥{step.get('confidence', 0.8)}"
-    else:
-        extra = ""
-    return f"{label}  {extra}"
+        tmpl = step.get("template", "")
+        action = "找到就点" if step.get("click", True) else "找到不点"
+        return f"找 {tmpl}，{action}"
+    return f"未知 ({t})"
 
 
 class StepDialog(QDialog):
-    """根据步骤类型动态生成表单的编辑对话框。"""
+    """根据步骤类型动态生成表单。支持去屏幕点一下取坐标。"""
 
     def __init__(self, step_type: str, step: Optional[dict] = None, parent=None):
         super().__init__(parent)
         self.step_type = step_type
         self.step = dict(step or {})
-        self.setWindowTitle(f"编辑步骤 · {TYPE_LABELS.get(step_type, step_type)}")
-        self.setMinimumWidth(360)
+        self.setWindowTitle(TYPE_LABELS.get(step_type, step_type))
+        self.setMinimumWidth(380)
         self._widgets = {}
+        self._pick_fields: list[str] = []  # 需要取坐标的字段名
         self._build()
 
     def _spin(self, key, default=0, minimum=-100000, maximum=100000):
@@ -86,51 +96,106 @@ class StepDialog(QDialog):
         self._widgets[key] = w
         return w
 
+    def _coord_pair(self, xkey: str, ykey: str) -> QWidget:
+        """坐标输入行：X/Y 框 + '去屏幕上点一下' 按钮。"""
+        row = QWidget()
+        h = QHBoxLayout(row)
+        h.setContentsMargins(0, 0, 0, 0)
+        h.setSpacing(6)
+
+        xspin = self._spin(xkey)
+        yspin = self._spin(ykey)
+        h.addWidget(QLabel("X"))
+        h.addWidget(xspin)
+        h.addWidget(QLabel("Y"))
+        h.addWidget(yspin)
+
+        btn = QPushButton("去屏幕上点一下")
+        btn.clicked.connect(lambda: self._pick_from_screen(xkey, ykey))
+        h.addWidget(btn)
+        h.addStretch(1)
+        return row
+
+    def _pick_from_screen(self, xkey: str, ykey: str):
+        """隐藏窗口，等用户在屏幕上任意位置点击，回填坐标。"""
+        self.hide()
+        QApplication.processEvents()
+        time.sleep(0.3)
+
+        import pyautogui
+        pyautogui.FAILSAFE = True
+        self._picking = True
+
+        def poll():
+            if not getattr(self, "_picking", False):
+                return
+            try:
+                # 检测鼠标左键按下
+                import ctypes
+                if ctypes.windll.user32.GetAsyncKeyState(0x01) & 0x8000:
+                    self._picking = False
+                    x, y = pointer.get_cursor_pos()
+                    if xkey in self._widgets:
+                        self._widgets[xkey].setValue(x)
+                    if ykey in self._widgets:
+                        self._widgets[ykey].setValue(y)
+                    self.show()
+                    return
+            except Exception:
+                self._picking = False
+                self.show()
+                return
+            QTimer.singleShot(50, poll)
+
+        QTimer.singleShot(100, poll)
+
     def _build(self):
         layout = QVBoxLayout(self)
         form = QFormLayout()
         t = self.step_type
 
         if t in ("click", "double_click", "right_click", "move"):
-            form.addRow("X", self._spin("x"))
-            form.addRow("Y", self._spin("y"))
-            form.addRow("移动耗时(s)", self._dspin("duration", 0.25))
+            form.addRow("坐标", self._coord_pair("x", "y"))
+            form.addRow("移动快慢 (秒)", self._dspin("duration", 0.25))
             if t == "click":
                 btn = QComboBox()
-                btn.addItems(["left", "right", "middle"])
-                btn.setCurrentText(self.step.get("button", "left"))
+                btn.addItems(["左键", "右键", "中键"])
+                btn_map = {"左键": "left", "右键": "right", "中键": "middle"}
+                cur = self.step.get("button", "left")
+                for label, val in btn_map.items():
+                    if val == cur:
+                        btn.setCurrentText(label)
                 self._widgets["button"] = btn
+                self._button_map = btn_map
                 form.addRow("按键", btn)
-                form.addRow("点击次数", self._spin("clicks", 1, 1, 10))
+                form.addRow("连击", self._spin("clicks", 1, 1, 10))
         elif t == "drag":
-            form.addRow("起点 X", self._spin("x1"))
-            form.addRow("起点 Y", self._spin("y1"))
-            form.addRow("终点 X", self._spin("x2"))
-            form.addRow("终点 Y", self._spin("y2"))
-            form.addRow("拖拽耗时(s)", self._dspin("duration", 0.5))
+            form.addRow("起点", self._coord_pair("x1", "y1"))
+            form.addRow("终点", self._coord_pair("x2", "y2"))
+            form.addRow("拖拽快慢 (秒)", self._dspin("duration", 0.5))
         elif t == "scroll":
-            form.addRow("滚动量(负=下)", self._spin("amount", -300))
+            form.addRow("滚轮量（负=往下）", self._spin("amount", -300))
         elif t == "type":
-            form.addRow("文本", self._line("text"))
-            form.addRow("每字间隔(s)", self._dspin("interval", 0.02, step=0.01))
+            form.addRow("要输入的文字", self._line("text"))
+            form.addRow("每个字间隔 (秒)", self._dspin("interval", 0.02, step=0.01))
         elif t == "key":
-            form.addRow("键名(如 enter)", self._line("key", "enter"))
+            form.addRow("按键名 (如 enter)", self._line("key", "enter"))
         elif t == "hotkey":
-            form.addRow("组合键(逗号分隔)", self._line("_keys", "ctrl,c"))
+            form.addRow("快捷键 (逗号分隔)", self._line("_keys", "ctrl,c"))
         elif t == "wait":
-            form.addRow("等待秒数", self._dspin("seconds", 1.0))
+            form.addRow("等多久 (秒)", self._dspin("seconds", 1.0))
         elif t == "screenshot":
-            row, browse = self._file_row("path", save=True)
-            form.addRow("保存路径", row)
+            row, _ = self._file_row("path", save=True)
+            form.addRow("存到哪里", row)
         elif t == "find_image":
             row, _ = self._file_row("template", save=False)
-            form.addRow("模板图片", row)
-            form.addRow("相似度阈值", self._dspin("confidence", 0.8, 0.1, 1.0, 0.05))
+            form.addRow("目标图片", row)
+            form.addRow("最低相似度", self._dspin("confidence", 0.8, 0.1, 1.0, 0.05))
             click = QComboBox()
-            click.addItems(["找到后点击", "只定位不点击"])
+            click.addItems(["找到就点击", "只找不点"])
             click.setCurrentIndex(0 if self.step.get("click", True) else 1)
             self._widgets["click"] = click
-            form.addRow("动作", click)
+            form.addRow("找到后", click)
 
         layout.addLayout(form)
         buttons = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
@@ -170,11 +235,13 @@ class StepDialog(QDialog):
             elif isinstance(w, QComboBox):
                 if key == "click":
                     out[key] = w.currentIndex() == 0
+                elif key == "button":
+                    btn_map = getattr(self, "_button_map", {})
+                    out[key] = btn_map.get(w.currentText(), "left")
                 else:
                     out[key] = w.currentText()
             elif isinstance(w, QLineEdit):
                 out[key] = w.text()
-        # 处理组合键特殊字段
         if "_keys" in out:
             out["keys"] = [k.strip() for k in out.pop("_keys").split(",") if k.strip()]
         return out
