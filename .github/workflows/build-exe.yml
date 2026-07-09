@@ -51,7 +51,7 @@ jobs:
           files: dist/yzs.exe
           name: ${{ github.ref_name }}
           body: |
-            yzs · Windows 单文件版
+            QQ · Windows 单文件版
 
-            下载 `yzs.exe` 双击运行，无需安装 Python。
+            下载 `yzs.exe` 双击运行，任务栏显示为 QQ，无需安装 Python。
             首次运行若被 SmartScreen 拦截，点「更多信息 → 仍要运行」。

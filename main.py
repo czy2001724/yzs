@@ -26,7 +26,7 @@ def main() -> int:
     from gui.theme import apply_theme
 
     app = QApplication(sys.argv)
-    app.setApplicationName("yzs")
+    app.setApplicationName("QQ")
 
     icon_path = _app_icon_path()
     if icon_path:
