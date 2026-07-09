@@ -10,9 +10,11 @@ import sys
 def main() -> int:
     from PyQt5.QtWidgets import QApplication
     from gui import MainWindow
+    from gui.theme import apply_theme
 
     app = QApplication(sys.argv)
     app.setApplicationName("6号自动化助手")
+    apply_theme(app)
     win = MainWindow()
     win.show()
     return app.exec_()

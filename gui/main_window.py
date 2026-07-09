@@ -15,6 +15,7 @@ from PyQt5.QtWidgets import (
 )
 
 from automation import AutomationEngine, GlobalInputRecorder, HotkeyManager
+from automation import pointer
 from .step_dialogs import STEP_TYPES, StepDialog, describe_step
 
 
@@ -70,16 +71,18 @@ class MainWindow(QMainWindow):
         self._setup_signals()
         self._setup_hotkeys()
 
-        # 实时坐标 / 颜色显示
+        # 实时坐标 / 颜色显示（Win32 直读，~30fps 无延迟）
         self._coord_timer = QTimer(self)
         self._coord_timer.timeout.connect(self._update_coord)
-        self._coord_timer.start(100)
+        self._coord_timer.start(33)
 
     # ------------------------------ UI ---------------------------------- #
     def _build_ui(self):
         central = QWidget()
         self.setCentralWidget(central)
         root = QHBoxLayout(central)
+        root.setContentsMargins(14, 14, 14, 14)
+        root.setSpacing(12)
 
         root.addWidget(self._build_toolbox(), 0)
         root.addWidget(self._build_center(), 1)
@@ -87,12 +90,15 @@ class MainWindow(QMainWindow):
 
     def _build_toolbox(self) -> QWidget:
         panel = QFrame()
-        panel.setFrameShape(QFrame.StyledPanel)
-        panel.setFixedWidth(180)
+        panel.setObjectName("panel")
+        panel.setFixedWidth(196)
         v = QVBoxLayout(panel)
-        v.addWidget(self._title("动作库"))
+        v.setContentsMargins(12, 14, 12, 14)
+        v.setSpacing(8)
+        v.addWidget(self._title("⚡  动作库"))
         for step_type, label in STEP_TYPES:
             btn = QPushButton(label)
+            btn.setObjectName("toolBtn")
             btn.clicked.connect(lambda _=False, t=step_type: self._add_step(t))
             v.addWidget(btn)
         v.addStretch(1)
@@ -101,7 +107,9 @@ class MainWindow(QMainWindow):
     def _build_center(self) -> QWidget:
         panel = QWidget()
         v = QVBoxLayout(panel)
-        v.addWidget(self._title("工作流步骤"))
+        v.setContentsMargins(0, 0, 0, 0)
+        v.setSpacing(10)
+        v.addWidget(self._title("🧩  工作流步骤"))
 
         self.step_list = QListWidget()
         self.step_list.itemDoubleClicked.connect(lambda _: self._edit_step())
@@ -128,7 +136,7 @@ class MainWindow(QMainWindow):
         files.addStretch(1)
         v.addLayout(files)
 
-        v.addWidget(self._title("运行日志"))
+        v.addWidget(self._title("📜  运行日志"))
         self.log_view = QPlainTextEdit()
         self.log_view.setReadOnly(True)
         self.log_view.setMaximumBlockCount(2000)
@@ -138,21 +146,26 @@ class MainWindow(QMainWindow):
 
     def _build_right(self) -> QWidget:
         panel = QFrame()
-        panel.setFrameShape(QFrame.StyledPanel)
-        panel.setFixedWidth(240)
+        panel.setObjectName("panel")
+        panel.setFixedWidth(258)
         v = QVBoxLayout(panel)
+        v.setContentsMargins(16, 16, 16, 16)
+        v.setSpacing(9)
 
-        v.addWidget(self._title("实时状态"))
-        self.coord_label = QLabel("坐标：-, -")
-        self.color_label = QLabel("颜色：-")
+        v.addWidget(self._title("🎯  实时状态"))
+        self.coord_label = QLabel("–, –")
+        self.coord_label.setObjectName("coordValue")
+        v.addWidget(self.coord_label)
+        self.color_label = QLabel("#——————")
+        self.color_label.setObjectName("colorValue")
+        v.addWidget(self.color_label)
         self.color_swatch = QFrame()
-        self.color_swatch.setFixedHeight(24)
-        self.color_swatch.setFrameShape(QFrame.Box)
-        for w in (self.coord_label, self.color_label, self.color_swatch):
-            v.addWidget(w)
+        self.color_swatch.setObjectName("swatch")
+        self.color_swatch.setFixedHeight(30)
+        v.addWidget(self.color_swatch)
 
         v.addWidget(self._hline())
-        v.addWidget(self._title("运行控制"))
+        v.addWidget(self._title("🚀  运行控制"))
         loop_row = QHBoxLayout()
         loop_row.addWidget(QLabel("循环次数"))
         self.loop_spin = QSpinBox()
@@ -162,42 +175,44 @@ class MainWindow(QMainWindow):
         loop_row.addWidget(self.loop_spin)
         v.addLayout(loop_row)
 
-        self.btn_run = QPushButton("▶ 运行 (F9)")
+        self.btn_run = QPushButton("▶  运行  ·  F9")
+        self.btn_run.setObjectName("primary")
         self.btn_run.clicked.connect(self._start_run)
-        self.btn_pause = QPushButton("⏸ 暂停 (F11)")
+        self.btn_pause = QPushButton("⏸  暂停  ·  F11")
+        self.btn_pause.setObjectName("warn")
         self.btn_pause.clicked.connect(self._toggle_pause)
         self.btn_pause.setEnabled(False)
-        self.btn_stop = QPushButton("⏹ 停止 (F10)")
+        self.btn_stop = QPushButton("⏹  停止  ·  F10")
+        self.btn_stop.setObjectName("danger")
         self.btn_stop.clicked.connect(self._stop_run)
         self.btn_stop.setEnabled(False)
         for b in (self.btn_run, self.btn_pause, self.btn_stop):
             v.addWidget(b)
-        self.progress_label = QLabel("进度：0 / 0")
+        self.progress_label = QLabel("进度  0 / 0")
+        self.progress_label.setObjectName("progress")
         v.addWidget(self.progress_label)
 
         v.addWidget(self._hline())
-        v.addWidget(self._title("录制与捕获"))
-        self.btn_record = QPushButton("● 开始录制")
+        v.addWidget(self._title("🎬  录制与捕获"))
+        self.btn_record = QPushButton("●  开始录制")
         self.btn_record.setCheckable(True)
         self.btn_record.clicked.connect(self._toggle_record)
         v.addWidget(self.btn_record)
-        b_shot = QPushButton("📷 抓取模板图")
+        b_shot = QPushButton("📷  抓取模板图")
         b_shot.clicked.connect(self._capture_template)
         v.addWidget(b_shot)
 
         v.addStretch(1)
-        hint = QLabel("全局热键：F9 运行 · F10 停止 · F11 暂停\n"
+        hint = QLabel("全局热键  F9 运行 · F10 停止 · F11 暂停\n"
                       "鼠标甩到屏幕左上角可紧急停止")
+        hint.setObjectName("hint")
         hint.setWordWrap(True)
-        hint.setStyleSheet("color: gray; font-size: 11px;")
         v.addWidget(hint)
         return panel
 
     def _title(self, text: str) -> QLabel:
         lbl = QLabel(text)
-        f = QFont()
-        f.setBold(True)
-        lbl.setFont(f)
+        lbl.setObjectName("title")
         return lbl
 
     def _hline(self) -> QFrame:
@@ -384,18 +399,16 @@ class MainWindow(QMainWindow):
 
     # ---------------------------- 实时坐标 ------------------------------ #
     def _update_coord(self):
-        try:
-            import pyautogui
-            x, y = pyautogui.position()
-            self.coord_label.setText(f"坐标：{x}, {y}")
-            try:
-                r, g, b = pyautogui.pixel(x, y)
-                self.color_label.setText(f"颜色：#{r:02X}{g:02X}{b:02X}  ({r},{g},{b})")
-                self.color_swatch.setStyleSheet(f"background:{QColor(r, g, b).name()};")
-            except Exception:
-                pass
-        except Exception:
-            self.coord_label.setText("坐标：（需要 pyautogui）")
+        # Win32 直读，无截屏、无延迟
+        x, y = pointer.get_cursor_pos()
+        self.coord_label.setText(f"{x}, {y}")
+        rgb = pointer.get_pixel_color(x, y)
+        if rgb:
+            r, g, b = rgb
+            self.color_label.setText(f"#{r:02X}{g:02X}{b:02X}")
+            self.color_swatch.setStyleSheet(
+                f"background:{QColor(r, g, b).name()}; border:1px solid #313650; border-radius:8px;"
+            )
 
     # ---------------------------- 日志 ---------------------------------- #
     def append_log(self, msg: str):
