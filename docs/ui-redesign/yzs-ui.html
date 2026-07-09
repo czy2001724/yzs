@@ -1,0 +1,488 @@
+<title>yzs 新人友好版 · UI 设计语言</title>
+<style>
+  :root{
+    /* page tokens — light (warm paper + cobalt) */
+    --paper:#FBF9F5; --surface:#FFFFFF; --sunk:#F4F1EA;
+    --ink:#1D2230; --muted:#6E7385; --faint:#9A9EAE;
+    --line:#EAE5DC; --line-2:#DED8CC;
+    --brand:#2E6BFF; --brand-ink:#204fd0; --brand-wash:#EAF0FF;
+    --go:#12A870; --go-wash:#E4F6EE;
+    --warn:#E68A00; --warn-wash:#FBEEDA;
+    --stop:#E4553F; --stop-wash:#FBE7E2;
+    --shadow:0 1px 2px rgba(28,34,48,.04), 0 8px 26px -14px rgba(28,34,48,.18);
+    --shadow-lg:0 2px 6px rgba(28,34,48,.05), 0 26px 60px -28px rgba(28,34,48,.30);
+    --r-lg:20px; --r:14px; --r-sm:10px;
+    --sans:"Microsoft YaHei UI","PingFang SC","Segoe UI",system-ui,-apple-system,"Hiragino Sans GB",sans-serif;
+    --mono:"SF Mono","Consolas","Cascadia Code",ui-monospace,"Menlo",monospace;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper:#13151B; --surface:#1A1D25; --sunk:#14161C;
+      --ink:#ECEEF5; --muted:#9AA0B4; --faint:#71768A;
+      --line:#282C38; --line-2:#333846;
+      --brand:#6E8DFF; --brand-ink:#8aa2ff; --brand-wash:#1c2740;
+      --go:#33C48C; --go-wash:#16281f;
+      --warn:#F0A73A; --warn-wash:#2a2113;
+      --stop:#F0715B; --stop-wash:#2c1a16;
+      --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 30px -16px rgba(0,0,0,.6);
+      --shadow-lg:0 2px 6px rgba(0,0,0,.35), 0 30px 70px -30px rgba(0,0,0,.75);
+    }
+  }
+  :root[data-theme="light"]{
+    --paper:#FBF9F5; --surface:#FFFFFF; --sunk:#F4F1EA;
+    --ink:#1D2230; --muted:#6E7385; --faint:#9A9EAE;
+    --line:#EAE5DC; --line-2:#DED8CC;
+    --brand:#2E6BFF; --brand-ink:#204fd0; --brand-wash:#EAF0FF;
+    --go:#12A870; --go-wash:#E4F6EE; --warn:#E68A00; --warn-wash:#FBEEDA;
+    --stop:#E4553F; --stop-wash:#FBE7E2;
+    --shadow:0 1px 2px rgba(28,34,48,.04), 0 8px 26px -14px rgba(28,34,48,.18);
+    --shadow-lg:0 2px 6px rgba(28,34,48,.05), 0 26px 60px -28px rgba(28,34,48,.30);
+  }
+  :root[data-theme="dark"]{
+    --paper:#13151B; --surface:#1A1D25; --sunk:#14161C;
+    --ink:#ECEEF5; --muted:#9AA0B4; --faint:#71768A;
+    --line:#282C38; --line-2:#333846;
+    --brand:#6E8DFF; --brand-ink:#8aa2ff; --brand-wash:#1c2740;
+    --go:#33C48C; --go-wash:#16281f; --warn:#F0A73A; --warn-wash:#2a2113;
+    --stop:#F0715B; --stop-wash:#2c1a16;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 10px 30px -16px rgba(0,0,0,.6);
+    --shadow-lg:0 2px 6px rgba(0,0,0,.35), 0 30px 70px -30px rgba(0,0,0,.75);
+  }
+
+  *{box-sizing:border-box}
+  body,.wrap{margin:0}
+  .wrap{
+    background:
+      radial-gradient(1100px 520px at 82% -6%, var(--brand-wash), transparent 60%),
+      var(--paper);
+    color:var(--ink); font-family:var(--sans);
+    font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased;
+    min-height:100vh; padding:0 20px 90px;
+  }
+  .col{max-width:940px; margin:0 auto}
+  a{color:var(--brand-ink); text-decoration:none}
+  h1,h2,h3{text-wrap:balance; margin:0}
+  .eyebrow{font-size:.72rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--brand-ink)}
+  .mono{font-family:var(--mono); font-variant-numeric:tabular-nums}
+
+  /* ---------- hero ---------- */
+  header.hero{padding:74px 0 30px}
+  .kicker{display:inline-flex; align-items:center; gap:9px; font-size:.8rem; font-weight:600;
+    color:var(--muted); background:var(--surface); border:1px solid var(--line);
+    padding:7px 13px; border-radius:999px; box-shadow:var(--shadow)}
+  .kicker b{color:var(--brand-ink)}
+  .dot{width:8px;height:8px;border-radius:50%;background:var(--go);box-shadow:0 0 0 4px var(--go-wash)}
+  h1{font-size:clamp(2.1rem,5.4vw,3.35rem); font-weight:800; letter-spacing:-.02em; line-height:1.08; margin:22px 0 0}
+  h1 .hl{color:var(--brand)}
+  .lede{font-size:1.16rem; color:var(--muted); max-width:38ch; margin:18px 0 0}
+  .hero-meta{display:flex; flex-wrap:wrap; gap:10px; margin-top:26px}
+  .chip{font-size:.82rem; font-weight:600; padding:6px 12px; border-radius:999px;
+    background:var(--surface); border:1px solid var(--line); color:var(--ink)}
+  .chip s{color:var(--stop); text-decoration-color:var(--stop); opacity:.7}
+  .chip i{font-style:normal; color:var(--go)}
+
+  /* ---------- section scaffolding ---------- */
+  section{padding:46px 0 0}
+  .s-head{display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; margin-bottom:22px}
+  .s-num{font-family:var(--mono); font-size:.85rem; color:var(--faint); font-weight:600}
+  h2{font-size:clamp(1.4rem,3vw,1.85rem); font-weight:800; letter-spacing:-.015em}
+  .s-sub{color:var(--muted); font-size:1rem; max-width:60ch; margin:-8px 0 0}
+
+  /* ---------- principles ---------- */
+  .grid2{display:grid; grid-template-columns:repeat(2,1fr); gap:16px}
+  .card{background:var(--surface); border:1px solid var(--line); border-radius:var(--r);
+    padding:22px; box-shadow:var(--shadow)}
+  .p-tag{font-family:var(--mono); font-size:.78rem; font-weight:700; color:var(--brand-ink);
+    background:var(--brand-wash); border-radius:7px; padding:3px 8px; display:inline-block}
+  .card h3{font-size:1.12rem; font-weight:700; margin:14px 0 7px}
+  .card p{margin:0; color:var(--muted); font-size:.95rem}
+
+  /* ---------- color tokens ---------- */
+  .swatches{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+  .sw{border:1px solid var(--line); border-radius:var(--r); overflow:hidden; background:var(--surface); box-shadow:var(--shadow)}
+  .sw .cap{height:74px}
+  .sw .meta{padding:11px 13px}
+  .sw .nm{font-size:.9rem; font-weight:700}
+  .sw .hx{font-family:var(--mono); font-size:.78rem; color:var(--muted); text-transform:uppercase}
+  .sw .use{font-size:.78rem; color:var(--faint); margin-top:3px}
+
+  /* ---------- type scale ---------- */
+  .type-row{display:flex; align-items:baseline; gap:16px; padding:14px 0; border-bottom:1px dashed var(--line)}
+  .type-row:last-child{border-bottom:0}
+  .type-row .lbl{width:120px; flex:none; font-family:var(--mono); font-size:.76rem; color:var(--muted)}
+  .type-row .spec{margin-left:auto; font-family:var(--mono); font-size:.74rem; color:var(--faint); flex:none}
+
+  /* ---------- components showcase ---------- */
+  .cmp-wrap{background:var(--surface); border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--shadow); overflow:hidden}
+  .cmp-sec{padding:20px 22px; border-bottom:1px solid var(--line)}
+  .cmp-sec:last-child{border-bottom:0}
+  .cmp-sec > .t{font-size:.74rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--faint); margin-bottom:14px}
+  .row{display:flex; gap:12px; flex-wrap:wrap; align-items:center}
+
+  .btn{font-family:var(--sans); font-size:.94rem; font-weight:600; border-radius:var(--r-sm);
+    padding:10px 16px; border:1px solid transparent; cursor:pointer; display:inline-flex; align-items:center; gap:8px}
+  .btn-primary{background:var(--brand); color:#fff; box-shadow:0 6px 16px -8px var(--brand)}
+  .btn-ghost{background:var(--surface); color:var(--ink); border-color:var(--line-2)}
+  .btn-go{background:var(--go); color:#fff}
+  .btn-warn{background:var(--warn-wash); color:var(--warn); border-color:var(--warn)}
+  .btn-stop{background:var(--stop-wash); color:var(--stop); border-color:var(--stop)}
+  .btn-lg{font-size:1.02rem; padding:13px 22px; border-radius:var(--r)}
+
+  .switch{width:44px; height:26px; border-radius:999px; background:var(--go); position:relative; flex:none}
+  .switch::after{content:""; position:absolute; top:3px; left:21px; width:20px; height:20px; border-radius:50%; background:#fff; box-shadow:0 1px 3px rgba(0,0,0,.3)}
+  .switch.off{background:var(--line-2)}
+  .switch.off::after{left:3px}
+  .field{display:flex; flex-direction:column; gap:6px}
+  .field label{font-size:.82rem; font-weight:600; color:var(--muted)}
+  .field .in{background:var(--sunk); border:1px solid var(--line-2); border-radius:var(--r-sm); padding:9px 12px; font-family:var(--mono); font-size:.9rem; color:var(--ink); min-width:120px}
+  .badge{font-size:.74rem; font-weight:700; padding:4px 10px; border-radius:999px}
+  .b-go{background:var(--go-wash); color:var(--go)} .b-warn{background:var(--warn-wash); color:var(--warn)}
+  .b-stop{background:var(--stop-wash); color:var(--stop)} .b-brand{background:var(--brand-wash); color:var(--brand-ink)}
+
+  /* ---------- wording table ---------- */
+  .tbl-scroll{overflow-x:auto; border:1px solid var(--line); border-radius:var(--r); box-shadow:var(--shadow)}
+  table{border-collapse:collapse; width:100%; min-width:560px; background:var(--surface); font-size:.94rem}
+  th,td{text-align:left; padding:13px 18px; border-bottom:1px solid var(--line); vertical-align:top}
+  thead th{font-size:.74rem; letter-spacing:.08em; text-transform:uppercase; color:var(--faint); background:var(--sunk)}
+  tbody tr:last-child td{border-bottom:0}
+  td.old{color:var(--stop); font-weight:600}
+  td.old s{opacity:.75}
+  td.new{color:var(--go); font-weight:700}
+  td.why{color:var(--muted); font-size:.86rem}
+
+  /* ===================== APP MOCKUP (fixed light "screenshot") ===================== */
+  .shot{
+    --a-bg:#F5F3EE; --a-surf:#FFFFFF; --a-sunk:#F1EEE7; --a-ink:#232734; --a-mut:#71768A;
+    --a-faint:#9AA0B0; --a-line:#E7E2D8; --a-line2:#DAD4C8; --a-brand:#2E6BFF; --a-brandw:#EAF0FF;
+    --a-go:#12A870; --a-gow:#E4F6EE; --a-warn:#E68A00; --a-warnw:#FBEEDA; --a-stop:#E4553F; --a-stopw:#FBE7E2;
+    color:var(--a-ink);
+    border-radius:var(--r-lg); overflow:hidden; box-shadow:var(--shadow-lg); border:1px solid var(--line-2)
+  }
+  .shot-scroll{overflow-x:auto}
+  .win{min-width:760px; background:var(--a-bg)}
+  .titlebar{display:flex; align-items:center; gap:12px; padding:12px 16px; background:var(--a-surf); border-bottom:1px solid var(--a-line)}
+  .tl{display:flex; gap:7px}
+  .tl i{width:12px;height:12px;border-radius:50%;display:block}
+  .tl i:nth-child(1){background:#FF6159} .tl i:nth-child(2){background:#FFBD2E} .tl i:nth-child(3){background:#28C840}
+  .appname{font-weight:800; font-size:.98rem; letter-spacing:-.01em}
+  .appname span{color:var(--a-mut); font-weight:600; font-size:.82rem; margin-left:8px}
+  .tb-run{margin-left:auto; display:flex; gap:9px; align-items:center}
+  .a-btn{font-family:var(--sans); font-weight:700; font-size:.86rem; border-radius:9px; padding:9px 15px; border:1px solid transparent; display:inline-flex; align-items:center; gap:7px; color:var(--a-ink); background:var(--a-surf)}
+  .a-run{background:var(--a-go); color:#fff; box-shadow:0 6px 15px -7px var(--a-go)}
+  .a-ghost{border-color:var(--a-line2); background:var(--a-surf); color:var(--a-mut)}
+  .a-k{font-family:var(--mono); font-size:.72rem; opacity:.85}
+
+  .panes{display:grid; grid-template-columns:216px 1fr 244px; gap:0}
+  .pane{padding:16px 15px}
+  .pane + .pane{border-left:1px solid var(--a-line)}
+  .step-head{display:flex; align-items:center; gap:9px; margin-bottom:4px}
+  .snum{width:22px;height:22px;border-radius:7px; background:var(--a-brand); color:#fff; font-weight:800; font-size:.8rem; display:grid; place-items:center; flex:none}
+  .step-head .h{font-weight:800; font-size:.98rem}
+  .step-head .sub{font-size:.76rem; color:var(--a-mut); margin:0 0 14px 31px}
+
+  .a-group-t{font-size:.7rem; font-weight:700; letter-spacing:.09em; text-transform:uppercase; color:var(--a-faint); margin:14px 0 8px}
+  .a-tiles{display:flex; flex-direction:column; gap:7px}
+  .tile{display:flex; align-items:center; gap:10px; padding:9px 11px; background:var(--a-surf); border:1px solid var(--a-line); border-radius:10px; cursor:pointer}
+  .tile .ic{width:26px;height:26px;border-radius:8px; background:var(--a-brandw); display:grid; place-items:center; font-size:.95rem; flex:none}
+  .tile .tt{font-weight:600; font-size:.86rem}
+  .tile .td{font-size:.72rem; color:var(--a-mut)}
+  .more{margin-top:10px; font-size:.8rem; color:var(--a-brand); font-weight:700; padding:8px 11px; border:1px dashed var(--a-line2); border-radius:10px; text-align:center}
+
+  .steps{display:flex; flex-direction:column; gap:8px; margin-top:4px}
+  .scard{display:flex; align-items:center; gap:11px; background:var(--a-surf); border:1px solid var(--a-line); border-radius:11px; padding:10px 12px}
+  .scard.sel{border-color:var(--a-brand); box-shadow:0 0 0 3px var(--a-brandw)}
+  .si{width:24px;height:24px;border-radius:999px; background:var(--a-sunk); color:var(--a-mut); font-weight:800; font-size:.78rem; display:grid; place-items:center; flex:none; font-family:var(--mono)}
+  .sbody .st{font-weight:700; font-size:.88rem}
+  .sbody .sd{font-size:.76rem; color:var(--a-mut); font-family:var(--mono)}
+  .sdrag{margin-left:auto; color:var(--a-faint); font-size:1rem; letter-spacing:2px}
+  .steptools{display:flex; gap:6px; flex-wrap:wrap; margin-top:14px}
+  .stbtn{font-size:.78rem; font-weight:600; color:var(--a-mut); background:var(--a-surf); border:1px solid var(--a-line); border-radius:8px; padding:6px 11px}
+  .steptools .sp{margin-left:auto}
+
+  .runbox{background:var(--a-surf); border:1px solid var(--a-line); border-radius:12px; padding:14px}
+  .runrow{display:flex; gap:8px; margin-top:2px}
+  .r-go{flex:1; background:var(--a-go); color:#fff; border:0; border-radius:10px; font-weight:800; font-size:.9rem; padding:11px 0; text-align:center}
+  .r-sq{width:42px; border-radius:10px; border:1px solid; font-weight:800; padding:11px 0; text-align:center; font-size:.84rem}
+  .r-pause{color:var(--a-warn); border-color:var(--a-warn); background:var(--a-warnw)}
+  .r-stop{color:var(--a-stop); border-color:var(--a-stop); background:var(--a-stopw)}
+  .repeat{display:flex; align-items:center; justify-content:space-between; margin-top:12px; font-size:.84rem; font-weight:600}
+  .stepper{display:flex; align-items:center; gap:0; border:1px solid var(--a-line2); border-radius:9px; overflow:hidden}
+  .stepper b{width:30px; text-align:center; font-family:var(--mono); font-size:.9rem}
+  .stepper i{width:28px; height:30px; display:grid; place-items:center; color:var(--a-mut); background:var(--a-sunk); font-style:normal; font-weight:700}
+  .hint{font-size:.72rem; color:var(--a-faint); margin-top:7px}
+  .prog{margin-top:11px}
+  .prog .bar{height:7px; border-radius:999px; background:var(--a-sunk); overflow:hidden}
+  .prog .bar i{display:block; height:100%; width:40%; background:var(--a-go); border-radius:999px}
+  .prog .lb{display:flex; justify-content:space-between; font-size:.74rem; color:var(--a-mut); margin-top:6px; font-family:var(--mono)}
+
+  .picker{background:var(--a-surf); border:1px solid var(--a-line); border-radius:12px; padding:13px; margin-top:12px}
+  .picker .pt{font-size:.78rem; font-weight:700; color:var(--a-mut); margin-bottom:9px; display:flex; align-items:center; gap:6px}
+  .pick-btn{width:100%; border:1px dashed var(--a-brand); color:var(--a-brand); background:var(--a-brandw); border-radius:9px; padding:9px; font-weight:700; font-size:.82rem; text-align:center}
+  .coords{display:flex; gap:8px; margin-top:10px}
+  .coord{flex:1; background:var(--a-sunk); border-radius:9px; padding:8px 10px; text-align:center}
+  .coord .k{font-size:.66rem; color:var(--a-faint); text-transform:uppercase; letter-spacing:.06em}
+  .coord .v{font-family:var(--mono); font-weight:800; font-size:1.05rem}
+  .coord.clr .v{display:flex; align-items:center; justify-content:center; gap:6px}
+  .sw-mini{width:15px;height:15px;border-radius:4px; background:#6C8CFF; border:1px solid rgba(0,0,0,.15)}
+
+  .adv{margin-top:12px; border:1px solid var(--a-line); border-radius:12px; background:var(--a-surf); overflow:hidden}
+  .adv-head{display:flex; align-items:center; gap:9px; padding:12px 13px; font-weight:700; font-size:.86rem; color:var(--a-ink)}
+  .adv-head .ch{margin-left:auto; color:var(--a-faint)}
+  .adv-body{border-top:1px solid var(--a-line); padding:12px 13px; display:flex; flex-direction:column; gap:11px; background:var(--a-sunk)}
+  .togline{display:flex; align-items:center; gap:10px; font-size:.82rem}
+  .togline .tx{flex:1}
+  .togline .tx b{font-weight:700; display:block}
+  .togline .tx span{font-size:.72rem; color:var(--a-mut)}
+  .a-switch{width:38px;height:22px;border-radius:999px;background:var(--a-go);position:relative;flex:none}
+  .a-switch::after{content:"";position:absolute;top:3px;left:19px;width:16px;height:16px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.3)}
+  .a-switch.off{background:var(--a-line2)} .a-switch.off::after{left:3px}
+  .risk{font-size:.68rem; font-weight:700; padding:2px 7px; border-radius:6px; background:var(--a-stopw); color:var(--a-stop)}
+
+  .callout{display:flex; gap:12px; align-items:flex-start; background:var(--brand-wash); border:1px solid color-mix(in srgb, var(--brand) 22%, transparent); border-radius:var(--r); padding:16px 18px; margin-top:16px}
+  .callout .ic{font-size:1.2rem; line-height:1}
+  .callout p{margin:0; font-size:.92rem; color:var(--ink)}
+  .callout b{color:var(--brand-ink)}
+
+  /* onboarding flow */
+  .flow{display:grid; grid-template-columns:repeat(3,1fr); gap:14px}
+  .fstep{background:var(--surface); border:1px solid var(--line); border-radius:var(--r); padding:18px; box-shadow:var(--shadow); position:relative}
+  .fstep .n{font-family:var(--mono); font-weight:800; font-size:.8rem; color:#fff; background:var(--brand); width:26px;height:26px; border-radius:8px; display:grid; place-items:center}
+  .fstep h4{margin:12px 0 6px; font-size:1rem}
+  .fstep p{margin:0; font-size:.86rem; color:var(--muted)}
+
+  footer{margin-top:56px; padding-top:26px; border-top:1px solid var(--line); color:var(--muted); font-size:.86rem}
+  footer b{color:var(--ink)}
+
+  @media (max-width:720px){
+    .grid2,.swatches,.flow{grid-template-columns:1fr}
+    .swatches{grid-template-columns:1fr 1fr}
+  }
+  @media (prefers-reduced-motion:no-preference){
+    .tile,.btn,.a-btn{transition:transform .12s ease}
+  }
+</style>
+
+<div class="wrap">
+<div class="col">
+
+  <header class="hero">
+    <span class="kicker"><span class="dot"></span> 设计语言提案 · <b>yzs 自动化面板</b></span>
+    <h1>把"外挂面板",<br>改成<span class="hl">谁都会用的小助手</span></h1>
+    <p class="lede">同一个引擎,换一套说人话、有引导、亮色友好的界面语言。目标只有一个:<b>新人打开就知道下一步点哪儿。</b></p>
+    <div class="hero-meta">
+      <span class="chip"><s>暗色 · 高密度 · 极客</s></span>
+      <span class="chip">→</span>
+      <span class="chip"><i>亮色 · 留白 · 手把手</i></span>
+    </div>
+  </header>
+
+  <!-- 1. 诊断 -->
+  <section>
+    <div class="s-head"><span class="s-num">01</span><h2>先看新人卡在哪</h2></div>
+    <p class="s-sub">现有界面功能很全,但对第一次打开的人不友好。四个真实痛点,决定了整套改法。</p>
+    <div class="grid2" style="margin-top:20px">
+      <div class="card"><span class="p-tag">信息过载</span><h3>一开门全铺开</h3><p>动作库、步骤、日志、实时状态、拟人化、录制……六块面板同时挤出来,没人告诉你"第一步该干嘛"。</p></div>
+      <div class="card"><span class="p-tag">术语劝退</span><h3>看不懂的词太多</h3><p>"拟人化""贝塞尔偏移""overshoot 越冲""GDI 读屏触发反作弊"——新人一个都不认识,直接放弃。</p></div>
+      <div class="card"><span class="p-tag">要手填</span><h3>坐标从哪来?</h3><p>加一个"点击"要手动填 <span class="mono">x, y</span>。新人根本不知道屏幕坐标是什么、怎么取。</p></div>
+      <div class="card"><span class="p-tag">压迫感</span><h3>像"外挂工具"</h3><p>深黑配霓虹渐变、满屏"反作弊"字样,气质偏灰产,吓退只想做点重复操作的普通用户。</p></div>
+    </div>
+  </section>
+
+  <!-- 2. 原则 -->
+  <section>
+    <div class="s-head"><span class="s-num">02</span><h2>五条设计原则</h2></div>
+    <p class="s-sub">整套 UI 语言的地基。后面每一个颜色、每一句文案、每一处布局,都从这五条推导出来。</p>
+    <div class="grid2" style="margin-top:20px">
+      <div class="card"><span class="p-tag">渐进呈现</span><h3>先能跑,再谈高级</h3><p>默认只露 6 个常用动作 + 一个大"运行"键。贝塞尔、反作弊、录制统统收进"⚙ 高级设置",想用再展开。</p></div>
+      <div class="card"><span class="p-tag">说人话</span><h3>从"想干嘛"命名</h3><p>不写系统术语,写用户目标:"组合键"→"快捷键","查找图像"→"找到图片再操作"。</p></div>
+      <div class="card"><span class="p-tag">手把手</span><h3>空界面就是教程</h3><p>没步骤时,中间直接显示"① 选动作 ② 排顺序 ③ 点运行"。第一次打开还有 3 步引导。</p></div>
+      <div class="card"><span class="p-tag">少填空</span><h3>能点就别让人打字</h3><p>坐标不手填,给一个大按钮"🎯 去屏幕上点一下",点完自动回填。</p></div>
+      <div class="card" style="grid-column:1/-1"><span class="p-tag">友好基调</span><h3>亮色、圆角、暖中性色</h3><p>浅色纸面 + 沉稳钴蓝,大量留白,柔和圆角。像一款正经的大众软件,而不是灰产工具。危险操作才用红色,给足心理安全感。</p></div>
+    </div>
+  </section>
+
+  <!-- 3. 主界面稿 -->
+  <section>
+    <div class="s-head"><span class="s-num">03</span><h2>重新设计的主界面</h2></div>
+    <p class="s-sub">还是三栏,但重新排了优先级:左边"选什么"、中间"排顺序"、右边"怎么运行"。每一栏顶上都有①②③ 序号引导。</p>
+
+    <div class="shot" style="margin-top:20px">
+      <div class="shot-scroll"><div class="win">
+        <div class="titlebar">
+          <span class="tl"><i></i><i></i><i></i></span>
+          <span class="appname">自动化小助手<span>让电脑替你重复操作</span></span>
+          <span class="tb-run">
+            <span class="a-btn a-ghost">📖 新手教程</span>
+            <span class="a-btn a-run">▶ 运行 <span class="a-k">F9</span></span>
+          </span>
+        </div>
+
+        <div class="panes">
+          <!-- 左:选动作 -->
+          <div class="pane">
+            <div class="step-head"><span class="snum">1</span><span class="h">选一个动作</span></div>
+            <p class="sub">点一下加到中间列表</p>
+            <div class="a-group-t">常用</div>
+            <div class="a-tiles">
+              <div class="tile"><span class="ic">👆</span><div><div class="tt">点一下</div><div class="td">在某个位置单击</div></div></div>
+              <div class="tile"><span class="ic">⚡</span><div><div class="tt">连点</div><div class="td">快速点很多下</div></div></div>
+              <div class="tile"><span class="ic">⌨️</span><div><div class="tt">输入文字</div><div class="td">打一段字</div></div></div>
+              <div class="tile"><span class="ic">🔑</span><div><div class="tt">快捷键</div><div class="td">如 Ctrl + C</div></div></div>
+              <div class="tile"><span class="ic">⏱️</span><div><div class="tt">等一会儿</div><div class="td">停几秒再继续</div></div></div>
+              <div class="tile"><span class="ic">🖼️</span><div><div class="tt">找到图片再点</div><div class="td">认准画面再操作</div></div></div>
+            </div>
+            <div class="more">更多动作(移动 / 拖拽 / 滚轮 / 截图)▾</div>
+          </div>
+
+          <!-- 中:排顺序 -->
+          <div class="pane">
+            <div class="step-head"><span class="snum">2</span><span class="h">安排顺序</span></div>
+            <p class="sub">拖动调整,双击修改</p>
+            <div class="steps">
+              <div class="scard"><span class="si">1</span><div class="sbody"><div class="st">等一会儿</div><div class="sd">停 2 秒</div></div><span class="sdrag">⋮⋮</span></div>
+              <div class="scard sel"><span class="si">2</span><div class="sbody"><div class="st">点一下</div><div class="sd">在 (820, 460) 单击</div></div><span class="sdrag">⋮⋮</span></div>
+              <div class="scard"><span class="si">3</span><div class="sbody"><div class="st">输入文字</div><div class="sd">"你好呀~"</div></div><span class="sdrag">⋮⋮</span></div>
+              <div class="scard"><span class="si">4</span><div class="sbody"><div class="st">快捷键</div><div class="sd">Enter</div></div><span class="sdrag">⋮⋮</span></div>
+            </div>
+            <div class="steptools">
+              <span class="stbtn">↑ 上移</span><span class="stbtn">↓ 下移</span>
+              <span class="stbtn">✎ 修改</span><span class="stbtn">🗑 删除</span>
+              <span class="stbtn sp">💾 存成模板</span><span class="stbtn">📂 打开模板</span>
+            </div>
+          </div>
+
+          <!-- 右:运行 -->
+          <div class="pane">
+            <div class="step-head"><span class="snum">3</span><span class="h">运行</span></div>
+            <div class="runbox">
+              <div class="runrow">
+                <span class="r-go">▶ 开始运行</span>
+                <span class="r-sq r-pause">⏸</span>
+                <span class="r-sq r-stop">⏹</span>
+              </div>
+              <div class="repeat"><span>重复次数</span>
+                <span class="stepper"><i>−</i><b>1</b><i>+</i></span>
+              </div>
+              <div class="hint">填 0 = 一直重复,直到你按停止</div>
+              <div class="prog"><div class="bar"><i></i></div><div class="lb"><span>进度</span><span>2 / 4</span></div></div>
+            </div>
+
+            <div class="picker">
+              <div class="pt">🎯 取坐标 / 取色器</div>
+              <div class="pick-btn">去屏幕上点一下</div>
+              <div class="coords">
+                <div class="coord"><div class="k">位置</div><div class="v">820,460</div></div>
+                <div class="coord clr"><div class="k">颜色</div><div class="v"><span class="sw-mini"></span>6C8CFF</div></div>
+              </div>
+            </div>
+
+            <div class="adv">
+              <div class="adv-head">⚙️ 高级设置<span class="ch">▾</span></div>
+              <div class="adv-body">
+                <div class="togline"><span class="a-switch"></span><span class="tx"><b>像真人一样操作</b><span>鼠标走点弯路、落点微微偏移,不容易被发现</span></span></div>
+                <div class="togline"><span class="a-switch off"></span><span class="tx"><b>实时读屏取色 <span class="risk">有风险</span></b><span>部分游戏会检测,默认关闭</span></span></div>
+                <div class="togline"><span class="a-switch off"></span><span class="tx"><b>录制我的操作 <span class="risk">有风险</span></b><span>录一遍,自动生成步骤</span></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div></div>
+    </div>
+
+    <div class="callout"><span class="ic">💡</span><p><b>关键改动:</b>"拟人化 / 反作弊 / GDI 读屏 / 录制"这些吓人又危险的开关,全部折叠进右下角<b>「⚙ 高级设置」</b>,默认收起。新人看到的第一屏,只有"选动作 → 排顺序 → 运行"这一条主线。</p></div>
+  </section>
+
+  <!-- 4. 文案改造 -->
+  <section>
+    <div class="s-head"><span class="s-num">04</span><h2>术语 → 人话对照表</h2></div>
+    <p class="s-sub">这是新人友好度提升最大的一环。每个词都从"用户看得懂"出发,该藏风险的地方也说清楚。</p>
+    <div class="tbl-scroll" style="margin-top:20px">
+      <table>
+        <thead><tr><th>旧文案(系统术语)</th><th>新文案(人话)</th><th>为什么</th></tr></thead>
+        <tbody>
+          <tr><td class="old"><s>拟人化 · 反作弊</s></td><td class="new">像真人一样操作</td><td class="why">用户懂的是"像真人",不是"拟人化"这个抽象词</td></tr>
+          <tr><td class="old"><s>贝塞尔偏移</s></td><td class="new">鼠标走点弯路(更自然)</td><td class="why">数学名词无意义,描述可见效果即可</td></tr>
+          <tr><td class="old"><s>overshoot 越冲量</s></td><td class="new">冲过头再回来一点</td><td class="why">大白话描述动作本身</td></tr>
+          <tr><td class="old"><s>点击抖动</s></td><td class="new">落点轻微偏移</td><td class="why">"抖动"含糊,"落点偏移"更具体</td></tr>
+          <tr><td class="old"><s>实时像素取色(GDI 读屏)</s></td><td class="new">实时读屏取色 <span class="badge b-stop">有风险</span></td><td class="why">先说功能,再明确标风险,不用技术缩写吓人</td></tr>
+          <tr><td class="old"><s>组合键 / hotkey</s></td><td class="new">快捷键(如 Ctrl+C)</td><td class="why">配上例子,一眼就懂</td></tr>
+          <tr><td class="old"><s>查找图像 / find_image</s></td><td class="new">找到图片再操作</td><td class="why">说清"先认画面、再动手"的因果</td></tr>
+          <tr><td class="old"><s>模板图 / template</s></td><td class="new">目标图片</td><td class="why">"模板"是程序员视角,"目标"是用户视角</td></tr>
+          <tr><td class="old"><s>循环次数 0 = 无限</s></td><td class="new">重复次数(0 = 一直重复)</td><td class="why">"循环"改"重复",并把规则写在旁边</td></tr>
+          <tr><td class="old"><s>type 输入文本 · move 移动</s></td><td class="new">输入文字 · 移动鼠标</td><td class="why">去掉英文动词,补全宾语</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- 5. 色彩 -->
+  <section>
+    <div class="s-head"><span class="s-num">05</span><h2>色彩 Token</h2></div>
+    <p class="s-sub">暖白纸面打底(不是冷冰冰的纯白),沉稳钴蓝当主色。语义色只在"运行/暂停/停止"这类状态上出现,不当装饰。</p>
+    <div class="swatches" style="margin-top:20px">
+      <div class="sw"><div class="cap" style="background:#FBF9F5"></div><div class="meta"><div class="nm">纸面 Paper</div><div class="hx">#FBF9F5</div><div class="use">窗口底色,带一丝暖</div></div></div>
+      <div class="sw"><div class="cap" style="background:#FFFFFF;border-bottom:1px solid #EAE5DC"></div><div class="meta"><div class="nm">卡片 Surface</div><div class="hx">#FFFFFF</div><div class="use">面板 / 步骤卡</div></div></div>
+      <div class="sw"><div class="cap" style="background:#1D2230"></div><div class="meta"><div class="nm">墨 Ink</div><div class="hx">#1D2230</div><div class="use">主文字,偏蓝的近黑</div></div></div>
+      <div class="sw"><div class="cap" style="background:#2E6BFF"></div><div class="meta"><div class="nm">主色 Brand</div><div class="hx">#2E6BFF</div><div class="use">主按钮 / 序号 / 焦点</div></div></div>
+      <div class="sw"><div class="cap" style="background:#12A870"></div><div class="meta"><div class="nm">运行 Go</div><div class="hx">#12A870</div><div class="use">开始运行 / 成功</div></div></div>
+      <div class="sw"><div class="cap" style="background:#E68A00"></div><div class="meta"><div class="nm">暂停 Warn</div><div class="hx">#E68A00</div><div class="use">暂停 / 有风险提示</div></div></div>
+      <div class="sw"><div class="cap" style="background:#E4553F"></div><div class="meta"><div class="nm">停止 Stop</div><div class="hx">#E4553F</div><div class="use">停止 / 删除 / 危险</div></div></div>
+      <div class="sw"><div class="cap" style="background:#F4F1EA;border-bottom:1px solid #EAE5DC"></div><div class="meta"><div class="nm">下沉 Sunk</div><div class="hx">#F4F1EA</div><div class="use">输入框 / 进度槽底</div></div></div>
+      <div class="sw"><div class="cap" style="background:#EAE5DC"></div><div class="meta"><div class="nm">描边 Line</div><div class="hx">#EAE5DC</div><div class="use">暖灰分隔线</div></div></div>
+    </div>
+    <div class="callout"><span class="ic">🌙</span><p><b>也有暗色版:</b>整套 token 已定义好暗色映射(纸面 <span class="mono">#13151B</span>、主色提亮到 <span class="mono">#6E8DFF</span>),老用户想留暗色可一键切换。你现在就能点右上角主题按钮看这页的暗色效果。</p></div>
+  </section>
+
+  <!-- 6. 字体与组件 -->
+  <section>
+    <div class="s-head"><span class="s-num">06</span><h2>字体层级与组件</h2></div>
+    <p class="s-sub">正文用系统中文字体(和 PyQt5 里的"微软雅黑"一致,落地零成本);坐标、颜色值等数据用等宽体,数字对齐更清晰。</p>
+
+    <div class="card" style="margin-top:20px">
+      <div class="type-row"><span class="lbl">标题 / 800</span><span style="font-size:1.6rem;font-weight:800;letter-spacing:-.015em">安排你的自动化</span><span class="spec">28px · 雅黑 800</span></div>
+      <div class="type-row"><span class="lbl">小标题 / 700</span><span style="font-size:1.1rem;font-weight:700">运行控制</span><span class="spec">18px · 700</span></div>
+      <div class="type-row"><span class="lbl">正文 / 400</span><span style="font-size:1rem">点一下就把动作加到列表里</span><span class="spec">16px · 400</span></div>
+      <div class="type-row"><span class="lbl">辅助 / 500</span><span style="font-size:.85rem;color:var(--muted);font-weight:500">填 0 = 一直重复</span><span class="spec">14px · 500</span></div>
+      <div class="type-row"><span class="lbl">数据 / mono</span><span class="mono" style="font-size:1.1rem;font-weight:700">820, 460 · #6C8CFF</span><span class="spec">Consolas · tabular</span></div>
+    </div>
+
+    <div class="cmp-wrap" style="margin-top:16px">
+      <div class="cmp-sec"><div class="t">按钮</div><div class="row">
+        <span class="btn btn-go btn-lg">▶ 开始运行</span>
+        <span class="btn btn-primary">＋ 加动作</span>
+        <span class="btn btn-ghost">📂 打开模板</span>
+        <span class="btn btn-warn">⏸ 暂停</span>
+        <span class="btn btn-stop">⏹ 停止</span>
+      </div></div>
+      <div class="cmp-sec"><div class="t">开关 · 输入 · 步进</div><div class="row">
+        <span style="display:flex;align-items:center;gap:9px;font-size:.9rem;font-weight:600">像真人操作 <span class="switch"></span></span>
+        <span style="display:flex;align-items:center;gap:9px;font-size:.9rem;font-weight:600;color:var(--muted)">实时取色 <span class="switch off"></span></span>
+        <span class="field"><label>重复次数</label><span class="in">1</span></span>
+      </div></div>
+      <div class="cmp-sec"><div class="t">状态标签</div><div class="row">
+        <span class="badge b-go">运行中</span>
+        <span class="badge b-warn">有风险</span>
+        <span class="badge b-stop">已停止</span>
+        <span class="badge b-brand">已选中</span>
+      </div></div>
+    </div>
+  </section>
+
+  <!-- 7. 首次引导 -->
+  <section>
+    <div class="s-head"><span class="s-num">07</span><h2>第一次打开:3 步上手</h2></div>
+    <p class="s-sub">首启动弹一层轻引导,把"选动作 → 排顺序 → 运行"这条主线走一遍,之后不再出现。</p>
+    <div class="flow" style="margin-top:20px">
+      <div class="fstep"><span class="n">1</span><h4>从左边挑个动作</h4><p>比如"点一下"。想不好就先加"输入文字",随时能改能删。</p></div>
+      <div class="fstep"><span class="n">2</span><h4>需要坐标?去屏幕点</h4><p>点"🎯 去屏幕上点一下",到目标位置一点,坐标自动填好——不用背 x, y。</p></div>
+      <div class="fstep"><span class="n">3</span><h4>按 F9 或"开始运行"</h4><p>鼠标甩到屏幕左上角随时急停。想更安全,再去"⚙ 高级设置"打开"像真人操作"。</p></div>
+    </div>
+  </section>
+
+  <footer>
+    <p><b>这是设计语言提案,不是最终代码。</b>下一步可以落地为:改写 <span class="mono">gui/theme.py</span> 的亮色 QSS + token、重排 <span class="mono">main_window.py</span> 的三栏与"高级设置"折叠、按对照表改所有文案、给 <span class="mono">step_dialogs.py</span> 加"🎯 去屏幕取坐标"按钮。需要我把其中任意一块转成可运行的 PyQt5 代码,说一声即可。</p>
+    <p style="margin-top:10px;color:var(--faint)">注:源仓库 <span class="mono">czy2001724/yzs</span> 不在本次授权范围内,以上基于公开代码阅读设计,未改动其任何文件。</p>
+  </footer>
+
+</div>
+</div>
