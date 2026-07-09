@@ -162,9 +162,7 @@ class MainWindow(QMainWindow):
 
         self.step_list = QListWidget()
         self.step_list.itemDoubleClicked.connect(lambda _: self._edit_step())
-        v.addWidget(self.step_list, 1)
 
-        # 空状态引导
         self._empty_guide = QLabel(
             "① 选动作 → ② 排顺序 → ③ 运行\n\n"
             "点左边按钮添加第一个动作开始吧"
@@ -172,6 +170,10 @@ class MainWindow(QMainWindow):
         self._empty_guide.setAlignment(Qt.AlignCenter)
         self._empty_guide.setObjectName("emptyGuide")
         self._empty_guide.setWordWrap(True)
+
+        v.addWidget(self.step_list, 1)
+        v.addWidget(self._empty_guide, 1)
+        self._empty_guide.hide()
 
         # 操作行
         ops = QHBoxLayout()
@@ -453,10 +455,11 @@ class MainWindow(QMainWindow):
     def _refresh_steps(self):
         self.step_list.clear()
         if not self.steps:
+            self.step_list.hide()
             self._empty_guide.show()
-            self._empty_guide.setParent(self.step_list)
             return
         self._empty_guide.hide()
+        self.step_list.show()
         for i, step in enumerate(self.steps, 1):
             item = QListWidgetItem(f"{i:>2}. {describe_step(step)}")
             self.step_list.addItem(item)
