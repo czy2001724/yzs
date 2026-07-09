@@ -1,13 +1,18 @@
-pyqt5>=5.15
-opencv-python>=4.8
-pyautogui>=0.9.54
-keyboard>=0.13.5
+# GUI
+PyQt5>=5.15
+
+# Automation engine
+PyAutoGUI>=0.9.54
+
+# Image processing / recognition
 numpy>=1.24
-flask>=2.3
-flask-cors>=4.0
-requests>=2.31
-pillow>=10.0
-pyyaml>=6.0
-psutil>=5.9
-cryptography>=41.0
-pywin32>=306
+Pillow>=10.0
+
+# Global keyboard / mouse hotkeys
+keyboard>=0.13.5
+
+# Windows low-level hooks & window control (Windows only)
+pywin32>=306 ; platform_system == "Windows"
+
+# Optional: faster & more accurate template matching if installed
+# opencv-python>=4.8
