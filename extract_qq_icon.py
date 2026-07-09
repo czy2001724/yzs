@@ -1,84 +1,30 @@
-"""从 QQ.exe 提取图标并保存为 .ico 文件。
-
-用法：python extract_qq_icon.py
-    如果 QQ 装在默认路径，自动找到并提取。
-    否则可以 python extract_qq_icon.py "D:\QQ\Bin\QQ.exe"
-"""
+"""从 exe 中提取大图标，保存为标准 .ico 格式。"""
 import ctypes
+import struct
 import sys
 import os
 from ctypes import wintypes
 
-# QQ 常见安装路径
-_DEFAULT_PATHS = [
-    r"C:\Program Files (x86)\Tencent\QQ\Bin\QQ.exe",
-    r"C:\Program Files\Tencent\QQ\Bin\QQ.exe",
-    r"C:\Program Files (x86)\Tencent\QQNT\QQ.exe",
-    r"C:\Program Files\Tencent\QQNT\QQ.exe",
-]
+user32 = ctypes.windll.user32
+shell32 = ctypes.windll.shell32
+kernel32 = ctypes.windll.kernel32
+gdi32 = ctypes.windll.gdi32
 
 
-def extract_icon(exe_path: str, output_path: str) -> bool:
-    """用 Win32 ExtractIconExW 从 exe 提取图标，保存为 .ico 文件。"""
+def extract_ico(exe_path: str, output_path: str) -> bool:
     if not os.path.isfile(exe_path):
-        print(f"文件不存在: {exe_path}")
+        print(f"[!] 文件不存在: {exe_path}")
         return False
 
-    user32 = ctypes.windll.user32
-    shell32 = ctypes.windll.shell32
-
-    # 获取大图标数量
-    count = int(shell32.ExtractIconExW(exe_path, -1, None, None, 0))
-    if count == 0:
-        print(f"{exe_path} 中无图标")
+    large = wintypes.HICON()
+    small = wintypes.HICON()
+    count = shell32.ExtractIconExW(exe_path, 0,
+                                   ctypes.byref(large),
+                                   ctypes.byref(small), 1)
+    if count == 0 or not large:
+        print("[!] 未能提取图标")
         return False
 
-    # 提取第一个大图标
-    hicon = wintypes.HICON()
-    shell32.ExtractIconExW(exe_path, 0, ctypes.byref(hicon), None, 1)
-    if not hicon:
-        print("提取图标句柄失败")
-        return False
-
-    # 保存为 .ico（用 shell32 写文件）
-    # 简单方式：直接用 ctypes 写临时 bmp 然后转
-    # 更可靠：利用 BCX 的 .ico 写，但这里走直接的文件格式
-    #
-    # 实际上最简单且跨 PyInstaller 兼容的方式：走 PIL
-    
-    try:
-        from PIL import Image
-        from PyQt5.QtGui import QPixmap
-        from PyQt5.QtWidgets import QApplication
-        
-        _app = QApplication.instance()
-        if _app is None:
-            _app = QApplication(sys.argv)
-        
-        pixmap = QPixmap.fromWinHICON(int(hicon))
-        if pixmap.isNull():
-            print("QPixmap 转换失败")
-            return False
-        
-        pixmap.save(output_path, "ICO")
-        print(f"图标已保存: {os.path.abspath(output_path)}")
-        return True
-    except ImportError:
-        pass
-
-    # 回退：用 Win32 Save Icon
-    return _save_icon_win32(hicon, output_path)
-
-
-def _save_icon_win32(hicon, path: str) -> bool:
-    """用 Win32 API 保存 HICON 到 .ico 文件。"""
-    import struct
-    
-    user32 = ctypes.windll.user32
-    gdi32 = ctypes.windll.gdi32
-    kernel32 = ctypes.windll.kernel32
-
-    # 获取图标信息
     class ICONINFO(ctypes.Structure):
         _fields_ = [
             ("fIcon", wintypes.BOOL),
@@ -89,11 +35,10 @@ def _save_icon_win32(hicon, path: str) -> bool:
         ]
 
     info = ICONINFO()
-    if not user32.GetIconInfo(hicon, ctypes.byref(info)):
-        print("GetIconInfo 失败")
+    if not user32.GetIconInfo(large, ctypes.byref(info)):
+        print("[!] GetIconInfo 失败")
         return False
 
-    # 获取位图尺寸
     class BITMAP(ctypes.Structure):
         _fields_ = [
             ("bmType", wintypes.LONG),
@@ -107,25 +52,31 @@ def _save_icon_win32(hicon, path: str) -> bool:
 
     bm = BITMAP()
     gdi32.GetObjectW(info.hbmColor, ctypes.sizeof(bm), ctypes.byref(bm))
+    w, h_raw = bm.bmWidth, bm.bmHeight
+    h = h_raw // 2  # 图标位图高度 = 2x 实际（含 mask）
+    bpp = bm.bmBitsPixel
 
-    w = bm.bmWidth
-    h = bm.bmHeight // 2  # 图标位图高度 = 2x 实际图标高度（含 mask）
+    if w <= 0 or h <= 0 or w > 256 or h > 256:
+        print(f"[!] 图标尺寸异常: {w}x{h}")
+        return False
 
-    # 用 GDI+ 方式更简单：直接把 HICON 画到 Bitmap，再保存
-    # 简化：走 DrawIconEx + GetDIBits
-    
+    print(f"[*] 图标尺寸: {w}x{h}, {bpp} bpp")
+
     hdc = user32.GetDC(0)
     hdc_mem = gdi32.CreateCompatibleDC(hdc)
     hbmp = gdi32.CreateCompatibleBitmap(hdc, w, h)
     old_bmp = gdi32.SelectObject(hdc_mem, hbmp)
-    user32.DrawIconEx(hdc_mem, 0, 0, hicon, w, h, 0, None, 3)  # DI_NORMAL=3
 
-    # 获取像素数据
+    # 绘制图标到 DC
+    DI_NORMAL = 3
+    user32.DrawIconEx(hdc_mem, 0, 0, large, w, h, 0, None, DI_NORMAL)
+
+    # BITMAPINFOHEADER + 像素数据 = DIB
     class BITMAPINFOHEADER(ctypes.Structure):
         _fields_ = [
             ("biSize", wintypes.DWORD),
             ("biWidth", wintypes.LONG),
-            ("biHeight", wintypes.LONG),
+            ("biHeight", wintypes.LONG),  # 正值 = 底部在上
             ("biPlanes", wintypes.WORD),
             ("biBitCount", wintypes.WORD),
             ("biCompression", wintypes.DWORD),
@@ -139,65 +90,66 @@ def _save_icon_win32(hicon, path: str) -> bool:
     bih = BITMAPINFOHEADER()
     bih.biSize = ctypes.sizeof(bih)
     bih.biWidth = w
-    bih.biHeight = h  # 正值 = 底部在上
+    bih.biHeight = h * 2  # 双倍高度：上半颜色 + 下半 mask
     bih.biPlanes = 1
     bih.biBitCount = 32
-    bih.biCompression = 0  # BI_RGB
-    bih.biSizeImage = w * h * 4
+    bih.biSizeImage = w * h * 2 * 4
 
     buf = (ctypes.c_byte * bih.biSizeImage)()
-    gdi32.GetDIBits(hdc_mem, hbmp, 0, h, buf, ctypes.byref(bih), 0)
+    if not gdi32.GetDIBits(hdc_mem, hbmp, 0, h * 2, buf, ctypes.byref(bih), 0):
+        gdi32.SelectObject(hdc_mem, old_bmp)
+        gdi32.DeleteObject(hbmp)
+        gdi32.DeleteDC(hdc_mem)
+        user32.ReleaseDC(0, hdc)
+        print("[!] GetDIBits 失败")
+        return False
 
-    # 组装 .ico 文件
-    # ICO 格式: ICO header + ICO directory entry + BMP data (without BITMAPFILEHEADER)
-    ico_header = struct.pack("<HHH", 0, 1, 1)  # reserved, type=1(icon), count=1
-    
-    # BMP 像素数据 (去掉 BITMAPFILEHEADER，保留 BITMAPINFOHEADER + 像素)
-    bmp_data = bytearray(ctypes.sizeof(bih))
-    ctypes.memmove(bmp_data, ctypes.addressof(bih), ctypes.sizeof(bih))
-    bmp_data += bytes(buf[:bih.biSizeImage])
+    # 组装 .ico: 文件头 + 目录项 + DIB 数据
+    # ICO 的 AND mask 是 1bpp 反转的，直接用 GetDIBits 输出的即可
+    img_size = len(buf)
+    offset = 22  # 6 (header) + 16 (one dir entry)
 
-    offset = len(ico_header) + 16  # header + one dir entry (16 bytes)
-    dir_entry = struct.pack("<BBBBHHII", w if w < 256 else 0, h if h < 256 else 0,
-                            0, 0, 1, 32, len(bmp_data), offset)
+    header = struct.pack("<HHH", 0, 1, 1)  # reserved, type=icon, count=1
+    # ICO 目录项: w, h, colors, reserved, planes, bpp, size, offset
+    # 注意：256 像素的宽/高在 ICO 中写为 0
+    dir_w = w if w < 256 else 0
+    dir_h = h if h < 256 else 0
+    direntry = struct.pack("<BBBBHHII", dir_w, dir_h, 0, 0, 1, 32, img_size, offset)
 
-    with open(path, "wb") as f:
-        f.write(ico_header)
-        f.write(dir_entry)
-        f.write(bmp_data)
+    raw_bih = (ctypes.c_byte * ctypes.sizeof(bih))()
+    ctypes.memmove(raw_bih, ctypes.addressof(bih), ctypes.sizeof(bih))
+    # 修正 biHeight 为实际值
+    bih_bytes = bytearray(raw_bih)
+    struct.pack_into("<I", bih_bytes, 8, h * 2)
+
+    with open(output_path, "wb") as f:
+        f.write(header)
+        f.write(direntry)
+        f.write(bytes(bih_bytes))
+        f.write(bytes(buf))
 
     gdi32.SelectObject(hdc_mem, old_bmp)
     gdi32.DeleteObject(hbmp)
     gdi32.DeleteDC(hdc_mem)
     user32.ReleaseDC(0, hdc)
-    user32.DestroyIcon(hicon)
+    user32.DestroyIcon(large)
+    if small:
+        user32.DestroyIcon(small)
+    if info.hbmMask:
+        gdi32.DeleteObject(info.hbmMask)
+    if info.hbmColor:
+        gdi32.DeleteObject(info.hbmColor)
 
-    print(f"图标已保存: {os.path.abspath(path)}  ({w}x{h})")
+    print(f"[+] 图标已保存: {os.path.abspath(output_path)}  "
+          f"({os.path.getsize(output_path)} bytes)")
     return True
 
 
-def main():
-    qq_exe = None
-    if len(sys.argv) > 1:
-        qq_exe = sys.argv[1]
-    else:
-        for p in _DEFAULT_PATHS:
-            if os.path.isfile(p):
-                qq_exe = p
-                break
-    
-    if qq_exe is None:
-        print("未找到 QQ.exe。请手动指定路径：")
-        print("  python extract_qq_icon.py \"你的QQ安装路径\\QQ.exe\"")
-        return 1
-
-    print(f"找到 QQ.exe: {qq_exe}")
-    output = os.path.join(os.path.dirname(os.path.abspath(__file__)),
-                          "qq_icon.ico")
-    if extract_icon(qq_exe, output):
-        return 0
-    return 1
-
-
 if __name__ == "__main__":
-    sys.exit(main())
+    import argparse
+    ap = argparse.ArgumentParser(description="从 exe 提取图标为 .ico")
+    ap.add_argument("exe", help="exe 文件路径")
+    ap.add_argument("-o", "--output", default="qq_icon.ico", help="输出路径")
+    args = ap.parse_args()
+    ok = extract_ico(args.exe, args.output)
+    sys.exit(0 if ok else 1)
