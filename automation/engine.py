@@ -363,12 +363,21 @@ class AutomationEngine:
                 _win.focus_window(info.hwnd)
                 self.log("窗口已置顶")
         else:
+            self._last_hwnd = 0
             self.log(f"⚠ 未找到包含「{title}」的窗口")
+            # 列出当前所有可见窗口标题帮助排查
+            candidates = _win.list_windows(title)
+            if candidates:
+                self.log("  你可能想找的是：")
+                for t in candidates[:8]:
+                    self.log(f"    · {t}")
+            else:
+                self.log("  当前没有可见窗口标题包含此关键字，请确认游戏已启动")
 
     def _do_window_move(self, pyautogui, s):
-        hwnd = self._last_hwnd or _win.get_foreground_window()
+        hwnd = self._last_hwnd
         if not hwnd:
-            self.log("⚠ 没有可操作的窗口，请先执行「找到窗口」步骤")
+            self.log("⚠ 请先添加「找到窗口」步骤，不能跳过去！")
             return
         x = int(s.get("x", 0))
         y = int(s.get("y", 0))

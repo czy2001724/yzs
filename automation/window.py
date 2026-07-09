@@ -31,15 +31,16 @@ class WindowInfo:
 
 
 def find_window(title: str = "", class_name: str = "") -> Optional[WindowInfo]:
-    """按标题（模糊匹配）或类名查找窗口，返回第一个匹配的。"""
+    """按标题（模糊匹配）或类名查找窗口，返回第一个匹配的。
+
+    不要求窗口可见（全屏游戏的窗口可能 IsWindowVisible=False）。
+    """
     if not IS_WINDOWS:
         return None
 
     result = []
 
     def _callback(hwnd, _):
-        if not win32gui.IsWindowVisible(hwnd):
-            return True
         w_title = win32gui.GetWindowText(hwnd)
         w_class = win32gui.GetClassName(hwnd)
         if title and title.lower() in w_title.lower():
@@ -49,7 +50,7 @@ def find_window(title: str = "", class_name: str = "") -> Optional[WindowInfo]:
                 x=rect[0], y=rect[1],
                 width=rect[2] - rect[0], height=rect[3] - rect[1],
             ))
-            return False  # 找到就停
+            return False
         if class_name and class_name.lower() in w_class.lower():
             rect = win32gui.GetWindowRect(hwnd)
             result.append(WindowInfo(
@@ -97,3 +98,19 @@ def get_foreground_window() -> Optional[int]:
     if not IS_WINDOWS:
         return None
     return win32gui.GetForegroundWindow()
+
+
+def list_windows(keyword: str = "") -> list:
+    """列出所有窗口标题（含全屏游戏），可选按关键字过滤。"""
+    if not IS_WINDOWS:
+        return []
+    result = []
+
+    def _callback(hwnd, _):
+        w_title = win32gui.GetWindowText(hwnd)
+        if w_title and (not keyword or keyword.lower() in w_title.lower()):
+            result.append(w_title)
+        return True
+
+    win32gui.EnumWindows(_callback, None)
+    return result
