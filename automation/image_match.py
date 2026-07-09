@@ -71,9 +71,15 @@ def to_gray_array(img: "Image.Image") -> np.ndarray:
 # NumPy 归一化互相关模板匹配
 # --------------------------------------------------------------------------- #
 def _window_sums(a: np.ndarray, h: int, w: int) -> np.ndarray:
-    """滑动窗口求和：返回每个 (h, w) 窗口内元素之和的数组。"""
-    s = np.cumsum(np.cumsum(a, axis=0), axis=1)
-    s = np.pad(s, ((1, 0), (1, 0)), mode="constant")
+    """滑动窗口求和：返回每个 (h, w) 窗口内元素之和的数组。
+
+    用「积分图」(integral image) O(1) 求任意矩形和：
+    先做二维前缀和 s，则窗口 [y:y+h, x:x+w] 的和 =
+        s[y+h][x+w] - s[y][x+w] - s[y+h][x] + s[y][x]
+    这样一次向量化就算出了所有位置的窗口和，避免逐窗口 for 循环。
+    """
+    s = np.cumsum(np.cumsum(a, axis=0), axis=1)          # 二维前缀和
+    s = np.pad(s, ((1, 0), (1, 0)), mode="constant")     # 上/左各补一圈 0，便于索引
     return s[h:, w:] - s[:-h, w:] - s[h:, :-w] + s[:-h, :-w]
 
 
@@ -90,32 +96,41 @@ def _fft_correlate_valid(image: np.ndarray, kernel: np.ndarray) -> np.ndarray:
 
 
 def match_template_ncc(scene_gray: np.ndarray, template_gray: np.ndarray) -> Tuple[float, Tuple[int, int]]:
-    """纯 NumPy 归一化互相关。
+    """纯 NumPy 归一化互相关（NCC）模板匹配。
 
-    返回 (最高相似度[-1,1], (最佳位置左上角 x, y))。
+    在每个可能的位置计算「场景窗口」与「模板」的相关系数（-1~1，越大越像），
+    返回全图最高分及其左上角坐标。用的是 Lewis(1995) 的快速 NCC：
+    分子用 FFT 一次算完所有位置，分母用积分图 O(1) 求窗口方差。
+
+    公式（对每个位置）：
+        ncc = Σ (I-Ī)(T-T̄)  /  sqrt( Σ(I-Ī)² · Σ(T-T̄)² )
+    其中把模板先去均值 t0=T-T̄，则分子里的 Ī·Σt0 项为 0（因为 Σt0=0），
+    分子直接等于「场景 ⋆ t0」的互相关，无需逐位置减均值。
     """
     ih, iw = scene_gray.shape
     th, tw = template_gray.shape
-    if th > ih or tw > iw:
+    if th > ih or tw > iw:               # 模板比场景还大，无法匹配
         return -1.0, (0, 0)
 
-    t0 = template_gray - template_gray.mean()
-    t_energy = float((t0 * t0).sum())
-    if t_energy <= 1e-9:  # 模板是纯色，无法匹配
+    t0 = template_gray - template_gray.mean()   # 模板去均值
+    t_energy = float((t0 * t0).sum())           # 模板能量 Σ(T-T̄)²
+    if t_energy <= 1e-9:                 # 模板是纯色（无纹理），相关无意义
         return -1.0, (0, 0)
 
+    # 分子：场景与去均值模板的互相关（FFT 加速，一次得到所有位置）
     numerator = _fft_correlate_valid(scene_gray, t0)
 
+    # 分母：每个窗口内场景的标准差 × 模板能量
     n = th * tw
-    win_sum = _window_sums(scene_gray, th, tw)
-    win_sqsum = _window_sums(scene_gray * scene_gray, th, tw)
-    win_var = win_sqsum - (win_sum * win_sum) / n  # 窗口内平方偏差之和
+    win_sum = _window_sums(scene_gray, th, tw)                # 窗口和 ΣI
+    win_sqsum = _window_sums(scene_gray * scene_gray, th, tw)  # 窗口平方和 ΣI²
+    win_var = win_sqsum - (win_sum * win_sum) / n            # 窗口内平方偏差和 Σ(I-Ī)²
 
     denom = np.sqrt(np.maximum(win_var, 0.0) * t_energy)
     with np.errstate(divide="ignore", invalid="ignore"):
-        ncc = np.where(denom > 1e-9, numerator / denom, 0.0)
+        ncc = np.where(denom > 1e-9, numerator / denom, 0.0)  # 防止除 0（纯色窗口）
 
-    idx = int(np.argmax(ncc))
+    idx = int(np.argmax(ncc))            # 全图最高相似度的位置
     y, x = np.unravel_index(idx, ncc.shape)
     return float(ncc[y, x]), (int(x), int(y))
 

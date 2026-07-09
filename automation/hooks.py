@@ -198,14 +198,17 @@ class GlobalInputRecorder:
         self._mouse_proc = HOOKPROC(low_level_mouse)
         self._kbd_proc = HOOKPROC(low_level_kbd)
 
+        # 安装两个全局低级钩子；hmod 传本模块句柄，最后一个 0 表示挂到所有线程
         hmod = self._kernel32.GetModuleHandleW(None)
         self._mouse_hook = user32.SetWindowsHookExW(WH_MOUSE_LL, self._mouse_proc, hmod, 0)
         self._kbd_hook = user32.SetWindowsHookExW(WH_KEYBOARD_LL, self._kbd_proc, hmod, 0)
 
+        # 低级钩子必须有消息循环才会回调，所以本线程要一直泵消息；
+        # stop() 时通过 PostThreadMessage(WM_QUIT) 让 GetMessage 返回 0 从而退出。
         msg = wintypes.MSG()
         while self._running:
             r = user32.GetMessageW(ctypes.byref(msg), None, 0, 0)
-            if r == 0 or r == -1:
+            if r == 0 or r == -1:        # WM_QUIT 或出错
                 break
             user32.TranslateMessage(ctypes.byref(msg))
             user32.DispatchMessageW(ctypes.byref(msg))
