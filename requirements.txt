@@ -8,8 +8,8 @@ PyAutoGUI>=0.9.54
 numpy>=1.24
 Pillow>=10.0
 
-# Global keyboard / mouse hotkeys
-keyboard>=0.13.5
+# Global keyboard hotkeys (Linux/macOS; Windows uses RegisterHotKey API)
+keyboard>=0.13.5 ; platform_system != "Windows"
 
 # Windows low-level hooks & window control (Windows only)
 pywin32>=306 ; platform_system == "Windows"

@@ -9,13 +9,14 @@ from typing import List, Optional
 from PyQt5.QtCore import Qt, QThread, QTimer, pyqtSignal
 from PyQt5.QtGui import QColor, QFont
 from PyQt5.QtWidgets import (
-    QApplication, QComboBox, QFileDialog, QFrame, QHBoxLayout, QLabel,
+    QApplication, QCheckBox, QComboBox, QFileDialog, QFrame, QHBoxLayout, QLabel,
     QListWidget, QListWidgetItem, QMainWindow, QMessageBox, QPlainTextEdit,
     QPushButton, QSpinBox, QVBoxLayout, QWidget,
 )
 
-from automation import AutomationEngine, GlobalInputRecorder, HotkeyManager
+from automation import AutomationEngine, GlobalInputRecorder, HumanizeConfig
 from automation import pointer
+from .hotkeys import NativeHotkeyManager
 from .step_dialogs import STEP_TYPES, StepDialog, describe_step
 
 
@@ -27,13 +28,14 @@ class RunnerThread(QThread):
     progress = pyqtSignal(int, int)
     finished_run = pyqtSignal(bool)
 
-    def __init__(self, steps: List[dict], loops: int):
+    def __init__(self, steps: List[dict], loops: int, humanize: HumanizeConfig):
         super().__init__()
         self.steps = steps
         self.loops = loops
         self.engine = AutomationEngine(
             log_cb=self.log.emit,
             step_cb=lambda i, t: self.progress.emit(i, t),
+            humanize=humanize,
         )
 
     def run(self):
@@ -65,11 +67,15 @@ class MainWindow(QMainWindow):
         self.steps: List[dict] = []
         self.runner: Optional[RunnerThread] = None
         self.recorder = GlobalInputRecorder(on_event=self._recorder_event.emit)
-        self.hotkeys = HotkeyManager()
+        self.hotkeys = NativeHotkeyManager()
+        self.humanize = HumanizeConfig()
 
         self._build_ui()
         self._setup_signals()
         self._setup_hotkeys()
+
+        # RegisterHotKey 需要 Qt nativeEventFilter（无低级钩子，反作弊安全）
+        QApplication.instance().installNativeEventFilter(self.hotkeys)
 
         # 实时坐标 / 颜色显示（Win32 直读，~30fps 无延迟）
         self._coord_timer = QTimer(self)
@@ -193,8 +199,27 @@ class MainWindow(QMainWindow):
         v.addWidget(self.progress_label)
 
         v.addWidget(self._hline())
+        v.addWidget(self._title("👤  拟人化 · 反作弊"))
+        self.chk_humanize = QCheckBox("启用拟人化（降低检测风险）")
+        self.chk_humanize.setChecked(self.humanize.enabled)
+        self.chk_humanize.toggled.connect(self._on_humanize_toggle)
+        v.addWidget(self.chk_humanize)
+        jitter_row = QHBoxLayout()
+        jitter_row.addWidget(QLabel("坐标抖动(px)"))
+        self.spin_jitter = QSpinBox()
+        self.spin_jitter.setRange(0, 20)
+        self.spin_jitter.setValue(self.humanize.click_jitter)
+        self.spin_jitter.valueChanged.connect(lambda v: setattr(self.humanize, "click_jitter", v))
+        jitter_row.addWidget(self.spin_jitter)
+        v.addLayout(jitter_row)
+        chk_pixel = QCheckBox("实时像素取色（GDI读屏，触发反作弊）")
+        chk_pixel.setChecked(True)
+        chk_pixel.toggled.connect(pointer.set_pixel_reading)
+        v.addWidget(chk_pixel)
+
+        v.addWidget(self._hline())
         v.addWidget(self._title("🎬  录制与捕获"))
-        self.btn_record = QPushButton("●  开始录制")
+        self.btn_record = QPushButton("●  开始录制  ⚠️非反作弊安全")
         self.btn_record.setCheckable(True)
         self.btn_record.clicked.connect(self._toggle_record)
         v.addWidget(self.btn_record)
@@ -228,7 +253,7 @@ class MainWindow(QMainWindow):
 
     def _setup_hotkeys(self):
         if not self.hotkeys.available:
-            self.append_log("⚠ 未安装 keyboard 库，全局热键不可用")
+            self.append_log("⚠ 全局热键不可用")
             return
         self.hotkeys.register("f9", lambda: self._hotkey_signal.emit("run"))
         self.hotkeys.register("f10", lambda: self._hotkey_signal.emit("stop"))
@@ -322,7 +347,7 @@ class MainWindow(QMainWindow):
             QMessageBox.information(self, "提示", "还没有任何步骤")
             return
         loops = self.loop_spin.value()
-        self.runner = RunnerThread(self.steps, loops)
+        self.runner = RunnerThread(self.steps, loops, self.humanize)
         self.runner.log.connect(self.append_log)
         self.runner.progress.connect(self._on_progress)
         self.runner.finished_run.connect(self._on_finished)
@@ -364,6 +389,19 @@ class MainWindow(QMainWindow):
                 self.btn_record.setChecked(False)
                 QMessageBox.warning(self, "不支持", "全局录制仅在 Windows 上可用")
                 return
+            reply = QMessageBox.warning(
+                self,
+                "⚠ 反作弊警告",
+                "全局录制使用了 Windows 低级钩子 (WH_MOUSE_LL / WH_KEYBOARD_LL)，\n"
+                "这是外挂/键盘记录器的经典特征，ACE、EAC 等反作弊系统会检测到。\n\n"
+                "在运行有反作弊保护的游戏时请勿使用录制功能。\n\n"
+                "确定要开始录制吗？",
+                QMessageBox.Yes | QMessageBox.No,
+                QMessageBox.No,
+            )
+            if reply != QMessageBox.Yes:
+                self.btn_record.setChecked(False)
+                return
             self.recorder.start()
             self.btn_record.setText("■ 停止录制")
             self.append_log("● 录制中…（全局点击 / 按键将记录为步骤）")
@@ -378,6 +416,10 @@ class MainWindow(QMainWindow):
     def _on_recorded_event(self, ev: dict):
         # 边录边显示（步骤在 stop 时统一并入，这里只提示）
         self.append_log(f"录制 · {describe_step(ev)}")
+
+    def _on_humanize_toggle(self, enabled: bool):
+        self.humanize.enabled = enabled
+        self.append_log(f"拟人化模式 {'✓ 已启用' if enabled else '✗ 已关闭'}")
 
     # ---------------------------- 捕获模板 ------------------------------ #
     def _capture_template(self):
@@ -418,6 +460,7 @@ class MainWindow(QMainWindow):
     def closeEvent(self, event):
         self._stop_run()
         self.hotkeys.clear()
+        QApplication.instance().removeNativeEventFilter(self.hotkeys)
         if self.recorder.available:
             self.recorder.stop()
         super().closeEvent(event)

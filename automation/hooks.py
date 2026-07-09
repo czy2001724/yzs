@@ -1,12 +1,19 @@
-"""全局键盘 / 鼠标 Hook。
+"""全局输入录制（Windows 底层钩子）。
 
-包含两部分：
-1. HotkeyManager —— 基于 keyboard 库注册全局热键（启动/停止/暂停）。
-2. GlobalInputRecorder —— 基于 Windows 底层钩子（WH_MOUSE_LL / WH_KEYBOARD_LL，
-   通过 pywin32 提供的常量 + ctypes 回调实现）录制全局鼠标点击和按键，
-   用来把手动操作转成自动化步骤。
+基于 WH_MOUSE_LL / WH_KEYBOARD_LL 低级钩子录制全局鼠标点击和按键，
+用来把手动操作转成自动化步骤。
 
-在非 Windows 平台上，录制器会优雅降级为不可用状态，热键仍可通过 keyboard 库工作。
+⚠️  反作弊警告  ⚠️
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+GlobalInputRecorder 使用了 Windows 低级钩子 (SetWindowsHookEx)，
+包括 WH_MOUSE_LL 和 WH_KEYBOARD_LL。这些是外挂/键盘记录器的经典特征，
+ACE、EAC、Vanguard 等反作弊系统都会检测并拦截此类行为。
+
+在运行有反作弊保护的游戏时，请勿启用录制功能。
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+热键管理已移至 gui.hotkeys.NativeHotkeyManager，使用 Windows
+RegisterHotKey API（标准 API，不安装钩子，不触发反作弊）。
 """
 from __future__ import annotations
 
@@ -16,55 +23,29 @@ from typing import Callable, Dict, List, Optional
 
 IS_WINDOWS = platform.system() == "Windows"
 
-try:
-    import keyboard as _keyboard  # 跨平台全局热键
-except Exception:  # pragma: no cover
-    _keyboard = None
+
+# 常用虚拟键码 -> pyautogui 键名
+_VK_NAMES: Dict[int, str] = {
+    0x08: "backspace", 0x09: "tab", 0x0D: "enter", 0x1B: "esc",
+    0x20: "space", 0x25: "left", 0x26: "up", 0x27: "right", 0x28: "down",
+    0x2E: "delete", 0x2D: "insert", 0x24: "home", 0x23: "end",
+    0x21: "pageup", 0x22: "pagedown",
+    0x10: "shift", 0x11: "ctrl", 0x12: "alt",
+    0x70: "f1", 0x71: "f2", 0x72: "f3", 0x73: "f4", 0x74: "f5", 0x75: "f6",
+    0x76: "f7", 0x77: "f8", 0x78: "f9", 0x79: "f10", 0x7A: "f11", 0x7B: "f12",
+}
 
 
-# --------------------------------------------------------------------------- #
-# 全局热键
-# --------------------------------------------------------------------------- #
-class HotkeyManager:
-    """注册/注销全局热键。回调在 keyboard 库的后台线程里触发。"""
-
-    def __init__(self) -> None:
-        self._handles: Dict[str, object] = {}
-
-    @property
-    def available(self) -> bool:
-        return _keyboard is not None
-
-    def register(self, hotkey: str, callback: Callable[[], None]) -> bool:
-        """注册一个热键，例如 'f9'、'ctrl+shift+s'。重复注册会先注销旧的。"""
-        if _keyboard is None:
-            return False
-        self.unregister(hotkey)
-        try:
-            handle = _keyboard.add_hotkey(hotkey, callback, suppress=False)
-            self._handles[hotkey] = handle
-            return True
-        except Exception:
-            return False
-
-    def unregister(self, hotkey: str) -> None:
-        if _keyboard is None:
-            return
-        handle = self._handles.pop(hotkey, None)
-        if handle is not None:
-            try:
-                _keyboard.remove_hotkey(handle)
-            except Exception:
-                pass
-
-    def clear(self) -> None:
-        for hk in list(self._handles):
-            self.unregister(hk)
+def _vk_to_name(vk: int) -> Optional[str]:
+    if vk in _VK_NAMES:
+        return _VK_NAMES[vk]
+    if 0x30 <= vk <= 0x39:
+        return chr(vk)
+    if 0x41 <= vk <= 0x5A:
+        return chr(vk).lower()
+    return None
 
 
-# --------------------------------------------------------------------------- #
-# 全局输入录制（Windows 底层钩子）
-# --------------------------------------------------------------------------- #
 class GlobalInputRecorder:
     """录制全局鼠标点击 / 按键，产出可回放的步骤列表。
 
@@ -72,8 +53,9 @@ class GlobalInputRecorder:
         {"type": "click", "x": 100, "y": 200, "button": "left"}
         {"type": "key",   "key": "enter"}
 
-    通过 SetWindowsHookEx 安装 WH_MOUSE_LL / WH_KEYBOARD_LL 低级钩子，
-    在独立线程里跑消息循环。停止时卸载钩子。
+    ⚠️ 使用 WH_MOUSE_LL / WH_KEYBOARD_LL 低级钩子。
+    在有反作弊保护的游戏环境中请勿启用，否则会被检测为外挂行为。
+    通过 SetWindowsHookEx 安装钩子，在独立线程里跑消息循环。停止时卸载钩子。
     """
 
     def __init__(self, on_event: Optional[Callable[[dict], None]] = None) -> None:
@@ -85,13 +67,17 @@ class GlobalInputRecorder:
         self._kbd_hook = None
         self._user32 = None
         self._kernel32 = None
-        # 防止回调对象被 GC 回收
         self._mouse_proc = None
         self._kbd_proc = None
 
     @property
     def available(self) -> bool:
         return IS_WINDOWS
+
+    @property
+    def anti_cheat_safe(self) -> bool:
+        """是否对反作弊安全。始终返回 False —— 低级钩子必然被检测。"""
+        return False
 
     def start(self) -> bool:
         if not IS_WINDOWS:
@@ -107,7 +93,6 @@ class GlobalInputRecorder:
     def stop(self) -> List[dict]:
         self._running = False
         if IS_WINDOWS and self._user32 is not None:
-            # 往钩子线程发退出消息，唤醒 GetMessage
             try:
                 import ctypes
                 if self._thread is not None:
@@ -198,17 +183,14 @@ class GlobalInputRecorder:
         self._mouse_proc = HOOKPROC(low_level_mouse)
         self._kbd_proc = HOOKPROC(low_level_kbd)
 
-        # 安装两个全局低级钩子；hmod 传本模块句柄，最后一个 0 表示挂到所有线程
         hmod = self._kernel32.GetModuleHandleW(None)
         self._mouse_hook = user32.SetWindowsHookExW(WH_MOUSE_LL, self._mouse_proc, hmod, 0)
         self._kbd_hook = user32.SetWindowsHookExW(WH_KEYBOARD_LL, self._kbd_proc, hmod, 0)
 
-        # 低级钩子必须有消息循环才会回调，所以本线程要一直泵消息；
-        # stop() 时通过 PostThreadMessage(WM_QUIT) 让 GetMessage 返回 0 从而退出。
         msg = wintypes.MSG()
         while self._running:
             r = user32.GetMessageW(ctypes.byref(msg), None, 0, 0)
-            if r == 0 or r == -1:        # WM_QUIT 或出错
+            if r == 0 or r == -1:
                 break
             user32.TranslateMessage(ctypes.byref(msg))
             user32.DispatchMessageW(ctypes.byref(msg))
@@ -218,25 +200,3 @@ class GlobalInputRecorder:
         if self._kbd_hook:
             user32.UnhookWindowsHookEx(self._kbd_hook)
         self._mouse_hook = self._kbd_hook = None
-
-
-# 常用虚拟键码 -> pyautogui 键名
-_VK_NAMES = {
-    0x08: "backspace", 0x09: "tab", 0x0D: "enter", 0x1B: "esc",
-    0x20: "space", 0x25: "left", 0x26: "up", 0x27: "right", 0x28: "down",
-    0x2E: "delete", 0x2D: "insert", 0x24: "home", 0x23: "end",
-    0x21: "pageup", 0x22: "pagedown",
-    0x10: "shift", 0x11: "ctrl", 0x12: "alt",
-    0x70: "f1", 0x71: "f2", 0x72: "f3", 0x73: "f4", 0x74: "f5", 0x75: "f6",
-    0x76: "f7", 0x77: "f8", 0x78: "f9", 0x79: "f10", 0x7A: "f11", 0x7B: "f12",
-}
-
-
-def _vk_to_name(vk: int) -> Optional[str]:
-    if vk in _VK_NAMES:
-        return _VK_NAMES[vk]
-    if 0x30 <= vk <= 0x39:  # 0-9
-        return chr(vk)
-    if 0x41 <= vk <= 0x5A:  # A-Z
-        return chr(vk).lower()
-    return None

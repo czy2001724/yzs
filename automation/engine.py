@@ -21,10 +21,34 @@
 from __future__ import annotations
 
 import os
+import random
 import time
+from dataclasses import dataclass
 from typing import Callable, List, Optional
 
 from . import image_match
+
+
+@dataclass
+class HumanizeConfig:
+    """拟人化配置：让模拟操作更像真人，降低被反作弊系统识别的风险。
+
+    建议在游戏测试环境下启用。
+
+    Attributes:
+        enabled: 是否启用拟人化
+        inter_step_min: 步骤间随机等待最小秒数
+        inter_step_max: 步骤间随机等待最大秒数
+        click_jitter: 点击位置随机偏移像素范围（±N），0 = 不偏移
+        speed_vary_pct: 移动耗时的随机变化比例（0.0~1.0），0.2 表示 ±20%
+        scroll_vary_pct: 滚轮量的随机变化比例（0.0~1.0）
+    """
+    enabled: bool = True
+    inter_step_min: float = 0.05
+    inter_step_max: float = 0.25
+    click_jitter: int = 2
+    speed_vary_pct: float = 0.15
+    scroll_vary_pct: float = 0.1
 
 
 def _lazy_pyautogui():
@@ -46,9 +70,11 @@ class AutomationEngine:
         self,
         log_cb: Optional[Callable[[str], None]] = None,
         step_cb: Optional[Callable[[int, int], None]] = None,
+        humanize: Optional[HumanizeConfig] = None,
     ) -> None:
         self.log_cb = log_cb or (lambda msg: None)
         self.step_cb = step_cb or (lambda i, total: None)
+        self.humanize = humanize or HumanizeConfig()
         self._paused = False
         self._stopped = False
 
@@ -96,6 +122,12 @@ class AutomationEngine:
                     self._checkpoint()
                     self.step_cb(i, total)
                     self._execute(pyautogui, step)
+                    if self.humanize.enabled:
+                        delay = random.uniform(
+                            self.humanize.inter_step_min,
+                            self.humanize.inter_step_max,
+                        )
+                        time.sleep(delay)
                 if loops > 0 and loop_idx >= loops:
                     break
             self.log("✅ 执行完成")
@@ -116,45 +148,66 @@ class AutomationEngine:
             return
         handler(pyautogui, step)
 
+    def _jit(self, x: int, y: int) -> tuple:
+        """拟人化：对坐标施加随机像素偏移。"""
+        if not self.humanize.enabled or self.humanize.click_jitter <= 0:
+            return x, y
+        j = self.humanize.click_jitter
+        return x + random.randint(-j, j), y + random.randint(-j, j)
+
+    def _vary_dur(self, dur: float) -> float:
+        """拟人化：随机变化移动耗时。"""
+        if not self.humanize.enabled:
+            return dur
+        pct = self.humanize.speed_vary_pct
+        return max(0.02, dur * (1.0 + random.uniform(-pct, pct)))
+
+    def _vary_scroll(self, amount: int) -> int:
+        """拟人化：随机变化滚轮量。"""
+        if not self.humanize.enabled:
+            return amount
+        pct = self.humanize.scroll_vary_pct
+        return int(amount * (1.0 + random.uniform(-pct, pct)))
+
     def _do_move(self, pyautogui, s):
-        x, y = int(s["x"]), int(s["y"])
-        dur = float(s.get("duration", 0.3))
-        self.log(f"移动到 ({x}, {y})")
+        x, y = self._jit(int(s["x"]), int(s["y"]))
+        dur = self._vary_dur(float(s.get("duration", 0.3)))
+        self.log(f"移动到 ({x}, {y}) 耗时={dur:.2f}s")
         pyautogui.moveTo(x, y, duration=dur, tween=pyautogui.easeInOutQuad)
 
     def _do_click(self, pyautogui, s):
-        x, y = int(s["x"]), int(s["y"])
+        x, y = self._jit(int(s["x"]), int(s["y"]))
         button = s.get("button", "left")
         clicks = int(s.get("clicks", 1))
-        dur = float(s.get("duration", 0.25))
+        dur = self._vary_dur(float(s.get("duration", 0.25)))
         self.log(f"点击 ({x}, {y}) 按键={button} 次数={clicks}")
         pyautogui.moveTo(x, y, duration=dur, tween=pyautogui.easeInOutQuad)
         pyautogui.click(x, y, clicks=clicks, button=button)
 
     def _do_double_click(self, pyautogui, s):
-        x, y = int(s["x"]), int(s["y"])
+        x, y = self._jit(int(s["x"]), int(s["y"]))
+        dur = self._vary_dur(float(s.get("duration", 0.25)))
         self.log(f"双击 ({x}, {y})")
-        pyautogui.moveTo(x, y, duration=float(s.get("duration", 0.25)),
-                         tween=pyautogui.easeInOutQuad)
+        pyautogui.moveTo(x, y, duration=dur, tween=pyautogui.easeInOutQuad)
         pyautogui.doubleClick(x, y)
 
     def _do_right_click(self, pyautogui, s):
-        x, y = int(s["x"]), int(s["y"])
+        x, y = self._jit(int(s["x"]), int(s["y"]))
+        dur = self._vary_dur(float(s.get("duration", 0.25)))
         self.log(f"右键 ({x}, {y})")
-        pyautogui.moveTo(x, y, duration=float(s.get("duration", 0.25)),
-                         tween=pyautogui.easeInOutQuad)
+        pyautogui.moveTo(x, y, duration=dur, tween=pyautogui.easeInOutQuad)
         pyautogui.click(x, y, button="right")
 
     def _do_drag(self, pyautogui, s):
-        x1, y1 = int(s["x1"]), int(s["y1"])
-        x2, y2 = int(s["x2"]), int(s["y2"])
-        dur = float(s.get("duration", 0.5))
+        x1, y1 = self._jit(int(s["x1"]), int(s["y1"]))
+        x2, y2 = self._jit(int(s["x2"]), int(s["y2"]))
+        dur = self._vary_dur(float(s.get("duration", 0.5)))
         self.log(f"拖拽 ({x1},{y1}) -> ({x2},{y2})")
         pyautogui.moveTo(x1, y1, duration=0.2)
         pyautogui.dragTo(x2, y2, duration=dur, button="left")
 
     def _do_scroll(self, pyautogui, s):
-        amount = int(s.get("amount", -300))
+        amount = self._vary_scroll(int(s.get("amount", -300)))
         self.log(f"滚轮 {amount}")
         pyautogui.scroll(amount)
 
