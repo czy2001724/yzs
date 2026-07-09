@@ -1,6 +1,6 @@
 {
   "steps": [
-    {"type": "window_find", "title": "逆战未来", "focus": true},
+    {"type": "window_find", "title": "逆战", "focus": true},
     {"type": "window_move", "x": 0, "y": 0, "width": 960, "height": 540}
   ]
 }

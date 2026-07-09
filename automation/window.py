@@ -41,7 +41,7 @@ def find_window(title: str = "", class_name: str = "") -> Optional[WindowInfo]:
     result = []
 
     def _callback(hwnd, _):
-        w_title = win32gui.GetWindowText(hwnd)
+        w_title = win32gui.GetWindowText(hwnd).strip()
         w_class = win32gui.GetClassName(hwnd)
         if title and title.lower() in w_title.lower():
             rect = win32gui.GetWindowRect(hwnd)
@@ -66,20 +66,32 @@ def find_window(title: str = "", class_name: str = "") -> Optional[WindowInfo]:
 
 
 def move_window(hwnd: int, x: int, y: int, width: int = 0, height: int = 0) -> bool:
-    """移动窗口到 (x,y)，可选同时调整大小。"""
+    """移动窗口到 (x,y)，可选同时调整大小。失败时尝试多种方式。"""
     if not IS_WINDOWS:
         return False
-    flags = win32con.SWP_NOZORDER
-    w = width if width > 0 else None
-    h = height if height > 0 else None
-    if w is None or h is None:
+    try:
+        flags = win32con.SWP_NOZORDER | win32con.SWP_ASYNCWINDOWPOS
+        w = width if width > 0 else None
+        h = height if height > 0 else None
+        if w is None or h is None:
+            rect = win32gui.GetWindowRect(hwnd)
+            if w is None:
+                w = rect[2] - rect[0]
+            if h is None:
+                h = rect[3] - rect[1]
+        win32gui.SetWindowPos(hwnd, 0, x, y, w, h, flags)
+        return True
+    except Exception:
+        pass
+    # 回退：用 MoveWindow
+    try:
         rect = win32gui.GetWindowRect(hwnd)
-        if w is None:
-            w = rect[2] - rect[0]
-        if h is None:
-            h = rect[3] - rect[1]
-    win32gui.SetWindowPos(hwnd, 0, x, y, w, h, flags)
-    return True
+        w = width if width > 0 else rect[2] - rect[0]
+        h = height if height > 0 else rect[3] - rect[1]
+        win32gui.MoveWindow(hwnd, x, y, w, h, True)
+        return True
+    except Exception:
+        return False
 
 
 def focus_window(hwnd: int) -> bool:
