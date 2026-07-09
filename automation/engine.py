@@ -364,15 +364,15 @@ class AutomationEngine:
                 self.log("窗口已置顶")
         else:
             self._last_hwnd = 0
-            self.log(f"⚠ 未找到包含「{title}」的窗口")
-            # 列出当前所有可见窗口标题帮助排查
-            candidates = _win.list_windows(title)
-            if candidates:
-                self.log("  你可能想找的是：")
-                for t in candidates[:8]:
+            self.log(f"⚠ 标题含「{title}」的窗口没找到")
+            # 列出当前所有有标题的窗口帮助排查
+            all_wins = _win.list_windows()
+            if all_wins:
+                self.log("  当前所有窗口：")
+                for t in all_wins[:15]:
                     self.log(f"    · {t}")
             else:
-                self.log("  当前没有可见窗口标题包含此关键字，请确认游戏已启动")
+                self.log("  确认游戏已启动")
 
     def _do_window_move(self, pyautogui, s):
         hwnd = self._last_hwnd
