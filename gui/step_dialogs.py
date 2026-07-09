@@ -7,8 +7,8 @@ from typing import Optional
 from PyQt5.QtCore import QTimer
 from PyQt5.QtWidgets import (
     QApplication, QComboBox, QDialog, QDialogButtonBox, QDoubleSpinBox,
-    QFormLayout, QHBoxLayout, QLabel, QLineEdit, QPushButton, QSpinBox,
-    QVBoxLayout, QWidget, QFileDialog,
+    QFormLayout, QHBoxLayout, QLabel, QLineEdit, QListWidget, QListWidgetItem,
+    QPushButton, QSpinBox, QVBoxLayout, QWidget, QFileDialog,
 )
 
 from automation import pointer
@@ -203,7 +203,18 @@ class StepDialog(QDialog):
             self._widgets["click"] = click
             form.addRow("找到后", click)
         elif t == "window_find":
-            form.addRow("窗口标题含", self._line("title", ""))
+            # 窗口标题行：输入框 + "从列表选"按钮
+            title_row = QWidget()
+            th = QHBoxLayout(title_row)
+            th.setContentsMargins(0, 0, 0, 0)
+            th.setSpacing(6)
+            title_edit = self._line("title", "")
+            th.addWidget(title_edit, 1)
+            pick_btn = QPushButton("从列表选")
+            pick_btn.clicked.connect(lambda: self._pick_window())
+            th.addWidget(pick_btn)
+            form.addRow("窗口标题含", title_row)
+
             focus = QComboBox()
             focus.addItems(["找到就置顶", "找到不置顶"])
             focus.setCurrentIndex(0 if self.step.get("focus", True) else 1)
@@ -219,6 +230,31 @@ class StepDialog(QDialog):
         buttons.accepted.connect(self.accept)
         buttons.rejected.connect(self.reject)
         layout.addWidget(buttons)
+
+    def _pick_window(self):
+        """弹出窗口选择器，列出所有有标题的窗口供用户点选。"""
+        from automation.window import list_windows
+        dlg = QDialog(self)
+        dlg.setWindowTitle("选择窗口")
+        dlg.setMinimumSize(400, 350)
+        v = QVBoxLayout(dlg)
+        v.addWidget(QLabel("当前打开的窗口（点选一个）："))
+        lst = QListWidget()
+        titles = list_windows()
+        if not titles:
+            lst.addItem("（没找到有标题的窗口，请打开游戏后再试）")
+        for t in titles:
+            item = QListWidgetItem(t)
+            lst.addItem(item)
+        v.addWidget(lst, 1)
+        btns = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
+        btns.accepted.connect(dlg.accept)
+        btns.rejected.connect(dlg.reject)
+        v.addWidget(btns)
+        if dlg.exec_() == QDialog.Accepted and lst.currentItem() and titles:
+            chosen = lst.currentItem().text()
+            if "title" in self._widgets:
+                self._widgets["title"].setText(chosen)
 
     def _file_row(self, key, save: bool):
         container = QWidget()
