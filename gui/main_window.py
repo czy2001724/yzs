@@ -61,7 +61,7 @@ class MainWindow(QMainWindow):
 
     def __init__(self):
         super().__init__()
-        self.setWindowTitle("6号自动化助手 · 本地面板")
+        self.setWindowTitle("yzs")
         self.resize(1040, 640)
 
         self.steps: List[dict] = []

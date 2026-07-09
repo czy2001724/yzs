@@ -29,7 +29,7 @@ jobs:
 
       - name: PyInstaller 打包单文件 EXE
         run: >
-          pyinstaller --onefile --windowed --name 6hzs
+          pyinstaller --onefile --windowed --name yzs
           --icon=qq_icon.ico
           --add-data "qq_icon.ico;."
           --hidden-import pyscreeze
@@ -41,17 +41,17 @@ jobs:
       - name: 上传构建产物（Actions 运行页可下载）
         uses: actions/upload-artifact@v4
         with:
-          name: 6hzs-windows-exe
-          path: dist/6hzs.exe
+          name: yzs-windows-exe
+          path: dist/yzs.exe
 
       - name: 发布到 Release（打 tag 时）
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
-          files: dist/6hzs.exe
+          files: dist/yzs.exe
           name: ${{ github.ref_name }}
           body: |
-            6号自动化助手 · Windows 单文件版
+            yzs · Windows 单文件版
 
-            下载 `6hzs.exe` 双击运行，无需安装 Python。
+            下载 `yzs.exe` 双击运行，无需安装 Python。
             首次运行若被 SmartScreen 拦截，点「更多信息 → 仍要运行」。
