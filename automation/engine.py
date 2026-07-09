@@ -17,6 +17,8 @@
     {"type": "wait",        "seconds"}
     {"type": "screenshot",  "path", "region"}
     {"type": "find_image",  "template", "confidence", "region", "click"}
+    {"type": "window_find", "title", "focus"}
+    {"type": "window_move", "x", "y", "width", "height"}
 """
 from __future__ import annotations
 
@@ -27,6 +29,7 @@ from dataclasses import dataclass
 from typing import Callable, List, Optional
 
 from . import image_match
+from . import window as _win
 
 
 @dataclass
@@ -83,6 +86,7 @@ class AutomationEngine:
         self.humanize = humanize or HumanizeConfig()
         self._paused = False
         self._stopped = False
+        self._last_hwnd = 0
 
     # ----------------------------- 控制 ----------------------------------- #
     def pause(self) -> None:
@@ -346,3 +350,30 @@ class AutomationEngine:
                 pyautogui.click(cx, cy)
         else:
             self.log(f"未找到图像（最高相似度 {result.confidence:.2f}）")
+
+    def _do_window_find(self, pyautogui, s):
+        title = s.get("title", "")
+        focus = bool(s.get("focus", True))
+        info = _win.find_window(title=title)
+        if info:
+            self._last_hwnd = info.hwnd
+            self.log(f"找到窗口「{info.title}」 位置=({info.x},{info.y}) "
+                     f"大小={info.width}x{info.height}")
+            if focus:
+                _win.focus_window(info.hwnd)
+                self.log("窗口已置顶")
+        else:
+            self.log(f"⚠ 未找到包含「{title}」的窗口")
+
+    def _do_window_move(self, pyautogui, s):
+        hwnd = self._last_hwnd or _win.get_foreground_window()
+        if not hwnd:
+            self.log("⚠ 没有可操作的窗口，请先执行「找到窗口」步骤")
+            return
+        x = int(s.get("x", 0))
+        y = int(s.get("y", 0))
+        w = int(s.get("width", 0))
+        h = int(s.get("height", 0))
+        _win.move_window(hwnd, x, y, w, h)
+        self.log(f"窗口已移到 ({x},{y})"
+                 + (f" 大小 {w}x{h}" if w > 0 and h > 0 else ""))

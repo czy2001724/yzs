@@ -27,6 +27,8 @@ STEP_TYPES = [
     ("wait", "等一会儿"),
     ("screenshot", "截图存起来"),
     ("find_image", "找到图片再操作"),
+    ("window_find", "找到窗口"),
+    ("window_move", "移动/缩放窗口"),
 ]
 TYPE_LABELS = dict(STEP_TYPES)
 
@@ -60,6 +62,10 @@ def describe_step(step: dict) -> str:
         tmpl = step.get("template", "")
         action = "找到就点" if step.get("click", True) else "找到不点"
         return f"找 {tmpl}，{action}"
+    elif t == "window_find":
+        return f"找窗口「{step.get('title', '')}」并{'置顶' if step.get('focus', True) else '不置顶'}"
+    elif t == "window_move":
+        return f"移到 ({step.get('x')},{step.get('y')}) 大小 {step.get('width',0)}x{step.get('height',0)}"
     return f"未知 ({t})"
 
 
@@ -196,6 +202,17 @@ class StepDialog(QDialog):
             click.setCurrentIndex(0 if self.step.get("click", True) else 1)
             self._widgets["click"] = click
             form.addRow("找到后", click)
+        elif t == "window_find":
+            form.addRow("窗口标题含", self._line("title", ""))
+            focus = QComboBox()
+            focus.addItems(["找到就置顶", "找到不置顶"])
+            focus.setCurrentIndex(0 if self.step.get("focus", True) else 1)
+            self._widgets["focus"] = focus
+            form.addRow("行为", focus)
+        elif t == "window_move":
+            form.addRow("移到 X/Y", self._coord_pair("x", "y"))
+            form.addRow("宽度 (0=不改)", self._spin("width", 0, 0, 10000))
+            form.addRow("高度 (0=不改)", self._spin("height", 0, 0, 10000))
 
         layout.addLayout(form)
         buttons = QDialogButtonBox(QDialogButtonBox.Ok | QDialogButtonBox.Cancel)
@@ -234,6 +251,8 @@ class StepDialog(QDialog):
                 out[key] = round(w.value(), 4)
             elif isinstance(w, QComboBox):
                 if key == "click":
+                    out[key] = w.currentIndex() == 0
+                elif key == "focus":
                     out[key] = w.currentIndex() == 0
                 elif key == "button":
                     btn_map = getattr(self, "_button_map", {})
